@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GameBoi</string>
+    <string name="toMath">Next</string>
+    <string name="toSimon">Next</string>
+    <string name="titleMathGame">Math Game</string>
+    <string name="titleSimonGame">FlashColors</string>
+    <string name="toRock">Next</string>
+    <string name="titleRock">Rock Paper Scisscors</string>
 </resources>
