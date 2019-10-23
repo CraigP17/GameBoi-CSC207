@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.view.View;
 
 import android.os.Bundle;
 
@@ -23,5 +24,13 @@ public class RpSWonRoundDisplay extends AppCompatActivity {
 //        // Capture the layout's TextView and set the string as its text
 //        TextView textView = findViewById(R.id.textView);
 //        textView.setText(message);
+    }
+
+    public void continueGame(View view) {
+        Intent intent = new Intent(this, RockPaperScissors.class);
+        //EditText editText = (EditText) findViewById(R.id.editText); //look up the id for text user inputted
+        //String message = editText.getText().toString();
+        //intent.putExtra(EXTRA_MESSAGE, message); //create key value pair
+        startActivity(intent); //now intent has key value
     }
 }

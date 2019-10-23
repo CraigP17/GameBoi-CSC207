@@ -16,11 +16,16 @@ import java.util.HashMap;
 public class RockPaperScissors extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.example.gameboi.MESSAGE";
+    public int losses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors);
+    }
+
+    public void checker() {
+
     }
 
     public void RpSGamePlayed(View view) {

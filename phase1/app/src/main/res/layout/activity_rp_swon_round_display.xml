@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".RpSWonRoundDisplay">
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="99dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="664dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="27dp"
+        android:onClick="continueGame"
+        android:text="@string/continue_game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/continue_game" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="160dp"
