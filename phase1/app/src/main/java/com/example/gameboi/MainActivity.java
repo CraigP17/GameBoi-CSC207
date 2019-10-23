@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -25,4 +27,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent); //now intent has key value
         //goes to MathGame.class
     }
+
+
 }
