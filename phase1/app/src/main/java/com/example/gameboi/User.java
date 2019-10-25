@@ -36,7 +36,13 @@ class User {
         this.currLevel = currLevel;
 
     }
-    //add methods as you need
+    void loseALife() {
+        lives--;
+    }
+
+    int getLives() {
+        return lives;
+    }
 
 
 }
