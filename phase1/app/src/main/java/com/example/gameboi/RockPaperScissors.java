@@ -1,6 +1,7 @@
 package com.example.gameboi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -20,14 +21,14 @@ public class RockPaperScissors extends AppCompatActivity {
     int wins = 0;
     int losses = 0;
     String[] arr = new String[] {"Rock", "Paper", "Scissors"};
-    User user;
+    Paint p1 = new Paint();
+    User user = new User("faf", 1, 0, 0 ,0, p1, "fds", '0');
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors);
     }
-
 
     public void RpSGamePlayed(String playerValue) {
         HashMap winnersRpS = new HashMap();
@@ -38,14 +39,14 @@ public class RockPaperScissors extends AppCompatActivity {
         Random rand = new Random();
         //if this button is for rock
         String computerchoice = arr[rand.nextInt(arr.length)];
-        if (winnersRpS.get(computerchoice).equals(playerValue)) {
+        if (winnersRpS.get(playerValue).equals(computerchoice)) {
             //user wins, do add to wins
             wins++;
             checker("won", playerValue, computerchoice);
         } else if (computerchoice.equals(playerValue)) {
             //to take into account number of games played
             checker("tie", playerValue, computerchoice);
-        } else if (!winnersRpS.get(computerchoice).equals(playerValue)) {
+        } else  {
             //comp wins, add to losses
             losses++;
             checker("lost", playerValue, computerchoice);
@@ -94,12 +95,18 @@ public class RockPaperScissors extends AppCompatActivity {
     private void checker(String outcome, String userchoice, String compchoice) {
         if (losses == 2) {
             if (user.getLives() == 1) {
-                //
+                // go to 'you lost the game' screen
+                Intent intent = new Intent(this, RpsFinalLostDisplay.class);
+                startActivity(intent);
             } else {
-                // go to 'you wont the game' screen
+                // go to 'you won the game' screen
+                Intent intent = new Intent(this, RpsFinalWonDisplay.class);
+                startActivity(intent);
             }
         } else if (wins == 3) {
                 // go to you won the game screen
+                Intent intent = new Intent(this, RpsFinalWonDisplay.class);
+                startActivity(intent);
         } else {
             if (outcome.equals("won")) {
                 Intent intent = new Intent(this, RpSWonRoundDisplay.class);

@@ -9,10 +9,12 @@
     <string name="textview">TextView</string>
     <string name="rock">Rock</string>
     <string name="rock_paper_scissor_game">Rock Paper Scissor Game</string>
-    <string name="you_won">You won this round!</string>
+    <string name="you_won">"You won this round! Press continue to play again. "</string>
     <string name="paper">Paper</string>
     <string name="scissors">Scissors</string>
     <string name="continue_game">Continue</string>
     <string name="lost_round">You have lost this round! Press Continue to play again.</string>
     <string name="try_again">No one won this round! Try again.</string>
+    <string name="won_rps">Congratulations! You won the Rock Paper Scissors game!</string>
+    <string name="lost_rps">Oh no! You lost the Rock Paper Scissors Game ;(</string>
 </resources>
