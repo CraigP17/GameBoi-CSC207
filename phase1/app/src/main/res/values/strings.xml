@@ -13,4 +13,6 @@
     <string name="paper">Paper</string>
     <string name="scissors">Scissors</string>
     <string name="continue_game">Continue</string>
+    <string name="lost_round">You have lost this round! Press Continue to play again.</string>
+    <string name="try_again">No one won this round! Try again.</string>
 </resources>
