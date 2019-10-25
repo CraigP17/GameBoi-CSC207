@@ -1,7 +1,6 @@
 package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,33 +18,28 @@ import java.util.Random;
 public class MathGame extends AppCompatActivity {
 
     private int response = 0;
-    private Button zero;
-    private Button one;
-    private Button two;
-    private Button three;
-    private Button four;
-    private Button five;
-    private Button six;
-    private Button seven;
-    private Button eight;
-    private Button nine;
-    private Button clear;
-    private Button enter;
     private TextView responseView;
     private TextView equationDisplay;
     private TextView mathGameScore;
-    private String equation;
     private int answer = 0;
     private int score = 0;
     Random rand = new Random();
     String[] operators = {" + ", " - ", " // ", " * "};
+
+    private void updateResponse(int num) {
+        response = response * 10 + num;
+    }
+
+    private void updateResponseView() {
+        responseView.setText(String.valueOf(response));
+    }
 
     private void generateEquation() {
         int num1 = rand.nextInt(25) + 1;
         int num2 = rand.nextInt(10) + 1;
 
         int op = rand.nextInt(4);
-        equation = String.valueOf(num1) + operators[op] + String.valueOf(num2);
+        String equation = num1 + operators[op] + num2;
         equationDisplay.setText(equation);
 
         if (op == 0) {answer = num1 + num2;}
@@ -54,131 +48,100 @@ public class MathGame extends AppCompatActivity {
         else {answer = num1 * num2;}
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_math_game);
-        setupMathGameUI();
-        generateEquation();
+    private void clickNumButton(int num) {
+        if (response < 100000) {
+            updateResponse(num);
+            updateResponseView();
+        }
     }
 
     private void setupMathGameUI(){
 
-        responseView = (TextView) findViewById(R.id.responseView);
-        equationDisplay = (TextView) findViewById(R.id.equationDisplay);
-        mathGameScore = (TextView) findViewById(R.id.mathGameScore);
+        responseView = findViewById(R.id.responseView);
+        equationDisplay = findViewById(R.id.equationDisplay);
+        mathGameScore = findViewById(R.id.mathGameScore);
 
-        zero = (Button) findViewById(R.id.btn0);
+        Button zero = findViewById(R.id.btn0);
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (response < 100000) {
-                    updateResponse(0);
-                    updateResponseView();
-                }
+                clickNumButton(0);
             }
         });
 
-        one = (Button) findViewById(R.id.btn1);
+        Button one = findViewById(R.id.btn1);
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (response < 100000) {
-                    updateResponse(1);
-                    updateResponseView();
-                }
+                clickNumButton(1);
             }
         });
 
-        two = (Button) findViewById(R.id.btn2);
+        Button two = findViewById(R.id.btn2);
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (response < 100000) {
-                    updateResponse(2);
-                    updateResponseView();
-                }
+                clickNumButton(2);
             }
         });
 
-        three = (Button) findViewById(R.id.btn3);
+        Button three = findViewById(R.id.btn3);
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (response < 100000) {
-                    updateResponse(3);
-                    updateResponseView();
-                }
+                clickNumButton(3);
             }
         });
 
-        four = (Button) findViewById(R.id.btn4);
+        Button four = findViewById(R.id.btn4);
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (response < 100000) {
-                    updateResponse(4);
-                    updateResponseView();
-                }
+                clickNumButton(4);
             }
         });
 
-        five = (Button) findViewById(R.id.btn5);
+        Button five = findViewById(R.id.btn5);
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (response < 100000) {
-                    updateResponse(5);
-                    updateResponseView();
-                }
+                clickNumButton(5);
             }
         });
 
-        six = (Button) findViewById(R.id.btn6);
+        Button six = findViewById(R.id.btn6);
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (response < 100000) {
-                    updateResponse(6);
-                    updateResponseView();
-                }
+                clickNumButton(6);
             }
         });
 
-        seven = (Button) findViewById(R.id.btn7);
+        Button seven = findViewById(R.id.btn7);
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (response < 100000) {
-                    updateResponse(7);
-                    updateResponseView();
-                }
+                clickNumButton(7);
             }
         });
 
-        eight = (Button) findViewById(R.id.btn8);
+        Button eight = findViewById(R.id.btn8);
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (response < 100000) {
-                    updateResponse(8);
-                    updateResponseView();
-                }
+                clickNumButton(8);
             }
         });
 
-        nine = (Button) findViewById(R.id.btn9);
+        Button nine = findViewById(R.id.btn9);
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (response < 100000) {
-                    updateResponse(9);
-                    updateResponseView();
-                }
+                clickNumButton(9);
             }
         });
 
-        clear = (Button) findViewById(R.id.btnClear);
+        Button clear = findViewById(R.id.btnClear);
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -187,7 +150,7 @@ public class MathGame extends AppCompatActivity {
             }
         });
 
-        enter = (Button) findViewById(R.id.btnEnter);
+        Button enter = findViewById(R.id.btnEnter);
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -203,14 +166,6 @@ public class MathGame extends AppCompatActivity {
 
     }
 
-    private void updateResponse(int num) {
-        response = response * 10 + num;
-    }
-
-    private void updateResponseView() {
-        responseView.setText(String.valueOf(response));
-    }
-
     public void toNext(View view) {
         //says to switch from this activity to the next one
         Intent intent = new Intent(this, SimonGame.class);
@@ -219,6 +174,15 @@ public class MathGame extends AppCompatActivity {
         //intent.putExtra(EXTRA_MESSAGE, message); //create key value pair
         startActivity(intent); //now intent has key value
         //goes to MathGame.class
+    }
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_math_game);
+        setupMathGameUI();
+        generateEquation();
     }
 }
 
