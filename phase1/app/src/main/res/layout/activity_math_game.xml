@@ -109,7 +109,7 @@
         android:layout_marginStart="75dp"
         android:layout_marginEnd="75dp"
         android:layout_marginBottom="21dp"
-        android:gravity="center_vertical|right"
+        android:gravity="center_vertical|end"
         android:text="0"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/btn9"
