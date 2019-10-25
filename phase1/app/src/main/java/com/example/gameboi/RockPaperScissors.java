@@ -1,6 +1,7 @@
 package com.example.gameboi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -20,16 +21,13 @@ public class RockPaperScissors extends AppCompatActivity {
     int wins = 0;
     int losses = 0;
     String[] arr = new String[] {"Rock", "Paper", "Scissors"};
-    User user;
+    Paint p1 = new Paint();
+    User user = new User("faf", 1, 0, 0 ,0, p1, "fds", '0');
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors);
-    }
-    // get a constructor??, add manager
-    RockPaperScissors(User user) {
-        this.user = user;
     }
 
     public void RpSGamePlayed(String playerValue) {
@@ -54,30 +52,6 @@ public class RockPaperScissors extends AppCompatActivity {
             checker("lost");
         }
 
-        //call checker, where then either goes to final page or reverts to this page
-
-        // Generating a random value from keys to be the computers move
-//        Random randomGenerator = new Random();
-//        int randomInt = randomGenerator.nextInt(2);
-//        List keys = new ArrayList(winnersRpS.keySet());
-//        Object ourValue = keys.get(randomInt);
-//        System.out.println(ourValue);
-//
-//        if (winnersRpS.get(playerValue) == ourValue) {
-//            Intent intent = new Intent(this, RpSWonRoundDisplay.class);
-////        String message = "You have won this round!";
-////        intent.putExtra(EXTRA_MESSAGE, message);
-//            startActivity(intent);
-//        } else if(winnersRpS.get(ourValue) == playerValue) {
-//            // create new intent that will display you lost this round screen
-//            Intent intent = new Intent(this, RpsLostRoundDisplay.class);
-//            startActivity(intent);
-//        } else {
-//            // new intent that displays try again
-//            Intent intent = new Intent(this, tryAgainDisplay.class);
-//            startActivity(intent);
-//        }
-
     }
 
     public void Rock(View view) {
@@ -98,11 +72,17 @@ public class RockPaperScissors extends AppCompatActivity {
         if (losses == 2) {
             if (user.getLives() == 1) {
                 // go to 'you lost the game' screen
+                Intent intent = new Intent(this, RpsFinalLostDisplay.class);
+                startActivity(intent);
             } else {
-                // go to 'you wont the game' screen
+                // go to 'you won the game' screen
+                Intent intent = new Intent(this, RpsFinalWonDisplay.class);
+                startActivity(intent);
             }
         } else if (wins == 3) {
                 // go to you won the game screen
+                Intent intent = new Intent(this, RpsFinalWonDisplay.class);
+                startActivity(intent);
         } else {
             if (outcome.equals("won")) {
                 Intent intent = new Intent(this, RpSWonRoundDisplay.class);
