@@ -27,10 +27,7 @@ public class RockPaperScissors extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors);
     }
-    // get a constructor??, add manager
-    RockPaperScissors(User user) {
-        this.user = user;
-    }
+
 
     public void RpSGamePlayed(String playerValue) {
         HashMap winnersRpS = new HashMap();
@@ -44,14 +41,14 @@ public class RockPaperScissors extends AppCompatActivity {
         if (winnersRpS.get(computerchoice).equals(playerValue)) {
             //user wins, do add to wins
             wins++;
-            checker("won");
+            checker("won", playerValue, computerchoice);
         } else if (computerchoice.equals(playerValue)) {
             //to take into account number of games played
-            checker("tie");
+            checker("tie", playerValue, computerchoice);
         } else if (!winnersRpS.get(computerchoice).equals(playerValue)) {
             //comp wins, add to losses
             losses++;
-            checker("lost");
+            checker("lost", playerValue, computerchoice);
         }
 
         //call checker, where then either goes to final page or reverts to this page
@@ -94,10 +91,10 @@ public class RockPaperScissors extends AppCompatActivity {
 
     }
 
-    private void checker(String outcome) {
+    private void checker(String outcome, String userchoice, String compchoice) {
         if (losses == 2) {
             if (user.getLives() == 1) {
-                // go to 'you lost the game' screen
+                //
             } else {
                 // go to 'you wont the game' screen
             }
