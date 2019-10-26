@@ -4,32 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RpSWonRoundDisplay">
+    tools:context=".tryAgainDisplay">
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="99dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="286dp"
-        android:layout_marginTop="588dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="103dp"
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="572dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="111dp"
         android:onClick="continueGame"
         android:text="@string/continue_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/continue_game" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="160dp"
-        android:layout_height="24dp"
-        android:text="@string/you_won"
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="343dp"
+        android:layout_marginBottom="369dp"
+        android:text="@string/try_again"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/you_won" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
