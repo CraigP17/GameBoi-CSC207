@@ -1,9 +1,9 @@
 package com.example.gameboi;
 
 import android.graphics.Color;
-
 import java.util.ArrayList;
 import java.util.Collections;
+
 
 class FlashColors {
 
@@ -24,4 +24,6 @@ class FlashColors {
 
         return pattern;
     }
+
+
 }

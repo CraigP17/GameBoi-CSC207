@@ -2,6 +2,9 @@ package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,19 +13,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.util.Timer;
-
 
 import java.util.ArrayList;
 
 public class SimonGame extends AppCompatActivity {
 
     ArrayList<String> userGuess = new ArrayList<>();
+    private boolean isSubmitted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simon_game);
+
     }
 
     public void toNext(View view) {
@@ -55,9 +58,20 @@ public class SimonGame extends AppCompatActivity {
 
 
     public void Flash(View view){
+        ArrayList<Integer> pattern= new ArrayList<>();
+        if(isSubmitted){
+            isSubmitted = false;
+            //pattern = flashobj.generate()
+        }
+        else{
+            //pattern = flashobj.getCorrectPattern()
+        }
 
         Button but = findViewById(R.id.button8);
-        but.setBackgroundColor(Color.RED);
+        ValueAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor", Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE);
+        colorAnim.setDuration(3000);
+        colorAnim.setEvaluator(new ArgbEvaluator());
+        colorAnim.start();
     }
 
     public void SubmitButton(View view){
