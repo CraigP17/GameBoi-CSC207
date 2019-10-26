@@ -15,6 +15,8 @@ class User {
     private int levelOnePoints;
 
     private int levelTwoPoints;
+    //List stores only 2 values, [#games played, lost]
+    private int[] FlashColors = new int[2];
 
     private int levelThreePoints;
 
@@ -44,5 +46,13 @@ class User {
         return lives;
     }
 
+    /*The following method will get the number of games played within the FlashColors game*/
+    int getFCGamesPlayed(){
+        return this.FlashColors[0];
+    }
 
+    /*The following method will get the number of games that were lost within FLashColors*/
+    int getFCGamesLost(){
+        return this.FlashColors[1];
+    }
 }
