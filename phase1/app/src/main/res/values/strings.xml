@@ -17,4 +17,5 @@
     <string name="try_again">No one won this round! Try again.</string>
     <string name="won_rps">Congratulations! You won the Rock Paper Scissors game!</string>
     <string name="lost_rps">Oh no! You lost the Rock Paper Scissors Game ;(</string>
+    <string name="leaderboard">Leaderboard</string>
 </resources>
