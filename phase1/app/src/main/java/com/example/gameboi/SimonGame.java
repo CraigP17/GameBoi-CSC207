@@ -2,9 +2,16 @@ package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.Timer;
+
 
 public class SimonGame extends AppCompatActivity {
 
@@ -22,5 +29,20 @@ public class SimonGame extends AppCompatActivity {
         //intent.putExtra(EXTRA_MESSAGE, message); //create key value pair
         startActivity(intent); //now intent has key value
         //goes to MathGame.class
+    }
+
+    public void Flash(View view){
+
+        Button but = findViewById(R.id.button8);
+        but.setBackgroundColor(Color.RED);
+    }
+
+    public void SubmitButton(View view){
+        Context context = getApplicationContext();
+        CharSequence text = "Here the message will say you won or you lost";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 }
