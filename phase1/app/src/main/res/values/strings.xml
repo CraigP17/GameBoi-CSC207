@@ -17,4 +17,19 @@
     <string name="try_again">No one won this round! Try again.</string>
     <string name="won_rps">Congratulations! You won the Rock Paper Scissors game!</string>
     <string name="lost_rps">Oh no! You lost the Rock Paper Scissors Game ;(</string>
+
+    //MathGame strings:
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="clear">Clear</string>
+    <string name="enter">Enter</string>
+    <string name="scoreZero">SCORE: 0</string>
 </resources>
