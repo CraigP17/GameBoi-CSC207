@@ -13,7 +13,11 @@ import android.widget.Toast;
 import java.util.Timer;
 
 
+import java.util.ArrayList;
+
 public class SimonGame extends AppCompatActivity {
+
+    ArrayList<String> userGuess = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,25 @@ public class SimonGame extends AppCompatActivity {
         startActivity(intent); //now intent has key value
         //goes to MathGame.class
     }
+
+    // When a button is clicked by the user as an answer for the pattern, add their input to list of inputs
+    public void greenClicked(View view) {
+        userGuess.add("Color.RED");
+    }
+
+    public void yellowClicked(View view) {
+        userGuess.add("Color.YELLOW");
+    }
+
+    public void redClicked(View view) {
+        userGuess.add("Color.RED");
+    }
+
+    public void blueClicked(View view) {
+        userGuess.add("Color.BLUE");
+    }
+
+
 
     public void Flash(View view){
 
