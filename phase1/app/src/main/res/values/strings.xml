@@ -13,4 +13,16 @@
     <string name="paper">Paper</string>
     <string name="scissors">Scissors</string>
     <string name="continue_game">Continue</string>
+    <string name="red">RED</string>
+    <string name="yellow">YELLOW</string>
+    <string name="blue">BLUE</string>
+    <string name="green">GREEN</string>
+    <string name="lose1">-1</string>
+    <string name="flashLoss">You lost a life! You got 2 patterns incorrect!</string>
+    <string name="flashWin1">Congrats! You memorized all the patterns correctly.</string>
+    <string name="flashWin2">Select \"Next\" to move onto Level 3</string>
+    <string name="exitFlash">EXIT</string>
+    <string name="flashScore">120</string>
+    <string name="score">Score:</string>
+
 </resources>

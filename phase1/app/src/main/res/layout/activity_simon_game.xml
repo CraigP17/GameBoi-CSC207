@@ -8,15 +8,15 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="45dp"
         android:layout_marginStart="151dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="152dp"
         android:fontFamily="@font/bangers"
         android:text="@string/titleSimonGame"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,4 +44,76 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/green_btn"
+        android:onClick="greenClicked"
+        android:text="@string/green"
+        app:layout_constraintBottom_toTopOf="@+id/button11"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/yellow_btn"
+        android:onClick="yellowClicked"
+        android:text="@string/yellow"
+        app:layout_constraintBottom_toTopOf="@+id/button12"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginBottom="150dp"
+        android:background="@color/red_btn"
+        android:onClick="redClicked"
+        android:text="@string/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="150dp"
+        android:background="@color/blue_btn"
+        android:onClick="blueClicked"
+        android:text="@string/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="77dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="69dp"
+        android:fontFamily="@font/bangers"
+        android:text="@string/score"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="80dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/bangers"
+        android:text="@string/flashScore"
+        android:textAlignment="viewStart"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
