@@ -2,6 +2,9 @@ package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,9 +12,8 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.Timer;
 
 
 import java.util.ArrayList;
@@ -24,11 +26,15 @@ public class SimonGame extends AppCompatActivity {
     FlashColors flash = new FlashColors(user);
     private int incorrect = 0;
     private int flashLevels = 0;
+    private boolean isSubmitted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simon_game);
+//        Here is the code needed to set the score up at startup:
+//        TextView scoreBoard = findViewById(R.id.textView10);
+//        scoreBoard.setText("0");
     }
 
     public void toNext(View view) {
@@ -58,14 +64,31 @@ public class SimonGame extends AppCompatActivity {
         userGuess.add(Color.BLUE);
     }
 
-
+    /*This method is called when the flashing square is pressed. It will generate
+    * a random color sequence and keep the sequence in memory until submitted*/
     public void Flash(View view){
-
+        ArrayList<Integer> pattern= new ArrayList<>();
+        if(isSubmitted){
+            isSubmitted = false;
+            //pattern = flashobj.generate()
+        }
+        else{
+            //pattern = flashobj.getCorrectPattern()
+        }
         Button but = findViewById(R.id.button8);
-        but.setBackgroundColor(Color.RED);
+        but.setText("");
+        ValueAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor", Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE);
+        colorAnim.setDuration(3000);
+        colorAnim.setEvaluator(new ArgbEvaluator());
+        colorAnim.start();
     }
 
     public void SubmitButton(View view){
+
+        Button but = findViewById(R.id.button8);
+        CharSequence message = "START";
+        but.setText(message);
+
         Context context = getApplicationContext();
         CharSequence success = "Nice Job! Can you get the next one?";
         CharSequence failure = "Uh-oh. You guessed incorrectly. You have one more chance!";

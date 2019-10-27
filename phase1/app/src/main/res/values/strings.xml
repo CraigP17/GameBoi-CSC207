@@ -45,4 +45,5 @@
     <string name="enter">Enter</string>
     <string name="scoreZero">SCORE: 0</string>
     <string name="submit_round">SUBMIT</string>
+    <string name="start_btn">START</string>
 </resources>
