@@ -2,6 +2,7 @@ package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,6 +16,7 @@ public class FlashLoss extends AppCompatActivity {
 
     // Take them to the home page if they have no more lives
     public void exitGame(View view) {
-
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

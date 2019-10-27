@@ -8,12 +8,15 @@ import java.util.Collections;
 class FlashColors {
 
     private User player;
+    private boolean finishedDisplay = false;
+    private ArrayList<Integer> correctPattern = new ArrayList<>();
+    private ArrayList<Integer> userPattern;
 
-    FlashColors(User player){
+    FlashColors(User player) {
         this.player = player;
     }
 
-    private ArrayList<Integer> generatePattern(){
+    private ArrayList<Integer> generatePattern() {
         ArrayList<Integer> pattern = new ArrayList<>();
         pattern.add(Color.RED);
         pattern.add(Color.GREEN);
@@ -21,7 +24,30 @@ class FlashColors {
         pattern.add(Color.YELLOW);
 
         Collections.shuffle(pattern);
+        correctPattern = pattern;
 
         return pattern;
+    }
+
+    public ArrayList<Integer> getCorrectPattern() {
+        return correctPattern;
+    }
+
+    public boolean isFinishedDisplay() {
+        return finishedDisplay;
+    }
+
+    public void setFinishedDisplay(boolean finishedDisplay) {
+        this.finishedDisplay = finishedDisplay;
+    }
+
+    public boolean isCorrect(ArrayList<Integer> userPatterns) {
+        setUserPattern(userPatterns);
+        return correctPattern.equals(userPattern);
+    }
+
+
+    public void setUserPattern(ArrayList<Integer> userPatterns) {
+        this.userPattern = userPatterns;
     }
 }
