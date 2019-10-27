@@ -10,10 +10,10 @@ import java.util.Collections;
 class FlashColors {
 
     private User player;
-    private int localScore = 0; //set to zero for now
+    private int localScore; //set to zero for now
 
-    FlashColors(User player){
-        this.player = player;
+    FlashColors(){
+        this.localScore = 0;
     }
 
     ArrayList<Integer> generatePattern(){
@@ -34,5 +34,9 @@ class FlashColors {
 
     void setLocalScore(int localScore) {
         this.localScore += localScore;
+    }
+
+    public void setPlayer(User player) {
+        this.player = player;
     }
 }

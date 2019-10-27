@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -26,6 +25,11 @@ public class SimonGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simon_game);
+
+        //Setting up the background Colour
+        View flashColor = findViewById(R.id.textView10); //finds random view
+        View Root = flashColor.getRootView(); //finds the root view
+        Root.setBackgroundColor(Color.LTGRAY); //set background color
 //        Here is the code needed to set the score up at startup:
 //        TextView scoreBoard = findViewById(R.id.textView10);
 //        scoreBoard.setText("0");
@@ -72,8 +76,10 @@ public class SimonGame extends AppCompatActivity {
         }
         Button but = findViewById(R.id.button8);
         but.setText("");
-        ValueAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor", Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE);
-        colorAnim.setDuration(3000);
+
+        ObjectAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor",
+                Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE);
+        colorAnim.setDuration(4000);
         colorAnim.setEvaluator(new ArgbEvaluator());
         colorAnim.start();
     }
