@@ -1,22 +1,27 @@
 package com.example.gameboi;
 
 import android.graphics.Color;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 /*The following class is responsible for storing the user playing the FlashColors as well as the
-* score during the game and the correct color pattern and user color patterns. This class acts as
-* the back end to SimonGame.java*/
+ * score during the game and the correct color pattern and user color patterns. This class acts as
+ * the back end to SimonGame.java*/
 class FlashColors {
 
     private User player;
-    private int localScore; //set to zero for now
+    private boolean isSubmitted = true; //starts as true to allow initial pattern
+    private ArrayList<Integer> correctPattern = new ArrayList<>();
+    private ArrayList<Integer> userPattern;
+    private int localScore = 0; //set to zero for now
+    private String[] currentState = new String[2];
 
-    FlashColors(){
-        this.localScore = 0;
+    FlashColors(User player) {
+        this.player = player;
     }
 
-    ArrayList<Integer> generatePattern(){
+    ArrayList<Integer> generatePattern() {
         ArrayList<Integer> pattern = new ArrayList<>();
         pattern.add(Color.RED);
         pattern.add(Color.GREEN);
@@ -24,19 +29,56 @@ class FlashColors {
         pattern.add(Color.YELLOW);
 
         Collections.shuffle(pattern);
-
+        correctPattern = pattern;
+        System.out.println(pattern);
         return pattern;
     }
 
-    int getLocalScore() {
-        return localScore;
+    ArrayList<Integer> getCorrectPattern() {
+        return correctPattern;
     }
 
-    void setLocalScore(int localScore) {
-        this.localScore += localScore;
+    boolean isCorrect(ArrayList<Integer> userPatterns) {
+        setUserPattern(userPatterns);
+        return correctPattern.equals(userPattern);
     }
 
-    public void setPlayer(User player) {
-        this.player = player;
+
+    void setUserPattern(ArrayList<Integer> userPatterns) {
+        this.userPattern = userPatterns;
+    }
+
+    boolean isSubmitted() {
+        return isSubmitted;
+    }
+
+    void setSubmitted(boolean submitted) {
+        isSubmitted = submitted;
+    }
+
+    /*This method is responsible for grabbing the current score, increasing its value by 1 and
+     * returning a new charsequence*/
+    CharSequence getNewScore(CharSequence c) {
+        CharSequence newScore;
+        int score = Integer.parseInt(c.toString());
+        score++;
+        newScore = String.valueOf(score);
+        setScore(score); //store the score of the game for an user
+        return newScore;
+    }
+
+    /*The following method will get the number of games played within the FlashColors game*/
+    void setPlayed(int played) {
+        player.setFCGamesPlayed(played);
+    }
+
+    /*The following method will get the number of games that were lost within FLashColors*/
+    void setLost(int lost) {
+        player.setFCGamesLost(lost);
+    }
+
+    /*This method will return the local score for a user playing FlashColors*/
+    void setScore(int score) {
+        player.setFCUserScore(score);
     }
 }

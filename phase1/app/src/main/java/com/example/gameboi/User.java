@@ -5,8 +5,8 @@ import android.graphics.Paint;
 import java.util.ArrayList;
 
 class User {
-/*This class is responsible for storing the user data for a game.
-* It stores the users username, points, lives and customization preferences*/
+    /*This class is responsible for storing the user data for a game.
+     * It stores the users username, points, lives and customization preferences*/
 
     private String name;
 
@@ -15,8 +15,8 @@ class User {
     private int levelOnePoints;
 
     private int levelTwoPoints;
-    //List stores only 2 values, [#games played, lost]
-    private int[] FlashColors = new int[2];
+    //List stores only 2 values, [#games played, lost, score]
+    private int[] FlashColors = {0, 0, 0};
 
     private int levelThreePoints;
 
@@ -27,7 +27,7 @@ class User {
     private int currLevel;
 
     User(String name, int lives, int levelOnePoints, int levelTwoPoints, int levelThreePoints,
-         Paint backgroundColor, String icon, int currLevel){
+         Paint backgroundColor, String icon, int currLevel) {
         this.name = name;
         this.lives = lives;
         this.levelOnePoints = levelOnePoints;
@@ -38,6 +38,7 @@ class User {
         this.currLevel = currLevel;
 
     }
+
     void loseALife() {
         lives--;
     }
@@ -47,12 +48,30 @@ class User {
     }
 
     /*The following method will get the number of games played within the FlashColors game*/
-    int getFCGamesPlayed(){
+    int getFCGamesPlayed() {
         return this.FlashColors[0];
     }
 
     /*The following method will get the number of games that were lost within FLashColors*/
-    int getFCGamesLost(){
+    int getFCGamesLost() {
         return this.FlashColors[1];
+    }
+    /*This method will return the local score for a user playing FlashColors*/
+    int getFCUserScore() {
+        return FlashColors[2];
+    }
+
+    /*The following method will get the number of games played within the FlashColors game*/
+    void setFCGamesPlayed(int played) {
+        this.FlashColors[0] = played;
+    }
+
+    /*The following method will get the number of games that were lost within FLashColors*/
+    void setFCGamesLost(int lost) {
+        this.FlashColors[1] = lost;
+    }
+    /*This method will return the local score for a user playing FlashColors*/
+    void setFCUserScore(int score) {
+        FlashColors[2] = score;
     }
 }
