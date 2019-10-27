@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -25,7 +26,9 @@ public class SimonGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simon_game);
-
+//        Here is the code needed to set the score up at startup:
+//        TextView scoreBoard = findViewById(R.id.textView10);
+//        scoreBoard.setText("0");
     }
 
     public void toNext(View view) {
@@ -56,7 +59,8 @@ public class SimonGame extends AppCompatActivity {
     }
 
 
-
+    /*This method is called when the flashing square is pressed. It will generate
+    * a random color sequence and keep the sequence in memory until submitted*/
     public void Flash(View view){
         ArrayList<Integer> pattern= new ArrayList<>();
         if(isSubmitted){
@@ -66,8 +70,8 @@ public class SimonGame extends AppCompatActivity {
         else{
             //pattern = flashobj.getCorrectPattern()
         }
-
         Button but = findViewById(R.id.button8);
+        but.setText("");
         ValueAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor", Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE);
         colorAnim.setDuration(3000);
         colorAnim.setEvaluator(new ArgbEvaluator());
@@ -75,6 +79,11 @@ public class SimonGame extends AppCompatActivity {
     }
 
     public void SubmitButton(View view){
+
+        Button but = findViewById(R.id.button8);
+        CharSequence message = "START";
+        but.setText(message);
+
         Context context = getApplicationContext();
         CharSequence text = "Here the message will say you won or you lost";
         int duration = Toast.LENGTH_SHORT;
