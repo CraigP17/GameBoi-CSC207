@@ -17,9 +17,8 @@ import java.util.Random;
 
 public class RockPaperScissors extends AppCompatActivity {
 
-    public static final String EXTRA_MESSAGE = "com.example.gameboi.MESSAGE";
-    int wins = 0;
-    int losses = 0;
+    public static int winsRpS = 0;
+    public static int lossesRpS = 0;
     String[] arr = new String[] {"Rock", "Paper", "Scissors"};
     Paint p1 = new Paint();
     User user = new User("faf", 1, 0, 0 ,0, p1, "fds", '0');
@@ -41,40 +40,21 @@ public class RockPaperScissors extends AppCompatActivity {
         String computerchoice = arr[rand.nextInt(arr.length)];
         if (winnersRpS.get(playerValue).equals(computerchoice)) {
             //user wins, do add to wins
-            wins++;
+            winsRpS += 1;
+            System.out.println("W:");
+            System.out.println(winsRpS);
             checker("won", playerValue, computerchoice);
         } else if (computerchoice.equals(playerValue)) {
             //to take into account number of games played
             checker("tie", playerValue, computerchoice);
         } else  {
             //comp wins, add to losses
-            losses++;
+            lossesRpS += 1;
+            System.out.println("L:");
+            System.out.println(lossesRpS);
             checker("lost", playerValue, computerchoice);
         }
 
-        //call checker, where then either goes to final page or reverts to this page
-
-        // Generating a random value from keys to be the computers move
-//        Random randomGenerator = new Random();
-//        int randomInt = randomGenerator.nextInt(2);
-//        List keys = new ArrayList(winnersRpS.keySet());
-//        Object ourValue = keys.get(randomInt);
-//        System.out.println(ourValue);
-//
-//        if (winnersRpS.get(playerValue) == ourValue) {
-//            Intent intent = new Intent(this, RpSWonRoundDisplay.class);
-////        String message = "You have won this round!";
-////        intent.putExtra(EXTRA_MESSAGE, message);
-//            startActivity(intent);
-//        } else if(winnersRpS.get(ourValue) == playerValue) {
-//            // create new intent that will display you lost this round screen
-//            Intent intent = new Intent(this, RpsLostRoundDisplay.class);
-//            startActivity(intent);
-//        } else {
-//            // new intent that displays try again
-//            Intent intent = new Intent(this, tryAgainDisplay.class);
-//            startActivity(intent);
-//        }
 
     }
 
@@ -93,7 +73,8 @@ public class RockPaperScissors extends AppCompatActivity {
     }
 
     private void checker(String outcome, String userchoice, String compchoice) {
-        if (losses == 2) {
+        if (lossesRpS == 2) {
+            System.out.println("Losses");
             if (user.getLives() == 1) {
                 // go to 'you lost the game' screen
                 Intent intent = new Intent(this, RpsFinalLostDisplay.class);
@@ -103,7 +84,8 @@ public class RockPaperScissors extends AppCompatActivity {
                 Intent intent = new Intent(this, RpsFinalWonDisplay.class);
                 startActivity(intent);
             }
-        } else if (wins == 3) {
+        } else if (winsRpS == 3) {
+            System.out.println("wins");
                 // go to you won the game screen
                 Intent intent = new Intent(this, RpsFinalWonDisplay.class);
                 startActivity(intent);

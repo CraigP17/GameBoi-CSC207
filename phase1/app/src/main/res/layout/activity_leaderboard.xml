@@ -8,12 +8,13 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="136dp"
-        android:layout_height="29dp"
+        android:layout_width="179dp"
+        android:layout_height="41dp"
         android:layout_marginTop="53dp"
         android:layout_marginBottom="650dp"
         android:fontFamily="@font/bangers"
         android:text="@string/leaderboard"
+        android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
