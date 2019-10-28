@@ -1,5 +1,6 @@
 package com.example.gameboi;
 
+import android.graphics.Color;
 import android.graphics.Paint;
 
 import java.util.ArrayList;
@@ -15,12 +16,12 @@ class User {
     private int levelOnePoints;
 
     private int levelTwoPoints;
-    //List stores only 2 values, [#games played, lost, score]
-    private int[] FlashColors = {0, 0, 0};
+    //List stores only 2 values, [#games played, lost]
+    private int[] FlashColors = {0, 0};
 
     private int levelThreePoints;
 
-    private Paint backgroundColor = new Paint();
+    private Paint backgroundColor;
 
     private String icon; //string icon
 
@@ -58,7 +59,7 @@ class User {
     }
     /*This method will return the local score for a user playing FlashColors*/
     int getFCUserScore() {
-        return FlashColors[2];
+        return levelTwoPoints;
     }
 
     /*The following method will get the number of games played within the FlashColors game*/
@@ -72,6 +73,6 @@ class User {
     }
     /*This method will return the local score for a user playing FlashColors*/
     void setFCUserScore(int score) {
-        FlashColors[2] = score;
+        this.levelTwoPoints = score; // score increases here
     }
 }

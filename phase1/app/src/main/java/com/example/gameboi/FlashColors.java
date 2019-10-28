@@ -78,7 +78,7 @@ class FlashColors {
     }
 
     /*This method will return the local score for a user playing FlashColors*/
-    void setScore(int score) {
+    private void setScore(int score) {
         player.setFCUserScore(score);
     }
 }
