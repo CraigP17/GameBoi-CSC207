@@ -23,14 +23,18 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="143dp"
-        android:layout_height="116dp"
+        android:layout_width="181dp"
+        android:layout_height="147dp"
         android:layout_marginTop="330dp"
         android:layout_marginBottom="285dp"
+        android:fontFamily="@font/bangers"
         android:text="@string/lost_rps"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintHorizontal_bias="0.552"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.645" />
 </androidx.constraintlayout.widget.ConstraintLayout>
