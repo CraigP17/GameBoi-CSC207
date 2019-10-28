@@ -14,6 +14,8 @@
         <activity android:name=".RpsFinalWonDisplay" />
         <activity android:name=".tryAgainDisplay" />
         <activity android:name=".RpsLostRoundDisplay" />
+        <activity android:name=".FlashLoss"></activity>
+        <activity android:name=".FlashWin" />
         <activity
             android:name=".RpSWonRoundDisplay"
             android:parentActivityName=".RockPaperScissors">
