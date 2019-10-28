@@ -2,8 +2,10 @@ package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.Random;
 /*
@@ -23,13 +25,26 @@ public class MathGame extends AppCompatActivity {
     private TextView mathGameScore;
     //int representation of the user's answer.
     private int answer = 0;
+    //The number of questions the player got wrong
+    private int numLosses = 0;
     //int representation of the number of questions the user has answered correctly.
     private int score = 0;
+    User player = new User("moogah", 2, 0, 0 ,0,
+            Color.GRAY, "fds", '0');
     Random rand = new Random();
 
     private void updateResponse(int num) {response = response * 10 + num;}
 
     private void updateResponseView() {responseView.setText(String.valueOf(response));}
+
+    private void isGameOver(){
+        if (numLosses > 2) {
+            player.loseALife();
+            Intent intent = new Intent(this, SimonGame.class);
+            intent.putExtra("user", player);
+            startActivity(intent);
+        }
+    }
 
     //Generates an arithmetic question for the player
     private void generateEquation() {
@@ -96,8 +111,10 @@ public class MathGame extends AppCompatActivity {
     // Checks if the response is correct and adds 1 to score if it is. Updates score, resets
     // response and generates a new equation for the player
     public void pressEnter(View view) {
-        if (answer == response) {
-            score += 1;
+        if (answer == response) {score += 1;}
+        else {
+            numLosses += 1;
+            isGameOver();
         }
         String currScore = "SCORE: " + score;
         mathGameScore.setText(currScore);
@@ -112,6 +129,8 @@ public class MathGame extends AppCompatActivity {
         //EditText editText = (EditText) findViewById(R.id.editText); //look up the id for text user inputted
         //String message = editText.getText().toString();
         //intent.putExtra(EXTRA_MESSAGE, message); //create key value pair
+        // Send the user to the second game level
+        intent.putExtra("user", player);
         startActivity(intent); //now intent has key value
         //goes to MathGame.class
     }
@@ -121,6 +140,9 @@ public class MathGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_game);
         setupMathGameUI();
+        ImageView icon = findViewById(R.id.avatarIcon);
+        icon.setImageResource(R.drawable.userlogo);
+        getWindow().getDecorView().setBackgroundColor(player.getBackgroundColor());
         generateEquation();
     }
 }

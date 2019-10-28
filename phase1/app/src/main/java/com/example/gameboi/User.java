@@ -95,6 +95,8 @@ class User implements Parcelable {
         return lives;
     }
 
+    int getBackgroundColor(){ return backgroundColor;}
+
     String getName() { return name; }
 
     /*The following method will get the number of games played within the FlashColors game*/
