@@ -2,6 +2,7 @@ package com.example.gameboi;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,7 +23,7 @@ public class RockPaperScissors extends AppCompatActivity {
     int losses = 0;
     String[] arr = new String[] {"Rock", "Paper", "Scissors"};
     Paint p1 = new Paint();
-    User user = new User("faf", 1, 0, 0 ,0, p1, "fds", '0');
+    User user = new User("faf", 1, 0, 0 ,0, Color.WHITE, "fds", '0');
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

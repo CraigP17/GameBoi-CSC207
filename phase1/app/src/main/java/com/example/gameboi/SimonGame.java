@@ -7,7 +7,6 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,8 +19,7 @@ import java.util.ArrayList;
 public class SimonGame extends AppCompatActivity {
 
     ArrayList<Integer> userGuess = new ArrayList<>();
-    Paint paint = new Paint();
-    User user = new User("moogah", 1, 0, 0 ,0, paint, "fds", '0');
+    User user = new User("moogah", 1, 0, 0 ,0, Color.WHITE, "fds", '0');
     FlashColors flash = new FlashColors(user);
     private int incorrect = 0;
     private int flashLevels = 0;
@@ -70,7 +68,7 @@ public class SimonGame extends AppCompatActivity {
     /*This method is called when the flashing square is pressed. It will generate
     * a random color sequence and keep the sequence in memory until submitted*/
     public void Flash(View view){
-        ArrayList<Integer> pattern= new ArrayList<>();
+        ArrayList<Integer> pattern;
         if(flash.isSubmitted()){
             flash.setSubmitted(false);
             pattern = flash.generatePattern();
@@ -120,6 +118,7 @@ public class SimonGame extends AppCompatActivity {
             flash.setPlayed(flashLevels); //store wins and loses in user
             flash.setLost(incorrect);
             Intent intent = new Intent(this, FlashLoss.class);
+            intent.putExtra("player", user);
             startActivity(intent);
         }
 
@@ -128,6 +127,7 @@ public class SimonGame extends AppCompatActivity {
             flash.setPlayed(flashLevels); //store wins in user
             flash.setLost(incorrect); //store losses
             Intent intent = new Intent(this, FlashWin.class);
+            intent.putExtra("player", user);
             startActivity(intent);
         }
 
