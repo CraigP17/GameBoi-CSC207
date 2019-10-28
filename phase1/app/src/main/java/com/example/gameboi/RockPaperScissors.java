@@ -79,28 +79,40 @@ public class RockPaperScissors extends AppCompatActivity {
             if (user.getLives() == 1) {
                 // go to 'you lost the game' screen
                 Intent intent = new Intent(this, RpsFinalLostDisplay.class);
+                intent.putExtra("userchoice", userchoice);
+                intent.putExtra("computerchoice:", compchoice);
                 startActivity(intent);
             } else {
                 // go to 'you won the game' screen
                 Intent intent = new Intent(this, RpsFinalWonDisplay.class);
+                intent.putExtra("userchoice", userchoice);
+                intent.putExtra("computerchoice:", compchoice);
                 startActivity(intent);
             }
         } else if (winsRpS == 3) {
             System.out.println("wins");
                 // go to you won the game screen
                 Intent intent = new Intent(this, RpsFinalWonDisplay.class);
+                intent.putExtra("userchoice", userchoice);
+                intent.putExtra("computerchoice:", compchoice);
                 startActivity(intent);
         } else {
             if (outcome.equals("won")) {
                 Intent intent = new Intent(this, RpSWonRoundDisplay.class);
+                intent.putExtra("userchoice", userchoice);
+                intent.putExtra("computerchoice:", compchoice);
                 startActivity(intent);
             } else if (outcome.equals("lost")) {
                 //go to you lost this round screen
                 Intent intent = new Intent(this, RpsLostRoundDisplay.class);
+                intent.putExtra("userchoice", userchoice);
+                intent.putExtra("computerchoice:", compchoice);
                 startActivity(intent);
             } else {
                 // new intent that displays try again
                 Intent intent = new Intent(this, tryAgainDisplay.class);
+                intent.putExtra("userchoice", userchoice);
+                intent.putExtra("computerchoice:", compchoice);
                 startActivity(intent);
             }
         }

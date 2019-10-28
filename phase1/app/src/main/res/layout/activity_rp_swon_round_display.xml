@@ -29,7 +29,31 @@
         android:text="@string/you_won"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632"
         tools:text="@string/you_won" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="131dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="172dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="160dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="172dp"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

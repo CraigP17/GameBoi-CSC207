@@ -9,6 +9,8 @@ import android.view.View;
 
 import android.os.Bundle;
 
+import java.util.HashMap;
+
 public class RpSWonRoundDisplay extends AppCompatActivity {
 
     @Override
@@ -17,7 +19,14 @@ public class RpSWonRoundDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_rp_swon_round_display);
 
         // Get the Intent that started this activity and extract the string
-//        Intent intent = getIntent();
+        Intent intent = getIntent();
+        String userChoiceDisplay = intent.getStringExtra("userchoice");
+        String cChoiceDisplay = intent.getStringExtra("computerchoice");
+
+        TextView uChoice = findViewById(R.id.textView11);
+        uChoice.setText(userChoiceDisplay);
+        TextView cChoice = findViewById(R.id.textView13);
+        cChoice.setText(cChoiceDisplay);
 //        String message = intent.getStringExtra(RockPaperScissors.EXTRA_MESSAGE);
 
 //        String message = "You won this round!";
