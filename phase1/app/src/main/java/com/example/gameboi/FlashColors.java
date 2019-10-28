@@ -67,18 +67,8 @@ class FlashColors {
         return newScore;
     }
 
-    /*The following method will get the number of games played within the FlashColors game*/
-    void setPlayed(int played) {
-        player.setFCGamesPlayed(played);
-    }
-
-    /*The following method will get the number of games that were lost within FLashColors*/
-    void setLost(int lost) {
-        player.setFCGamesLost(lost);
-    }
-
     /*This method will return the local score for a user playing FlashColors*/
-    private void setScore(int score) {
+    void setScore(int score) {
         player.setFCUserScore(score);
     }
 }

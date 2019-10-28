@@ -20,7 +20,7 @@ public class FlashWin extends AppCompatActivity {
         player = getIntent().getParcelableExtra("player");
 
         TextView gamesPlayed = findViewById(R.id.textView15);
-        String games = player.getFCGamesPlayed() + " Games";
+        String games = getIntent().getIntExtra("gamesWon",3) + " Games";
         gamesPlayed.setText(games);
 
         TextView numLives = findViewById(R.id.textView17);

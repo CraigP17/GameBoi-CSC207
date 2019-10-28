@@ -118,8 +118,7 @@ public class SimonGame extends AppCompatActivity {
 
         // Check if the user got 2 incorrect answers and take them to the Lose a Life Activity
         if (incorrect == 2) {
-            flash.setPlayed(flashLevels); //store wins and loses in user
-            flash.setLost(incorrect);
+            flash.setScore(Integer.parseInt(String.valueOf(scoreBoard.getText()))); //updates the score
             Intent intent = new Intent(this, FlashLoss.class);
             intent.putExtra("player", user);
             startActivity(intent);
@@ -127,10 +126,11 @@ public class SimonGame extends AppCompatActivity {
 
         // Check if the user has played 4 levels of FlashColour and then move to the Winner Activity
         if (flashLevels == 4) {
-            flash.setPlayed(flashLevels); //store wins in user
-            flash.setLost(incorrect); //store losses
+            flash.setScore(Integer.parseInt(String.valueOf(scoreBoard.getText()))); //updates the score
+            int finalScores = flashLevels-incorrect;
             Intent intent = new Intent(this, FlashWin.class);
             intent.putExtra("player", user);
+            intent.putExtra("gamesWon", finalScores);
             startActivity(intent);
         }
 
