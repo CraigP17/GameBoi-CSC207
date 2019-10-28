@@ -6,4 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".Leaderboard">
 
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="179dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginBottom="650dp"
+        android:fontFamily="@font/bangers"
+        android:text="@string/leaderboard"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

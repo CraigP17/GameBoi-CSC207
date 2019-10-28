@@ -1,15 +1,19 @@
 package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +32,9 @@ public class SimonGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simon_game);
-
+        //Setting up the user icon
+        ImageView icon = findViewById(R.id.imageView1);
+        icon.setImageResource(R.drawable.userlogo);
         //Setting up the background Colour
         View flashColor = findViewById(R.id.textView2); //finds random view
         View Root = flashColor.getRootView(); //finds the root view
