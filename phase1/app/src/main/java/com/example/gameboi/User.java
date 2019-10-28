@@ -111,6 +111,11 @@ class User implements Parcelable {
         return levelTwoPoints;
     }
 
+    // This method returns the total number of points across all levels
+    int getTotalPoints() {
+        return levelOnePoints + levelTwoPoints + levelThreePoints;
+    }
+
     /*The following method will get the number of games played within the FlashColors game*/
     void setFCGamesPlayed(int played) {
         this.FlashColors[0] = played;
