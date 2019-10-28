@@ -110,12 +110,14 @@ public class SimonGame extends AppCompatActivity {
         // Check if the user got 2 incorrect answers and take them to the Lose a Life Activity
         if (incorrect == 2) {
             Intent intent = new Intent(this, FlashLoss.class);
+            intent.putExtra("player", user);
             startActivity(intent);
         }
 
         // Check if the user has played 4 levels of FlashColour and then move to the Winner Activity
         if (flashLevels == 4) {
             Intent intent = new Intent(this, FlashWin.class);
+            intent.putExtra("player", user);
             startActivity(intent);
         }
 
