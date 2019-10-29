@@ -13,6 +13,8 @@
     <string name="paper">Paper</string>
     <string name="scissors">Scissors</string>
     <string name="continue_game">Continue</string>
+    <string name="computerchoice">Our Choice:</string>
+
     <string name="red">RED</string>
     <string name="yellow">YELLOW</string>
     <string name="blue">BLUE</string>
@@ -47,4 +49,5 @@
     <string name="scoreZero">SCORE: 0</string>
     <string name="submit_round">SUBMIT</string>
     <string name="start_btn">START</string>
+    <string name="yourchoice">Your Choice:</string>
 </resources>

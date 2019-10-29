@@ -24,8 +24,10 @@ public class RpSWonRoundDisplay extends AppCompatActivity {
         String cChoiceDisplay = intent.getStringExtra("computerchoice");
 
         TextView uChoice = findViewById(R.id.textView11);
-        uChoice.setText(userChoiceDisplay);
         TextView cChoice = findViewById(R.id.textView13);
+        System.out.println(userChoiceDisplay);
+        uChoice.setText(userChoiceDisplay);
+        System.out.println(cChoiceDisplay);
         cChoice.setText(cChoiceDisplay);
 //        String message = intent.getStringExtra(RockPaperScissors.EXTRA_MESSAGE);
 
