@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class RpsLostRoundDisplay extends AppCompatActivity {
 
@@ -12,6 +13,17 @@ public class RpsLostRoundDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rps_lost_round_display);
+
+        Intent intent = getIntent();
+        String userChoiceDisplay = intent.getStringExtra("userchoice");
+        String cChoiceDisplay = intent.getStringExtra("computerchoice");
+
+        TextView uChoice = findViewById(R.id.textView24);
+        TextView cChoice = findViewById(R.id.textView25);
+//        System.out.println(userChoiceDisplay);
+        uChoice.setText(userChoiceDisplay);
+//        System.out.println(cChoiceDisplay);
+        cChoice.setText(cChoiceDisplay);
     }
 
     public void continueGame(View view) {

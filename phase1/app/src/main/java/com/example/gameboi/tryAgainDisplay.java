@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class tryAgainDisplay extends AppCompatActivity {
 
@@ -12,6 +13,17 @@ public class tryAgainDisplay extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_try_again_display);
+
+        Intent intent = getIntent();
+        String userChoiceDisplay = intent.getStringExtra("userchoice");
+        String cChoiceDisplay = intent.getStringExtra("computerchoice");
+
+        TextView uChoice = findViewById(R.id.textView28);
+        TextView cChoice = findViewById(R.id.textView29);
+//        System.out.println(userChoiceDisplay);
+        uChoice.setText(userChoiceDisplay);
+//        System.out.println(cChoiceDisplay);
+        cChoice.setText(cChoiceDisplay);
     }
 
     public void continueGame(View view) {
