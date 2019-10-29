@@ -30,6 +30,7 @@
     <string name="exitFlash">EXIT</string>
     <string name="flashScore">120</string>
     <string name="score">Score:</string>
+    <string name="icon">icon</string>
 
     <string name="lost_round">You have lost this round! Press Continue to play again.</string>
     <string name="try_again">No one won this round! Try again.</string>

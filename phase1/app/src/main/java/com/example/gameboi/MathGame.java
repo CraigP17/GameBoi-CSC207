@@ -43,6 +43,7 @@ public class MathGame extends AppCompatActivity {
             Intent intent = new Intent(this, SimonGame.class);
             intent.putExtra("user", player);
             startActivity(intent);
+            finish();
         }
     }
 
