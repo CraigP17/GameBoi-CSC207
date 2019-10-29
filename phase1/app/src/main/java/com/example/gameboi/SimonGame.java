@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class SimonGame extends AppCompatActivity {
 
     ArrayList<Integer> userGuess = new ArrayList<>();
-    User user = new User("moogah", 1, 0, 0 ,0, Color.WHITE, "fds", '0');
+    User user = new User("moogah", 1, 0, 0 ,0, Color.WHITE, "fds", 0, 0);
     FlashColors flash = new FlashColors(user);
     private int incorrect = 0;
     private int flashLevels = 0;
