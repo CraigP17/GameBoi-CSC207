@@ -31,7 +31,7 @@ public class RockPaperScissors extends AppCompatActivity {
     }
 
     public void RpSGamePlayed(String playerValue) {
-        HashMap winnersRpS = new HashMap();
+        HashMap<String, String> winnersRpS = new HashMap<>();
         winnersRpS.put("Rock", "Scissors");
         winnersRpS.put("Scissors", "Paper");
         winnersRpS.put("Paper", "Rock");

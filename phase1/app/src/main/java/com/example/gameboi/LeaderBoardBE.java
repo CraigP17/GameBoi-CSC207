@@ -76,10 +76,10 @@ public class LeaderBoardBE {
         return order;
     }
 
-    public static void main(String[] args) {
-        String file = "/Users/sarrahmerchant/Desktop/classes/csc236/group_0573/phase1/app/src/main/java/com/example/gameboi/leaderFile";
-        LeaderBoardBE l = new LeaderBoardBE();
-        Map Order = l.getOrder(file);
-        System.out.println((l.order.get(2)[1]));
-    }
+//    public static void main(String[] args) {
+//        String file = "LeaderFile"; NEED DIFFERENT FILE PATH FOR EACH PERSON
+//        LeaderBoardBE l = new LeaderBoardBE();
+//        Map Order = l.getOrder(file);
+//        System.out.println((l.order.get(2)[1]));
+    //}
 }
