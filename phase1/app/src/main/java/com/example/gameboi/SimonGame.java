@@ -1,15 +1,19 @@
 package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +32,9 @@ public class SimonGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simon_game);
-
+        //Setting up the user icon
+        ImageView icon = findViewById(R.id.imageView1);
+        icon.setImageResource(R.drawable.userlogo);
         //Setting up the background Colour
         View flashColor = findViewById(R.id.textView2); //finds random view
         View Root = flashColor.getRootView(); //finds the root view
@@ -112,8 +118,7 @@ public class SimonGame extends AppCompatActivity {
 
         // Check if the user got 2 incorrect answers and take them to the Lose a Life Activity
         if (incorrect == 2) {
-            flash.setPlayed(flashLevels); //store wins and loses in user
-            flash.setLost(incorrect);
+            flash.setScore(Integer.parseInt(String.valueOf(scoreBoard.getText()))); //updates the score
             Intent intent = new Intent(this, FlashLoss.class);
             intent.putExtra("player", user);
             startActivity(intent);
@@ -121,10 +126,11 @@ public class SimonGame extends AppCompatActivity {
 
         // Check if the user has played 4 levels of FlashColour and then move to the Winner Activity
         if (flashLevels == 4) {
-            flash.setPlayed(flashLevels); //store wins in user
-            flash.setLost(incorrect); //store losses
+            flash.setScore(Integer.parseInt(String.valueOf(scoreBoard.getText()))); //updates the score
+            int finalScores = flashLevels-incorrect;
             Intent intent = new Intent(this, FlashWin.class);
             intent.putExtra("player", user);
+            intent.putExtra("gamesWon", finalScores);
             startActivity(intent);
         }
 
