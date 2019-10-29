@@ -14,6 +14,7 @@
         android:layout_marginTop="595dp"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="88dp"
+        android:onClick="continueGame"
         android:text="@string/continue_game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
