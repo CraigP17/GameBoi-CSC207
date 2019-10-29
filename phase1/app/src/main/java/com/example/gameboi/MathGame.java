@@ -30,7 +30,7 @@ public class MathGame extends AppCompatActivity {
     //int representation of the number of questions the user has answered correctly.
     private int score = 0;
     User player = new User("moogah", 2, 0, 0 ,0,
-            Color.GRAY, "fds", '0');
+            Color.GRAY, "fds", 0, 0);
     Random rand = new Random();
 
     private void updateResponse(int num) {response = response * 10 + num;}

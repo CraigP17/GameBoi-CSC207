@@ -22,7 +22,7 @@ public class RockPaperScissors extends AppCompatActivity {
     public static int lossesRpS = 0;
     String[] arr = new String[] {"Rock", "Paper", "Scissors"};
     Paint p1 = new Paint();
-    User user = new User("faf", 1, 0, 0 ,0, Color.WHITE, "fds", '0');
+    User user = new User("faf", 1, 0, 0 ,0, Color.WHITE, "fds", 0, 0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
