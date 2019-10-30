@@ -63,6 +63,10 @@ class User implements Parcelable {
         this.highScore = highScore;
     }
 
+    User() {
+        // Creates an instance of user that is empty, does nothing
+    }
+
     /**
      * Unpacks a Parcel and creates an instance of a User
      *
@@ -196,5 +200,19 @@ class User implements Parcelable {
      */
     public void setHighScore(int highScore) {
         this.highScore = highScore;
+    }
+
+    /**
+     * @return String value that represents logo file name
+     */
+    String getIcon(){
+        return this.icon;
+    }
+
+    /**
+     * @param newIcon The new logo's name
+     */
+    void setIcon(String newIcon){
+        this.icon = newIcon;
     }
 }

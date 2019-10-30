@@ -24,7 +24,7 @@ public class LeaderBoardBE {
         try {
             in = new BufferedReader(new FileReader(file));
             String read = null;
-            read = in.readLine();
+            read = in.readLine(); //reads header
             while ((read = in.readLine()) != null) {
                 String[] splitted = read.split(", ");
                 scores[i] = Integer.parseInt(splitted[8]);

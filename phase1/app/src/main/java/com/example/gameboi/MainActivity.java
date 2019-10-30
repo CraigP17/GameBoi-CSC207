@@ -17,6 +17,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void toUserSettings(View view) {
+        Intent intent = new Intent(this, UserSetter.class);
+        startActivity(intent);
+    }
+
     /** Called when the user taps the Send button */
     public void toNext(View view) {
         //says to switch from this activity to the next one
