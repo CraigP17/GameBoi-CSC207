@@ -34,11 +34,13 @@ public class SimonGame extends AppCompatActivity {
         setContentView(R.layout.activity_simon_game);
         //Setting up the user icon
         ImageView icon = findViewById(R.id.imageView1);
-        icon.setImageResource(R.drawable.userlogo);
+        int resID = getResources().getIdentifier("girl",
+                "drawable", getPackageName()); // this line of code grabs the resID based on user name
+        icon.setImageResource(resID);
         //Setting up the background Colour
         View flashColor = findViewById(R.id.textView2); //finds random view
         View Root = flashColor.getRootView(); //finds the root view
-        Root.setBackgroundColor(Color.LTGRAY); //set background color
+        Root.setBackgroundColor(-7829368); //set background color
 //      Here is the code needed to set the score up at startup:
         TextView scoreBoard = findViewById(R.id.textView10);
         scoreBoard.setText("0");

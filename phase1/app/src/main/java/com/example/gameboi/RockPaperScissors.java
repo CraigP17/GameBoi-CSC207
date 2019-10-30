@@ -29,6 +29,8 @@ public class RockPaperScissors extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors);
+        TextView scoreboardRpS = findViewById(R.id.textView12);
+        scoreboardRpS.setText(String.valueOf(winsRpS));
     }
 
     public void RpSGamePlayed(String playerValue) {
