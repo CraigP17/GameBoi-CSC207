@@ -148,6 +148,13 @@ class User implements Parcelable {
     }
 
     /**
+     * Sets the number of lives the User has
+     */
+    void setLives(int num) {
+        lives = num;
+    }
+
+    /**
      * @return the User's customized backgroundColor
      */
     int getBackgroundColor() {
@@ -155,10 +162,24 @@ class User implements Parcelable {
     }
 
     /**
+     * Sets the User's customized backgroundColor
+     */
+    void getBackgroundColor(int color) {
+        backgroundColor = color;
+    }
+
+    /**
      * @return the User's name
      */
     String getName() {
         return name;
+    }
+
+    /**
+     * Sets the User's name
+     */
+    void getName(String name) {
+        this.name = name;
     }
 
     /**
@@ -184,6 +205,14 @@ class User implements Parcelable {
      */
     void setFCUserScore(int score) {
         this.levelTwoPoints = score; // score increases here
+    }
+
+
+    /**
+     * @return The User's currLevel
+     */
+    int getCurrLevel() {
+        return currLevel;
     }
 
     /**
