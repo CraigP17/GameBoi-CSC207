@@ -1,4 +1,18 @@
 <resources>
+    //Main Activity Strings
+    <string name="newUser">NEW</string>
+    <string name="chooseUser">Choose a User!</string>
+    <string name="white">White</string>
+    <string name="grey">Grey</string>
+    <string name="cyan">Cyan</string>
+    <string name="chooseBGColor">Choose a Background Color</string>
+    <string name="chooseIcon">Choose an Icon</string>
+    <string name="randomName">Random Name</string>
+    <string name="checkMark">✔</string>
+    <string name="userName">User Name</string>
+    <string name="chooseNumLives">Choose Number of Lives</string>
+
+
     <string name="app_name">GameBoi</string>
     <string name="toMath">Next</string>
     <string name="toSimon">Next</string>

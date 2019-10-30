@@ -144,6 +144,13 @@ class User implements Parcelable {
     }
 
     /**
+     * Sets the number of lives the User has
+     */
+    void setLives(int num) {
+        lives = num;
+    }
+
+    /**
      * @return the User's customized backgroundColor
      */
     int getBackgroundColor() {
@@ -151,10 +158,24 @@ class User implements Parcelable {
     }
 
     /**
+     * Sets the User's customized backgroundColor
+     */
+    void getBackgroundColor(int color) {
+        backgroundColor = color;
+    }
+
+    /**
      * @return the User's name
      */
     String getName() {
         return name;
+    }
+
+    /**
+     * Sets the User's name
+     */
+    void getName(String name) {
+        this.name = name;
     }
 
     /**
@@ -182,6 +203,14 @@ class User implements Parcelable {
         this.levelTwoPoints = score; // score increases here
     }
 
+
+    /**
+     * @return The User's currLevel
+     */
+    int getCurrLevel() {
+        return currLevel;
+    }
+
     /**
      * @return The User's highScore
      */
@@ -196,5 +225,19 @@ class User implements Parcelable {
      */
     public void setHighScore(int highScore) {
         this.highScore = highScore;
+    }
+
+    /**
+     * @return String value that represents logo file name
+     */
+    String getIcon(){
+        return this.icon;
+    }
+
+    /**
+     * @param newIcon The new logo's name
+     */
+    void setIcon(String newIcon){
+        this.icon = newIcon;
     }
 }
