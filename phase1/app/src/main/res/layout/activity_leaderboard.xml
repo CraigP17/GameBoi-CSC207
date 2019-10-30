@@ -28,7 +28,9 @@
         android:layout_marginStart="38dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="104dp"
-        android:text="TextView"
+        android:fontFamily="@font/bangers"
+        android:text="@string/textview"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView35"
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
@@ -39,7 +41,9 @@
         android:layout_height="43dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="108dp"
-        android:text="TextView"
+        android:fontFamily="@font/bangers"
+        android:text="@string/textview"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
@@ -49,7 +53,9 @@
         android:layout_height="43dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="108dp"
-        android:text="TextView"
+        android:fontFamily="@font/bangers"
+        android:text="@string/textview"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33" />
 

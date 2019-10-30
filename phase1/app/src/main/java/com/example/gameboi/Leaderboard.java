@@ -10,8 +10,8 @@ import java.util.ArrayList;
 public class Leaderboard extends AppCompatActivity {
 
     User u1 = new User("sarrah", 2, 0, 0, 0, 40, "idk", 0, 5);
-    User u2 = new User("anjali", 2, 0, 0, 0, 40, "idk", 0, 3);
-    User u3 = new User("jacob", 2, 0, 0, 0, 40, "idk", 1, 1);
+    User u2 = new User("anjali", 2, 0, 0, 0, 40, "idk", 0, 0);
+    User u3 = new User("jacob", 2, 0, 0, 0, 40, "idk", 1, 0);
     User[] order = new User[] {u1, u2, u3};
 
     LeaderBoardBE lb = new LeaderBoardBE();
@@ -33,14 +33,14 @@ public class Leaderboard extends AppCompatActivity {
         ArrayList<User> topScorers = new ArrayList<>();
 
         // creating temporary highscore which will be over ridden by the actual highscore
-        int highscore = 0;
+        int highscore = -1;
 
         // creating temporary highscorer which will be over ridden by the actual highscorer
         User highScorer = new User();
 
         // for loop that determines the user in users list with highest highscore
         for (User item: users){
-            if (item.getHighScore() > highscore) {
+            if (item.getHighScore() >= highscore) {
                 highscore = item.getHighScore();
                 highScorer = item;
             }
@@ -51,12 +51,12 @@ public class Leaderboard extends AppCompatActivity {
         users.remove(highScorer);
 
         // resetting highscore and highScorer to be over ridden
-        highscore = 0;
+        highscore = -1;
         highScorer = new User();
 
         // for loop that determines the user in users list with second highest highscore
         for (User item: users){
-            if (item.getHighScore() > highscore) {
+            if (item.getHighScore() >= highscore) {
                 highscore = item.getHighScore();
                 highScorer = item;
             }
