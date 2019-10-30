@@ -1,0 +1,16 @@
+Background Colour Options:
+CYAN = -16711681
+MAGENTA = -65281
+WHITE = -1
+GREY = -7829368
+
+Icon Option (String options to  be put in User.setIcon()):
+-> userlogo
+-> panda
+-> snake
+-> girl
+
+
+How to set an icon in your activity:
+int resID = getResources().getIdentifier(User.getIcon(),
+                "drawable", getPackageName());
