@@ -34,7 +34,7 @@ public class SimonGame extends AppCompatActivity {
         setContentView(R.layout.activity_simon_game);
         //Setting up the user icon
         ImageView icon = findViewById(R.id.imageView1);
-        int resID = getResources().getIdentifier("weirdguy",
+        int resID = getResources().getIdentifier("userlogo",
                 "drawable", getPackageName()); // this line of code grabs the resID based on user name
         icon.setImageResource(resID);
         //Setting up the background Colour
