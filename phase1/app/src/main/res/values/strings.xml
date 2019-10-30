@@ -1,4 +1,8 @@
 <resources>
+    //Main Activity Strings
+    <string name="newUser">NEW</string>
+    <string name="ChooseUser">Choose a User!</string>
+
     <string name="app_name">GameBoi</string>
     <string name="toMath">Next</string>
     <string name="toSimon">Next</string>
