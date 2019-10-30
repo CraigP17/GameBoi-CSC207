@@ -4,6 +4,7 @@
     <string name="chooseUser">Choose a User!</string>
     <string name="white">White</string>
     <string name="grey">Grey</string>
+    <string name="cyan">Cyan</string>
     <string name="chooseBGColor">Choose a Background Color</string>
     <string name="chooseIcon">Choose an Icon</string>
     <string name="randomName">Random Name</string>
