@@ -7,10 +7,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-
-import java.util.HashMap;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUserBtns() {
-        user1Btn = (Button) findViewById(R.id.user1);
-        user2Btn = (Button) findViewById(R.id.user2);
-        user3Btn = (Button) findViewById(R.id.user3);
+        user1Btn = findViewById(R.id.user1);
+        user2Btn = findViewById(R.id.user2);
+        user3Btn = findViewById(R.id.user3);
     }
 
     private void setBtnNames(){
@@ -50,52 +46,46 @@ public class MainActivity extends AppCompatActivity {
         else {return user.getName();}
     }
 
-    private void toUserSettings(View view) {
+    private void toUserSettings() {
         Intent intent = new Intent(this, UserSetter.class);
         startActivity(intent);
     }
 
-    private void toMathGame(View view) {
+    private void toMathGame() {
         Intent intent = new Intent(this, MathGame.class);
         startActivity(intent);
     }
 
-    private void toSimonGame(View view) {
+    private void toSimonGame() {
         Intent intent = new Intent(this, SimonGame.class);
         startActivity(intent);
     }
 
-    private void toRockPaperScissors(View view){
+    private void toRockPaperScissors(){
         Intent intent = new Intent(this, RockPaperScissors.class);
         startActivity(intent);
     }
 
-    private void sendToLevel(View view, User user) {
-        if (user.getCurrLevel() == 1) { toMathGame(view);}
-        else if (user.getCurrLevel() == 2) { toSimonGame(view);}
-        else if (user.getCurrLevel() == 3) { toRockPaperScissors(view);}
+    private void sendToLevel(User user) {
+        if (user.getCurrLevel() == 1) { toMathGame();}
+        else if (user.getCurrLevel() == 2) { toSimonGame();}
+        else if (user.getCurrLevel() == 3) { toRockPaperScissors();}
+        // Redundant else if statement but it makes it clear what's going on doesn't really impact
+        // performance
     }
 
-    private void sendToNextScreen(View view, User user){
+    private void sendToNextScreen(User user){
         if (hasName(user)) {
-            sendToLevel(view, user);
+            sendToLevel(user);
         }
         else {
-            toUserSettings(view);
+            toUserSettings();
         }
     }
 
-    public void User1Btn(View view) {
-        sendToNextScreen(view, users[0]);
-    }
-
-    public void User2Btn(View view) {
-        sendToNextScreen(view, users[1]);
-    }
-
-    public void User3Btn(View view) {
-        sendToNextScreen(view, users[2]);
-    }
+    public void User1Btn(View view) { sendToNextScreen(users[0]); }
+    public void User2Btn(View view) { sendToNextScreen(users[1]); }
+    public void User3Btn(View view) { sendToNextScreen(users[2]); }
 
     private boolean hasName(User user){
         return user.getName() != null;

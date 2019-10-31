@@ -131,7 +131,7 @@ public class MathGame extends AppCompatActivity {
         //String message = editText.getText().toString();
         //intent.putExtra(EXTRA_MESSAGE, message); //create key value pair
         // Send the user to the second game level
-        intent.putExtra("user", player);
+        intent.putExtra("player", player);
         startActivity(intent); //now intent has key value
         //goes to MathGame.class
     }
