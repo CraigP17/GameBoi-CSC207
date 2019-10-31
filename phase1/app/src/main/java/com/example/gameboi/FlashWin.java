@@ -19,24 +19,38 @@ public class FlashWin extends AppCompatActivity {
         // Store the User to display their stats
         player = getIntent().getParcelableExtra("player");
 
-        TextView gamesPlayed = findViewById(R.id.textView15);
-        String games = getIntent().getIntExtra("gamesWon",3) + " Games";
-        gamesPlayed.setText(games);
-
         TextView numLives = findViewById(R.id.textView17);
         numLives.setText(String.valueOf(player.getLives()));
 
-        TextView lvl2Score = findViewById(R.id.textView11);
+        TextView lvl1Score = findViewById(R.id.textView11);
+        lvl1Score.setText(String.valueOf(player.getLevelOnePoints()));
+
+        TextView lvl2Score = findViewById(R.id.textView31);
         lvl2Score.setText(String.valueOf(player.getFCUserScore()));
+
+        TextView lvl3Score = findViewById(R.id.textView33);
+        lvl3Score.setText(String.valueOf(player.getLevelThreePoints()));
 
         TextView totalPoint = findViewById(R.id.textView13);
         totalPoint.setText(String.valueOf(player.getTotalPoints()));
     }
 
-    public void toNext(View view) {
-        Intent intent = new Intent(this, RockPaperScissors.class);
-        // Send the user to the third game level
-        intent.putExtra("player", player);
-        startActivity(intent); //now intent has key value
+  /**
+   * Take the User to the next level, or to the leader board when they have finish all three levels
+   */
+  public void toNext(View view) {
+        player.incrementCurrLevel();
+        if (player.getCurrLevel() == 1) {
+            Intent intent = new Intent(this, SimonGame.class);
+            intent.putExtra("player", player);
+            startActivity(intent);
+        } else if (player.getCurrLevel() == 2) {
+            Intent intent = new Intent(this, RockPaperScissors.class);
+            intent.putExtra("player", player);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, Leaderboard.class);
+            startActivity(intent);
+        }
     }
 }

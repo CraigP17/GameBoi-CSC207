@@ -1,54 +1,69 @@
 package com.example.gameboi;
 
-import android.graphics.Color;
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.util.ArrayList;
 
 class User implements Parcelable {
     /*This class is responsible for storing the user data for a game.
      * It stores the users username, points, lives and customization preferences*/
 
-    /** The User's name */
+    /**
+     * The User's name
+     */
     private String name;
 
-    /** The User's number of lives */
+    /**
+     * The User's number of lives
+     */
     private int lives;
 
-    /** The User's Level 1: MathGame Points */
+    /**
+     * The User's Level 1: MathGame Points
+     */
     private int levelOnePoints;
 
-    /** The User's Level 2: FlashColor/Simon Points */
+    /**
+     * The User's Level 2: FlashColor/Simon Points
+     */
     private int levelTwoPoints;
 
-    /** The User's Level 3: RockPaperScissors Points */
+    /**
+     * The User's Level 3: RockPaperScissors Points
+     */
     private int levelThreePoints;
 
-    /** The User's background screen colour */
+    /**
+     * The User's background screen colour
+     */
     private int backgroundColor;
 
-    /** The User's chosen avatar icon */
+    /**
+     * The User's chosen avatar icon
+     */
     private String icon; //string icon
 
-    /** The User's current level */
+    /**
+     * The User's current level
+     */
     private int currLevel;
 
-    /** The User's high score after playing GameBoi */
+    /**
+     * The User's high score after playing GameBoi
+     */
     private int highScore;
 
     /**
      * Constructs a new User
      *
-     * @param name the User's name
-     * @param lives the number of lives they have
-     * @param levelOnePoints number of points after completing level 1
-     * @param levelTwoPoints number of points after completing level 2
+     * @param name             the User's name
+     * @param lives            the number of lives they have
+     * @param levelOnePoints   number of points after completing level 1
+     * @param levelTwoPoints   number of points after completing level 2
      * @param levelThreePoints number of points after completing level 3
-     * @param backgroundColor the colour of the background in the games
-     * @param icon the User's selected icon
-     * @param currLevel the User's current level,
-     * @param highScore the User's high score after completing the game
+     * @param backgroundColor  the colour of the background in the games
+     * @param icon             the User's selected icon
+     * @param currLevel        the User's current level,
+     * @param highScore        the User's high score after completing the game
      */
     User(String name, int lives, int levelOnePoints, int levelTwoPoints, int levelThreePoints,
          int backgroundColor, String icon, int currLevel, int highScore) {
@@ -117,7 +132,7 @@ class User implements Parcelable {
      * Packs the User object into a Parcel that can be then sent through an Intent
      *
      * @param parcel the Parcel in which User data is going to be written to
-     * @param i additional information on sending User data
+     * @param i      additional information on sending User data
      */
     @Override
     public void writeToParcel(Parcel parcel, int i) {
@@ -155,17 +170,15 @@ class User implements Parcelable {
     }
 
     /**
+     * Sets the User's customized backgroundColor
+     */
+    void setBackgroundColor( int color) { this.backgroundColor = color; }
+
+    /**
      * @return the User's customized backgroundColor
      */
     int getBackgroundColor() {
         return backgroundColor;
-    }
-
-    /**
-     * Sets the User's customized backgroundColor
-     */
-    void getBackgroundColor(int color) {
-        backgroundColor = color;
     }
 
     /**
@@ -178,8 +191,31 @@ class User implements Parcelable {
     /**
      * Sets the User's name
      */
-    void getName(String name) {
+    void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * Get the number of LevelOne Math Game Points
+     *
+     * @return the User's levelOnePoints
+     */
+    int getLevelOnePoints() {
+        return levelOnePoints;
+    }
+
+
+    int getLevelTwoPoints() {
+        return levelTwoPoints;
+    }
+
+    /**
+     * Set the User's LevelOne Math Game Points
+     *
+     * @param points The number of level 1 points
+     */
+    void setLevelOnePoints(int points) {
+        levelOnePoints = points;
     }
 
     /**
@@ -192,13 +228,6 @@ class User implements Parcelable {
     }
 
     /**
-     * @return the total number of points across all levels
-     */
-    int getTotalPoints() {
-        return levelOnePoints + levelTwoPoints + levelThreePoints;
-    }
-
-    /**
      * Sets the User's levelTwoPoints after playing FlashColors
      *
      * @param score the User's levelTwoPoints
@@ -207,12 +236,38 @@ class User implements Parcelable {
         this.levelTwoPoints = score; // score increases here
     }
 
+    /**
+     * Get the Level Three RPS Points
+     *
+     * @return the User's levelThreePoints
+     */
+    int getLevelThreePoints() {
+        return levelThreePoints;
+    }
+
+    void setLevelThreePoints(int points) {
+        levelThreePoints = points;
+    }
+
+    /**
+     * @return the total number of points across all levels
+     */
+    int getTotalPoints() {
+        return levelOnePoints + levelTwoPoints + levelThreePoints;
+    }
 
     /**
      * @return The User's currLevel
      */
     int getCurrLevel() {
         return currLevel;
+    }
+
+    /**
+     * Increase the User's current level by 1
+     */
+    void incrementCurrLevel() {
+        currLevel++;
     }
 
     /**
@@ -234,14 +289,14 @@ class User implements Parcelable {
     /**
      * @return String value that represents logo file name
      */
-    String getIcon(){
+    String getIcon() {
         return this.icon;
     }
 
     /**
      * @param newIcon The new logo's name
      */
-    void setIcon(String newIcon){
+    void setIcon(String newIcon) {
         this.icon = newIcon;
     }
 }

@@ -1,4 +1,4 @@
-Name, Lives, pLevel1, pLevel2, pLevel3, BGC, icon, currLevel, Highscore
+Name, Lives, Level1, Level2, Level3, BGC, icon, currLevel, Highscore
 sarrah, 2, 10, 20, 30, grey, girl, 2, 1
 abc, 3, 1, 2, 4, black, girl, 3, 2
 null, 0, 0, 0, 0, 0, null, 0, 0

@@ -3,23 +3,17 @@ package com.example.gameboi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Leaderboard extends AppCompatActivity {
 
-    User u1 = new User("sarrah", 2, 0, 0, 0, 40, "idk", 0, 5);
-    User u2 = new User("anjali", 2, 0, 0, 0, 40, "idk", 0, 0);
-    User u3 = new User("jacob", 2, 0, 0, 0, 40, "idk", 1, 0);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
-        String winner = u1.getName() + u1.getHighScore();
-        FileManager file = new FileManager();
+        FileManager file = new FileManager(this);
         ArrayList<User> users = file.getUsers();
 
 
@@ -62,17 +56,26 @@ public class Leaderboard extends AppCompatActivity {
 
         // Adding remaining user to topscorers list
         topScorers.add(users.get(0));
-        System.out.println(topScorers);
+
+        System.out.println(topScorers.get(0).getName());
+        System.out.println(topScorers.get(1).getName());
+        System.out.println(topScorers.get(2).getName());
 
         // Displaying topscorers in order in the textviews on leaderboard display
         TextView first = findViewById(R.id.textView31);
-        first.setText(topScorers.get(0).getName() + "     " + String.valueOf(topScorers.get(0).getHighScore()));
+        first.setText(topScorers.get(0).getName());
+        TextView firstscore = findViewById(R.id.textView24);
+        firstscore.setText(String.valueOf(topScorers.get(0).getHighScore()));
 
         TextView second = findViewById(R.id.textView33);
-        second.setText(topScorers.get(1).getName() + "     " + String.valueOf(topScorers.get(1).getHighScore()));
+        second.setText((topScorers.get(1).getName()));
+        TextView secondscore = findViewById(R.id.textView25);
+        secondscore.setText(String.valueOf(topScorers.get(1).getHighScore()));
 
         TextView third = findViewById(R.id.textView34);
-        third.setText(topScorers.get(2).getName() + "     " + String.valueOf(topScorers.get(2).getHighScore()));
+        third.setText(topScorers.get(2).getName());
+        TextView thirdscore = findViewById(R.id.textView28);
+        thirdscore.setText(String.valueOf(topScorers.get(2).getHighScore()));
     }
 
 
