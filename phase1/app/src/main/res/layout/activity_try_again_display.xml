@@ -40,13 +40,13 @@
         android:layout_height="47dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="152dp"
-        android:layout_marginEnd="66dp"
+        android:layout_marginEnd="41dp"
         android:layout_marginBottom="119dp"
         android:fontFamily="@font/luckiest_guy"
         android:text="@string/yourchoice"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView27"
-        app:layout_constraintEnd_toStartOf="@+id/textView28"
+        app:layout_constraintEnd_toStartOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,46 +56,36 @@
         android:layout_height="48dp"
         android:layout_marginStart="51dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="64dp"
         android:layout_marginBottom="107dp"
         android:fontFamily="@font/luckiest_guy"
         android:text="@string/computerchoice"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toStartOf="@+id/textView29"
+        app:layout_constraintEnd_toStartOf="@+id/imageView7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="117dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="119dp"
-        android:fontFamily="@font/luckiest_guy"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView29"
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="151dp"
+        android:layout_height="146dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="35dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView26"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.242" />
+        app:srcCompat="@drawable/panda" />
 
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="108dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="54dp"
-        android:layout_marginBottom="92dp"
-        android:fontFamily="@font/luckiest_guy"
-        android:text="TextView"
-        android:textSize="24sp"
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="150dp"
+        android:layout_height="134dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView27"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:srcCompat="@drawable/panda" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

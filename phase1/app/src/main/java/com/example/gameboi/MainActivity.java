@@ -67,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendToLevel(User user) {
-        if (user.getCurrLevel() == 0) { toMathGame();}
-        else if (user.getCurrLevel() == 1) { toSimonGame();}
-        else if (user.getCurrLevel() == 2) { toRockPaperScissors();}
+        if (user.getCurrLevel() == 1) { toMathGame();}
+        else if (user.getCurrLevel() == 2) { toSimonGame();}
+        else if (user.getCurrLevel() == 3) { toRockPaperScissors();}
         // Redundant else if statement but it makes it clear what's going on doesn't really impact
         // performance
     }

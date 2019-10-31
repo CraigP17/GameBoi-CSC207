@@ -34,55 +34,23 @@
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699"
+        app:layout_constraintVertical_bias="0.732"
         tools:text="@string/you_won" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="123dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginBottom="85dp"
-        android:fontFamily="@font/luckiest_guy"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="117dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="100dp"
-        android:fontFamily="@font/luckiest_guy"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="61dp"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="152dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="41dp"
         android:layout_marginBottom="100dp"
         android:fontFamily="@font/luckiest_guy"
         android:text="@string/yourchoice"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView15"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,16 +58,39 @@
         android:id="@+id/textView15"
         android:layout_width="147dp"
         android:layout_height="31dp"
-        android:layout_marginStart="59dp"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="45dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="42dp"
         android:layout_marginBottom="112dp"
         android:fontFamily="@font/luckiest_guy"
         android:text="@string/computerchoice"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/textView13"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="127dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="66dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:srcCompat="@drawable/panda" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="131dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="98dp"
+        android:layout_marginEnd="38dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/panda" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -72,13 +72,19 @@ public class Leaderboard extends AppCompatActivity {
 
         // Displaying topscorers in order in the textviews on leaderboard display
         TextView first = findViewById(R.id.textView31);
-        first.setText(topScorers.get(0).getName() + "     " + String.valueOf(topScorers.get(0).getHighScore()));
+        first.setText(topScorers.get(0).getName());
+        TextView firstscore = findViewById(R.id.textView24);
+        firstscore.setText(String.valueOf(topScorers.get(0).getHighScore()));
 
         TextView second = findViewById(R.id.textView33);
-        second.setText(topScorers.get(1).getName() + "     " + String.valueOf(topScorers.get(1).getHighScore()));
+        second.setText(topScorers.get(1).getName());
+        TextView secondscore = findViewById(R.id.textView25);
+        secondscore.setText(String.valueOf(topScorers.get(1).getHighScore()));
 
         TextView third = findViewById(R.id.textView34);
-        third.setText(topScorers.get(2).getName() + "     " + String.valueOf(topScorers.get(2).getHighScore()));
+        third.setText(topScorers.get(2).getName());
+        TextView thirdscore = findViewById(R.id.textView28);
+        thirdscore.setText(String.valueOf(topScorers.get(2).getHighScore()));
     }
 
 
