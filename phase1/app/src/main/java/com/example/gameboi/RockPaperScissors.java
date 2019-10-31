@@ -41,12 +41,17 @@ public class RockPaperScissors extends AppCompatActivity {
         Root.setBackgroundColor(Color.LTGRAY); //set background color
     }
 
-    public void RpSGamePlayed(String playerValue) {
+    private HashMap buildMap() {
         HashMap<String, String> winnersRpS = new HashMap<>();
         winnersRpS.put("Rock", "Scissors");
         winnersRpS.put("Scissors", "Paper");
         winnersRpS.put("Paper", "Rock");
+        return winnersRpS;
+    }
 
+    public void RpSGamePlayed(String playerValue) {
+        HashMap<String, String> winnersRpS = buildMap();
+        
         Random rand = new Random();
         //if this button is for rock
         String computerchoice = arr[rand.nextInt(arr.length)];

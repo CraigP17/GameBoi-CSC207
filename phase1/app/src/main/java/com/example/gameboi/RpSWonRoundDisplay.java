@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 
@@ -23,18 +24,29 @@ public class RpSWonRoundDisplay extends AppCompatActivity {
         String userChoiceDisplay = intent.getStringExtra("userchoice");
         String cChoiceDisplay = intent.getStringExtra("computerchoice");
 
-        TextView uChoice = findViewById(R.id.textView11);
-        TextView cChoice = findViewById(R.id.textView13);
-        System.out.println(userChoiceDisplay);
-        uChoice.setText(userChoiceDisplay);
-        System.out.println(cChoiceDisplay);
-        cChoice.setText(cChoiceDisplay);
-//        String message = intent.getStringExtra(RockPaperScissors.EXTRA_MESSAGE);
+        ImageView uChoice = findViewById(R.id.imageView4);
+        ImageView panda = findViewById(R.id.imageView3);
 
-//        String message = "You won this round!";
-//        // Capture the layout's TextView and set the string as its text
-//        TextView textView = findViewById(R.id.textView);
-//        textView.setText(message);
+        if (cChoiceDisplay.equals("Rock")) {
+            panda.setImageResource(R.drawable.rock);
+        }
+        if (cChoiceDisplay.equals("Paper")) {
+            panda.setImageResource(R.drawable.paper);
+        }
+        if (cChoiceDisplay.equals("Scissors")) {
+            panda.setImageResource(R.drawable.scissors);
+        }
+
+
+        if (userChoiceDisplay.equals("Rock")) {
+            uChoice.setImageResource(R.drawable.rock);
+        }
+        if (userChoiceDisplay.equals("Paper")) {
+            uChoice.setImageResource(R.drawable.paper);
+        }
+        if (userChoiceDisplay.equals("Scissors")) {
+            uChoice.setImageResource(R.drawable.scissors);
+        }
     }
 
     public void continueGame(View view) {
