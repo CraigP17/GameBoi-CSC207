@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import java.util.Random;
 /*
 The MathGame class.
 
@@ -14,39 +13,28 @@ Asks the user a series of questions arithmetic questions.
  */
 public class MathGame extends AppCompatActivity {
 
-    // int representation of user's response.
-    private int response = 0;
     //The response displayed for the user in a TextView.
     private TextView responseView;
     //Displays the Current math question.
     private TextView equationDisplay;
     //Displays the number of questions the user has answered correctly.
     private TextView mathGameScore;
-    //int representation of the user's answer.
-    private int answer = 0;
-    // The number of rounds played. Game ends when either 10 rounds have been played or the player
-    // loses 3 times
-    private int numRounds = 0;
-    //The number of questions the player got wrong
-    private int numLosses = 0;
-    //int representation of the number of questions the user has answered correctly.
-    private int score = 0;
+    //
+    private MathGameManager mgm;
     User player;
-    Random rand = new Random();
 
-    private void updateResponse(int num) {response = response * 10 + num;}
 
-    private void updateResponseView() {responseView.setText(String.valueOf(response));}
+    private void updateResponseView() {responseView.setText(String.valueOf(mgm.getResponse()));}
 
     private void isGameOver(){
-        if (numLosses > 2) {
-            player.setLevelOnePoints(score);
+        if (mgm.getNumLosses() > 2) {
+            player.setLevelOnePoints(mgm.getScore());
             Intent intent = new Intent(this, FlashLoss.class);
             intent.putExtra("player", player);
             startActivity(intent);
         }
-        else if (numRounds > 9){
-            player.setLevelOnePoints(score);
+        else if (mgm.getNumRounds() > 9){
+            player.setLevelOnePoints(mgm.getScore());
             Intent intent = new Intent(this, FlashWin.class);
             intent.putExtra("player", player);
             startActivity(intent);
@@ -54,38 +42,16 @@ public class MathGame extends AppCompatActivity {
     }
 
     //Generates an arithmetic question for the player
-    private void generateEquation() {
-        String[] operators = {" + ", " - ", " // ", " * "};
-        int num1 = rand.nextInt(25) + 1;
-        int num2 = rand.nextInt(10) + 1;
-
-        //Randomly selects whether its an addition, subtraction, multiplication or division question
-        int op = rand.nextInt(4);
-
-        //Checks for which operation was selected from operators
-        if (op == 0) {answer = num1 + num2;}
-        else if (op == 1) {
-            //In the case of subtraction, does not allow for the answer to be a negative number
-            if (num1 < num2){
-                int temp = num1;
-                num1 = num2;
-                num2 = temp;
-            }
-            answer = num1 - num2;
-        }
-        else if (op == 2) {answer = num1 / num2;}
-        else {answer = num1 * num2;}
-
-        //Displays the equation for the user
-        String equation = num1 + operators[op] + num2;
-        equationDisplay.setText(equation);
+    private void setEquation() {
+        mgm.newEquation();
+        equationDisplay.setText(mgm.getEquation());
     }
 
     // Method takes the number of the button pressed and updates the response and responseView
     // The player response cannot exceed 1000000
     private void clickNumButton(int num) {
-        if (response < 100000) {
-            updateResponse(num);
+        if (mgm.getResponse() < 100000) {
+            mgm.updateResponse(num);
             updateResponseView();
         }
     }
@@ -111,21 +77,20 @@ public class MathGame extends AppCompatActivity {
 
     //Resets response to Zero and updates the responseView
     public void pressClear(View view) {
-        response = 0;
+        mgm.setResponse(0);
         updateResponseView();
     }
 
     // Checks if the response is correct and adds 1 to score if it is. Updates score, resets
     // response and generates a new equation for the player
     public void pressEnter(View view) {
-        numRounds += 1;
-        if (answer == response) {score += 1;}
-        else { numLosses += 1; }
+        mgm.incrementNumRounds();
+        mgm.checkAnswer();
         isGameOver();
-        String currScore = "SCORE: " + score;
+        String currScore = "SCORE: " + mgm.getScore();
         mathGameScore.setText(currScore);
-        generateEquation();
-        response = 0;
+        setEquation();
+        mgm.setResponse(0);
         updateResponseView();
     }
 
@@ -146,12 +111,13 @@ public class MathGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_game);
         player = getIntent().getParcelableExtra("player");
+        mgm = new MathGameManager();
         setupMathGameUI();
         ImageView icon = findViewById(R.id.avatarIcon);
         int resID = getResources().getIdentifier(player.getIcon(),
                 "drawable", getPackageName()); // this line of code grabs the resID based on user name
         icon.setImageResource(resID);
         getWindow().getDecorView().setBackgroundColor(player.getBackgroundColor());
-        generateEquation();
+        setEquation();
     }
 }
