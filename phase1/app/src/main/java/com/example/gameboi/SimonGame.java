@@ -30,7 +30,6 @@ public class SimonGame extends AppCompatActivity {
     private int incorrect = 0;
     private int flashLevels = 0;
     private TextView scoreBoard;
-    private Button but;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +57,7 @@ public class SimonGame extends AppCompatActivity {
     public void toNext(View view) {
         //says to switch from this activity to the next one
         Intent intent = new Intent(this, RockPaperScissors.class);
+        intent.putExtra("player", player);
         startActivity(intent); //now intent has key value
         //goes to MathGame.class
     }
@@ -90,7 +90,7 @@ public class SimonGame extends AppCompatActivity {
         else{
             pattern = flash.getCorrectPattern();
         }
-        but = findViewById(R.id.button8);
+        Button but = findViewById(R.id.button8);
         but.setText("");
 
         ObjectAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor",
@@ -108,6 +108,7 @@ public class SimonGame extends AppCompatActivity {
      */
     public void SubmitButton(View view){
         CharSequence message = "START";
+        Button but = findViewById(R.id.button8);
         but.setText(message);
         flash.setSubmitted(true); //changes the submit value to true so that new pattern can be made
 
