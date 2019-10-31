@@ -12,7 +12,10 @@ import java.util.HashMap;
 
 public class UserSetter extends AppCompatActivity{
 
+    private String name;
+    private String icon;
     private Color BackgroundColor;
+    private int numLives;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

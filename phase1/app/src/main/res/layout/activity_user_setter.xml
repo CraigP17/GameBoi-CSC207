@@ -15,12 +15,12 @@
         android:ems="10"
         android:hint="@string/chooseUser"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/button22"
+        app:layout_constraintEnd_toStartOf="@+id/checkNameBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/checkNameBtn"
         android:layout_width="75dp"
         android:layout_height="43dp"
         android:layout_marginStart="9dp"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button23"
+        android:id="@+id/randomNameBtn"
         android:layout_width="212dp"
         android:layout_height="49dp"
         android:layout_marginStart="57dp"
@@ -55,7 +55,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button23" />
+        app:layout_constraintTop_toBottomOf="@+id/randomNameBtn" />
 
     <Button
         android:id="@+id/button24"
@@ -64,7 +64,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="41dp"
-        android:text="Button"
+        android:text="@string/icon1"
         app:layout_constraintEnd_toStartOf="@+id/button25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
         android:layout_marginTop="15dp"
-        android:text="Button"
+        android:text="@string/icon2"
         app:layout_constraintStart_toEndOf="@+id/button24"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
@@ -86,7 +86,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="33dp"
-        android:text="Button"
+        android:text="@string/icon3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button25"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
@@ -107,17 +107,17 @@
         app:layout_constraintTop_toBottomOf="@+id/button25" />
 
     <Button
-        android:id="@+id/button27"
+        android:id="@+id/greyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="15dp"
         android:text="@string/grey"
-        app:layout_constraintStart_toEndOf="@+id/button28"
+        app:layout_constraintStart_toEndOf="@+id/whiteBtn"
         app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
     <Button
-        android:id="@+id/button29"
+        android:id="@+id/cyanBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
@@ -125,18 +125,18 @@
         android:layout_marginEnd="32dp"
         android:text="@string/cyan"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button27"
+        app:layout_constraintStart_toEndOf="@+id/greyBtn"
         app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
     <Button
-        android:id="@+id/button28"
+        android:id="@+id/whiteBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="41dp"
         android:text="@string/white"
-        app:layout_constraintEnd_toStartOf="@+id/button27"
+        app:layout_constraintEnd_toStartOf="@+id/greyBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
@@ -153,32 +153,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button27" />
+        app:layout_constraintTop_toBottomOf="@+id/greyBtn" />
 
     <Button
-        android:id="@+id/button30"
+        android:id="@+id/numLivesBtn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="15dp"
         android:text="@string/two"
-        app:layout_constraintStart_toEndOf="@+id/button31"
+        app:layout_constraintStart_toEndOf="@+id/numLivesBtn1"
         app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
     <Button
-        android:id="@+id/button31"
+        android:id="@+id/numLivesBtn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="41dp"
         android:text="@string/one"
-        app:layout_constraintEnd_toStartOf="@+id/button30"
+        app:layout_constraintEnd_toStartOf="@+id/numLivesBtn2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
     <Button
-        android:id="@+id/button32"
+        android:id="@+id/numLivesBtn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
@@ -186,11 +186,11 @@
         android:layout_marginEnd="32dp"
         android:text="@string/three"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button30"
+        app:layout_constraintStart_toEndOf="@+id/numLivesBtn2"
         app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
     <Button
-        android:id="@+id/button33"
+        android:id="@+id/settingSubmitBtn"
         android:layout_width="347dp"
         android:layout_height="76dp"
         android:layout_marginStart="32dp"
@@ -199,5 +199,5 @@
         android:text="@string/submit_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button30" />
+        app:layout_constraintTop_toBottomOf="@+id/numLivesBtn2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,9 @@
     <string name="checkMark">✔</string>
     <string name="userName">User Name</string>
     <string name="chooseNumLives">Choose Number of Lives</string>
+    <string name="icon1">Boy</string>
+    <string name="icon2">Girl</string>
+    <string name="icon3">Snake</string>
 
 
     <string name="app_name">GameBoi</string>
