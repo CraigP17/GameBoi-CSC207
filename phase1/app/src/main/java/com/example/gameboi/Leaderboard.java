@@ -56,10 +56,7 @@ public class Leaderboard extends AppCompatActivity {
 
         // Adding remaining user to topscorers list
         topScorers.add(users.get(0));
-
-        System.out.println(topScorers.get(0).getName());
-        System.out.println(topScorers.get(1).getName());
-        System.out.println(topScorers.get(2).getName());
+        System.out.println(topScorers);
 
         // Displaying topscorers in order in the textviews on leaderboard display
         TextView first = findViewById(R.id.textView31);
