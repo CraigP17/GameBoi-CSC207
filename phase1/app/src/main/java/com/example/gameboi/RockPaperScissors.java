@@ -100,16 +100,12 @@ public class RockPaperScissors extends AppCompatActivity {
             if (player.getLives() == 1) {
                 // go to 'you lost the game' screen
                 Intent intent = new Intent(this, FlashLoss.class);
-                intent.putExtra("userchoice", userchoice);
-                intent.putExtra("computerchoice", compchoice);
                 intent.putExtra("player", player);
                 player.setLevelThreePoints(winsRpS);
                 startActivity(intent);
             } else {
                 // go to 'you won the game' screen
                 Intent intent = new Intent(this, FlashWin.class);
-                intent.putExtra("userchoice", userchoice);
-                intent.putExtra("computerchoice", compchoice);
                 intent.putExtra("player", player);
                 player.setLevelThreePoints(winsRpS);
                 startActivity(intent);
@@ -118,8 +114,6 @@ public class RockPaperScissors extends AppCompatActivity {
             System.out.println("wins");
                 // go to you won the game screen
                 Intent intent = new Intent(this, FlashWin.class);
-                intent.putExtra("userchoice", userchoice);
-                intent.putExtra("computerchoice", compchoice);
                 intent.putExtra("player", player);
                 player.setLevelThreePoints(winsRpS);
                 startActivity(intent);

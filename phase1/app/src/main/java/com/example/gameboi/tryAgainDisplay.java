@@ -21,6 +21,10 @@ public class tryAgainDisplay extends AppCompatActivity {
         String userChoiceDisplay = intent.getStringExtra("userchoice");
         String cChoiceDisplay = intent.getStringExtra("computerchoice");
         player = getIntent().getParcelableExtra("player");
+        //Setting up the background Colour
+        View colour = findViewById(R.id.textView6); //finds random view
+        View Root = colour.getRootView(); //finds the root view
+        Root.setBackgroundColor(player.getBackgroundColor()); //set background color
 
         ImageView uChoice = findViewById(R.id.imageView6);
         ImageView cChoice = findViewById(R.id.imageView7);
