@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class SimonGame extends AppCompatActivity {
 
     ArrayList<Integer> userGuess = new ArrayList<>();
-    User user = new User("moogah", 1, 0, 0 ,0, Color.WHITE, "fds", 0, 0);
+    User user = new User("moogah", 1, 10, 0, 0, Color.WHITE, "fds", 0, 0);
     FlashColors flash = new FlashColors(user);
     private int incorrect = 0;
     private int flashLevels = 0;
@@ -71,14 +71,13 @@ public class SimonGame extends AppCompatActivity {
     }
 
     /*This method is called when the flashing square is pressed. It will generate
-    * a random color sequence and keep the sequence in memory until submitted*/
-    public void Flash(View view){
+     * a random color sequence and keep the sequence in memory until submitted*/
+    public void Flash(View view) {
         ArrayList<Integer> pattern;
-        if(flash.isSubmitted()){
+        if (flash.isSubmitted()) {
             flash.setSubmitted(false);
             pattern = flash.generatePattern();
-        }
-        else{
+        } else {
             pattern = flash.getCorrectPattern();
         }
         Button but = findViewById(R.id.button8);
@@ -97,7 +96,7 @@ public class SimonGame extends AppCompatActivity {
      * lose the game, lose a life, and are directed to the FlashLoss page. For each answer, a Toast
      * will pop up letting them if they got their answer correct
      */
-    public void SubmitButton(View view){
+    public void SubmitButton(View view) {
         Button but = findViewById(R.id.button8);
         TextView scoreBoard = findViewById(R.id.textView10);
         CharSequence message = "START";
@@ -130,8 +129,6 @@ public class SimonGame extends AppCompatActivity {
             // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
             Intent intent = new Intent(this, FlashWin.class);
             intent.putExtra("player", user);
-            int finalScores = flashLevels - incorrect;
-            intent.putExtra("gamesWon", finalScores);
             startActivity(intent);
         } else if (!flash.isCorrect(userGuess) & incorrect == 0) {
             Toast.makeText(context, failure, length).show();

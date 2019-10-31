@@ -38,7 +38,9 @@
     <string name="flashWin1">Congrats! You can move onto the next level</string>
     <string name="flashGames">You have won:</string>
     <string name="flashLives">Lives Left:</string>
+    <string name="mathScore">Level 1 Score:</string>
     <string name="flashLvlScore">Level 2 Score:</string>
+    <string name="RPSScore">Level 3 Score:</string>
     <string name="flashTotal">Total Score:</string>
     <string name="flashWin2">Select \"Next\" to move onto Level 3</string>
     <string name="exitFlash">EXIT</string>
