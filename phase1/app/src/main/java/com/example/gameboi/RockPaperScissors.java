@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -29,16 +30,28 @@ public class RockPaperScissors extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors);
+        ImageView icon = findViewById(R.id.imageView);
+        icon.setImageResource(R.drawable.userlogo);
         TextView scoreboardRpS = findViewById(R.id.textView12);
         scoreboardRpS.setText(String.valueOf(winsRpS));
+
+        //Setting up the background Colour
+        View colour = findViewById(R.id.textView3); //finds random view
+        View Root = colour.getRootView(); //finds the root view
+        Root.setBackgroundColor(Color.LTGRAY); //set background color
     }
 
-    public void RpSGamePlayed(String playerValue) {
+    private HashMap buildMap() {
         HashMap<String, String> winnersRpS = new HashMap<>();
         winnersRpS.put("Rock", "Scissors");
         winnersRpS.put("Scissors", "Paper");
         winnersRpS.put("Paper", "Rock");
+        return winnersRpS;
+    }
 
+    public void RpSGamePlayed(String playerValue) {
+        HashMap<String, String> winnersRpS = buildMap();
+        
         Random rand = new Random();
         //if this button is for rock
         String computerchoice = arr[rand.nextInt(arr.length)];

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class tryAgainDisplay extends AppCompatActivity {
@@ -18,12 +19,29 @@ public class tryAgainDisplay extends AppCompatActivity {
         String userChoiceDisplay = intent.getStringExtra("userchoice");
         String cChoiceDisplay = intent.getStringExtra("computerchoice");
 
-        TextView uChoice = findViewById(R.id.textView28);
-        TextView cChoice = findViewById(R.id.textView29);
-//        System.out.println(userChoiceDisplay);
-        uChoice.setText(userChoiceDisplay);
-//        System.out.println(cChoiceDisplay);
-        cChoice.setText(cChoiceDisplay);
+        ImageView uChoice = findViewById(R.id.imageView6);
+        ImageView cChoice = findViewById(R.id.imageView7);
+
+        if (cChoiceDisplay.equals("Rock")) {
+            cChoice.setImageResource(R.drawable.rock);
+        }
+        if (cChoiceDisplay.equals("Paper")) {
+            cChoice.setImageResource(R.drawable.paper);
+        }
+        if (cChoiceDisplay.equals("Scissors")) {
+            cChoice.setImageResource(R.drawable.scissors);
+        }
+
+
+        if (userChoiceDisplay.equals("Rock")) {
+            uChoice.setImageResource(R.drawable.rock);
+        }
+        if (userChoiceDisplay.equals("Paper")) {
+            uChoice.setImageResource(R.drawable.paper);
+        }
+        if (userChoiceDisplay.equals("Scissors")) {
+            uChoice.setImageResource(R.drawable.scissors);
+        }
     }
 
     public void continueGame(View view) {

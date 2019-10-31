@@ -137,8 +137,6 @@ public class SimonGame extends AppCompatActivity {
             // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
             Intent intent = new Intent(this, FlashWin.class);
             intent.putExtra("player", player);
-            int finalScores = flashLevels - incorrect;
-            intent.putExtra("gamesWon", finalScores);
             startActivity(intent);
         } else if (!flash.isCorrect(userGuess) & incorrect == 0) {
             Toast.makeText(context, failure, length).show();
@@ -147,5 +145,4 @@ public class SimonGame extends AppCompatActivity {
         // Clears the User guess to prepare for next pattern guess
         userGuess.clear();
     }
-
 }

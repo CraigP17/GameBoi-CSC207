@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUserBtns() {
-        user1Btn = (Button) findViewById(R.id.user1);
-        user2Btn = (Button) findViewById(R.id.user2);
-        user3Btn = (Button) findViewById(R.id.user3);
+        user1Btn = findViewById(R.id.user1);
+        user2Btn = findViewById(R.id.user2);
+        user3Btn = findViewById(R.id.user3);
     }
 
     private void setBtnNames(){
@@ -56,55 +56,55 @@ public class MainActivity extends AppCompatActivity {
         else {return user.getName();}
     }
 
-    private void toUserSettings(View view, User user) {
+    private void toUserSettings(User user) {
         Intent intent = new Intent(this, UserSetter.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
 
-    private void toMathGame(View view, User user) {
+    private void toMathGame(User user) {
         Intent intent = new Intent(this, MathGame.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
 
-    private void toSimonGame(View view, User user) {
+    private void toSimonGame(User user) {
         Intent intent = new Intent(this, SimonGame.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
 
-    private void toRockPaperScissors(View view, User user){
+    private void toRockPaperScissors(User user){
         Intent intent = new Intent(this, RockPaperScissors.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
 
-    private void sendToLevel(View view, User user) {
-        if (user.getCurrLevel() == 0) { toMathGame(view,user);}
-        else if (user.getCurrLevel() == 1) { toSimonGame(view,user);}
-        else if (user.getCurrLevel() == 2) { toRockPaperScissors(view,user);}
+    private void sendToLevel(User user) {
+        if (user.getCurrLevel() == 0) { toMathGame(user);}
+        else if (user.getCurrLevel() == 1) { toSimonGame(user);}
+        else if (user.getCurrLevel() == 2) { toRockPaperScissors(user);}
     }
 
-    private void sendToNextScreen(View view, User user){
+    private void sendToNextScreen(User user){
         if (hasName(user)) {
-            sendToLevel(view, user);
+            sendToLevel(user);
         }
         else {
-            toUserSettings(view, user);
+            toUserSettings(user);
         }
     }
 
     public void User1Btn(View view) {
-        sendToNextScreen(view, users.get(0));
+        sendToNextScreen(users.get(0));
     }
 
     public void User2Btn(View view) {
-        sendToNextScreen(view, users.get(1));
+        sendToNextScreen(users.get(1));
     }
 
     public void User3Btn(View view) {
-        sendToNextScreen(view, users.get(2));
+        sendToNextScreen(users.get(2));
     }
 
     private boolean hasName(User user){
