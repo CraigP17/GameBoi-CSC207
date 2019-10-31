@@ -49,7 +49,8 @@ public class SimonGame extends AppCompatActivity {
         Root.setBackgroundColor(player.getBackgroundColor()); //set background color
 //      Here is the code needed to set the score up at startup:
         scoreBoard = findViewById(R.id.textView10);
-        scoreBoard.setText("0"); //DOES SCORE START AT 0 always?
+        int prevscore = player.getLevelOnePoints();
+        scoreBoard.setText(String.valueOf(prevscore)); //DOES SCORE START AT 0 always?
 
 
     }
