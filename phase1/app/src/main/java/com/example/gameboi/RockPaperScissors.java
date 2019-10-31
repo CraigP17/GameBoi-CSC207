@@ -38,7 +38,7 @@ public class RockPaperScissors extends AppCompatActivity {
         icon.setImageResource(resID);
 
         TextView scoreboardRpS = findViewById(R.id.textView12);
-        scoreboardRpS.setText(String.valueOf(winsRpS + player.getLevelOnePoints() + player.getLevelTwoPoints()));
+        scoreboardRpS.setText(String.valueOf(winsRpS + player.getTotalPoints()));
 
         //Setting up the background Colour
         View colour = findViewById(R.id.textView3); //finds random view
