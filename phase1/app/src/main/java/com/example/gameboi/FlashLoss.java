@@ -60,6 +60,9 @@ public class FlashLoss extends AppCompatActivity {
                 startActivity(intent);
             }
         } else {
+            if (player.getTotalPoints() > player.getHighScore()) {
+                player.setHighScore(player.getTotalPoints());
+            }
             Intent intent = new Intent(this, Leaderboard.class);
             startActivity(intent);
         }

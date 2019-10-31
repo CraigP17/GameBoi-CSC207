@@ -4,6 +4,7 @@ package com.example.gameboi;
 import android.util.Log;
 import android.content.Context;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -20,7 +21,7 @@ class FileManager{
     private static final String TAG = "Main Activity";
 
     /** The example file to write and read. */
-    private static final String EXAMPLE_FILE = "gameboi.txt";
+    private String EXAMPLE_FILE = "gameboi.txt";
 
     FileManager(Context activity){
         this.activity = activity;
@@ -43,9 +44,9 @@ class FileManager{
         }
 
         //sends info to the text file
-        out.println("Jacob,3,0,0,0,-7829368,snake,0,0");
-        out.println("Sam,2,5,0,0,-65281,panda,1,5");
-        out.println(",5,0,0,0,-1,,0,0");
+        out.println(",0,0,0,0,0,,0,0");
+        out.println(",0,0,0,0,0,,0,0");
+        out.println(",0,0,0,0,0,,0,0");
         out.close();
     }
 
@@ -108,8 +109,58 @@ class FileManager{
                         temp[6], Integer.parseInt(temp[7]), Integer.parseInt(temp[8]));
                 userList.add(user);
             }
-
+            System.out.print("REACHED END");
             return userList;
+        }
+    }
+
+    void save(User user) {
+        PrintWriter out = null;
+        //load output stream to example file
+        try {
+            OutputStream outStream = activity.openFileOutput(EXAMPLE_FILE, Context.MODE_PRIVATE);
+            //create new print writer to send full strings not bytes
+            out = new PrintWriter(outStream);
+
+            ArrayList<User> players = this.getUsers();
+            for (User u: players) {
+                if (user.getName().equals(u.getName())) {
+                    out.println(user);
+                } else {
+                    out.println(u);
+                }
+            }
+            out.close();
+        } catch (FileNotFoundException e) {
+            Log.e(TAG, "Error encountered trying to open file for writing: " + EXAMPLE_FILE);
+        }
+
+    }
+
+    void saveNewUser(User user) {
+        PrintWriter out = null;
+        //load output stream to example file
+        System.out.print("REACHED FUNCTION");
+        try {
+            OutputStream outStream = activity.openFileOutput(EXAMPLE_FILE, Context.MODE_PRIVATE);
+            //create new print writer to send full strings not bytes
+            out = new PrintWriter(outStream);
+            System.out.print("REACHED FUNCTION");
+            ArrayList<User> players = getUsers();
+            int changed = 0;
+            for (User u: players) {
+                if (u.getName() == null & changed == 0) {
+                    out.println(user);
+                    changed++;
+                    System.out.print("FOUND NEW");
+                } else {
+                    out.println(u);
+                }
+            }
+            out.close();
+            System.out.print("CHANGED FILE");
+        } catch (FileNotFoundException e) {
+            Log.e(TAG, "Error encountered trying to open file for writing: " + EXAMPLE_FILE);
         }
     }
 
