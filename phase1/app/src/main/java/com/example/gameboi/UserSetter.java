@@ -2,6 +2,7 @@ package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -128,6 +129,8 @@ public class UserSetter extends AppCompatActivity{
             player.setIcon(icon);
             player.setLives(numLives);
             player.setBackgroundColor(backgroundColor);
+            FileManager fm = new FileManager(this);
+            fm.saveNewUser(player);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             //Want to save changes made to this user...

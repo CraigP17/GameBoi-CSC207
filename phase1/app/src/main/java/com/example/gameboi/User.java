@@ -147,6 +147,11 @@ class User implements Parcelable {
         parcel.writeInt(highScore);
     }
 
+    @Override
+    public String toString() {
+        return name + "," + lives + "," + levelOnePoints + "," + levelTwoPoints + "," + levelThreePoints +
+                "," + backgroundColor + "," + icon + "," + currLevel + "," + highScore;
+    }
 
     /**
      * Substracts a life from the number of lives the User has, after they lose a level
