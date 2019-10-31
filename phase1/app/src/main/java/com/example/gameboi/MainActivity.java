@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String btnName(User user){
-        if (user.getName() == null) {return "New";}
+        if (user.getName() == null | user.getName().equals("null")) {return "New";}
         else {return user.getName();}
     }
 
