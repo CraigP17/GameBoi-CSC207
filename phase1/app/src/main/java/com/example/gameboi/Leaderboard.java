@@ -20,14 +20,8 @@ public class Leaderboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
-        String winner = u1.getName() + u1.getHighScore();
-//        FileManager file = new FileManager();
-//        ArrayList<E> users = file.read();
-
-        ArrayList<User> users = new ArrayList<User>(3);
-        users.add(u1);
-        users.add(u2);
-        users.add(u3);
+        FileManager file = new FileManager(this);
+        ArrayList<User> users = file.getUsers();
 
         // Creating a empty array list that will store all users from highest highscore to lowest
         ArrayList<User> topScorers = new ArrayList<>();
