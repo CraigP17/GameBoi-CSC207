@@ -14,6 +14,7 @@ import static android.graphics.Color.*;
 
 public class UserSetter extends AppCompatActivity{
 
+    private User player;
     private String name;
     private String icon;
     private int backgroundColor;
@@ -33,19 +34,24 @@ public class UserSetter extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_setter);
+        player = getIntent().getParcelableExtra("player");
+        setupUI();
+    }
+
+    private void setupUI() {
         nameInputField = findViewById(R.id.userName);
         boyBtn = findViewById(R.id.boyBtn);
         girlBtn = findViewById(R.id.girlBtn);
         snakeBtn = findViewById(R.id.snakeBtn);
-        setIconBtnClr(LTGRAY, LTGRAY, LTGRAY);
+        setBtnClr(boyBtn, LTGRAY, girlBtn, LTGRAY, snakeBtn, LTGRAY);
         whiteBtn = findViewById(R.id.whiteBtn);
         greyBtn = findViewById(R.id.greyBtn);
         cyanBtn = findViewById(R.id.cyanBtn);
-        setBGCBtnClr(LTGRAY, LTGRAY, LTGRAY);
+        setBtnClr(whiteBtn, LTGRAY, greyBtn, LTGRAY, cyanBtn, LTGRAY);
         numLivesBtn1 = findViewById(R.id.numLivesBtn1);
         numLivesBtn2 = findViewById(R.id.numLivesBtn2);
         numLivesBtn3 = findViewById(R.id.numLivesBtn3);
-        setLifeBtnClr(LTGRAY, LTGRAY, LTGRAY);
+        setBtnClr(numLivesBtn1, LTGRAY, numLivesBtn2, LTGRAY, numLivesBtn3, LTGRAY);
     }
 
     public void checkNameInput(View view){
@@ -69,65 +75,59 @@ public class UserSetter extends AppCompatActivity{
         name = randomNames[index];
     }
 
-    private void setIconBtnClr(int color1, int color2, int color3){
-        boyBtn.setBackgroundColor(color1);
-        girlBtn.setBackgroundColor(color2);
-        snakeBtn.setBackgroundColor(color3);
-    }
-
-    private void setBGCBtnClr(int color1, int color2, int color3){
-        whiteBtn.setBackgroundColor(color1);
-        greyBtn.setBackgroundColor(color2);
-        cyanBtn.setBackgroundColor(color3);
-    }
-
-    private void setLifeBtnClr(int color1, int color2, int color3){
-        numLivesBtn1.setBackgroundColor(color1);
-        numLivesBtn2.setBackgroundColor(color2);
-        numLivesBtn3.setBackgroundColor(color3);
+    private void setBtnClr(Button btn1, int color1,
+                           Button btn2, int color2,
+                           Button btn3, int color3) {
+        btn1.setBackgroundColor(color1);
+        btn2.setBackgroundColor(color2);
+        btn3.setBackgroundColor(color3);
     }
 
     public void boyBTN(View view) {
         icon = "userlogo";
-        setIconBtnClr(DKGRAY, LTGRAY, LTGRAY);
+        setBtnClr(boyBtn, DKGRAY, girlBtn, LTGRAY, snakeBtn, LTGRAY);
     }
     public void girlBTN(View view) {
         icon = "girl";
-        setIconBtnClr(LTGRAY, DKGRAY, LTGRAY);
+        setBtnClr(boyBtn, LTGRAY, girlBtn, DKGRAY, snakeBtn, LTGRAY);
     }
 
     public void snakeBTN(View view) {
         icon = "snake";
-        setIconBtnClr(LTGRAY, LTGRAY, DKGRAY);
+        setBtnClr(boyBtn, LTGRAY, girlBtn, LTGRAY, snakeBtn, DKGRAY);
     }
     public void whiteBtn(View view) {
         backgroundColor = WHITE;
-        setBGCBtnClr(DKGRAY, LTGRAY, LTGRAY);
+        setBtnClr(whiteBtn, DKGRAY, greyBtn, LTGRAY, cyanBtn, LTGRAY);
     }
     public void greyBtn(View view) {
         backgroundColor = GRAY;
-        setBGCBtnClr(LTGRAY, DKGRAY, LTGRAY);
+        setBtnClr(whiteBtn, LTGRAY, greyBtn, DKGRAY, cyanBtn, LTGRAY);
     }
     public void cyanBtn(View view) {
         backgroundColor = CYAN;
-        setBGCBtnClr(LTGRAY, LTGRAY, DKGRAY);
+        setBtnClr(whiteBtn, LTGRAY, greyBtn, LTGRAY, cyanBtn, DKGRAY);
     }
     public void oneLife(View view) {
         numLives = 1;
-        setLifeBtnClr(DKGRAY, LTGRAY, LTGRAY);
+        setBtnClr(numLivesBtn1, DKGRAY, numLivesBtn2, LTGRAY, numLivesBtn3, LTGRAY);
     }
     public void twoLives(View view) {
         numLives = 2;
-        setLifeBtnClr(LTGRAY, DKGRAY, LTGRAY);
+        setBtnClr(numLivesBtn1, LTGRAY, numLivesBtn2, DKGRAY, numLivesBtn3, LTGRAY);
     }
     public void threeLives(View view) {
         numLives = 3;
-        setLifeBtnClr(LTGRAY, LTGRAY, DKGRAY);
+        setBtnClr(numLivesBtn1, LTGRAY, numLivesBtn2, LTGRAY, numLivesBtn3, DKGRAY);
     }
 
     public void submitCustomizations(View view){
         checkNameInput(view);
         if (name != null && icon != null && backgroundColor != 0 && numLives != 0) {
+            player.setName(name);
+            player.setIcon(icon);
+            player.setLives(numLives);
+            player.setBackgroundColor(backgroundColor);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             //Want to save changes made to this user...

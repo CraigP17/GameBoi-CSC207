@@ -1,10 +1,7 @@
 package com.example.gameboi;
 
-import android.graphics.Color;
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.util.ArrayList;
 
 class User implements Parcelable {
     /*This class is responsible for storing the user data for a game.
@@ -173,17 +170,15 @@ class User implements Parcelable {
     }
 
     /**
+     * Sets the User's customized backgroundColor
+     */
+    void setBackgroundColor( int color) { this.backgroundColor = color; }
+
+    /**
      * @return the User's customized backgroundColor
      */
     int getBackgroundColor() {
         return backgroundColor;
-    }
-
-    /**
-     * Sets the User's customized backgroundColor
-     */
-    void getBackgroundColor(int color) {
-        backgroundColor = color;
     }
 
     /**

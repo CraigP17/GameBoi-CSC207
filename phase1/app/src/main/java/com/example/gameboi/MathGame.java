@@ -2,7 +2,6 @@ package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,6 +24,9 @@ public class MathGame extends AppCompatActivity {
     private TextView mathGameScore;
     //int representation of the user's answer.
     private int answer = 0;
+    // The number of rounds played. Game ends when either 10 rounds have been played or the player
+    // loses 3 times
+    private int numRounds = 0;
     //The number of questions the player got wrong
     private int numLosses = 0;
     //int representation of the number of questions the user has answered correctly.
@@ -38,10 +40,16 @@ public class MathGame extends AppCompatActivity {
 
     private void isGameOver(){
         if (numLosses > 2) {
+            player.setLevelOnePoints(score);
             Intent intent = new Intent(this, FlashLoss.class);
             intent.putExtra("player", player);
             startActivity(intent);
-            finish();
+        }
+        else if (numRounds > 9){
+            player.setLevelOnePoints(score);
+            Intent intent = new Intent(this, FlashWin.class);
+            intent.putExtra("player", player);
+            startActivity(intent);
         }
     }
 
@@ -110,11 +118,10 @@ public class MathGame extends AppCompatActivity {
     // Checks if the response is correct and adds 1 to score if it is. Updates score, resets
     // response and generates a new equation for the player
     public void pressEnter(View view) {
+        numRounds += 1;
         if (answer == response) {score += 1;}
-        else {
-            numLosses += 1;
-            isGameOver();
-        }
+        else { numLosses += 1; }
+        isGameOver();
         String currScore = "SCORE: " + score;
         mathGameScore.setText(currScore);
         generateEquation();
