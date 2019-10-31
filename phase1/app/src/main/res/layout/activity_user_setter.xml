@@ -6,14 +6,14 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/userName"
         android:layout_width="235dp"
         android:layout_height="48dp"
         android:layout_marginStart="46dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="9dp"
         android:ems="10"
-        android:hint="@string/chooseUser"
+        android:hint="@string/userName"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/checkNameBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,9 +26,10 @@
         android:layout_marginStart="9dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="46dp"
+        android:onClick="checkNameInput"
         android:text="@string/checkMark"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText"
+        app:layout_constraintStart_toEndOf="@+id/userName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -38,10 +39,11 @@
         android:layout_marginStart="57dp"
         android:layout_marginTop="13dp"
         android:layout_marginEnd="142dp"
+        android:onClick="randomUserName"
         android:text="@string/randomName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
 
     <TextView
         android:id="@+id/textView48"
@@ -64,6 +66,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="41dp"
+        android:onClick="boyBTN"
         android:text="@string/icon1"
         app:layout_constraintEnd_toStartOf="@+id/button25"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
         android:layout_marginTop="15dp"
+        android:onClick="girlBTN"
         android:text="@string/icon2"
         app:layout_constraintStart_toEndOf="@+id/button24"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
@@ -86,6 +90,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="33dp"
+        android:onClick="snakeBTN"
         android:text="@string/icon3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button25"
@@ -112,6 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="15dp"
+        android:onClick="greyBtn"
         android:text="@string/grey"
         app:layout_constraintStart_toEndOf="@+id/whiteBtn"
         app:layout_constraintTop_toBottomOf="@+id/textView49" />
@@ -123,6 +129,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="32dp"
+        android:onClick="cyanBtn"
         android:text="@string/cyan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/greyBtn"
@@ -135,6 +142,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="41dp"
+        android:onClick="whiteBtn"
         android:text="@string/white"
         app:layout_constraintEnd_toStartOf="@+id/greyBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -161,6 +169,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="15dp"
+        android:onClick="twoLives"
         android:text="@string/two"
         app:layout_constraintStart_toEndOf="@+id/numLivesBtn1"
         app:layout_constraintTop_toBottomOf="@+id/textView50" />
@@ -172,6 +181,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="41dp"
+        android:onClick="oneLife"
         android:text="@string/one"
         app:layout_constraintEnd_toStartOf="@+id/numLivesBtn2"
         app:layout_constraintStart_toStartOf="parent"
@@ -184,6 +194,7 @@
         android:layout_marginStart="41dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="32dp"
+        android:onClick="threeLives"
         android:text="@string/three"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/numLivesBtn2"
@@ -196,6 +207,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="32dp"
+        android:onClick="submitCustomizations"
         android:text="@string/submit_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
