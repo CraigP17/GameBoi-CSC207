@@ -48,7 +48,7 @@ public class FlashWin extends AppCompatActivity {
             Intent intent = new Intent(this, RockPaperScissors.class);
             intent.putExtra("player", player);
             startActivity(intent);
-        } else {
+        } else if (player.getCurrLevel() == 3){
             Intent intent = new Intent(this, Leaderboard.class);
             startActivity(intent);
         }
