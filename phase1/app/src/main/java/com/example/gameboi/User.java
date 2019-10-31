@@ -204,6 +204,11 @@ class User implements Parcelable {
         return levelOnePoints;
     }
 
+
+    int getLevelTwoPoints() {
+        return levelTwoPoints;
+    }
+
     /**
      * Set the User's LevelOne Math Game Points
      *
