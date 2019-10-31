@@ -81,6 +81,10 @@ class User implements Parcelable {
         this.highScore = highScore;
     }
 
+    User() {
+        // Creates an instance of user that is empty, does nothing
+    }
+
     /**
      * Unpacks a Parcel and creates an instance of a User
      *
