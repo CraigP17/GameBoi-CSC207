@@ -17,7 +17,8 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/checkNameBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no"/>
 
     <Button
         android:id="@+id/checkNameBtn"
@@ -60,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/randomNameBtn" />
 
     <Button
-        android:id="@+id/button24"
+        android:id="@+id/boyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -68,23 +69,23 @@
         android:layout_marginEnd="41dp"
         android:onClick="boyBTN"
         android:text="@string/icon1"
-        app:layout_constraintEnd_toStartOf="@+id/button25"
+        app:layout_constraintEnd_toStartOf="@+id/girlBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
     <Button
-        android:id="@+id/button25"
+        android:id="@+id/girlBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
         android:layout_marginTop="15dp"
         android:onClick="girlBTN"
         android:text="@string/icon2"
-        app:layout_constraintStart_toEndOf="@+id/button24"
+        app:layout_constraintStart_toEndOf="@+id/boyBtn"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
     <Button
-        android:id="@+id/button26"
+        android:id="@+id/snakeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
@@ -93,7 +94,7 @@
         android:onClick="snakeBTN"
         android:text="@string/icon3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button25"
+        app:layout_constraintStart_toEndOf="@+id/girlBtn"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
     <TextView
@@ -109,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button25" />
+        app:layout_constraintTop_toBottomOf="@+id/girlBtn" />
 
     <Button
         android:id="@+id/greyBtn"

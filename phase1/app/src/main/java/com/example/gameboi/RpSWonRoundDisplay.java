@@ -14,6 +14,8 @@ import java.util.HashMap;
 
 public class RpSWonRoundDisplay extends AppCompatActivity {
 
+    private User player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,7 @@ public class RpSWonRoundDisplay extends AppCompatActivity {
         Intent intent = getIntent();
         String userChoiceDisplay = intent.getStringExtra("userchoice");
         String cChoiceDisplay = intent.getStringExtra("computerchoice");
+        player = getIntent().getParcelableExtra("player");
 
         ImageView uChoice = findViewById(R.id.imageView4);
         ImageView panda = findViewById(R.id.imageView3);
@@ -54,6 +57,7 @@ public class RpSWonRoundDisplay extends AppCompatActivity {
         //EditText editText = (EditText) findViewById(R.id.editText); //look up the id for text user inputted
         //String message = editText.getText().toString();
         //intent.putExtra(EXTRA_MESSAGE, message); //create key value pair
+        intent.putExtra("player", player);
         startActivity(intent); //now intent has key value
     }
 }
