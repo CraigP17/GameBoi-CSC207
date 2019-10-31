@@ -26,6 +26,10 @@ public class RpSWonRoundDisplay extends AppCompatActivity {
         String userChoiceDisplay = intent.getStringExtra("userchoice");
         String cChoiceDisplay = intent.getStringExtra("computerchoice");
         player = getIntent().getParcelableExtra("player");
+        //Setting up the background Colour
+        View colour = findViewById(R.id.textView4); //finds random view
+        View Root = colour.getRootView(); //finds the root view
+        Root.setBackgroundColor(player.getBackgroundColor()); //set background color
 
         ImageView uChoice = findViewById(R.id.imageView4);
         ImageView panda = findViewById(R.id.imageView3);

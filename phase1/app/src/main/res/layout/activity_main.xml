@@ -8,43 +8,36 @@
 
     <TextView
         android:id="@+id/textView41"
-        android:layout_width="214dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="140dp"
+        android:layout_width="288dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="78dp"
+        android:fontFamily="@font/bungee_shade"
         android:gravity="center"
         android:text="@string/chooseUser"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="toNext"
-        android:text="@string/toMath"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/user3" />
 
     <Button
         android:id="@+id/user1"
         android:layout_width="218dp"
         android:layout_height="110dp"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="94dp"
         android:onClick="User1Btn"
         android:text="@string/newUser"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
     <Button
         android:id="@+id/user2"
@@ -73,5 +66,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user2" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="239dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="86dp"
+        android:layout_marginBottom="70dp"
+        android:fontFamily="@font/faster_one"
+        android:text="@string/gameboiSign"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/user1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

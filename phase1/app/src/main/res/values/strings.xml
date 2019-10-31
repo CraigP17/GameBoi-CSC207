@@ -75,4 +75,7 @@
     <string name="yourchoice">Your Choice:</string>
     <string name="lbname">Name</string>
     <string name="highscores">Highscores</string>
+    <string name="pandaBTN">Panda</string>
+    <string name="gameboiSign">GAMEBOI</string>
+    <string name="leaderboard_text">Great Job! Play Again?</string>
 </resources>

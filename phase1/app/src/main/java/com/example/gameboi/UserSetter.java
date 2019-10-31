@@ -22,7 +22,7 @@ public class UserSetter extends AppCompatActivity{
     private int numLives;
     private EditText nameInputField;
     private Button boyBtn;
-    private Button girlBtn;
+    private Button pandaBtn;
     private Button snakeBtn;
     private Button whiteBtn;
     private Button greyBtn;
@@ -42,9 +42,9 @@ public class UserSetter extends AppCompatActivity{
     private void setupUI() {
         nameInputField = findViewById(R.id.userName);
         boyBtn = findViewById(R.id.boyBtn);
-        girlBtn = findViewById(R.id.girlBtn);
+        pandaBtn = findViewById(R.id.pandaBtn);
         snakeBtn = findViewById(R.id.snakeBtn);
-        setBtnClr(boyBtn, LTGRAY, girlBtn, LTGRAY, snakeBtn, LTGRAY);
+        setBtnClr(boyBtn, LTGRAY, pandaBtn, LTGRAY, snakeBtn, LTGRAY);
         whiteBtn = findViewById(R.id.whiteBtn);
         greyBtn = findViewById(R.id.greyBtn);
         cyanBtn = findViewById(R.id.cyanBtn);
@@ -86,16 +86,16 @@ public class UserSetter extends AppCompatActivity{
 
     public void boyBTN(View view) {
         icon = "userlogo";
-        setBtnClr(boyBtn, DKGRAY, girlBtn, LTGRAY, snakeBtn, LTGRAY);
+        setBtnClr(boyBtn, DKGRAY, pandaBtn, LTGRAY, snakeBtn, LTGRAY);
     }
-    public void girlBTN(View view) {
-        icon = "girl";
-        setBtnClr(boyBtn, LTGRAY, girlBtn, DKGRAY, snakeBtn, LTGRAY);
+    public void pandaBTN(View view) {
+        icon = "panda";
+        setBtnClr(boyBtn, LTGRAY, pandaBtn, DKGRAY, snakeBtn, LTGRAY);
     }
 
     public void snakeBTN(View view) {
         icon = "snake";
-        setBtnClr(boyBtn, LTGRAY, girlBtn, LTGRAY, snakeBtn, DKGRAY);
+        setBtnClr(boyBtn, LTGRAY, pandaBtn, LTGRAY, snakeBtn, DKGRAY);
     }
     public void whiteBtn(View view) {
         backgroundColor = WHITE;
