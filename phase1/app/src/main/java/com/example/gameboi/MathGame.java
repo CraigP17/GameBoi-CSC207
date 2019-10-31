@@ -29,8 +29,7 @@ public class MathGame extends AppCompatActivity {
     private int numLosses = 0;
     //int representation of the number of questions the user has answered correctly.
     private int score = 0;
-    User player = new User("moogah", 2, 0, 0 ,0,
-            Color.GRAY, "fds", 0, 0);
+    User player;
     Random rand = new Random();
 
     private void updateResponse(int num) {response = response * 10 + num;}
@@ -41,7 +40,7 @@ public class MathGame extends AppCompatActivity {
         if (numLosses > 2) {
             player.loseALife();
             Intent intent = new Intent(this, SimonGame.class);
-            intent.putExtra("user", player);
+            intent.putExtra("player", player);
             startActivity(intent);
             finish();
         }
@@ -131,7 +130,7 @@ public class MathGame extends AppCompatActivity {
         //String message = editText.getText().toString();
         //intent.putExtra(EXTRA_MESSAGE, message); //create key value pair
         // Send the user to the second game level
-        intent.putExtra("user", player);
+        intent.putExtra("player", player);
         startActivity(intent); //now intent has key value
         //goes to MathGame.class
     }
@@ -140,9 +139,12 @@ public class MathGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_game);
+        player = getIntent().getParcelableExtra("player");
         setupMathGameUI();
         ImageView icon = findViewById(R.id.avatarIcon);
-        icon.setImageResource(R.drawable.userlogo);
+        int resID = getResources().getIdentifier(player.getIcon(),
+                "drawable", getPackageName()); // this line of code grabs the resID based on user name
+        icon.setImageResource(resID);
         getWindow().getDecorView().setBackgroundColor(player.getBackgroundColor());
         generateEquation();
     }

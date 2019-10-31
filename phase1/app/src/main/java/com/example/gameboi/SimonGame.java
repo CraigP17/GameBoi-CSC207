@@ -18,32 +18,41 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 public class SimonGame extends AppCompatActivity {
 
     ArrayList<Integer> userGuess = new ArrayList<>();
-    User user = new User("moogah", 1, 0, 0 ,0, Color.WHITE, "fds", 0, 0);
-    FlashColors flash = new FlashColors(user);
+    private User player;
+    private FlashColors flash;
     private int incorrect = 0;
     private int flashLevels = 0;
+    private TextView scoreBoard;
+    private Button but;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simon_game);
+        //setup flashcolors game with player from math game
+        player = getIntent().getParcelableExtra("player");
+        flash = new FlashColors(player);
         //Setting up the user icon
         ImageView icon = findViewById(R.id.imageView1);
-        int resID = getResources().getIdentifier("userlogo",
+        int resID = getResources().getIdentifier(player.getIcon(),
                 "drawable", getPackageName()); // this line of code grabs the resID based on user name
         icon.setImageResource(resID);
         //Setting up the background Colour
         View flashColor = findViewById(R.id.textView2); //finds random view
         View Root = flashColor.getRootView(); //finds the root view
-        Root.setBackgroundColor(-7829368); //set background color
+        Root.setBackgroundColor(player.getBackgroundColor()); //set background color
 //      Here is the code needed to set the score up at startup:
-        TextView scoreBoard = findViewById(R.id.textView10);
-        scoreBoard.setText("0");
+        scoreBoard = findViewById(R.id.textView10);
+        scoreBoard.setText("0"); //DOES SCORE START AT 0 always?
+
+
     }
 
     public void toNext(View view) {
@@ -81,7 +90,7 @@ public class SimonGame extends AppCompatActivity {
         else{
             pattern = flash.getCorrectPattern();
         }
-        Button but = findViewById(R.id.button8);
+        but = findViewById(R.id.button8);
         but.setText("");
 
         ObjectAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor",
@@ -98,8 +107,6 @@ public class SimonGame extends AppCompatActivity {
      * will pop up letting them if they got their answer correct
      */
     public void SubmitButton(View view){
-        Button but = findViewById(R.id.button8);
-        TextView scoreBoard = findViewById(R.id.textView10);
         CharSequence message = "START";
         but.setText(message);
         flash.setSubmitted(true); //changes the submit value to true so that new pattern can be made
@@ -124,12 +131,12 @@ public class SimonGame extends AppCompatActivity {
         } else if (!flash.isCorrect(userGuess) & incorrect == 1) {
             flash.setScore(Integer.parseInt(String.valueOf(scoreBoard.getText())));
             Intent intent = new Intent(this, FlashLoss.class);
-            intent.putExtra("player", user);
+            intent.putExtra("player", player);
             startActivity(intent);
         } else if (flashLevels == 4) {
             // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
             Intent intent = new Intent(this, FlashWin.class);
-            intent.putExtra("player", user);
+            intent.putExtra("player", player);
             int finalScores = flashLevels - incorrect;
             intent.putExtra("gamesWon", finalScores);
             startActivity(intent);
@@ -140,4 +147,5 @@ public class SimonGame extends AppCompatActivity {
         // Clears the User guess to prepare for next pattern guess
         userGuess.clear();
     }
+
 }
