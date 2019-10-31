@@ -1,6 +1,7 @@
 GameBoi README.txt
 
-######### GENERAL OVERVIEW #########
+############### GENERAL OVERVIEW ###############
+
 The game starts at a login screen that shows 3 users that are in the file. If no users have been
 created then you may choose the button and create a new user. If you wish to create a new user you
 will be taken to a new screen that lets you pick your 3 customizations for your user. The
@@ -9,17 +10,27 @@ complete you will begin playing the Math Game, then Flash colours and lastly the
 Rock Paper Scissors game. Finally, the player visits the final screen which is a leader board screen
 which displays the top three scorers that have played Gameboi.
 
+Icon Images Link: 
 
-######### MATH GAME #########
+
+################## MATH GAME ##################
+
 Asks the player a series of math questions. If the player answers 3 incorrectly they lose a
 life and the game ends. Every question they answer corrected adds 1 point to the score. There are a
 total of 10 possible rounds.
 
 
-######### Flash Colours #########
+################ Flash Colours ################
+
+Asks player to press the start button at which point the colours will start to flash at random. The
+player must remember the pattern and click the colours corresponding to the pattern they saw. If they
+correctly identified the pattern, a message saying they earned a point will appear. If they lose two
+rounds then they lose the Flash colours game. A total of 4 rounds will be played. After they complete
+the Flash colours game they move on to the Rock Paper Scissors game.
 
 
-######### Rock Paper Scissors Game #########
+########## Rock Paper Scissors Game ##########
+
 Lets the player play a game of rock paper scissors against the computer. If the player loses two
 rounds first then they lose the rock paper scissors game. If the player wins 3 rounds before losing
 two rounds, then they win the rock paper scissors game. If their is a tie
