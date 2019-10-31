@@ -1,0 +1,7 @@
+GameBoi README.txt
+
+MathGame
+
+Asks the player a series of math questions. If the player answers 3 incorrectly they lose a
+life and the game ends. Every question they answer corrected adds 1 point to the score. There are a
+total of 10 possible rounds.
