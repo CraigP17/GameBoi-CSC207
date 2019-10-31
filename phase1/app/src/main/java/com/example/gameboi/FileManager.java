@@ -5,7 +5,6 @@ import android.util.Log;
 import android.content.Context;
 
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -73,6 +72,7 @@ class FileManager{
      */
     ArrayList<User> getUsers(){
 
+        try{
         ArrayList<User> userList = new ArrayList<>();
 
         String[] multiLine = this.read().split(System.getProperty("line.separator"));
@@ -89,6 +89,28 @@ class FileManager{
         }
 
         return userList;
+        }
+        catch (Exception e){
+            System.out.println("Gotta write the file...Done");
+            this.write(); //EVENTUALLY this write method will initialize 3 empty users
+
+            ArrayList<User> userList = new ArrayList<>();
+
+            String[] multiLine = this.read().split(System.getProperty("line.separator"));
+
+            for(String u: multiLine){
+                String[] temp = u.split(",");
+                if(temp[0].equals("")){
+                    temp[0] = null;
+                }
+                User user = new User(temp[0], Integer.parseInt(temp[1]), Integer.parseInt(temp[2]),
+                        Integer.parseInt(temp[3]) ,Integer.parseInt(temp[4]), Integer.parseInt(temp[5]),
+                        temp[6], Integer.parseInt(temp[7]), Integer.parseInt(temp[8]));
+                userList.add(user);
+            }
+
+            return userList;
+        }
     }
 
 }
