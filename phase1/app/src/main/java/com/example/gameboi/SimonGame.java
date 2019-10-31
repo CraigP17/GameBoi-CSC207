@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class SimonGame extends AppCompatActivity {
 
     ArrayList<Integer> userGuess = new ArrayList<>();
-    User user = new User("moogah", 1, 0, 0 ,0, Color.WHITE, "fds", 0, 0);
+    User user = new User("moogah", 1, 10, 0, 0, Color.WHITE, "fds", 0, 0);
     FlashColors flash = new FlashColors(user);
     private int incorrect = 0;
     private int flashLevels = 0;
@@ -34,7 +34,7 @@ public class SimonGame extends AppCompatActivity {
         setContentView(R.layout.activity_simon_game);
         //Setting up the user icon
         ImageView icon = findViewById(R.id.imageView1);
-        int resID = getResources().getIdentifier("weirdguy",
+        int resID = getResources().getIdentifier("userlogo",
                 "drawable", getPackageName()); // this line of code grabs the resID based on user name
         icon.setImageResource(resID);
         //Setting up the background Colour
@@ -71,14 +71,13 @@ public class SimonGame extends AppCompatActivity {
     }
 
     /*This method is called when the flashing square is pressed. It will generate
-    * a random color sequence and keep the sequence in memory until submitted*/
-    public void Flash(View view){
+     * a random color sequence and keep the sequence in memory until submitted*/
+    public void Flash(View view) {
         ArrayList<Integer> pattern;
-        if(flash.isSubmitted()){
+        if (flash.isSubmitted()) {
             flash.setSubmitted(false);
             pattern = flash.generatePattern();
-        }
-        else{
+        } else {
             pattern = flash.getCorrectPattern();
         }
         Button but = findViewById(R.id.button8);
@@ -91,8 +90,13 @@ public class SimonGame extends AppCompatActivity {
         colorAnim.start();
     }
 
-    public void SubmitButton(View view){
-
+    /**
+     * Called when the User submits their answer. User wins the game when they have played the game
+     * four times, and have less than 2 incorrect answers. If they have two incorrect answers, they
+     * lose the game, lose a life, and are directed to the FlashLoss page. For each answer, a Toast
+     * will pop up letting them if they got their answer correct
+     */
+    public void SubmitButton(View view) {
         Button but = findViewById(R.id.button8);
         TextView scoreBoard = findViewById(R.id.textView10);
         CharSequence message = "START";
@@ -102,39 +106,35 @@ public class SimonGame extends AppCompatActivity {
         Context context = getApplicationContext();
         CharSequence success = "Nice Job! Can you get the next one?";
         CharSequence failure = "Uh-oh. You guessed incorrectly. You have one more chance!";
-        int duration = Toast.LENGTH_SHORT;
+        int length = Toast.LENGTH_SHORT;
         System.out.println(userGuess);
-        // Check if the submitted pattern is correct then clear their pattern
-        if (flash.isCorrect(userGuess)) {
-            Toast toast = Toast.makeText(context, success, duration);
-            toast.show();
-            flashLevels++;
-            scoreBoard.setText(flash.getNewScore(scoreBoard.getText())); //here we set the new score
-        } else {
-            Toast toast = Toast.makeText(context, failure, duration);
-            toast.show();
-            incorrect++;
-            flashLevels++;
-        }
-        userGuess.clear();
 
-        // Check if the user got 2 incorrect answers and take them to the Lose a Life Activity
-        if (incorrect == 2) {
-            flash.setScore(Integer.parseInt(String.valueOf(scoreBoard.getText()))); //updates the score
+        // Increment number of games played, and increases their score if User got correct pattern
+        flashLevels++;
+        if (flash.isCorrect(userGuess)) {
+            scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
+        }
+
+        // Displays Toast or takes them to WinLoss Activities, based on incorrect answers and
+        // number of games played
+        if (flash.isCorrect(userGuess) & flashLevels < 4) {
+            Toast.makeText(context, success, length).show();
+            // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
+        } else if (!flash.isCorrect(userGuess) & incorrect == 1) {
+            flash.setScore(Integer.parseInt(String.valueOf(scoreBoard.getText())));
             Intent intent = new Intent(this, FlashLoss.class);
             intent.putExtra("player", user);
             startActivity(intent);
-        }
-
-        // Check if the user has played 4 levels of FlashColour and then move to the Winner Activity
-        if (flashLevels == 4) {
-            flash.setScore(Integer.parseInt(String.valueOf(scoreBoard.getText()))); //updates the score
-            int finalScores = flashLevels-incorrect;
+        } else if (flashLevels == 4) {
+            // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
             Intent intent = new Intent(this, FlashWin.class);
             intent.putExtra("player", user);
-            intent.putExtra("gamesWon", finalScores);
             startActivity(intent);
+        } else if (!flash.isCorrect(userGuess) & incorrect == 0) {
+            Toast.makeText(context, failure, length).show();
+            incorrect++;
         }
-
+        // Clears the User guess to prepare for next pattern guess
+        userGuess.clear();
     }
 }
