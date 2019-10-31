@@ -30,10 +30,16 @@ public class RockPaperScissors extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors);
-        ImageView icon = findViewById(R.id.imageView);
-        icon.setImageResource(R.drawable.userlogo);
+
         TextView scoreboardRpS = findViewById(R.id.textView12);
         scoreboardRpS.setText(String.valueOf(winsRpS));
+
+        //Setting up the user icon
+        ImageView icon = findViewById(R.id.imageView);
+        int resID = getResources().getIdentifier("userlogo",
+                "drawable", getPackageName()); // this line of code grabs the resID based on user name
+        icon.setImageResource(resID);
+
 
         //Setting up the background Colour
         View colour = findViewById(R.id.textView3); //finds random view

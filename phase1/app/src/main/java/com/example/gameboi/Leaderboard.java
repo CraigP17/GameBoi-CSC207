@@ -3,6 +3,7 @@ package com.example.gameboi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -12,22 +13,15 @@ public class Leaderboard extends AppCompatActivity {
     User u1 = new User("sarrah", 2, 0, 0, 0, 40, "idk", 0, 5);
     User u2 = new User("anjali", 2, 0, 0, 0, 40, "idk", 0, 0);
     User u3 = new User("jacob", 2, 0, 0, 0, 40, "idk", 1, 0);
-    User[] order = new User[] {u1, u2, u3};
-
-    LeaderBoardBE lb = new LeaderBoardBE();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
         String winner = u1.getName() + u1.getHighScore();
-//        FileManager file = new FileManager();
-//        ArrayList<E> users = file.read();
+        FileManager file = new FileManager();
+        ArrayList<User> users = file.getUsers();
 
-        ArrayList<User> users = new ArrayList<User>(3);
-        users.add(u1);
-        users.add(u2);
-        users.add(u3);
 
         // Creating a empty array list that will store all users from highest highscore to lowest
         ArrayList<User> topScorers = new ArrayList<>();
