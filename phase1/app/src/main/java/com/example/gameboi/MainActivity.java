@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** Called when the user taps the Send button */
-    public void toNext(View view) {
+    /*public void toNext(View view) {
         //says to switch from this activity to the next one
         Intent intent = new Intent(this, MathGame.class);
         //EditText editText = (EditText) findViewById(R.id.editText); //look up the id for text user inputted
@@ -112,5 +112,5 @@ public class MainActivity extends AppCompatActivity {
         //intent.putExtra(EXTRA_MESSAGE, message); //create key value pair
         startActivity(intent); //now intent has key value
         //goes to MathGame.class
-    }
+    }*/
 }
