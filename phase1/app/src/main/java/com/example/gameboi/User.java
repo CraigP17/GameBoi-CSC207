@@ -264,6 +264,13 @@ class User implements Parcelable {
     }
 
     /**
+     * Increase the User's current level by 1
+     */
+    void incrementCurrLevel() {
+        currLevel++;
+    }
+
+    /**
      * @return The User's highScore
      */
     public int getHighScore() {

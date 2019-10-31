@@ -38,8 +38,7 @@ public class MathGame extends AppCompatActivity {
 
     private void isGameOver(){
         if (numLosses > 2) {
-            player.loseALife();
-            Intent intent = new Intent(this, SimonGame.class);
+            Intent intent = new Intent(this, FlashLoss.class);
             intent.putExtra("player", player);
             startActivity(intent);
             finish();
