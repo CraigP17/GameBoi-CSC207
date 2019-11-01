@@ -10,7 +10,6 @@
         android:id="@+id/textView41"
         android:layout_width="288dp"
         android:layout_height="90dp"
-        android:layout_marginStart="79dp"
         android:layout_marginEnd="44dp"
         android:fontFamily="@font/bungee_shade"
         android:gravity="center"
@@ -19,7 +18,6 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user3" />
 
     <Button
@@ -82,5 +80,16 @@
         app:layout_constraintHorizontal_bias="0.259"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="95dp"
+        android:layout_height="141dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="5dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/gameboiblue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
