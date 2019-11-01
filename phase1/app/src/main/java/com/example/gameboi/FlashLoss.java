@@ -51,17 +51,17 @@ public class FlashLoss extends AppCompatActivity {
   public void exitGame(View view) {
         if (player.getLives() > 0) {
             player.incrementCurrLevel();
+        }
 
-            if (player.getCurrLevel() == 1) {
-                Intent intent = new Intent(this, SimonGame.class);
-                intent.putExtra("player", player);
-                startActivity(intent);
+        if (player.getCurrLevel() == 1) {
+            Intent intent = new Intent(this, SimonGame.class);
+            intent.putExtra("player", player);
+            startActivity(intent);
             } else if (player.getCurrLevel() == 2) {
                 Intent intent = new Intent(this, RockPaperScissors.class);
                 intent.putExtra("player", player);
                 startActivity(intent);
-            }
-        } else {
+            } else {
             if (player.getTotalPoints() > player.getHighScore()) {
                 player.setHighScore(player.getTotalPoints());
             }
