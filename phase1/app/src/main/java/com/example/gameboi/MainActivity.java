@@ -2,10 +2,14 @@ package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,7 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private Button user2Btn;
     private Button user3Btn;FileManager f = new FileManager(this);
     ArrayList<User> users;
-
+//    private FlashColors flash;
+//    private User player;
+//    ArrayList<Integer> pattern;
 
 
     @Override
@@ -30,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(u.get(0).getBackgroundColor());
         System.out.println(u.get(1).getBackgroundColor());
         System.out.println(u.get(2).getBackgroundColor());*/
+
+//        player = getIntent().getParcelableExtra("player");
+//        TextView but = findViewById(R.id.textView29);
+//        but.setText("Gameboi");
+//        flash = new FlashColors(player);
+//        pattern = flash.generatePattern();
+//        ObjectAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor",
+//                pattern.get(0), pattern.get(1), pattern.get(2), pattern.get(3));
+//        colorAnim.setDuration(4000);
+//        colorAnim.setEvaluator(new ArgbEvaluator());
+//        colorAnim.start();
     }
 
     private void setUserBtns() {
@@ -45,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String btnName(User user){
-        if (user.getName() == null) {return "New";}
+        if (user.getName() == null || user.getName().equals("null")) {return "New";}
         else {return user.getName();}
     }
 
@@ -100,10 +117,10 @@ public class MainActivity extends AppCompatActivity {
         sendToNextScreen(users.get(2));
     }
     private boolean hasName(User user){
-        return user.getName() != null;
+        return (user.getName() != null) && !(user.getName().equals("null"));
     }
 
-    /** Called when the user taps the Send button */
+    /* Called when the user taps the Send button */
     /*public void toNext(View view) {
         //says to switch from this activity to the next one
         Intent intent = new Intent(this, MathGame.class);

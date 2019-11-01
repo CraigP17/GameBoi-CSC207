@@ -77,5 +77,6 @@
     <string name="highscores">Highscores</string>
     <string name="pandaBTN">Panda</string>
     <string name="gameboiSign">GAMEBOI</string>
-    <string name="leaderboard_text">Great Job!</string>
+    <string name="leaderboard_text">Great Job! Play Again?</string>
+    <string name="todo">TODO</string>
 </resources>
