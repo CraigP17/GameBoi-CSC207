@@ -19,6 +19,9 @@ public class FlashWin extends AppCompatActivity {
         // Store the User to display their stats
         player = getIntent().getParcelableExtra("player");
 
+        FileManager fman = new FileManager(this);
+        fman.save(player);
+
         TextView numLives = findViewById(R.id.textView17);
         numLives.setText(String.valueOf(player.getLives()));
 

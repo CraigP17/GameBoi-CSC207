@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String btnName(User user){
-        if (user.getName() == null) {return "New";}
+        if (user.getName() == null || user.getName().equals("null")) {return "New";}
         else {return user.getName();}
     }
 
@@ -100,10 +100,10 @@ public class MainActivity extends AppCompatActivity {
         sendToNextScreen(users.get(2));
     }
     private boolean hasName(User user){
-        return user.getName() != null;
+        return (user.getName() != null) && !(user.getName().equals("null"));
     }
 
-    /** Called when the user taps the Send button */
+    /* Called when the user taps the Send button */
     /*public void toNext(View view) {
         //says to switch from this activity to the next one
         Intent intent = new Intent(this, MathGame.class);

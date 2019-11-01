@@ -22,8 +22,10 @@ public class FlashLoss extends AppCompatActivity {
 
         // Subtract a life from the user
         // User player is passed in through intent from SimonGame
-        assert player != null;
         player.loseALife();
+
+        FileManager fman = new FileManager(this);
+        fman.save(player);
 
         TextView lives = findViewById(R.id.textView19);
         lives.setText(String.valueOf(player.getLives()));
