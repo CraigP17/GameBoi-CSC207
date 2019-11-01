@@ -51,6 +51,13 @@ public class FlashLoss extends AppCompatActivity {
   public void exitGame(View view) {
         if (player.getLives() > 0) {
             player.incrementCurrLevel();
+        } else {
+            if (player.getTotalPoints() > player.getHighScore()) {
+                player.setHighScore(player.getTotalPoints());
+            }
+            Intent intent1 = new Intent(this, Leaderboard.class);
+            startActivity(intent1);
+            return;
         }
 
         if (player.getCurrLevel() == 1) {
@@ -65,8 +72,8 @@ public class FlashLoss extends AppCompatActivity {
             if (player.getTotalPoints() > player.getHighScore()) {
                 player.setHighScore(player.getTotalPoints());
             }
-            Intent intent = new Intent(this, Leaderboard.class);
-            startActivity(intent);
+            Intent intent1 = new Intent(this, Leaderboard.class);
+            startActivity(intent1);
         }
     }
 }

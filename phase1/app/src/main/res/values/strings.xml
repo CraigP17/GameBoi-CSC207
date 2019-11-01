@@ -37,7 +37,7 @@
     <string name="blue">BLUE</string>
     <string name="green">GREEN</string>
     <string name="lose1">-1</string>
-    <string name="flashLoss">You lost a life! You got 2 patterns incorrect!</string>
+    <string name="flashLoss">"You lost a life! "</string>
     <string name="flashWin1">Congrats! You can move onto the next level</string>
     <string name="flashGames">You have won:</string>
     <string name="flashLives">Lives Left:</string>
