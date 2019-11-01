@@ -11,13 +11,16 @@ Rock Paper Scissors game. Finally, the player visits the final screen which is a
 which displays the top three scorers that have played Gameboi.
 
 Icon Images Link:
-
+Boy: https://images.app.goo.gl/bBxsHPLu6xqSTvQG6
+Panda: https://www.cleanpng.com/png-po-master-shifu-tigress-giant-panda-kung-fu-panda-674481/
+Snake: https://www.cleanpng.com/png-cartoon-clip-art-red-snake-1278542/download-png.html
 
 ################## MATH GAME ##################
 
 Asks the player a series of math questions. If the player answers 3 incorrectly they lose a
 life and the game ends. Every question they answer corrected adds 1 point to the score. There are a
-total of 10 possible rounds.
+total of 10 possible rounds. After the player completes the Flash colours game they move on to the
+FLash colours game.
 
 
 ################ Flash Colours ################
@@ -25,8 +28,8 @@ total of 10 possible rounds.
 Asks player to press the start button at which point the colours will start to flash at random. The
 player must remember the pattern and click the colours corresponding to the pattern they saw. If they
 correctly identified the pattern, a message saying they earned a point will appear. If they lose two
-rounds then they lose the Flash colours game. A total of 4 rounds will be played. After they complete
-the Flash colours game they move on to the Rock Paper Scissors game.
+rounds then they lose the Flash colours game. A total of 4 rounds will be played. After the player
+completes the Flash colours game they move on to the Rock Paper Scissors game.
 
 
 ########## Rock Paper Scissors Game ##########
