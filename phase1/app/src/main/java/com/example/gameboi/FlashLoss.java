@@ -23,6 +23,13 @@ public class FlashLoss extends AppCompatActivity {
         // Subtract a life from the user
         // User player is passed in through intent from SimonGame
         player.loseALife();
+        // Finished the level, increase their level by 1
+        player.incrementCurrLevel();
+
+        // Set high score to new high score if they have beat their score
+        if (player.getTotalPoints() > player.getHighScore()) {
+            player.setHighScore(player.getTotalPoints());
+        }
 
         FileManager fman = new FileManager(this);
         fman.save(player);
@@ -47,26 +54,25 @@ public class FlashLoss extends AppCompatActivity {
    * When a User is on the FlashLoss page after losing a level, if they have more lives, then they
    * can continue to the next level, else they are sent to the Leaderboard Activity
    */
-  // Take them to the home page if they have no more lives
+  // Take them to the leader board if they have no more lives
   public void exitGame(View view) {
-        if (player.getLives() > 0) {
-            player.incrementCurrLevel();
-        }
-
-        if (player.getCurrLevel() == 1) {
-            Intent intent = new Intent(this, SimonGame.class);
-            intent.putExtra("player", player);
+        if (player.getLives() == 0) {
+            Intent intent = new Intent(this, Leaderboard.class);
             startActivity(intent);
+        } else {
+            if (player.getCurrLevel() == 1) {
+                Intent intent = new Intent(this, SimonGame.class);
+                intent.putExtra("player", player);
+                startActivity(intent);
             } else if (player.getCurrLevel() == 2) {
                 Intent intent = new Intent(this, RockPaperScissors.class);
                 intent.putExtra("player", player);
                 startActivity(intent);
             } else {
-            if (player.getTotalPoints() > player.getHighScore()) {
-                player.setHighScore(player.getTotalPoints());
+                Intent intent = new Intent(this, Leaderboard.class);
+                startActivity(intent);
             }
-            Intent intent = new Intent(this, Leaderboard.class);
-            startActivity(intent);
         }
-    }
+   }
+
 }

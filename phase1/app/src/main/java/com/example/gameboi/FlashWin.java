@@ -19,6 +19,14 @@ public class FlashWin extends AppCompatActivity {
         // Store the User to display their stats
         player = getIntent().getParcelableExtra("player");
 
+        // Increase the User's current level to the next
+        player.incrementCurrLevel();
+
+        // Set high score of the User if they have beat their high score
+        if (player.getTotalPoints() > player.getHighScore()) {
+            player.setHighScore(player.getTotalPoints());
+        }
+
         FileManager fman = new FileManager(this);
         fman.save(player);
 
@@ -42,7 +50,6 @@ public class FlashWin extends AppCompatActivity {
    * Take the User to the next level, or to the leader board when they have finish all three levels
    */
   public void toNext(View view) {
-        player.incrementCurrLevel();
         if (player.getCurrLevel() == 1) {
             Intent intent = new Intent(this, SimonGame.class);
             intent.putExtra("player", player);
@@ -52,9 +59,6 @@ public class FlashWin extends AppCompatActivity {
             intent.putExtra("player", player);
             startActivity(intent);
         } else if (player.getCurrLevel() == 3){
-            if (player.getTotalPoints() > player.getHighScore()) {
-                player.setHighScore(player.getTotalPoints());
-            }
             Intent intent = new Intent(this, Leaderboard.class);
             startActivity(intent);
         }

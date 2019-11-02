@@ -90,10 +90,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void toLeaderboard(User user) {
+        Intent intent = new Intent(this, Leaderboard.class);
+        startActivity(intent);
+    }
+
     private void sendToLevel(User user) {
         if (user.getCurrLevel() == 0) { toMathGame(user);}
         else if (user.getCurrLevel() == 1) { toSimonGame(user);}
         else if (user.getCurrLevel() == 2) { toRockPaperScissors(user);}
+        else if (user.getCurrLevel() == 3) { toLeaderboard(user);}
     }
 
     private void sendToNextScreen(User user){
