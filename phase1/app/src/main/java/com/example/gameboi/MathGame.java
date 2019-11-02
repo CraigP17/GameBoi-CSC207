@@ -9,7 +9,7 @@ import android.widget.TextView;
 /*
 The MathGame class.
 
-Asks the user a series of questions arithmetic questions.
+The UI for a simple mathGame.
  */
 public class MathGame extends AppCompatActivity {
 
@@ -19,13 +19,20 @@ public class MathGame extends AppCompatActivity {
     private TextView equationDisplay;
     //Displays the number of questions the user has answered correctly.
     private TextView mathGameScore;
-    //
-    private MathGameManager mgm;
+    // The user playing this game. Is set in the onCreate method.
     User player;
+    // Keeps track of equation, the answer, the player's response, score, rounds lost and numRounds
+    private MathGameManager mgm;
 
-
+    /**
+     * Updates the response view with the response in mathGameManager
+     */
     private void updateResponseView() {responseView.setText(String.valueOf(mgm.getResponse()));}
 
+    /**
+     * Checks if the game is over. If number of losses is 3, it sends the player to the lose screen
+     * and if the total rounds played is 10, sends them to the win screen.
+     */
     private void isGameOver(){
         if (mgm.getNumLosses() > 2) {
             player.setLevelOnePoints(mgm.getScore());
@@ -41,14 +48,19 @@ public class MathGame extends AppCompatActivity {
         }
     }
 
-    //Generates an arithmetic question for the player
+    /**
+     * Generates a new equation in mathGameManage and sets it to the equationDisplay
+     */
     private void setEquation() {
         mgm.newEquation();
         equationDisplay.setText(mgm.getEquation());
     }
 
-    // Method takes the number of the button pressed and updates the response and responseView
-    // The player response cannot exceed 1000000
+    /**
+     *  Checks to make sure the response is less than 100000 so the numbers don't run over the
+     *  displace, updates the response in MathGameManage and responseView if it is less than 100000
+     * @param num The number of the button clicked
+     */
     private void clickNumButton(int num) {
         if (mgm.getResponse() < 100000) {
             mgm.updateResponse(num);
@@ -56,7 +68,9 @@ public class MathGame extends AppCompatActivity {
         }
     }
 
-    //Sets up the displays for the player's input, the math question and current score.
+    /**
+     * Sets up the displays for the player's input, the math question and current score.
+     */
     private void setupMathGameUI(){
         responseView = findViewById(R.id.responseView);
         equationDisplay = findViewById(R.id.equationDisplay);
@@ -75,22 +89,29 @@ public class MathGame extends AppCompatActivity {
     public void pressEight(View view) {clickNumButton(8);}
     public void pressNine(View view) {clickNumButton(9);}
 
-    //Resets response to Zero and updates the responseView
+    /**
+     * Resets response in mathGameManager to Zero and updates the responseView
+     * @param view the current view
+     */
     public void pressClear(View view) {
-        mgm.setResponse(0);
+        mgm.resetResponse();
         updateResponseView();
     }
 
-    // Checks if the response is correct and adds 1 to score if it is. Updates score, resets
-    // response and generates a new equation for the player
-    public void pressEnter(View view) {
+  /**
+   * Checks if the response matches the answer and adds 1 to score if it is. Updates score, resets
+   * response in mathGameManager to 0 and generates a new equation for the player
+   *
+   * @param view the current view
+   */
+  public void pressEnter(View view) {
         mgm.incrementNumRounds();
         mgm.checkAnswer();
         isGameOver();
         String currScore = "SCORE: " + mgm.getScore();
         mathGameScore.setText(currScore);
         setEquation();
-        mgm.setResponse(0);
+        mgm.resetResponse();
         updateResponseView();
     }
 
