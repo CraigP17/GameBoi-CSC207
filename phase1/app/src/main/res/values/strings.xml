@@ -37,8 +37,8 @@
     <string name="blue">BLUE</string>
     <string name="green">GREEN</string>
     <string name="lose1">-1</string>
-    <string name="flashLoss">You lost a life! You got incorrect answers!</string>
-    <string name="flashWin1">Congrats! You beat the level.</string>
+    <string name="flashLoss">"You lost a life! "</string>
+    <string name="flashWin1">Congrats! You beat the level</string>
     <string name="flashGames">You have won:</string>
     <string name="flashLives">Lives Left:</string>
     <string name="mathScore">Level 1 Score:</string>
