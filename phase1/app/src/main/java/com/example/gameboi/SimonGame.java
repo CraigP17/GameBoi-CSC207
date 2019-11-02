@@ -1,25 +1,19 @@
 package com.example.gameboi;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
+
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 public class SimonGame extends AppCompatActivity {
@@ -53,14 +47,6 @@ public class SimonGame extends AppCompatActivity {
         scoreBoard.setText(String.valueOf(prevscore)); //DOES SCORE START AT 0 always?
 
 
-    }
-
-    public void toNext(View view) {
-        //says to switch from this activity to the next one
-        Intent intent = new Intent(this, RockPaperScissors.class);
-        intent.putExtra("player", player);
-        startActivity(intent); //now intent has key value
-        //goes to MathGame.class
     }
 
     // When a button is clicked by the user as an answer for the pattern, add their input to list of inputs
@@ -131,12 +117,12 @@ public class SimonGame extends AppCompatActivity {
             Toast.makeText(context, success, length).show();
             // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
         } else if (!flash.isCorrect(userGuess) & incorrect == 1) {
-            flash.setScore(Integer.parseInt(String.valueOf(scoreBoard.getText())));
+            flash.setScore(flashLevels - incorrect);
             Intent intent = new Intent(this, FlashLoss.class);
             intent.putExtra("player", player);
             startActivity(intent);
         } else if (flashLevels == 4) {
-            // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
+            flash.setScore(flashLevels - incorrect);
             Intent intent = new Intent(this, FlashWin.class);
             intent.putExtra("player", player);
             startActivity(intent);

@@ -63,7 +63,7 @@ class FlashColors {
         int score = Integer.parseInt(c.toString());
         score++;
         newScore = String.valueOf(score);
-        setScore(score); //store the score of the game for an user
+        //setScore(score); //store the score of the game for an user
         return newScore;
     }
 

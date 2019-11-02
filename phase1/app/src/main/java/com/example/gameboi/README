@@ -31,6 +31,12 @@ correctly identified the pattern, a message saying they earned a point will appe
 rounds then they lose the Flash colours game. A total of 4 rounds will be played. After the player
 completes the Flash colours game they move on to the Rock Paper Scissors game.
 
+The links below refer to pages where code was found. These sources were used to help implement flash
+colours, as well as in FileManager where a file needs to be written to.
+https://stackoverflow.com/questions/15582434/using-a-valueanimator-to-make-a-textview-blink-different-colors
+https://android.okhelp.cz/get-resource-id-by-resources-string-name-android-example/
+https://stackoverflow.com/questions/14376807/how-to-read-write-string-from-a-file-in-android
+
 
 ########## Rock Paper Scissors Game ##########
 

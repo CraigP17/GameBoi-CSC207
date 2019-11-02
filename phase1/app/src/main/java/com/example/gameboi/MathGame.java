@@ -94,18 +94,6 @@ public class MathGame extends AppCompatActivity {
         updateResponseView();
     }
 
-    public void toNext(View view) {
-        //says to switch from this activity to the next one
-        Intent intent = new Intent(this, SimonGame.class);
-        //EditText editText = (EditText) findViewById(R.id.editText); //look up the id for text user inputted
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message); //create key value pair
-        // Send the user to the second game level
-        intent.putExtra("player", player);
-        startActivity(intent); //now intent has key value
-        //goes to MathGame.class
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
