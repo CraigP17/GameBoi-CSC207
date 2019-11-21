@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.gameboi">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".RockPaperScissors.RpsFinalLostDisplay"></activity>
+        <activity android:name=".ScorePages.Leaderboard" />
+        <activity android:name=".RockPaperScissors.RpsFinalWonDisplay" />
+        <activity android:name=".RockPaperScissors.tryAgainDisplay" />
+        <activity android:name=".RockPaperScissors.RpsLostRoundDisplay" />
+        <activity android:name=".ScorePages.FlashLoss"></activity>
+        <activity android:name=".ScorePages.FlashWin" />
+        <activity
+            android:name=".RockPaperScissors.RpSWonRoundDisplay"
+            android:parentActivityName=".RockPaperScissors.RockPaperScissors">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RockPaperScissors.RockPaperScissors" />
+        </activity>
+        <activity android:name=".RockPaperScissors.RockPaperScissors" />
+        <activity android:name=".FlashColors.SimonGame" />
+        <activity android:name=".MathGame.MathGame" />
+        <activity android:name=".StartupPages.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".StartupPages.UserSetter" />
+    </application>
+
+</manifest>

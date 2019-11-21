@@ -1,0 +1,50 @@
+GameBoi README.txt
+
+############### GENERAL OVERVIEW ###############
+
+The game starts at a login screen that shows 3 users that are in the file. If no users have been
+created then you may choose the button and create a new user. If you wish to create a new user you
+will be taken to a new screen that lets you pick your 3 customizations for your user. The
+customizations are icon, background colour and  number of lives. After the customizations are
+complete you will begin playing the Math Game, then Flash colours and lastly the player plays the
+Rock Paper Scissors game. Finally, the player visits the final screen which is a leader board screen
+which displays the top three scorers that have played Gameboi.
+
+Icon Images Link:
+Boy: https://images.app.goo.gl/bBxsHPLu6xqSTvQG6
+Panda: https://www.cleanpng.com/png-po-master-shifu-tigress-giant-panda-kung-fu-panda-674481/
+Snake: https://www.cleanpng.com/png-cartoon-clip-art-red-snake-1278542/download-png.html
+
+################## MATH GAME ##################
+
+Asks the player a series of math questions. If the player answers 3 incorrectly they lose a
+life and the game ends. Every question they answer corrected adds 1 point to the score. There are a
+total of 10 possible rounds. After the player completes the Flash colours game they move on to the
+FLash colours game.
+
+
+################ Flash Colours ################
+
+Asks player to press the start button at which point the colours will start to flash at random. The
+player must remember the pattern and click the colours corresponding to the pattern they saw. If they
+correctly identified the pattern, a message saying they earned a point will appear. If they lose two
+rounds then they lose the Flash colours game. A total of 4 rounds will be played. After the player
+completes the Flash colours game they move on to the Rock Paper Scissors game.
+
+The links below refer to pages where code was found. These sources were used to help implement flash
+colours, as well as in FileManager where a file needs to be written to.
+https://stackoverflow.com/questions/15582434/using-a-valueanimator-to-make-a-textview-blink-different-colors
+https://android.okhelp.cz/get-resource-id-by-resources-string-name-android-example/
+https://stackoverflow.com/questions/14376807/how-to-read-write-string-from-a-file-in-android
+
+
+########## Rock Paper Scissors Game ##########
+
+Lets the player play a game of rock paper scissors against the computer. If the player loses two
+rounds first then they lose the rock paper scissors game. If the player wins 3 rounds before losing
+two rounds, then they win the rock paper scissors game. If their is a tie
+
+Rock Paper Scissors Game Images Links:
+https://www.google.com/search?q=rock+paper+scissors&safe=strict&rlz=1C5CHFA_enCA813CA813&sxsrf=
+ACYBGNQS9cRDl2C1Wd8-FqzXX9cLZrWkdQ:1572550321774&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi-isi6nsflAh
+VKh-AKHV8TBWoQ_AUIEigB&biw=1440&bih=714#imgdii=mR-t7MrFmrZlgM:&imgrc=NNOq5QMe9uhqwM:
