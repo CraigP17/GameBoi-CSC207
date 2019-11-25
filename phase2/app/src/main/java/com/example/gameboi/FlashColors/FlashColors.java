@@ -29,6 +29,8 @@ class FlashColors {
         pattern.add(Color.GREEN);
         pattern.add(Color.BLUE);
         pattern.add(Color.YELLOW);
+        //pattern.add(Color.BLACK);
+        //pattern.add(Color.WHITE);
 
         Collections.shuffle(pattern);
         correctPattern = pattern;

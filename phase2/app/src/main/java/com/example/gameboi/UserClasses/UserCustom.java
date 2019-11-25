@@ -20,23 +20,16 @@ class UserCustom implements Parcelable {
      */
     private String icon; //string icon
 
-    /**
-     * The User's current level
-     */
-    private int currLevel;
-
-    UserCustom(String name, int backgroundColor, String icon, int currLevel){
+    UserCustom(String name, int backgroundColor, String icon){
         this.name = name;
         this.backgroundColor = backgroundColor;
         this.icon = icon;
-        this.currLevel = currLevel;
     }
 
     protected UserCustom(Parcel in) {
         name = in.readString();
         backgroundColor = in.readInt();
         icon = in.readString();
-        currLevel = in.readInt();
     }
 
     public static final Creator<UserCustom> CREATOR = new Creator<UserCustom>() {
@@ -61,7 +54,6 @@ class UserCustom implements Parcelable {
         parcel.writeString(name);
         parcel.writeInt(backgroundColor);
         parcel.writeString(icon);
-        parcel.writeInt(currLevel);
     }
 
     /**
@@ -106,17 +98,4 @@ class UserCustom implements Parcelable {
         this.icon = icon;
     }
 
-    /**
-     * @return the users current level
-     */
-    int getCurrLevel() {
-        return currLevel;
-    }
-
-    /**
-     * @param currLevel set the users current level
-     */
-    void setCurrLevel(int currLevel) {
-        this.currLevel = currLevel;
-    }
 }

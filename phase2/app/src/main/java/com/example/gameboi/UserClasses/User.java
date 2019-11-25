@@ -31,9 +31,9 @@ public class User implements Parcelable {
     public User(String name, int lives, int points,
                 int backgroundColor, String icon, int currLevel, int highScore, int origLives) {
 
-        this.custom = new UserCustom(name,backgroundColor,icon,currLevel);
+        this.custom = new UserCustom(name,backgroundColor,icon);
         //multiplier preset to 0 for now
-        this.stats = new UserStats(lives,points,0,highScore,origLives);
+        this.stats = new UserStats(lives,points,0,highScore,currLevel,origLives);
     }
 
     public User() {
@@ -95,7 +95,7 @@ public class User implements Parcelable {
     public String toString() {
         return custom.getName() + "," + stats.getLives() + "," + stats.getPoints() + "," +
                 custom.getBackgroundColor() + "," + custom.getIcon() + ","
-                + custom.getCurrLevel() + "," + stats.getHighScore() + "," + stats.getOrigLives()
+                + stats.getCurrLevel() + "," + stats.getHighScore() + "," + stats.getOrigLives()
                 + "," + stats.getMultiplier();
     }
 
@@ -152,14 +152,14 @@ public class User implements Parcelable {
      * @return The User's currLevel
      */
     public int getCurrLevel() {
-        return custom.getCurrLevel();
+        return stats.getCurrLevel();
     }
 
     /**
      * Increase the User's current level by 1
      */
     public void incrementCurrLevel() {
-        custom.setCurrLevel(custom.getCurrLevel()+1);
+        stats.setCurrLevel(stats.getCurrLevel()+1);
     }
 
     /**
