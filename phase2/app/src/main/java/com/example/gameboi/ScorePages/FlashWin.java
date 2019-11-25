@@ -29,8 +29,8 @@ public class FlashWin extends AppCompatActivity {
         player.incrementCurrLevel();
 
         // Set high score of the User if they have beat their high score
-        if (player.getTotalPoints() > player.getHighScore()) {
-            player.setHighScore(player.getTotalPoints());
+        if (player.getPoints() > player.getHighScore()) {
+            player.setHighScore(player.getPoints());
         }
 
         FileManager fman = new FileManager(this);
@@ -40,16 +40,16 @@ public class FlashWin extends AppCompatActivity {
         numLives.setText(String.valueOf(player.getLives()));
 
         TextView lvl1Score = findViewById(R.id.textView11);
-        lvl1Score.setText(String.valueOf(player.getLevelOnePoints()));
+        lvl1Score.setText(String.valueOf(player.getPoints()));
 
         TextView lvl2Score = findViewById(R.id.textView31);
-        lvl2Score.setText(String.valueOf(player.getFCUserScore()));
+        lvl2Score.setText(String.valueOf(player.getPoints()));
 
         TextView lvl3Score = findViewById(R.id.textView33);
-        lvl3Score.setText(String.valueOf(player.getLevelThreePoints()));
+        lvl3Score.setText(String.valueOf(player.getPoints()));
 
         TextView totalPoint = findViewById(R.id.textView13);
-        totalPoint.setText(String.valueOf(player.getTotalPoints()));
+        totalPoint.setText(String.valueOf(player.getPoints()));
     }
 
   /**

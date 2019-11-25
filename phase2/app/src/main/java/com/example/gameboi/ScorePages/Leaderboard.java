@@ -18,7 +18,10 @@ public class Leaderboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
         FileManager file = new FileManager(this);
+        System.out.println("read file for leaderboard");
         ArrayList<User> users = file.getUsers();
+
+        System.out.println("DONE...");
 
 
         // Creating a empty array list that will store all users from highest highscore to lowest

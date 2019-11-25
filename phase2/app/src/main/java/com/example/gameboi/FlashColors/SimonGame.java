@@ -49,7 +49,7 @@ public class SimonGame extends AppCompatActivity {
         Root.setBackgroundColor(player.getBackgroundColor()); //set background color
 //      Here is the code needed to set the score up at startup:
         scoreBoard = findViewById(R.id.textView10);
-        int prevscore = player.getLevelOnePoints();
+        int prevscore = player.getPoints();
         scoreBoard.setText(String.valueOf(prevscore)); //DOES SCORE START AT 0 always?
 
 
@@ -123,12 +123,12 @@ public class SimonGame extends AppCompatActivity {
             Toast.makeText(context, success, length).show();
             // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
         } else if (!flash.isCorrect(userGuess) & incorrect == 1) {
-            flash.setScore(flashLevels - incorrect);
+            flash.setScore(Integer.parseInt(scoreBoard.getText().toString()));
             Intent intent = new Intent(this, FlashLoss.class);
             intent.putExtra("player", player);
             startActivity(intent);
         } else if (flashLevels == 4) {
-            flash.setScore(flashLevels - incorrect);
+            flash.setScore(Integer.parseInt(scoreBoard.getText().toString()));
             Intent intent = new Intent(this, FlashWin.class);
             intent.putExtra("player", player);
             startActivity(intent);

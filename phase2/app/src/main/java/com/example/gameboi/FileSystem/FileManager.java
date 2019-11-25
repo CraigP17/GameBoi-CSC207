@@ -48,9 +48,9 @@ public class FileManager{
         }
 
         //sends info to the text file
-        out.println(",0,0,0,0,0,,0,0");
-        out.println(",0,0,0,0,0,,0,0");
-        out.println(",0,0,0,0,0,,0,0");
+        out.println(",0,0,0,,0,0,0,0");
+        out.println(",0,0,0,,0,0,0,0");
+        out.println(",0,0,0,,0,0,0,0");
         out.close();
     }
 
@@ -100,8 +100,8 @@ public class FileManager{
                     temp[0] = null;
                 }
                 User user = new User(temp[0], Integer.parseInt(temp[1]), Integer.parseInt(temp[2]),
-                        Integer.parseInt(temp[3]) ,Integer.parseInt(temp[4]), Integer.parseInt(temp[5]),
-                        temp[6], Integer.parseInt(temp[7]), Integer.parseInt(temp[8]));
+                        Integer.parseInt(temp[3]),
+                        temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]), Integer.parseInt(temp[7]));
                 userList.add(user);
             }
             return userList;
@@ -120,8 +120,8 @@ public class FileManager{
                     temp[0] = null;
                 }
                 User user = new User(temp[0], Integer.parseInt(temp[1]), Integer.parseInt(temp[2]),
-                        Integer.parseInt(temp[3]) ,Integer.parseInt(temp[4]), Integer.parseInt(temp[5]),
-                        temp[6], Integer.parseInt(temp[7]), Integer.parseInt(temp[8]));
+                        Integer.parseInt(temp[3]),
+                        temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]), Integer.parseInt(temp[7]));
                 userList.add(user);
             }
             System.out.print("REACHED END");

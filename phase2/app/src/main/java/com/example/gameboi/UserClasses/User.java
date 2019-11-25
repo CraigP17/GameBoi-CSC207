@@ -8,74 +8,32 @@ public class User implements Parcelable {
      * It stores the users username, points, lives and customization preferences*/
 
     /**
-     * The User's name
+     * This object is responsible for storing and manipulating the Users statistics
      */
-    private String name;
+    private UserStats stats;
 
     /**
-     * The User's number of lives
+     * This object is responsible for storing and manipulating user customizations
      */
-    private int lives;
-
-    /**
-     * The User's Level 1: MathGame Points
-     */
-    private int levelOnePoints;
-
-    /**
-     * The User's Level 2: FlashColor/Simon Points
-     */
-    private int levelTwoPoints;
-
-    /**
-     * The User's Level 3: RockPaperScissors Points
-     */
-    private int levelThreePoints;
-
-    /**
-     * The User's background screen colour
-     */
-    private int backgroundColor;
-
-    /**
-     * The User's chosen avatar icon
-     */
-    private String icon; //string icon
-
-    /**
-     * The User's current level
-     */
-    private int currLevel;
-
-    /**
-     * The User's high score after playing GameBoi
-     */
-    private int highScore;
+    private UserCustom custom;
 
     /**
      * Constructs a new User
      *
      * @param name             the User's name
      * @param lives            the number of lives they have
-     * @param levelOnePoints   number of points after completing level 1
-     * @param levelTwoPoints   number of points after completing level 2
-     * @param levelThreePoints number of points after completing level 3
+     * @param points   number of points after completing level 1
      * @param backgroundColor  the colour of the background in the games
      * @param icon             the User's selected icon
      * @param currLevel        the User's current level,
      * @param highScore        the User's high score after completing the game
      */
-    public User(String name, int lives, int levelOnePoints, int levelTwoPoints, int levelThreePoints,
-                int backgroundColor, String icon, int currLevel, int highScore) {
-        this.name = name;
-        this.lives = lives;
-        this.levelOnePoints = levelOnePoints;
-        this.levelTwoPoints = levelTwoPoints;
-        this.levelThreePoints = levelThreePoints;
-        this.backgroundColor = backgroundColor;
-        this.icon = icon;
-        this.currLevel = currLevel;
-        this.highScore = highScore;
+    public User(String name, int lives, int points,
+                int backgroundColor, String icon, int currLevel, int highScore, int origLives) {
+
+        this.custom = new UserCustom(name,backgroundColor,icon,currLevel);
+        //multiplier preset to 0 for now
+        this.stats = new UserStats(lives,points,0,highScore,origLives);
     }
 
     public User() {
@@ -88,15 +46,8 @@ public class User implements Parcelable {
      * @param in The Parcel that is passed through an Intent
      */
     protected User(Parcel in) {
-        name = in.readString();
-        lives = in.readInt();
-        levelOnePoints = in.readInt();
-        levelTwoPoints = in.readInt();
-        levelThreePoints = in.readInt();
-        backgroundColor = in.readInt();
-        icon = in.readString();
-        currLevel = in.readInt();
-        highScore = in.readInt();
+        stats = in.readParcelable(UserStats.class.getClassLoader());
+        custom = in.readParcelable(UserCustom.class.getClassLoader());
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -136,150 +87,86 @@ public class User implements Parcelable {
      */
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(name);
-        parcel.writeInt(lives);
-        parcel.writeInt(levelOnePoints);
-        parcel.writeInt(levelTwoPoints);
-        parcel.writeInt(levelThreePoints);
-        parcel.writeInt(backgroundColor);
-        parcel.writeString(icon);
-        parcel.writeInt(currLevel);
-        parcel.writeInt(highScore);
+        parcel.writeParcelable(stats,i);
+        parcel.writeParcelable(custom,i);
     }
 
     @Override
     public String toString() {
-        return name + "," + lives + "," + levelOnePoints + "," + levelTwoPoints + "," + levelThreePoints +
-                "," + backgroundColor + "," + icon + "," + currLevel + "," + highScore;
+        return custom.getName() + "," + stats.getLives() + "," + stats.getPoints() + "," +
+                custom.getBackgroundColor() + "," + custom.getIcon() + ","
+                + custom.getCurrLevel() + "," + stats.getHighScore() + "," + stats.getOrigLives()
+                + "," + stats.getMultiplier();
     }
 
     /**
-     * Substracts a life from the number of lives the User has, after they lose a level
+     * Subtracts a life from the number of lives the User has, after they lose a level
      */
     public void loseALife() {
-        lives--;
+        stats.setLives(stats.getLives()-1);
     }
 
     /**
      * @return the number of lives the User has
      */
     public int getLives() {
-        return lives;
+        return stats.getLives();
     }
 
     /**
      * Sets the number of lives the User has
      */
     public void setLives(int num) {
-        lives = num;
+        stats.setLives(num);
     }
 
     /**
      * Sets the User's customized backgroundColor
      */
-    public void setBackgroundColor(int color) { this.backgroundColor = color; }
+    public void setBackgroundColor(int color) {
+        custom.setBackgroundColor(color);
+    }
 
     /**
      * @return the User's customized backgroundColor
      */
     public int getBackgroundColor() {
-        return backgroundColor;
+        return custom.getBackgroundColor();
     }
 
     /**
      * @return the User's name
      */
     public String getName() {
-        return name;
+        return custom.getName();
     }
 
     /**
      * Sets the User's name
      */
     public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Get the number of LevelOne Math Game Points
-     *
-     * @return the User's levelOnePoints
-     */
-    public int getLevelOnePoints() {
-        return levelOnePoints;
-    }
-
-
-    int getLevelTwoPoints() {
-        return levelTwoPoints;
-    }
-
-    /**
-     * Set the User's LevelOne Math Game Points
-     *
-     * @param points The number of level 1 points
-     */
-    public void setLevelOnePoints(int points) {
-        levelOnePoints = points;
-    }
-
-    /**
-     * Gets the number of points the User has after playing Level 2
-     *
-     * @return the User's levelTwoPoints
-     */
-    public int getFCUserScore() {
-        return levelTwoPoints;
-    }
-
-    /**
-     * Sets the User's levelTwoPoints after playing FlashColors
-     *
-     * @param score the User's levelTwoPoints
-     */
-    public void setFCUserScore(int score) {
-        this.levelTwoPoints = score; // score increases here
-    }
-
-    /**
-     * Get the Level Three RPS Points
-     *
-     * @return the User's levelThreePoints
-     */
-    public int getLevelThreePoints() {
-        return levelThreePoints;
-    }
-
-    public void setLevelThreePoints(int points) {
-        levelThreePoints = points;
-    }
-
-    /**
-     * @return the total number of points across all levels
-     */
-    public int getTotalPoints() {
-        return levelOnePoints + levelTwoPoints + levelThreePoints;
+        custom.setName(name);
     }
 
     /**
      * @return The User's currLevel
      */
     public int getCurrLevel() {
-        return currLevel;
+        return custom.getCurrLevel();
     }
 
     /**
      * Increase the User's current level by 1
      */
     public void incrementCurrLevel() {
-        currLevel++;
+        custom.setCurrLevel(custom.getCurrLevel()+1);
     }
 
     /**
      * @return The User's highScore
      */
     public int getHighScore() {
-        return highScore;
+        return stats.getHighScore();
     }
 
     /**
@@ -288,20 +175,48 @@ public class User implements Parcelable {
      * @param highScore The high score of the user playing the games
      */
     public void setHighScore(int highScore) {
-        this.highScore = highScore;
+        stats.setHighScore(highScore);
     }
 
     /**
      * @return String value that represents logo file name
      */
     public String getIcon() {
-        return this.icon;
+        return custom.getIcon();
     }
 
     /**
      * @param newIcon The new logo's name
      */
     public void setIcon(String newIcon) {
-        this.icon = newIcon;
+        custom.setIcon(newIcon);
+    }
+
+    /**
+     * @return The current amount of points a user has accumulated
+     */
+    public int getPoints(){
+        return stats.getPoints();
+    }
+
+    /**
+     * @param num the amount of points that the User has earned
+     */
+    public void setPoints(int num){
+        stats.setPoints(num);
+    }
+
+    /**
+     * @return The number of lives the user has originally chosen to have
+     */
+    public int getOrigLives() {
+        return stats.getOrigLives();
+    }
+
+    /**
+     * @param origLives the value to set the number of lives that the user begins with
+     */
+    public void setOrigLives(int origLives) {
+        stats.setOrigLives(origLives);
     }
 }
