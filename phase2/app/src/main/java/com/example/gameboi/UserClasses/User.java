@@ -219,4 +219,18 @@ public class User implements Parcelable {
     public void setOrigLives(int origLives) {
         stats.setOrigLives(origLives);
     }
+
+    /**
+     * @return The users current multiplier
+     */
+    int getMultiplier() {
+        return stats.getMultiplier();
+    }
+
+    /**
+     * @param multiplier the users new multiplier
+     */
+    public void setMultiplier(int multiplier) {
+        stats.setMultiplier(multiplier);
+    }
 }
