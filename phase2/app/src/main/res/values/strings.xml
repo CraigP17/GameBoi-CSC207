@@ -79,4 +79,13 @@
     <string name="gameboiSign">GAMEBOI</string>
     <string name="leaderboard_text">Great Job! Play Again?</string>
     <string name="todo">TODO</string>
+
+
+    //LeaderBoard
+
+    <string-array name="scoreboard_titles">
+        <item>Score</item>
+        <item>Multiplier</item>
+        <item>Lives</item>
+    </string-array>
 </resources>
