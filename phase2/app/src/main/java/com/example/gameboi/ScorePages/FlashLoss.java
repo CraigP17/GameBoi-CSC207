@@ -33,8 +33,8 @@ public class FlashLoss extends AppCompatActivity {
         player.incrementCurrLevel();
 
         // Set high score to new high score if they have beat their score
-        if (player.getTotalPoints() > player.getHighScore()) {
-            player.setHighScore(player.getTotalPoints());
+        if (player.getPoints() > player.getHighScore()) {
+            player.setHighScore(player.getPoints());
         }
 
         FileManager fman = new FileManager(this);
@@ -44,7 +44,7 @@ public class FlashLoss extends AppCompatActivity {
         lives.setText(String.valueOf(player.getLives()));
 
         TextView points = findViewById(R.id.textView21);
-        points.setText(String.valueOf(player.getTotalPoints()));
+        points.setText(String.valueOf(player.getPoints()));
 
         Button btn = findViewById(R.id.button13);
         if (player.getLives() > 0) {

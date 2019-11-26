@@ -34,13 +34,13 @@ public class MathGame extends AppCompatActivity {
 
     private void isGameOver(){
         if (mgm.getNumLosses() > 2) {
-            player.setLevelOnePoints(mgm.getScore());
+            player.setPoints(mgm.getScore());
             Intent intent = new Intent(this, FlashLoss.class);
             intent.putExtra("player", player);
             startActivity(intent);
         }
         else if (mgm.getNumRounds() > 9){
-            player.setLevelOnePoints(mgm.getScore());
+            player.setPoints(mgm.getScore());
             Intent intent = new Intent(this, FlashWin.class);
             intent.putExtra("player", player);
             startActivity(intent);

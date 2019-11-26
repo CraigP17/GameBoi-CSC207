@@ -36,7 +36,7 @@ public class RockPaperScissors extends AppCompatActivity {
         icon.setImageResource(resID);
 
         TextView scoreboardRpS = findViewById(R.id.textView12);
-        scoreboardRpS.setText(String.valueOf(winsRpS + player.getTotalPoints()));
+        scoreboardRpS.setText(String.valueOf(winsRpS + player.getPoints()));
 
         //Setting up the background Colour
         View colour = findViewById(R.id.textView3); //finds random view
@@ -93,19 +93,20 @@ public class RockPaperScissors extends AppCompatActivity {
     }
 
     private void checker(String outcome, String userchoice, String compchoice) {
+        TextView scoreboardRpS = findViewById(R.id.textView12);
         if (lossesRpS == 2) {
             System.out.println("Losses");
             if (player.getLives() == 1) {
                 // go to 'you lost the game' screen
                 Intent intent = new Intent(this, FlashLoss.class);
                 intent.putExtra("player", player);
-                player.setLevelThreePoints(winsRpS);
+                player.setPoints(Integer.parseInt(scoreboardRpS.getText().toString()));
                 startActivity(intent);
             } else {
                 // go to 'you won the game' screen
                 Intent intent = new Intent(this, FlashWin.class);
                 intent.putExtra("player", player);
-                player.setLevelThreePoints(winsRpS);
+                player.setPoints(Integer.parseInt(scoreboardRpS.getText().toString()));
                 startActivity(intent);
             }
         } else if (winsRpS == 3) {
@@ -113,7 +114,7 @@ public class RockPaperScissors extends AppCompatActivity {
                 // go to you won the game screen
                 Intent intent = new Intent(this, FlashWin.class);
                 intent.putExtra("player", player);
-                player.setLevelThreePoints(winsRpS);
+                player.setPoints(Integer.parseInt(scoreboardRpS.getText().toString()));
                 startActivity(intent);
         } else {
             if (outcome.equals("won")) {

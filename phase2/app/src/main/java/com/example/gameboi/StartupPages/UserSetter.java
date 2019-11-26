@@ -132,6 +132,7 @@ public class UserSetter extends AppCompatActivity{
             player.setName(name);
             player.setIcon(icon);
             player.setLives(numLives);
+            player.setOrigLives(numLives);
             player.setBackgroundColor(backgroundColor);
             FileManager fm = new FileManager(this);
             fm.saveNewUser(player);
