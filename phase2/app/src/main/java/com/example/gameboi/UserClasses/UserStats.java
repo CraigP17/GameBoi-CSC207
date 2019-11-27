@@ -30,12 +30,18 @@ class UserStats implements Parcelable {
      */
     private int origLives;
 
-    UserStats(int lives, int points, int multiplier, int highScore, int origLives){
+    /**
+     * The User's current level
+     */
+    private int currLevel;
+
+    UserStats(int lives, int points, int multiplier, int highScore, int currLevel, int origLives){
         this.lives = lives;
         this.points = points;
         this.multiplier = multiplier;
         this.highScore = highScore;
         this.origLives = origLives;
+        this.currLevel = currLevel;
     }
 
     protected UserStats(Parcel in) {
@@ -44,6 +50,7 @@ class UserStats implements Parcelable {
         multiplier = in.readInt();
         highScore = in.readInt();
         origLives = in.readInt();
+        currLevel = in.readInt();
     }
 
     @Override
@@ -53,6 +60,7 @@ class UserStats implements Parcelable {
         dest.writeInt(multiplier);
         dest.writeInt(highScore);
         dest.writeInt(origLives);
+        dest.writeInt(currLevel);
     }
 
     @Override
@@ -140,5 +148,19 @@ class UserStats implements Parcelable {
      */
     void setOrigLives(int origLives) {
         this.origLives = origLives;
+    }
+
+    /**
+     * @return the users current level
+     */
+    int getCurrLevel() {
+        return currLevel;
+    }
+
+    /**
+     * @param currLevel set the users current level
+     */
+    void setCurrLevel(int currLevel) {
+        this.currLevel = currLevel;
     }
 }

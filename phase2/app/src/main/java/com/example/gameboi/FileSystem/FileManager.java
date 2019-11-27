@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class FileManager{
 
     private Context activity;
-    /** For logging output. */
+    /** For logging output . */
     private static final String TAG = "Main Activity";
 
     /** The example file to write and read. */
@@ -48,9 +48,10 @@ public class FileManager{
         }
 
         //sends info to the text file
-        out.println(",0,0,0,,0,0,0,0");
-        out.println(",0,0,0,,0,0,0,0");
-        out.println(",0,0,0,,0,0,0,0");
+        //Name, Lives, Points, BackgroundColor, Icon, CurrLevel, HighScore, OrigLives, Multiplier, Difficulty
+        out.println(",0,0,0,,0,0,0,0,");
+        out.println(",0,0,0,,0,0,0,0,");
+        out.println(",0,0,0,,0,0,0,0,");
         out.close();
     }
 
@@ -101,7 +102,8 @@ public class FileManager{
                 }
                 User user = new User(temp[0], Integer.parseInt(temp[1]), Integer.parseInt(temp[2]),
                         Integer.parseInt(temp[3]),
-                        temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]), Integer.parseInt(temp[7]));
+                        temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]),
+                        Integer.parseInt(temp[7]), temp[8]);
                 userList.add(user);
             }
             return userList;
@@ -121,7 +123,8 @@ public class FileManager{
                 }
                 User user = new User(temp[0], Integer.parseInt(temp[1]), Integer.parseInt(temp[2]),
                         Integer.parseInt(temp[3]),
-                        temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]), Integer.parseInt(temp[7]));
+                        temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]),
+                        Integer.parseInt(temp[7]), temp[8]);
                 userList.add(user);
             }
             System.out.print("REACHED END");
@@ -178,6 +181,31 @@ public class FileManager{
         } catch (IOException e) {
             Log.e(TAG, "Error encountered trying to open file for writing: " + EXAMPLE_FILE);
         }
+    }
+
+    /**
+     * sets the users in the text file to new users
+     */
+    public void erase(){
+
+        //when writing to this file, it starts at top of file and begins writing, so any information that
+        //on that line will be removed. Make sure this is considered.
+        PrintWriter out = null;
+        //load output stream to example file
+        try {
+            OutputStream outStream = activity.openFileOutput(EXAMPLE_FILE, Context.MODE_PRIVATE);
+            //create new print writer to send full strings not bytes
+            out = new PrintWriter(outStream);
+        } catch (FileNotFoundException e) {
+            Log.e(TAG, "Error encountered trying to open file for writing: " + EXAMPLE_FILE);
+        }
+
+        //sends info to the text file
+        //Name, Lives, Points, BackgroundColor, Icon, CurrLevel, HighScore, OrigLives, Multiplier, Difficulty
+        out.println(",0,0,0,,0,0,0,0,");
+        out.println(",0,0,0,,0,0,0,0,");
+        out.println(",0,0,0,,0,0,0,0,");
+        out.close();
     }
 
 }

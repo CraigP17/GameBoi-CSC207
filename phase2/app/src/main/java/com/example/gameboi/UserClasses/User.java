@@ -22,18 +22,20 @@ public class User implements Parcelable {
      *
      * @param name             the User's name
      * @param lives            the number of lives they have
-     * @param points   number of points after completing level 1
+     * @param points           number of points after completing level 1
      * @param backgroundColor  the colour of the background in the games
      * @param icon             the User's selected icon
      * @param currLevel        the User's current level,
      * @param highScore        the User's high score after completing the game
+     * @param difficulty       the User's game difficulty
      */
     public User(String name, int lives, int points,
-                int backgroundColor, String icon, int currLevel, int highScore, int origLives) {
+                int backgroundColor, String icon, int currLevel, int highScore, int origLives,
+                String difficulty) {
 
-        this.custom = new UserCustom(name,backgroundColor,icon,currLevel);
+        this.custom = new UserCustom(name,backgroundColor,icon,difficulty);
         //multiplier preset to 0 for now
-        this.stats = new UserStats(lives,points,0,highScore,origLives);
+        this.stats = new UserStats(lives,points,0,highScore,currLevel,origLives);
     }
 
     public User() {
@@ -95,8 +97,8 @@ public class User implements Parcelable {
     public String toString() {
         return custom.getName() + "," + stats.getLives() + "," + stats.getPoints() + "," +
                 custom.getBackgroundColor() + "," + custom.getIcon() + ","
-                + custom.getCurrLevel() + "," + stats.getHighScore() + "," + stats.getOrigLives()
-                + "," + stats.getMultiplier();
+                + stats.getCurrLevel() + "," + stats.getHighScore() + "," + stats.getOrigLives()
+                + "," + stats.getMultiplier() + "," + custom.getDifficulty();
     }
 
     /**
@@ -152,14 +154,14 @@ public class User implements Parcelable {
      * @return The User's currLevel
      */
     public int getCurrLevel() {
-        return custom.getCurrLevel();
+        return stats.getCurrLevel();
     }
 
     /**
      * Increase the User's current level by 1
      */
     public void incrementCurrLevel() {
-        custom.setCurrLevel(custom.getCurrLevel()+1);
+        stats.setCurrLevel(stats.getCurrLevel()+1);
     }
 
     /**
@@ -219,4 +221,29 @@ public class User implements Parcelable {
     public void setOrigLives(int origLives) {
         stats.setOrigLives(origLives);
     }
+
+    /**
+     * @return The users current multiplier
+     */
+    public int getMultiplier() {
+        return stats.getMultiplier();
+    }
+
+    /**
+     * @param multiplier the users new multiplier
+     */
+    public void setMultiplier(int multiplier) {
+        stats.setMultiplier(multiplier);
+    }
+
+    /**
+     * @return the User's chosen game difficulty
+     */
+    public String getDifficulty() { return custom.getDifficulty(); }
+
+    /**
+     * @param difficulty the User's new difficulty
+     */
+    public void setDifficulty(String difficulty) { custom.setDifficulty(difficulty); }
+
 }

@@ -21,22 +21,22 @@ class UserCustom implements Parcelable {
     private String icon; //string icon
 
     /**
-     * The User's current level
+     * The User's chosen game difficulty
      */
-    private int currLevel;
+    private String difficulty;
 
-    UserCustom(String name, int backgroundColor, String icon, int currLevel){
+    UserCustom(String name, int backgroundColor, String icon, String difficulty){
         this.name = name;
         this.backgroundColor = backgroundColor;
         this.icon = icon;
-        this.currLevel = currLevel;
+        this.difficulty = difficulty;
     }
 
     protected UserCustom(Parcel in) {
         name = in.readString();
         backgroundColor = in.readInt();
         icon = in.readString();
-        currLevel = in.readInt();
+        difficulty = in.readString();
     }
 
     public static final Creator<UserCustom> CREATOR = new Creator<UserCustom>() {
@@ -61,7 +61,7 @@ class UserCustom implements Parcelable {
         parcel.writeString(name);
         parcel.writeInt(backgroundColor);
         parcel.writeString(icon);
-        parcel.writeInt(currLevel);
+        parcel.writeString(difficulty);
     }
 
     /**
@@ -106,17 +106,18 @@ class UserCustom implements Parcelable {
         this.icon = icon;
     }
 
-    /**
-     * @return the users current level
-     */
-    int getCurrLevel() {
-        return currLevel;
-    }
 
-    /**
-     * @param currLevel set the users current level
+    /** Returns the User's difficulty of the game
+     *
+     * @return the User's game difficulty
      */
-    void setCurrLevel(int currLevel) {
-        this.currLevel = currLevel;
+    String getDifficulty() { return this.difficulty; }
+
+    /** Sets the User's game difficulty
+     *
+     * @param difficulty the difficulty of the game
+     */
+    void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
     }
 }

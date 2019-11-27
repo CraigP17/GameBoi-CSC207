@@ -5,6 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="green_btn">#00FF00</color>
     <color name="red_btn">#FF0000</color>
-    <color name="blue_btn">#00FFFF</color>
+    <color name="blue_btn">#000000</color>
     <color name="yellow_btn">#FFFF00</color>
 </resources>
