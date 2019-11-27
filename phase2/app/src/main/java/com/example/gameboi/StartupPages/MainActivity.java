@@ -130,7 +130,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void instructions(View view) {
-//        Intent intent = new Intent(this, Instructions.class);
+        Intent intent = new Intent(this, Instructions.class);
+        startActivity(intent);
 
     }
     private boolean hasName(User user){

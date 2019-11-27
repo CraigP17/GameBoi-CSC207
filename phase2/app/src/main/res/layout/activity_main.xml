@@ -6,34 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".StartupPages.MainActivity">
 
-    <TextView
-        android:id="@+id/textView41"
-        android:layout_width="288dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="44dp"
-        android:fontFamily="@font/bungee_shade"
-        android:gravity="center"
-        android:text="@string/chooseUser"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user3" />
-
     <Button
         android:id="@+id/user1"
         android:layout_width="218dp"
         android:layout_height="110dp"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="94dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:fontFamily="@font/permanent_marker"
         android:onClick="User1Btn"
         android:text="@string/newUser"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
     <Button
         android:id="@+id/user2"
@@ -42,10 +31,12 @@
         android:layout_marginStart="99dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="94dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:fontFamily="@font/permanent_marker"
         android:onClick="User2Btn"
         android:text="@string/newUser"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user1" />
@@ -57,29 +48,15 @@
         android:layout_marginStart="99dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="94dp"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:fontFamily="@font/permanent_marker"
         android:onClick="User3Btn"
         android:text="@string/newUser"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user2" />
-
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="266dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="86dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="86dp"
-        android:fontFamily="@font/faster_one"
-        android:text="@string/gameboiSign"
-        android:textAlignment="center"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.259"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -92,42 +69,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/gameboiblue" />
 
-    <ImageButton
-        android:id="@+id/imageButton9"
-        android:layout_width="169dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="?android:attr/panelBackground"
-        android:scaleType="matrix"
-        android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView41"
-        app:srcCompat="@drawable/instructions" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:backgroundTint="?android:attr/panelBackground"
-        android:fontFamily="@font/bungee_shade"
-        android:text="Button"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@android:color/holo_blue_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="630dp" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="52dp"
         android:fontFamily="@font/bangers"
         android:onClick="EraseUsers"
         android:text="@string/ClearVal"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="115dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="52dp"
+        android:fontFamily="@font/bangers"
+        android:onClick="instructions"
+        android:text="@string/instructions"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toEndOf="@+id/imageView8" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="285dp"
+        android:layout_height="107dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="102dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gameboititle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
