@@ -20,16 +20,23 @@ class UserCustom implements Parcelable {
      */
     private String icon; //string icon
 
-    UserCustom(String name, int backgroundColor, String icon){
+    /**
+     * The User's chosen game difficulty
+     */
+    private String difficulty;
+
+    UserCustom(String name, int backgroundColor, String icon, String difficulty){
         this.name = name;
         this.backgroundColor = backgroundColor;
         this.icon = icon;
+        this.difficulty = difficulty;
     }
 
     protected UserCustom(Parcel in) {
         name = in.readString();
         backgroundColor = in.readInt();
         icon = in.readString();
+        difficulty = in.readString();
     }
 
     public static final Creator<UserCustom> CREATOR = new Creator<UserCustom>() {
@@ -54,6 +61,7 @@ class UserCustom implements Parcelable {
         parcel.writeString(name);
         parcel.writeInt(backgroundColor);
         parcel.writeString(icon);
+        parcel.writeString(difficulty);
     }
 
     /**
@@ -98,4 +106,18 @@ class UserCustom implements Parcelable {
         this.icon = icon;
     }
 
+
+    /** Returns the User's difficulty of the game
+     *
+     * @return the User's game difficulty
+     */
+    String getDifficulty() { return this.difficulty; }
+
+    /** Sets the User's game difficulty
+     *
+     * @param difficulty the difficulty of the game
+     */
+    void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
 }

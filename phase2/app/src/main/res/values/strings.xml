@@ -127,4 +127,8 @@
         Scissors game.
     </string>
 
+    <string name="Lives">Lives:</string>
+    <string name="Multiplier">Multiplier:</string>
+    <string name="White">White</string>
+    <string name="Black">Black</string>
 </resources>
