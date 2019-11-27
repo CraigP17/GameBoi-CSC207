@@ -44,14 +44,21 @@ public class SimonGame extends AppCompatActivity {
                 "drawable", getPackageName()); // this line of code grabs the resID based on user name
         icon.setImageResource(resID);
         //Setting up the background Colour
-        View flashColor = findViewById(R.id.textView2); //finds random view
+        View flashColor = findViewById(R.id.textView9); //finds random view
         View Root = flashColor.getRootView(); //finds the root view
         Root.setBackgroundColor(player.getBackgroundColor()); //set background color
-//      Here is the code needed to set the score up at startup:
+        //Here is the code needed to set the score up at startup:
         scoreBoard = findViewById(R.id.textView10);
         int prevscore = player.getPoints();
-        scoreBoard.setText(String.valueOf(prevscore)); //DOES SCORE START AT 0 always?
-
+        scoreBoard.setText(String.valueOf(prevscore));
+        //Display the Lives
+        TextView dispLives = findViewById(R.id.textView40);
+        int userLives = player.getLives();
+        dispLives.setText(String.valueOf(userLives));
+        //Display Multiplier
+        TextView dispMulti = findViewById(R.id.textView43);
+        int userMulti = player.getMultiplier();
+        dispMulti.setText(String.valueOf(userMulti));
 
     }
 
@@ -72,6 +79,14 @@ public class SimonGame extends AppCompatActivity {
         userGuess.add(Color.BLUE);
     }
 
+    public void blackClicked(View view) {
+        userGuess.add(Color.BLACK);
+    }
+
+    public void whiteClicked(View view) {
+        userGuess.add(Color.WHITE);
+    }
+
     /*This method is called when the flashing square is pressed. It will generate
     * a random color sequence and keep the sequence in memory until submitted*/
     public void Flash(View view){
@@ -88,7 +103,7 @@ public class SimonGame extends AppCompatActivity {
 
         ObjectAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor",
                 pattern.get(0), pattern.get(1), pattern.get(2), pattern.get(3));
-        colorAnim.setDuration(4000);
+        colorAnim.setDuration(3000);
         colorAnim.setEvaluator(new ArgbEvaluator());
         colorAnim.start();
     }

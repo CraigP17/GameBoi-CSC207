@@ -7,27 +7,36 @@
     tools:context=".FlashColors.SimonGame">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="140dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="151dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="152dp"
+        android:id="@+id/textView39"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/bangers"
-        android:text="@string/titleSimonGame"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/Lives"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="87dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/bangers"
+        android:text="@string/Multiplier"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView40"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="258dp"
-        android:layout_height="138dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="73dp"
+        android:layout_width="269dp"
+        android:layout_height="136dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="76dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/bungee_shade"
         android:onClick="Flash"
@@ -35,118 +44,196 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="120dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="121dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="15dp"
         android:background="@color/green_btn"
         android:fontFamily="@font/luckiest_guy"
         android:onClick="greenClicked"
         android:text="@string/green"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button11"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/button10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="120dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="123dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="76dp"
         android:background="@color/yellow_btn"
         android:fontFamily="@font/luckiest_guy"
         android:onClick="yellowClicked"
         android:text="@string/yellow"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/button12"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
 
     <Button
         android:id="@+id/button11"
         android:layout_width="120dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginBottom="150dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/blue_btn"
+        android:fontFamily="@font/luckiest_guy"
+        android:onClick="blackClicked"
+        android:text="@string/Black"
+        android:textColor="@android:color/background_light"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="123dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="15dp"
         android:background="@color/red_btn"
         android:fontFamily="@font/luckiest_guy"
         android:onClick="redClicked"
         android:text="@string/red"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/button12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button9" />
 
     <Button
         android:id="@+id/button12"
-        android:layout_width="120dp"
-        android:layout_height="90dp"
-        android:layout_marginEnd="70dp"
-        android:layout_marginBottom="150dp"
+        android:layout_width="122dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="76dp"
         android:background="#1100FF"
         android:fontFamily="@font/luckiest_guy"
         android:onClick="blueClicked"
         android:text="@string/blue"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button3"
+        app:layout_constraintTop_toBottomOf="@+id/button10" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="76dp"
+        android:background="@android:color/background_light"
+        android:fontFamily="@font/luckiest_guy"
+        android:onClick="whiteClicked"
+        android:text="@string/White"
+        android:textColor="@color/blue_btn"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button11"
+        app:layout_constraintTop_toBottomOf="@+id/button12" />
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="84dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="56dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/bangers"
         android:text="@string/score"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="81dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="47dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/bangers"
         android:text="@string/flashScore"
         android:textAlignment="viewStart"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="43dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/bangers"
+        android:text="@string/flashScore"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="38dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/bangers"
+        android:text="@string/flashScore"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView42"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button13"
-        android:layout_width="270dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="56dp"
+        android:layout_width="269dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="25dp"
         android:fontFamily="@font/bungee_shade"
         android:onClick="SubmitButton"
         android:text="@string/submit_round"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="87dp"
         android:layout_height="72dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/icon"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView42"
         app:srcCompat="@mipmap/ic_launcher"
         tools:srcCompat="@tools:sample/avatars[7]"
         tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="229dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:text="@string/titleSimonGame"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/button8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
