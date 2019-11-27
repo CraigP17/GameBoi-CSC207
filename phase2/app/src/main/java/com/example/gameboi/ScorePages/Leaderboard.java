@@ -1,11 +1,8 @@
 package com.example.gameboi.ScorePages;
 
-import java.sql.Array;
-import java.util.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.SparseArray;
 import android.widget.TextView;
 
 import com.example.gameboi.FileSystem.FileManager;
@@ -18,8 +15,6 @@ import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 
 public class Leaderboard extends AppCompatActivity implements OnItemSelectedListener {
 
@@ -51,7 +46,7 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
                     // when user selects multiplier
                     case 1:
                         // Whatever you want to happen when the second item gets selected
-
+                        selectedMultiplier();
                         break;
                     // when user selects lives
                     case 2:
@@ -142,37 +137,68 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
     }
 
     public void selectedMultiplier() {
-//        // Creating a empty array list that will store all users from highest highscore to lowest
-//        ArrayList<User> lives = new ArrayList<>();
-//        ArrayList<User> tempUserslist = new ArrayList<>(users);
-//
-//        // creating temporary highscore which will be over ridden by the actual highscore
-//        int mostMultiplier = -1;
-//
-//        // creating temporary highscorer which will be over ridden by the actual highscorer
-//        User userMostmultiplier = new User();
-//
-//        // for loop that determines the user in users list with highest highscore
-//        for (User item: tempUserslist){
-//            if (item.getMultiplier() >= mostMultiplier) {
-//                mostLives = item.getMultplier();
-//                userMostmultiplier = item;
-//            }
-//        }
+        // Creating a empty array list that will store all users from highest highscore to lowest
+        ArrayList<User> tempUserslist = new ArrayList<>(users);
 
+        // creating temporary highscore which will be over ridden by the actual highscore
+        int mostMultiplier = -1;
+
+        // creating temporary highscorer which will be over ridden by the actual highscorer
+        User userMostmultiplier = new User();
+
+        // for loop that determines the user in users list with highest highscore
+        for (User item: tempUserslist){
+            if (item.getMultiplier() >= mostMultiplier) {
+                mostMultiplier = item.getMultiplier();
+                userMostmultiplier = item;
+            }
+        }
+
+        tempUserslist.remove(userMostmultiplier);
+
+        // creating temporary highscore which will be over ridden by the actual highscore
+        int leastMultiplier = 100;
+
+        // creating temporary highscorer which will be over ridden by the actual highscorer
+        User userLeastmultiplier = new User();
+
+        // for loop that determines the user in users list with highest highscore
+        for (User item: tempUserslist){
+            if (item.getMultiplier() <= leastMultiplier) {
+                leastMultiplier = item.getLives();
+                userLeastmultiplier = item;
+            }
+        }
+
+        tempUserslist.remove(userLeastmultiplier);
+
+        // creating temporary highscore which will be over ridden by the actual highscore
+        int middleMost = tempUserslist.get(0).getMultiplier();
+
+        // creating temporary highscorer which will be over ridden by the actual highscorer
+        User userMiddlemost = tempUserslist.get(0);
+
+        // Displaying topscorers in order in the textviews on leaderboard display
+        TextView first = findViewById(R.id.textView31);
+        first.setText(userMostmultiplier.getName());
+        TextView firstscore = findViewById(R.id.textView24);
+        firstscore.setText(String.valueOf(mostMultiplier));
+
+        TextView second = findViewById(R.id.textView33);
+        second.setText(userMiddlemost.getName());
+        TextView secondscore = findViewById(R.id.textView25);
+        secondscore.setText(String.valueOf(middleMost));
+
+        TextView third = findViewById(R.id.textView34);
+        third.setText(userLeastmultiplier.getName());
+        TextView thirdscore = findViewById(R.id.textView28);
+        thirdscore.setText(String.valueOf(leastMultiplier));
 
 
     }
 
     public void selectedLives() {
 
-//        HashMap<Integer, User> lives = new HashMap<>();
-//
-//        System.out.println(users.size());
-//
-//        for (User u: users){
-//            lives.put(u.getLives(), u);
-//        }
 
         // Creating a empty array list that will store all users from highest highscore to lowest
         ArrayList<User> lives = new ArrayList<>();

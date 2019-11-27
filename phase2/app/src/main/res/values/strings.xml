@@ -88,4 +88,6 @@
         <item>Multiplier</item>
         <item>Lives</item>
     </string-array>
+    <string name="name">Name</string>
+    <string name="instructions">Instructions</string>
 </resources>

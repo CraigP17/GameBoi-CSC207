@@ -128,6 +128,11 @@ public class MainActivity extends AppCompatActivity {
     public void User3Btn(View view) {
         sendToNextScreen(users.get(2));
     }
+
+    public void instructions(View view) {
+//        Intent intent = new Intent(this, Instructions.class);
+
+    }
     private boolean hasName(User user){
         return (user.getName() != null) && !(user.getName().equals("null"));
     }

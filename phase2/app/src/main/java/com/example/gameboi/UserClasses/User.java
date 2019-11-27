@@ -223,7 +223,7 @@ public class User implements Parcelable {
     /**
      * @return The users current multiplier
      */
-    int getMultiplier() {
+    public int getMultiplier() {
         return stats.getMultiplier();
     }
 
