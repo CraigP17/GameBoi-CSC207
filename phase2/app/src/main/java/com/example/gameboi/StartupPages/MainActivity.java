@@ -137,14 +137,16 @@ public class MainActivity extends AppCompatActivity {
         return (user.getName() != null) && !(user.getName().equals("null"));
     }
 
-    /* Called when the user taps the Send button */
-    /*public void toNext(View view) {
-        //says to switch from this activity to the next one
-        Intent intent = new Intent(this, MathGame.class);
-        //EditText editText = (EditText) findViewById(R.id.editText); //look up the id for text user inputted
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message); //create key value pair
-        startActivity(intent); //now intent has key value
-        //goes to MathGame.class
-    }*/
+    /**This method is responsible for erasing all the users currently registered with the game
+     * @param view The current view for MainActivity
+     */
+    public void EraseUsers(View view) {
+
+        f.erase();
+
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+    }
 }

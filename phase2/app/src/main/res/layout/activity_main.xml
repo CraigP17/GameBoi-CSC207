@@ -117,4 +117,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="630dp" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="26dp"
+        android:fontFamily="@font/bangers"
+        android:onClick="EraseUsers"
+        android:text="@string/ClearVal"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

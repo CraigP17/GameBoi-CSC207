@@ -90,4 +90,5 @@
     </string-array>
     <string name="name">Name</string>
     <string name="instructions">Instructions</string>
+    <string name="ClearVal">Clear</string>
 </resources>
