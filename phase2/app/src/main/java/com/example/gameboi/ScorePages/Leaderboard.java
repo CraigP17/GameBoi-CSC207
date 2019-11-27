@@ -264,5 +264,9 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         thirdscore.setText(String.valueOf(leastLives));
     }
 
+    public void playAgain(View view) {
+        FileManager file = new FileManager(this);
+
+    }
 
 }
