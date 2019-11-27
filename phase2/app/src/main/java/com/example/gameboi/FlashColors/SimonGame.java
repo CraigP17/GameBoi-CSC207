@@ -38,28 +38,12 @@ public class SimonGame extends AppCompatActivity {
         //setup flashcolors game with player from math game
         player = getIntent().getParcelableExtra("player");
         flash = new FlashColors(player);
-        //Setting up the user icon
-        ImageView icon = findViewById(R.id.imageView1);
-        int resID = getResources().getIdentifier(player.getIcon(),
-                "drawable", getPackageName()); // this line of code grabs the resID based on user name
-        icon.setImageResource(resID);
-        //Setting up the background Colour
-        View flashColor = findViewById(R.id.textView9); //finds random view
-        View Root = flashColor.getRootView(); //finds the root view
-        Root.setBackgroundColor(player.getBackgroundColor()); //set background color
-        //Here is the code needed to set the score up at startup:
-        scoreBoard = findViewById(R.id.textView10);
-        int prevscore = player.getPoints();
-        scoreBoard.setText(String.valueOf(prevscore));
-        //Display the Lives
-        TextView dispLives = findViewById(R.id.textView40);
-        int userLives = player.getLives();
-        dispLives.setText(String.valueOf(userLives));
-        //Display Multiplier
-        TextView dispMulti = findViewById(R.id.textView43);
-        int userMulti = player.getMultiplier();
-        dispMulti.setText(String.valueOf(userMulti));
 
+        flash.setIcon(this);
+        flash.setBackground(this);
+        scoreBoard = flash.setScoreText(this);
+        flash.setLives(this);
+        flash.setMultiplier(this);
     }
 
     // When a button is clicked by the user as an answer for the pattern, add their input to list of inputs

@@ -27,7 +27,7 @@ public class User implements Parcelable {
      * @param icon             the User's selected icon
      * @param currLevel        the User's current level,
      * @param highScore        the User's high score after completing the game
-     * @param difficulty       the User's game difficulty
+     * @param difficulty       the User's game difficulty either Normal OR Hard
      */
     public User(String name, int lives, int points,
                 int backgroundColor, String icon, int currLevel, int highScore, int origLives,
