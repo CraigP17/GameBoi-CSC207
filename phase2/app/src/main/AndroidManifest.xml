@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RockPaperScissors.RpsFinalLostDisplay"></activity>
+        <activity android:name=".StartupPages.Instructions"></activity>
+        <activity android:name=".RockPaperScissors.RpsFinalLostDisplay" />
         <activity android:name=".ScorePages.Leaderboard" />
         <activity android:name=".RockPaperScissors.RpsFinalWonDisplay" />
         <activity android:name=".RockPaperScissors.tryAgainDisplay" />
         <activity android:name=".RockPaperScissors.RpsLostRoundDisplay" />
-        <activity android:name=".ScorePages.FlashLoss"></activity>
+        <activity android:name=".ScorePages.FlashLoss" />
         <activity android:name=".ScorePages.FlashWin" />
         <activity
             android:name=".RockPaperScissors.RpSWonRoundDisplay"

@@ -78,19 +78,13 @@ public class RockPaperScissors extends AppCompatActivity {
 
     }
 
-    public void Rock(View view) {
-        RpSGamePlayed("Rock");
-
-    }
+    public void Rock(View view) { RpSGamePlayed("Rock"); }
 
     public void Paper(View view) {
         RpSGamePlayed("Paper");
     }
 
-    public void Scissors(View view) {
-        RpSGamePlayed("Scissors");
-
-    }
+    public void Scissors(View view) { RpSGamePlayed("Scissors"); }
 
     private void checker(String outcome, String userchoice, String compchoice) {
         TextView scoreboardRpS = findViewById(R.id.textView12);

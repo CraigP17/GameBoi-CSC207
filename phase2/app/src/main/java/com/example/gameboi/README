@@ -19,8 +19,8 @@ Snake: https://www.cleanpng.com/png-cartoon-clip-art-red-snake-1278542/download-
 
 Asks the player a series of math questions. If the player answers 3 incorrectly they lose a
 life and the game ends. Every question they answer corrected adds 1 point to the score. There are a
-total of 10 possible rounds. After the player completes the Flash colours game they move on to the
-FLash colours game.
+total of 10 possible rounds. After the player completes the Math game with more than 0 lives,
+they move on to the FLash colours game.
 
 
 ################ Flash Colours ################
@@ -42,7 +42,7 @@ https://stackoverflow.com/questions/14376807/how-to-read-write-string-from-a-fil
 
 Lets the player play a game of rock paper scissors against the computer. If the player loses two
 rounds first then they lose the rock paper scissors game. If the player wins 3 rounds before losing
-two rounds, then they win the rock paper scissors game. If their is a tie
+two rounds, then they win the rock paper scissors game.
 
 Rock Paper Scissors Game Images Links:
 https://www.google.com/search?q=rock+paper+scissors&safe=strict&rlz=1C5CHFA_enCA813CA813&sxsrf=
