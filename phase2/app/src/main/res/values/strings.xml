@@ -88,4 +88,5 @@
         <item>Multiplier</item>
         <item>Lives</item>
     </string-array>
+    <string name="ClearVal">Clear</string>
 </resources>

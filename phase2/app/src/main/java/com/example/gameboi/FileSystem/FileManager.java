@@ -48,6 +48,7 @@ public class FileManager{
         }
 
         //sends info to the text file
+        //Name, Lives, Points, BackgroundColor, Icon, CurrLevel, HighScore, OrigLives, Multiplier
         out.println(",0,0,0,,0,0,0,0");
         out.println(",0,0,0,,0,0,0,0");
         out.println(",0,0,0,,0,0,0,0");
@@ -178,6 +179,31 @@ public class FileManager{
         } catch (IOException e) {
             Log.e(TAG, "Error encountered trying to open file for writing: " + EXAMPLE_FILE);
         }
+    }
+
+    /**
+     * sets the users in the text file to new users
+     */
+    public void erase(){
+
+        //when writing to this file, it starts at top of file and begins writing, so any information that
+        //on that line will be removed. Make sure this is considered.
+        PrintWriter out = null;
+        //load output stream to example file
+        try {
+            OutputStream outStream = activity.openFileOutput(EXAMPLE_FILE, Context.MODE_PRIVATE);
+            //create new print writer to send full strings not bytes
+            out = new PrintWriter(outStream);
+        } catch (FileNotFoundException e) {
+            Log.e(TAG, "Error encountered trying to open file for writing: " + EXAMPLE_FILE);
+        }
+
+        //sends info to the text file
+        //Name, Lives, Points, BackgroundColor, Icon, CurrLevel, HighScore, OrigLives, Multiplier
+        out.println(",0,0,0,,0,0,0,0");
+        out.println(",0,0,0,,0,0,0,0");
+        out.println(",0,0,0,,0,0,0,0");
+        out.close();
     }
 
 }
