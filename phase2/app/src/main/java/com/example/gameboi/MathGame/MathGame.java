@@ -83,7 +83,7 @@ public class MathGame extends AppCompatActivity {
 
     //Resets response to Zero and updates the responseView
     public void pressClear(View view) {
-        mgm.setResponse(0);
+        mgm.setResponse();
         updateResponseView();
     }
 
@@ -96,7 +96,7 @@ public class MathGame extends AppCompatActivity {
         String currScore = "SCORE: " + mgm.getScore();
         mathGameScore.setText(currScore);
         setEquation();
-        mgm.setResponse(0);
+        mgm.setResponse();
         updateResponseView();
     }
 

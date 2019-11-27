@@ -1,10 +1,8 @@
 package com.example.gameboi.MathGame;
 
-import android.widget.TextView;
-
 import java.util.Random;
 
-public class MathGameManager {
+class MathGameManager {
 
     // int representation of user's response.
     private int response = 0;
@@ -19,10 +17,10 @@ public class MathGameManager {
     private int score = 0;
     // The current equation to solve
     private String equation;
-    Random rand = new Random();
+    private Random rand = new Random();
 
     int getResponse() {return response;}
-    void setResponse(int newResponse) {response = newResponse;}
+    void setResponse() {response = 0;}
     int getScore() {return score;}
     void setScore(int newScore) {score = newScore;}
     int getNumRounds() {return numRounds;}
