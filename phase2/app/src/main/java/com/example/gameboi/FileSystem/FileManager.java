@@ -48,10 +48,10 @@ public class FileManager{
         }
 
         //sends info to the text file
-        //Name, Lives, Points, BackgroundColor, Icon, CurrLevel, HighScore, OrigLives, Multiplier
-        out.println(",0,0,0,,0,0,0,0");
-        out.println(",0,0,0,,0,0,0,0");
-        out.println(",0,0,0,,0,0,0,0");
+        //Name, Lives, Points, BackgroundColor, Icon, CurrLevel, HighScore, OrigLives, Multiplier, Difficulty
+        out.println(",0,0,0,,0,0,0,0,");
+        out.println(",0,0,0,,0,0,0,0,");
+        out.println(",0,0,0,,0,0,0,0,");
         out.close();
     }
 
@@ -102,7 +102,8 @@ public class FileManager{
                 }
                 User user = new User(temp[0], Integer.parseInt(temp[1]), Integer.parseInt(temp[2]),
                         Integer.parseInt(temp[3]),
-                        temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]), Integer.parseInt(temp[7]));
+                        temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]),
+                        Integer.parseInt(temp[7]), temp[8]);
                 userList.add(user);
             }
             return userList;
@@ -122,7 +123,8 @@ public class FileManager{
                 }
                 User user = new User(temp[0], Integer.parseInt(temp[1]), Integer.parseInt(temp[2]),
                         Integer.parseInt(temp[3]),
-                        temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]), Integer.parseInt(temp[7]));
+                        temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]),
+                        Integer.parseInt(temp[7]), temp[8]);
                 userList.add(user);
             }
             System.out.print("REACHED END");
@@ -199,10 +201,10 @@ public class FileManager{
         }
 
         //sends info to the text file
-        //Name, Lives, Points, BackgroundColor, Icon, CurrLevel, HighScore, OrigLives, Multiplier
-        out.println(",0,0,0,,0,0,0,0");
-        out.println(",0,0,0,,0,0,0,0");
-        out.println(",0,0,0,,0,0,0,0");
+        //Name, Lives, Points, BackgroundColor, Icon, CurrLevel, HighScore, OrigLives, Multiplier, Difficulty
+        out.println(",0,0,0,,0,0,0,0,");
+        out.println(",0,0,0,,0,0,0,0,");
+        out.println(",0,0,0,,0,0,0,0,");
         out.close();
     }
 
