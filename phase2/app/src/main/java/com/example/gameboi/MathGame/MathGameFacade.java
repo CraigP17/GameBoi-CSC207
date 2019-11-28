@@ -15,14 +15,11 @@ class MathGameFacade extends GameFacade{
     private MathGameDisplay mathGameDisplay;
 
 
-    MathGameFacade(User player, TextView scoreboard, TextView multiplier, ImageView lifeOne,
-                   ImageView lifeTwo, ImageView lifeThree, TextView responseView,
-                   TextView equationDisplay) {
+    MathGameFacade(Activity activity, User player) {
         super();
-        gameDisplay = new MathGameDisplay(scoreboard, multiplier,
-                lifeOne, lifeTwo, lifeThree, responseView, equationDisplay );
         gameManager = new MathGameManager(player);
         mathGameManager = (MathGameManager) gameManager;
+        gameDisplay = new MathGameDisplay(activity, mathGameManager.getPlayerIcon());
         mathGameDisplay = (MathGameDisplay) gameDisplay;
     }
 
@@ -57,6 +54,8 @@ class MathGameFacade extends GameFacade{
     @Override
     void updateDisplay() {
         super.updateDisplay();
+        mathGameDisplay.updateBackgroundColor(mathGameManager.getPlayBackgroundColor());
+        mathGameDisplay.updateLivesIcon();
         mathGameManager.newEquation();
         updateEquation();
     }

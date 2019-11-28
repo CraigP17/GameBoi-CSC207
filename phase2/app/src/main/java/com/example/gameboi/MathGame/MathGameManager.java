@@ -1,8 +1,5 @@
 package com.example.gameboi.MathGame;
 
-import android.content.Intent;
-
-import com.example.gameboi.ScorePages.FlashLoss;
 import com.example.gameboi.UserClasses.User;
 
 class MathGameManager implements Gameable{
@@ -87,4 +84,7 @@ class MathGameManager implements Gameable{
 
     User getPlayer() {return player;}
 
+    String getPlayerIcon() {return player.getIcon();}
+
+    int getPlayBackgroundColor(){return player.getBackgroundColor();}
 }

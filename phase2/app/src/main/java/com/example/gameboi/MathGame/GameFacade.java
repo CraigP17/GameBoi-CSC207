@@ -30,4 +30,6 @@ abstract class GameFacade {
 
     boolean isGameOver() {return gameManager.isGameOver();}
 
+    void updateLivesIcon() {gameDisplay.updateLivesIcon();}
+
 }
