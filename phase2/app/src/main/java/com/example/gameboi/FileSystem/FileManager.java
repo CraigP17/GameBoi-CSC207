@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class FileManager{
 
     private Context activity;
-    /** For logging output . */
+    /** For logging output .  */
     private static final String TAG = "Main Activity";
 
     /** The example file to write and read. */
