@@ -22,7 +22,7 @@ abstract class GameFacade {
         gameDisplay.updateMultiplier(gameManager.getMultiplier());
     }
 
-    private void updateDisplay(){
+    void updateDisplay(){
         updateScoreboard();
         updateLives();
         updateMultiplier();

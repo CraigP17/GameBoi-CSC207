@@ -78,7 +78,9 @@ public class MathGame extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_game);
         User player = getIntent().getParcelableExtra("player");
-        mathGameFacade = new MathGameFacade(this);
+        mathGameFacade = new MathGameFacade(player, getScoreboard(), getMultiplier(), getLifeOne(),
+                getLifeTwo(), getLifeThree(), getResponseView(), getEquationDisplay());
+        mathGameFacade.updateDisplay();
         ImageView icon = findViewById(R.id.avatarIcon);
         int resID = getResources().getIdentifier(player.getIcon(),
                 "drawable", getPackageName()); // this line of code grabs the resID based on user name

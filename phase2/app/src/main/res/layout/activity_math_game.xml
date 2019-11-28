@@ -202,33 +202,30 @@
 
     <ImageView
         android:id="@+id/lifeOne"
-        android:layout_width="104dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="40dp"
-        app:layout_constraintEnd_toStartOf="@+id/lifeTwo"
+        android:layout_width="43dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnClear"
         app:srcCompat="@drawable/userlogo" />
 
     <ImageView
         android:id="@+id/lifeTwo"
-        android:layout_width="104dp"
-        android:layout_height="92dp"
-        android:layout_marginTop="25dp"
+        android:layout_width="55dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="26dp"
+        app:layout_constraintStart_toEndOf="@+id/lifeOne"
         app:layout_constraintTop_toBottomOf="@+id/btn0"
-        app:srcCompat="@drawable/userlogo"
-        tools:layout_editor_absoluteX="160dp" />
+        app:srcCompat="@drawable/userlogo" />
 
     <ImageView
         android:id="@+id/lifeThree"
-        android:layout_width="104dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="11dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="60dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="31dp"
         app:layout_constraintStart_toEndOf="@+id/lifeTwo"
         app:layout_constraintTop_toBottomOf="@+id/btnEnter"
         app:srcCompat="@drawable/userlogo" />

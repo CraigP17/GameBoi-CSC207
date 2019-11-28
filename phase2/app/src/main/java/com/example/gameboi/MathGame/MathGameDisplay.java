@@ -1,6 +1,7 @@
 package com.example.gameboi.MathGame;
 
 import android.app.Activity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gameboi.R;
@@ -11,16 +12,17 @@ class MathGameDisplay extends GameDisplay {
     private TextView responseView;
     private TextView equationDisplay;
 
-    MathGameDisplay(MathGame activity){
+    MathGameDisplay(TextView scoreboard, TextView multiplier, ImageView lifeOne,
+                    ImageView lifeTwo, ImageView lifeThree, TextView responseView,
+                    TextView equationDisplay){
         super();
-        this.activity = activity;
-        scoreboard = activity.getScoreboard();
-        multiplier = activity.getMultiplier();
-        responseView = activity.getResponseView();
-        equationDisplay = activity.getEquationDisplay();
-        lifeOne = activity.getLifeOne();
-        lifeTwo = activity.getLifeTwo();
-        lifeThree = activity.getLifeThree();
+        this.scoreboard = scoreboard;
+        this.multiplier = multiplier;
+        this.lifeOne = lifeOne;
+        this.lifeTwo = lifeTwo;
+        this.lifeThree = lifeThree;
+        this.responseView = responseView;
+        this.equationDisplay = equationDisplay;
 //        scoreboard = activity.findViewById(R.id.mathGameScore);
 //        lifeOne = activity.findViewById(R.id.lifeOne);
 //        lifeTwo = activity.findViewById(R.id.lifeTwo);
@@ -30,7 +32,7 @@ class MathGameDisplay extends GameDisplay {
 //        equationDisplay = activity.findViewById(R.id.equationDisplay);
     }
 
-    void updateResponse(int response) {responseView.setText(response);}
+    void updateResponse(int response) {responseView.setText(String.valueOf(response));}
 
     void updateEquation(String equation) {equationDisplay.setText(equation);}
 

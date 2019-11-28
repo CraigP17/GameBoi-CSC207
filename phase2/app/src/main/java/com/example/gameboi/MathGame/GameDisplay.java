@@ -12,7 +12,6 @@ abstract class GameDisplay {
     ImageView lifeOne;
     ImageView lifeTwo;
     ImageView lifeThree;
-    AppCompatActivity activity;
 
     void updateScoreBoard(int score) {
         String scoreToDisplay = "Score: " + score;

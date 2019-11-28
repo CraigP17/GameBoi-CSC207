@@ -2,6 +2,8 @@ package com.example.gameboi.MathGame;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.gameboi.UserClasses.User;
 
@@ -13,20 +15,22 @@ class MathGameFacade extends GameFacade{
     private MathGameDisplay mathGameDisplay;
 
 
-    MathGameFacade(MathGame activity) {
+    MathGameFacade(User player, TextView scoreboard, TextView multiplier, ImageView lifeOne,
+                   ImageView lifeTwo, ImageView lifeThree, TextView responseView,
+                   TextView equationDisplay) {
         super();
-        User player = activity.getIntent().getParcelableExtra("player");
-        gameDisplay = new MathGameDisplay(activity);
+        gameDisplay = new MathGameDisplay(scoreboard, multiplier,
+                lifeOne, lifeTwo, lifeThree, responseView, equationDisplay );
         gameManager = new MathGameManager(player);
         mathGameManager = (MathGameManager) gameManager;
-        mathGameDisplay = new MathGameDisplay(activity);
+        mathGameDisplay = (MathGameDisplay) gameDisplay;
     }
 
     private void updateResponse(){
         mathGameDisplay.updateResponse(mathGameManager.getResponse());
     }
 
-    void updateEquation() {
+    private void updateEquation() {
         mathGameDisplay.updateEquation(mathGameManager.getEquation());
     }
 
@@ -51,4 +55,10 @@ class MathGameFacade extends GameFacade{
 
     boolean isWinner() {return mathGameManager.isWinner();}
 
+    @Override
+    void updateDisplay() {
+        super.updateDisplay();
+        mathGameManager.newEquation();
+        updateEquation();
+    }
 }
