@@ -11,7 +11,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +25,7 @@ public class SimonGame extends AppCompatActivity {
 
     ArrayList<Integer> userGuess = new ArrayList<>();
     private User player;
-    private FlashColors flash;
+    private FlashColorsFacade flash;
     private int incorrect = 0;
     private int flashLevels = 0;
     private TextView scoreBoard;
@@ -37,13 +36,10 @@ public class SimonGame extends AppCompatActivity {
         setContentView(R.layout.activity_simon_game);
         //setup flashcolors game with player from math game
         player = getIntent().getParcelableExtra("player");
-        flash = new FlashColors(player);
+        flash = new FlashColorsFacade(this,player);
 
-        flash.setIcon(this);
-        flash.setBackground(this);
-        scoreBoard = flash.setScoreText(this);
-        flash.setLives(this);
-        flash.setMultiplier(this);
+        scoreBoard = flash.DispStartup();
+
     }
 
     // When a button is clicked by the user as an answer for the pattern, add their input to list of inputs

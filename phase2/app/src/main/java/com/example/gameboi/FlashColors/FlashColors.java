@@ -56,7 +56,7 @@ class FlashColors {
         this.userPattern = userPatterns;
     }
 
-    boolean isSubmitted() {
+    boolean IsSubmitted() {
         return isSubmitted;
     }
 
@@ -78,43 +78,5 @@ class FlashColors {
     /*This method will return the local score for a user playing FlashColors*/
     void setScore(int score) {
         player.setPoints(score);
-    }
-
-    void setIcon(Activity activity){
-        //Setting up the user icon
-        ImageView icon = activity.findViewById(R.id.imageView1);
-        int resID = activity.getResources().getIdentifier(player.getIcon(),
-                "drawable", activity.getPackageName()); // this line of code grabs the resID based on user name
-        icon.setImageResource(resID);
-    }
-
-    void setBackground(Activity activity){
-        //Setting up the background Colour
-        View flashColor = activity.findViewById(R.id.textView9); //finds random view
-        View Root = flashColor.getRootView(); //finds the root view
-        Root.setBackgroundColor(player.getBackgroundColor()); //set background color
-    }
-
-    TextView setScoreText(Activity activity){
-        //Here is the code needed to set the score up at startup:
-        TextView scoreBoard = activity.findViewById(R.id.textView10);
-        int prevscore = player.getPoints();
-        scoreBoard.setText(String.valueOf(prevscore));
-
-        return scoreBoard;
-    }
-
-    void setLives(Activity activity){
-        //Display the Lives
-        TextView dispLives = activity.findViewById(R.id.textView40);
-        int userLives = player.getLives();
-        dispLives.setText(String.valueOf(userLives));
-    }
-
-    void setMultiplier(Activity activity){
-        //Display Multiplier
-        TextView dispMulti = activity.findViewById(R.id.textView43);
-        int userMulti = player.getMultiplier();
-        dispMulti.setText(String.valueOf(userMulti));
     }
 }
