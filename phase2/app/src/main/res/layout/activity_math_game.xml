@@ -200,4 +200,49 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userlogo" />
 
+    <ImageView
+        android:id="@+id/lifeOne"
+        android:layout_width="104dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toStartOf="@+id/lifeTwo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnClear"
+        app:srcCompat="@drawable/userlogo" />
+
+    <ImageView
+        android:id="@+id/lifeTwo"
+        android:layout_width="104dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn0"
+        app:srcCompat="@drawable/userlogo"
+        tools:layout_editor_absoluteX="160dp" />
+
+    <ImageView
+        android:id="@+id/lifeThree"
+        android:layout_width="104dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lifeTwo"
+        app:layout_constraintTop_toBottomOf="@+id/btnEnter"
+        app:srcCompat="@drawable/userlogo" />
+
+    <TextView
+        android:id="@+id/multiplier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="77dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/avatarIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

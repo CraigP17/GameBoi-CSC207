@@ -163,4 +163,5 @@ class UserStats implements Parcelable {
     void setCurrLevel(int currLevel) {
         this.currLevel = currLevel;
     }
+
 }
