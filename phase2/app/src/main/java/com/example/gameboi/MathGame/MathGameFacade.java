@@ -47,8 +47,7 @@ class MathGameFacade extends GameFacade{
     void pressEnter(){
         mathGameManager.submitInput();
         mathGameManager.newEquation();
-        updateResponse();
-        updateEquation();
+        updateDisplay();
     }
 
     User getPlayer() {return mathGameManager.getPlayer();}

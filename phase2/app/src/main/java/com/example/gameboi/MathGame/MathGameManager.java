@@ -51,13 +51,8 @@ class MathGameManager implements Gameable{
     String getEquation() {return equation.getEquation();}
 
     @Override
-    public int getLives() {
-        return player.getLives();
-    }
-
-    @Override
     public int getScore() {
-        return player.getPoints();
+        return score;
     }
 
     @Override

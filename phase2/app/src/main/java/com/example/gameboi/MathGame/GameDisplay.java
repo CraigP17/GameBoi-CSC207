@@ -25,7 +25,7 @@ abstract class GameDisplay {
     }
 
     void updateMultiplier(int num) {
-        String multiplierToDisplay = "x" + num;
+        String multiplierToDisplay = "Multiplier: x" + num;
         multiplier.setText(multiplierToDisplay);
     }
 
