@@ -19,7 +19,6 @@ class MathGameManager implements Gameable{
 
     int getResponse() {return response;}
 
-
     void submitInput(){
         numRounds += 1;
         if (equation.isAnswerCorrect(response)) {score += 1;}
@@ -37,11 +36,11 @@ class MathGameManager implements Gameable{
     private void updateResponse(int num) {response = response * 10 + num;}
 
     void newEquation() {
-        if (player.isHard()) {
-            equation.getHardEquation();
+        if (player.getDifficulty().equals("easy")) {
+            equation.getEasyEquation();
         }
         else {
-            equation.getEasyEquation();
+            equation.getHardEquation();
         }
     }
 
@@ -50,6 +49,17 @@ class MathGameManager implements Gameable{
         if (equation.getEquation() == null) {newEquation();}
         return equation.getEquation();
     }
+
+    void clickNumButton(int num) {
+        if (response < 100000) {updateResponse(num);}
+    }
+
+    void clearResponse(){
+        response = 0;
+    }
+
+    @Override
+    public boolean isWinner() {return winner;}
 
     @Override
     public int getLives() { return player.getLives();}
@@ -79,20 +89,11 @@ class MathGameManager implements Gameable{
     }
 
     @Override
-    public boolean isWinner() {return winner;}
-
-    void clickNumButton(int num) {
-        if (response < 100000) {updateResponse(num);}
-    }
-
-    void clearResponse(){
-        response = 0;
-    }
-
     public User getPlayer() {return player;}
 
     @Override
     public String getPlayerIcon() {return player.getIcon();}
 
+    @Override
     public int getBackgroundColor(){return player.getBackgroundColor();}
 }

@@ -13,13 +13,9 @@ class MathGameFacade extends GameFacade{
         mathGameManager = (MathGameManager) gameManager;
     }
 
-    void clickNumButton(int num) {
-        mathGameManager.clickNumButton(num);
-    }
+    void clickNumButton(int num) {mathGameManager.clickNumButton(num);}
 
-    void pressClear(){
-        mathGameManager.clearResponse();
-    }
+    void pressClear(){mathGameManager.clearResponse();}
 
     void pressEnter(){
         mathGameManager.submitInput();
