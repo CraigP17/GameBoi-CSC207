@@ -37,8 +37,7 @@ public class SimonGame extends AppCompatActivity {
         setContentView(R.layout.activity_simon_game);
         //setup flashcolors game with player from math game
         player = getIntent().getParcelableExtra("player");
-        flash = new FlashColorsFacade(this,player);
-        System.out.println(player.getDifficulty());
+        flash = new FlashColorsFacade(player);
 
         setIcon();
         setMultiplier();
@@ -80,7 +79,7 @@ public class SimonGame extends AppCompatActivity {
         Button but = findViewById(R.id.button8);
         but.setText("");
 
-        if (player.getDifficulty().equals("Normal")){
+        if (flash.getDifficulty().equals("Normal")){
             ObjectAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor",
                     pattern.get(0), pattern.get(1), pattern.get(2), pattern.get(3));
             colorAnim.setDuration(3000);
@@ -147,7 +146,7 @@ public class SimonGame extends AppCompatActivity {
     private void setIcon(){
         //Setting up the user icon
         ImageView icon = findViewById(R.id.imageView1);
-        int resID = getResources().getIdentifier(player.getIcon(),
+        int resID = getResources().getIdentifier(flash.getIcon(),
                 "drawable", getPackageName()); // this line of code grabs the resID based on user name
         icon.setImageResource(resID);
     }
@@ -156,13 +155,13 @@ public class SimonGame extends AppCompatActivity {
         //Setting up the background Colour
         View flashColor = findViewById(R.id.textView9); //finds random view
         View Root = flashColor.getRootView(); //finds the root view
-        Root.setBackgroundColor(player.getBackgroundColor()); //set background color
+        Root.setBackgroundColor(flash.getBackgroundColor()); //set background color
     }
 
     private TextView setScoreText(){
         //Here is the code needed to set the score up at startup:
         TextView scoreBoard = findViewById(R.id.textView10);
-        int prevscore = player.getPoints();
+        int prevscore = flash.getPoints();
         scoreBoard.setText(String.valueOf(prevscore));
 
         return scoreBoard;
@@ -171,14 +170,14 @@ public class SimonGame extends AppCompatActivity {
     private void setLives(){
         //Display the Lives
         TextView dispLives = findViewById(R.id.textView40);
-        int userLives = player.getLives();
+        int userLives = flash.getLives();
         dispLives.setText(String.valueOf(userLives));
     }
 
     private void setMultiplier(){
         //Display Multiplier
         TextView dispMulti = findViewById(R.id.textView43);
-        int userMulti = player.getMultiplier();
+        int userMulti = flash.getMultiplier();
         dispMulti.setText(String.valueOf(userMulti));
     }
 }

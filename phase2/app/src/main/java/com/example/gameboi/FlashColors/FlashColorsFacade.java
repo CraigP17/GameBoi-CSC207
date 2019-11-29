@@ -1,19 +1,16 @@
 package com.example.gameboi.FlashColors;
 
-import android.app.Activity;
-import android.widget.TextView;
-
 import com.example.gameboi.UserClasses.User;
 
 import java.util.ArrayList;
 
 class FlashColorsFacade {
 
-    private FlashDisplay gameDisplay;
+    private User player;
     private FlashColors gameCalculations;
 
-    FlashColorsFacade(Activity activity, User player){
-        gameDisplay = new FlashDisplay(activity,player);
+    FlashColorsFacade(User player){
+        this.player = player;
         if(player.getDifficulty().equals("Hard")){
             gameCalculations = new FlashColorsHard(player);
         }
@@ -53,16 +50,48 @@ class FlashColorsFacade {
         gameCalculations.setScore(score);
     }
 
-    TextView DispStartup(){
-        gameDisplay.setIcon();
-        gameDisplay.setMultiplier();
-        gameDisplay.setLives();
-        TextView scoreReference = gameDisplay.setScoreText();
-        gameDisplay.setBackground();
-        return scoreReference;
-    }
 
     ArrayList<Integer> DisplayColors(){
         return gameCalculations.DisplayColors();
     }
+
+    /**
+     * @return the number of lives the User has
+     */
+    int getLives() {
+        return player.getLives();
+    }
+
+    /**
+     * @return the User's customized backgroundColor
+     */
+    int getBackgroundColor() {
+        return player.getBackgroundColor();
+    }
+
+    /**
+     * @return String value that represents logo file name
+     */
+    String getIcon() {
+        return player.getIcon();
+    }
+
+    /**
+     * @return The current amount of points a user has accumulated
+     */
+    int getPoints(){
+        return player.getPoints();
+    }
+
+    /**
+     * @return The users current multiplier
+     */
+    public int getMultiplier() {
+        return player.getMultiplier();
+    }
+
+    /**
+     * @return the User's chosen game difficulty
+     */
+    String getDifficulty() { return player.getDifficulty(); }
 }
