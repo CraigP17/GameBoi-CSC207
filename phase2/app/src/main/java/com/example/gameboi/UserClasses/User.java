@@ -249,4 +249,8 @@ public class User implements Parcelable {
     //TODO: replace this method once difficulties have been implemented!
     public boolean isHard(){return false;}
 
+    public void foundHiddenfeature() {
+        stats.setMultiplier(stats.getMultiplier()*2);
+    }
+
 }

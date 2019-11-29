@@ -165,7 +165,7 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         // for loop that determines the user in users list with highest highscore
         for (User item: tempUserslist){
             if (item.getMultiplier() <= leastMultiplier) {
-                leastMultiplier = item.getLives();
+                leastMultiplier = item.getMultiplier();
                 userLeastmultiplier = item;
             }
         }
@@ -264,7 +264,9 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         thirdscore.setText(String.valueOf(leastLives));
     }
 
+
     public void playAgain(View view) {
+
         FileManager file = new FileManager(this);
 
     }
