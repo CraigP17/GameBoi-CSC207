@@ -19,6 +19,10 @@ class FlashColorsFacade {
         }
     }
 
+    boolean checkHidden(){
+        return gameCalculations.checkHidden();
+    }
+
     ArrayList<Integer> generatePattern() {
          return gameCalculations.generatePattern();
     }
@@ -27,8 +31,8 @@ class FlashColorsFacade {
         return gameCalculations.getCorrectPattern();
     }
 
-    boolean isCorrect(ArrayList<Integer> userPatterns) {
-        return gameCalculations.isCorrect(userPatterns);
+    boolean isCorrect() {
+        return gameCalculations.isCorrect();
     }
 
     boolean isSubmitted() {
@@ -53,6 +57,14 @@ class FlashColorsFacade {
 
     ArrayList<Integer> DisplayColors(){
         return gameCalculations.DisplayColors();
+    }
+
+    void addColour(int colour){
+        gameCalculations.addColour(colour);
+    }
+
+    void clearPattern(){
+        gameCalculations.clearPattern();
     }
 
     /**
@@ -88,6 +100,10 @@ class FlashColorsFacade {
      */
     public int getMultiplier() {
         return player.getMultiplier();
+    }
+
+    public void setMultiplier(int multiplier) {
+        player.setMultiplier(multiplier);
     }
 
     /**

@@ -113,6 +113,7 @@ public class BonusSpinner extends AppCompatActivity {
 
         if (player.getLives() == 0) {
             Intent intent = new Intent(this, Leaderboard.class);
+            intent.putExtra("player", player);
             startActivity(intent);
         } else {
             if (player.getCurrLevel() == 1) {
