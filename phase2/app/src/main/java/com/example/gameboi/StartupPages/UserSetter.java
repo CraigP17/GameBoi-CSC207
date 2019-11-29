@@ -139,12 +139,12 @@ public class UserSetter extends AppCompatActivity{
     }
 
     public void pressEasyBtn(View view) {
-        difficulty = "easy";
+        difficulty = "Normal";
         setBtnClr(easyBtn, DKGRAY, hardBtn, LTGRAY);
     }
 
     public void pressHardBtn(View view) {
-        difficulty = "hard";
+        difficulty = "Hard";
         setBtnClr(easyBtn, LTGRAY, hardBtn, DKGRAY);
     }
 

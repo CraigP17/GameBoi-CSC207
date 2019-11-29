@@ -7,6 +7,8 @@ class MathGameManager implements Gameable{
     private int response = 0;
     private int numRounds = 0;
     private int numLosses = 0;
+    private int maxLosses = 3;
+    private boolean foundHiddenFeature = false;
     private int score;
     private boolean winner = false;
     private MathEquation equation = new MathEquation();
@@ -17,26 +19,36 @@ class MathGameManager implements Gameable{
         score = player.getPoints();
     }
 
-    int getResponse() {return response;}
+    private void checkHiddenFeature() {
+        if (response == 12345 && ! foundHiddenFeature) {
+            foundHiddenFeature = true;
+            player.foundHiddenfeature();
+        }
+    }
+
+    int getResponse() {
+        checkHiddenFeature();
+        return response;
+    }
 
     void submitInput(){
         numRounds += 1;
         if (equation.isAnswerCorrect(response)) {score += 1;}
         else {
             numLosses += 1;
-            loseLife();
+//            loseLife();
         }
         clearResponse();
     }
 
-    private void loseLife(){
-        if (numLosses >= 3) {player.loseALife();}
-    }
+//    private void loseLife(){
+//        if (numLosses >= maxLosses) {player.loseALife();}
+//    }
 
     private void updateResponse(int num) {response = response * 10 + num;}
 
     void newEquation() {
-        if (player.getDifficulty().equals("easy")) {
+        if (player.getDifficulty().equals("Normal")) {
             equation.getEasyEquation();
         }
         else {
@@ -76,12 +88,12 @@ class MathGameManager implements Gameable{
 
     @Override
     public boolean isGameOver() {
-        if (numRounds == 4 && numLosses != 3) {
+        if (numRounds == 4 && numLosses != maxLosses) {
             winner = true;
             player.setPoints(score);
             return true;
         }
-        else if (numLosses == 3) {
+        else if (numLosses == maxLosses) {
             winner = false;
             player.setPoints(score);
             return true;
