@@ -32,7 +32,7 @@ public class FlashWin extends AppCompatActivity {
         if (player.getPoints() > player.getHighScore()) {
             player.setHighScore(player.getPoints());
         }
-
+        System.out.println("HERE IS DIFFICULTY"+player.getDifficulty());
         FileManager fman = new FileManager(this);
         fman.save(player);
 
@@ -66,6 +66,7 @@ public class FlashWin extends AppCompatActivity {
             startActivity(intent);
         } else if (player.getCurrLevel() == 3){
             Intent intent = new Intent(this, Leaderboard.class);
+            intent.putExtra("player", player);
             startActivity(intent);
         }
     }

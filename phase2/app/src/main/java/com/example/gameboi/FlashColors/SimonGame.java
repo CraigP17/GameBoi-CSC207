@@ -26,7 +26,7 @@ public class SimonGame extends AppCompatActivity {
 
     ArrayList<Integer> userGuess = new ArrayList<>();
     private User player;
-    private FlashColors flash;
+    private FlashColorsFacade flash;
     private int incorrect = 0;
     private int flashLevels = 0;
     private TextView scoreBoard;
@@ -37,13 +37,13 @@ public class SimonGame extends AppCompatActivity {
         setContentView(R.layout.activity_simon_game);
         //setup flashcolors game with player from math game
         player = getIntent().getParcelableExtra("player");
-        flash = new FlashColors(player);
+        flash = new FlashColorsFacade(player);
 
-        flash.setIcon(this);
-        flash.setBackground(this);
-        scoreBoard = flash.setScoreText(this);
-        flash.setLives(this);
-        flash.setMultiplier(this);
+        setIcon();
+        setMultiplier();
+        setLives();
+        setBackground();
+        scoreBoard = setScoreText();
     }
 
     // When a button is clicked by the user as an answer for the pattern, add their input to list of inputs
@@ -74,22 +74,26 @@ public class SimonGame extends AppCompatActivity {
     /*This method is called when the flashing square is pressed. It will generate
     * a random color sequence and keep the sequence in memory until submitted*/
     public void Flash(View view){
-        ArrayList<Integer> pattern;
-        if(flash.isSubmitted()){
-            flash.setSubmitted(false);
-            pattern = flash.generatePattern();
-        }
-        else{
-            pattern = flash.getCorrectPattern();
-        }
+        ArrayList<Integer> pattern = flash.DisplayColors();
+
         Button but = findViewById(R.id.button8);
         but.setText("");
 
-        ObjectAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor",
-                pattern.get(0), pattern.get(1), pattern.get(2), pattern.get(3));
-        colorAnim.setDuration(3000);
-        colorAnim.setEvaluator(new ArgbEvaluator());
-        colorAnim.start();
+        if (flash.getDifficulty().equals("Normal")){
+            ObjectAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor",
+                    pattern.get(0), pattern.get(1), pattern.get(2), pattern.get(3));
+            colorAnim.setDuration(3000);
+            colorAnim.setEvaluator(new ArgbEvaluator());
+            colorAnim.start();
+        }
+        else{
+            ObjectAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor",
+                    pattern.get(0), pattern.get(1), pattern.get(2), pattern.get(3), pattern.get(4),
+                    pattern.get(5));
+            colorAnim.setDuration(5000);
+            colorAnim.setEvaluator(new ArgbEvaluator());
+            colorAnim.start();
+        }
     }
 
     /**
@@ -137,5 +141,43 @@ public class SimonGame extends AppCompatActivity {
         }
         // Clears the User guess to prepare for next pattern guess
         userGuess.clear();
+    }
+
+    private void setIcon(){
+        //Setting up the user icon
+        ImageView icon = findViewById(R.id.imageView1);
+        int resID = getResources().getIdentifier(flash.getIcon(),
+                "drawable", getPackageName()); // this line of code grabs the resID based on user name
+        icon.setImageResource(resID);
+    }
+
+    private void setBackground(){
+        //Setting up the background Colour
+        View flashColor = findViewById(R.id.textView9); //finds random view
+        View Root = flashColor.getRootView(); //finds the root view
+        Root.setBackgroundColor(flash.getBackgroundColor()); //set background color
+    }
+
+    private TextView setScoreText(){
+        //Here is the code needed to set the score up at startup:
+        TextView scoreBoard = findViewById(R.id.textView10);
+        int prevscore = flash.getPoints();
+        scoreBoard.setText(String.valueOf(prevscore));
+
+        return scoreBoard;
+    }
+
+    private void setLives(){
+        //Display the Lives
+        TextView dispLives = findViewById(R.id.textView40);
+        int userLives = flash.getLives();
+        dispLives.setText(String.valueOf(userLives));
+    }
+
+    private void setMultiplier(){
+        //Display Multiplier
+        TextView dispMulti = findViewById(R.id.textView43);
+        int userMulti = flash.getMultiplier();
+        dispMulti.setText(String.valueOf(userMulti));
     }
 }

@@ -2,11 +2,13 @@ package com.example.gameboi.ScorePages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.R;
+import com.example.gameboi.StartupPages.MainActivity;
 import com.example.gameboi.UserClasses.User;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 public class Leaderboard extends AppCompatActivity implements OnItemSelectedListener {
 
     ArrayList<User> users;
+    FileManager file = new FileManager(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,7 +168,7 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         // for loop that determines the user in users list with highest highscore
         for (User item: tempUserslist){
             if (item.getMultiplier() <= leastMultiplier) {
-                leastMultiplier = item.getMultiplier();
+                leastMultiplier = item.getLives();
                 userLeastmultiplier = item;
             }
         }
@@ -264,11 +267,15 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         thirdscore.setText(String.valueOf(leastLives));
     }
 
-
     public void playAgain(View view) {
-
-        FileManager file = new FileManager(this);
-
+        User player = getIntent().getParcelableExtra("player");
+        player.setPoints(0);
+        player.setMultiplier(1);
+        player.setLives(player.getOrigLives());
+        player.setCurrLevel(0);
+        file.save(player);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 }

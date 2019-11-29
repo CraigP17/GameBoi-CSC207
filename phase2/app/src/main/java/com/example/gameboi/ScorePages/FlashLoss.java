@@ -36,7 +36,7 @@ public class FlashLoss extends AppCompatActivity {
         if (player.getPoints() > player.getHighScore()) {
             player.setHighScore(player.getPoints());
         }
-
+        System.out.println("HERE IS THE DIFF  "+player.getDifficulty());
         FileManager fman = new FileManager(this);
         fman.save(player);
 
@@ -64,6 +64,7 @@ public class FlashLoss extends AppCompatActivity {
   public void exitGame(View view) {
         if (player.getLives() == 0) {
             Intent intent = new Intent(this, Leaderboard.class);
+            intent.putExtra("player", player);
             startActivity(intent);
         } else {
             if (player.getCurrLevel() == 1) {
@@ -76,6 +77,7 @@ public class FlashLoss extends AppCompatActivity {
                 startActivity(intent);
             } else {
                 Intent intent = new Intent(this, Leaderboard.class);
+                intent.putExtra("player", player);
                 startActivity(intent);
             }
         }

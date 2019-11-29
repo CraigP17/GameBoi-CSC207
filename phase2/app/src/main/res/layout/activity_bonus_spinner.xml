@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BonusSpinner.BonusSpinner">
+
+    <Button
+        android:id="@+id/startSpin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:onClick="spin"
+        android:text="@string/spin"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="231dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:text="@string/bonusSpinner"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/Spinner"
+        android:layout_width="310dp"
+        android:layout_height="334dp"
+        android:layout_marginBottom="28dp"
+        android:contentDescription="@string/spinnerImg"
+        app:layout_constraintBottom_toTopOf="@+id/startSpin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/spinnerwheel" />
+
+    <ImageView
+        android:id="@+id/pointer"
+        android:layout_width="74dp"
+        android:layout_height="90dp"
+        android:contentDescription="@string/pointerImg"
+        app:layout_constraintBottom_toTopOf="@+id/Spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pointer" />
+
+    <TextView
+        android:id="@+id/Multiplier"
+        android:layout_width="143dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="156dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:text="@string/Multiplier"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:onClick="nextGame"
+        android:text="@string/nextLevel"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/multi"
+        android:layout_width="78dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Multiplier" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

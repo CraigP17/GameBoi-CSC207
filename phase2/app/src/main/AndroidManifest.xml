@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartupPages.Instructions"></activity>
+        <activity android:name=".BonusSpinner.BonusSpinner"></activity>
+        <activity android:name=".StartupPages.Instructions" />
         <activity android:name=".RockPaperScissors.RpsFinalLostDisplay" />
         <activity android:name=".ScorePages.Leaderboard" />
         <activity android:name=".RockPaperScissors.RpsFinalWonDisplay" />

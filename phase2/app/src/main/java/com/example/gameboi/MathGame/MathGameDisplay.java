@@ -12,24 +12,22 @@ class MathGameDisplay extends GameDisplay {
     private TextView responseView;
     private TextView equationDisplay;
 
-    MathGameDisplay(TextView scoreboard, TextView multiplier, ImageView lifeOne,
-                    ImageView lifeTwo, ImageView lifeThree, TextView responseView,
-                    TextView equationDisplay){
-        super();
-        this.scoreboard = scoreboard;
-        this.multiplier = multiplier;
-        this.lifeOne = lifeOne;
-        this.lifeTwo = lifeTwo;
-        this.lifeThree = lifeThree;
-        this.responseView = responseView;
-        this.equationDisplay = equationDisplay;
-//        scoreboard = activity.findViewById(R.id.mathGameScore);
-//        lifeOne = activity.findViewById(R.id.lifeOne);
-//        lifeTwo = activity.findViewById(R.id.lifeTwo);
-//        lifeThree = activity.findViewById(R.id.lifeThree);
-//        multiplier = activity.findViewById(R.id.multiplier);
-//        responseView = activity.findViewById(R.id.responseView);
-//        equationDisplay = activity.findViewById(R.id.equationDisplay);
+    MathGameDisplay(Activity activity, String playerIcon){
+        super(activity, playerIcon);
+//        this.scoreboard = scoreboard;
+//        this.multiplier = multiplier;
+//        this.lifeOne = lifeOne;
+//        this.lifeTwo = lifeTwo;
+//        this.lifeThree = lifeThree;
+//        this.responseView = responseView;
+//        this.equationDisplay = equationDisplay;
+        this.scoreboard = activity.findViewById(R.id.mathGameScore);
+        this.lifeOne = activity.findViewById(R.id.lifeOne);
+        this.lifeTwo = activity.findViewById(R.id.lifeTwo);
+        this.lifeThree = activity.findViewById(R.id.lifeThree);
+        this.multiplier = activity.findViewById(R.id.multiplier);
+        this.responseView = activity.findViewById(R.id.responseView);
+        this.equationDisplay = activity.findViewById(R.id.equationDisplay);
     }
 
     void updateResponse(int response) {responseView.setText(String.valueOf(response));}
