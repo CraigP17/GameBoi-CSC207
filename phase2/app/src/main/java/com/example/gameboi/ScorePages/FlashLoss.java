@@ -76,6 +76,7 @@ public class FlashLoss extends AppCompatActivity {
                 startActivity(intent);
             } else {
                 Intent intent = new Intent(this, Leaderboard.class);
+                intent.putExtra("player", player);
                 startActivity(intent);
             }
         }

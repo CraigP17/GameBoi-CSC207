@@ -99,16 +99,15 @@
 
     <TextView
         android:id="@+id/textView49"
-        android:layout_width="188dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="109dp"
+        android:layout_width="329dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="110dp"
+        android:layout_marginEnd="40dp"
         android:gravity="center"
         android:text="@string/chooseBGColor"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pandaBtn" />
 
@@ -151,16 +150,15 @@
 
     <TextView
         android:id="@+id/textView50"
-        android:layout_width="191dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="109dp"
+        android:layout_width="337dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="37dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="110dp"
+        android:layout_marginEnd="37dp"
         android:gravity="center"
         android:text="@string/chooseNumLives"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greyBtn" />
 
@@ -206,11 +204,34 @@
         android:layout_width="347dp"
         android:layout_height="76dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="32dp"
         android:onClick="submitCustomizations"
         android:text="@string/submit_round"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/easyBtn" />
+
+    <Button
+        android:id="@+id/easyBtn"
+        android:layout_width="152dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/easy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numLivesBtn2" />
+
+    <Button
+        android:id="@+id/hardBtn"
+        android:layout_width="152dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/hard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/easyBtn"
         app:layout_constraintTop_toBottomOf="@+id/numLivesBtn2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

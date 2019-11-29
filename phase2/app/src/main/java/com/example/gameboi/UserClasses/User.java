@@ -153,6 +153,13 @@ public class User implements Parcelable {
     /**
      * @return The User's currLevel
      */
+    public void setCurrLevel(int level) {
+        stats.setCurrLevel(level);
+    }
+
+    /**
+     * @return The User's currLevel
+     */
     public int getCurrLevel() {
         return stats.getCurrLevel();
     }

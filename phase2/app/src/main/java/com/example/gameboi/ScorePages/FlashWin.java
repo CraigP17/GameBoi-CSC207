@@ -66,6 +66,7 @@ public class FlashWin extends AppCompatActivity {
             startActivity(intent);
         } else if (player.getCurrLevel() == 3){
             Intent intent = new Intent(this, Leaderboard.class);
+            intent.putExtra("player", player);
             startActivity(intent);
         }
     }

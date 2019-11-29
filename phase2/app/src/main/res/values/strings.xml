@@ -14,7 +14,8 @@
     <string name="icon1">Boy</string>
     <string name="icon2">Girl</string>
     <string name="icon3">Snake</string>
-
+    <string name="easy">Easy</string>
+    <string name="hard">Hard</string>
 
     <string name="app_name">GameBoi</string>
     <string name="toMath">Next</string>

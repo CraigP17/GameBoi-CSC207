@@ -2,11 +2,13 @@ package com.example.gameboi.ScorePages;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.R;
+import com.example.gameboi.StartupPages.MainActivity;
 import com.example.gameboi.UserClasses.User;
 import android.view.View;
 import android.widget.AdapterView;
@@ -265,8 +267,16 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
     }
 
     public void playAgain(View view) {
+        User player = getIntent().getParcelableExtra("player");
+        player.setPoints(0);
+        player.setMultiplier(1);
+        player.setLives(player.getOrigLives());
+        player.setCurrLevel(0);
         FileManager file = new FileManager(this);
-
+        System.out.println(player.toString());
+        file.save(player);
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 }

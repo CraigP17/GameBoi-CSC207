@@ -34,6 +34,8 @@ public class UserSetter extends AppCompatActivity{
     private Button numLivesBtn1;
     private Button numLivesBtn2;
     private Button numLivesBtn3;
+    private Button easyBtn;
+    private Button hardBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
