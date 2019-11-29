@@ -14,7 +14,12 @@ class FlashColorsFacade {
 
     FlashColorsFacade(Activity activity, User player){
         gameDisplay = new FlashDisplay(activity,player);
-        gameCalculations = new FlashColors(player);
+        if(player.getDifficulty().equals("Hard")){
+            gameCalculations = new FlashColorsHard(player);
+        }
+        else{
+            gameCalculations = new FlashColors(player);
+        }
     }
 
     ArrayList<Integer> generatePattern() {
@@ -55,5 +60,9 @@ class FlashColorsFacade {
         TextView scoreReference = gameDisplay.setScoreText();
         gameDisplay.setBackground();
         return scoreReference;
+    }
+
+    ArrayList<Integer> DisplayColors(){
+        return gameCalculations.DisplayColors();
     }
 }

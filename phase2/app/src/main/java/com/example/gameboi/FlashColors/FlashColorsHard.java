@@ -7,7 +7,7 @@ import com.example.gameboi.UserClasses.User;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class FlashColorsHard extends FlashColors {
+class FlashColorsHard extends FlashColors {
 
     FlashColorsHard(User player) {
         super(player);
@@ -25,6 +25,19 @@ public class FlashColorsHard extends FlashColors {
         Collections.shuffle(pattern);
         correctPattern = pattern;
         System.out.println(pattern);
+        System.out.println("IM ON HARD GENERATE");
+        return pattern;
+    }
+
+    ArrayList<Integer> DisplayColors(){
+        ArrayList<Integer> pattern;
+        if(isSubmitted){
+            setSubmitted(false);
+            pattern = generatePattern();
+            return pattern;
+        }
+        pattern = getCorrectPattern();
+        System.out.println("IM ON NORMAL GENERATE");
         return pattern;
     }
 }
