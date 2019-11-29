@@ -7,6 +7,7 @@ import android.view.View;
 
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gameboi.ScorePages.FlashLoss;
 import com.example.gameboi.ScorePages.FlashWin;
@@ -56,8 +57,16 @@ public class RockPaperScissors extends AppCompatActivity {
         HashMap<String, String> winnersRpS = buildMap();
         
         Random rand = new Random();
-        //if this button is for rock
         String computerchoice = arr[rand.nextInt(arr.length)];
+
+        if (computerchoice == "Scissors" && playerValue == "Rock") {
+            player.foundHiddenfeature();
+            Toast toast = Toast.makeText(this, "Congrats! You unlocked the hidden " +
+                    "feature, you're multiplier doubles!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+
         if (winnersRpS.get(playerValue).equals(computerchoice)) {
             //user wins, do add to wins
             winsRpS += 1;
