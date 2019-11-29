@@ -7,10 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.gameboi.BonusSpinner.BonusSpinner;
 import com.example.gameboi.FileSystem.FileManager;
-import com.example.gameboi.FlashColors.SimonGame;
 import com.example.gameboi.R;
-import com.example.gameboi.RockPaperScissors.RockPaperScissors;
 import com.example.gameboi.UserClasses.User;
 
 public class FlashWin extends AppCompatActivity {
@@ -28,11 +27,6 @@ public class FlashWin extends AppCompatActivity {
         // Increase the User's current level to the next
         player.incrementCurrLevel();
 
-        // Set high score of the User if they have beat their high score
-        if (player.getPoints() > player.getHighScore()) {
-            player.setHighScore(player.getPoints());
-        }
-        System.out.println("HERE IS DIFFICULTY"+player.getDifficulty());
         FileManager fman = new FileManager(this);
         fman.save(player);
 
@@ -56,18 +50,8 @@ public class FlashWin extends AppCompatActivity {
    * Take the User to the next level, or to the leader board when they have finish all three levels
    */
   public void toNext(View view) {
-        if (player.getCurrLevel() == 1) {
-            Intent intent = new Intent(this, SimonGame.class);
-            intent.putExtra("player", player);
-            startActivity(intent);
-        } else if (player.getCurrLevel() == 2) {
-            Intent intent = new Intent(this, RockPaperScissors.class);
-            intent.putExtra("player", player);
-            startActivity(intent);
-        } else if (player.getCurrLevel() == 3){
-            Intent intent = new Intent(this, Leaderboard.class);
-            intent.putExtra("player", player);
-            startActivity(intent);
-        }
+      Intent intent = new Intent(this, BonusSpinner.class);
+      intent.putExtra("player", player);
+      startActivity(intent);
     }
 }

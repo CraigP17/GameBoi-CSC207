@@ -8,10 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gameboi.BonusSpinner.BonusSpinner;
 import com.example.gameboi.FileSystem.FileManager;
-import com.example.gameboi.FlashColors.SimonGame;
 import com.example.gameboi.R;
-import com.example.gameboi.RockPaperScissors.RockPaperScissors;
 import com.example.gameboi.UserClasses.User;
 
 public class FlashLoss extends AppCompatActivity {
@@ -32,11 +31,6 @@ public class FlashLoss extends AppCompatActivity {
         // Finished the level, increase their level by 1
         player.incrementCurrLevel();
 
-        // Set high score to new high score if they have beat their score
-        if (player.getPoints() > player.getHighScore()) {
-            player.setHighScore(player.getPoints());
-        }
-        System.out.println("HERE IS THE DIFF  "+player.getDifficulty());
         FileManager fman = new FileManager(this);
         fman.save(player);
 
@@ -62,24 +56,9 @@ public class FlashLoss extends AppCompatActivity {
    */
   // Take them to the leader board if they have no more lives
   public void exitGame(View view) {
-        if (player.getLives() == 0) {
-            Intent intent = new Intent(this, Leaderboard.class);
-            startActivity(intent);
-        } else {
-            if (player.getCurrLevel() == 1) {
-                Intent intent = new Intent(this, SimonGame.class);
-                intent.putExtra("player", player);
-                startActivity(intent);
-            } else if (player.getCurrLevel() == 2) {
-                Intent intent = new Intent(this, RockPaperScissors.class);
-                intent.putExtra("player", player);
-                startActivity(intent);
-            } else {
-                Intent intent = new Intent(this, Leaderboard.class);
-                intent.putExtra("player", player);
-                startActivity(intent);
-            }
-        }
+      Intent intent = new Intent(this, BonusSpinner.class);
+      intent.putExtra("player", player);
+      startActivity(intent);
    }
 
 }
