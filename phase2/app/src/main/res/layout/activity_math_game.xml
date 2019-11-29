@@ -189,56 +189,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/avatarIcon"
-        android:layout_width="86dp"
-        android:layout_height="89dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="29dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/lifeOne"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toEndOf="@+id/mathGameScore"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userlogo" />
 
     <ImageView
-        android:id="@+id/lifeOne"
-        android:layout_width="43dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnClear"
-        app:srcCompat="@drawable/userlogo" />
-
-    <ImageView
         android:id="@+id/lifeTwo"
-        android:layout_width="55dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="26dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toEndOf="@+id/lifeOne"
-        app:layout_constraintTop_toBottomOf="@+id/btn0"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userlogo" />
 
     <ImageView
         android:id="@+id/lifeThree"
         android:layout_width="60dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="31dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toEndOf="@+id/lifeTwo"
-        app:layout_constraintTop_toBottomOf="@+id/btnEnter"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userlogo" />
 
     <TextView
         android:id="@+id/multiplier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="77dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/avatarIcon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

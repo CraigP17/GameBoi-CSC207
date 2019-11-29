@@ -45,7 +45,11 @@ class MathGameManager implements Gameable{
         }
     }
 
-    String getEquation() {return equation.getEquation();}
+    String getEquation() {
+        //Creates equation for the first round
+        if (equation.getEquation() == null) {newEquation();}
+        return equation.getEquation();
+    }
 
     @Override
     public int getLives() { return player.getLives();}
@@ -85,10 +89,10 @@ class MathGameManager implements Gameable{
         response = 0;
     }
 
-    User getPlayer() {return player;}
+    public User getPlayer() {return player;}
 
     @Override
     public String getPlayerIcon() {return player.getIcon();}
 
-    int getPlayBackgroundColor(){return player.getBackgroundColor();}
+    public int getBackgroundColor(){return player.getBackgroundColor();}
 }

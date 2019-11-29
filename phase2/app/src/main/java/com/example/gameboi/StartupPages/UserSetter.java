@@ -150,7 +150,8 @@ public class UserSetter extends AppCompatActivity{
 
     public void submitCustomizations(View view){
         checkNameInput(view);
-        if (name != null && icon != null && backgroundColor != 0 && numLives != 0) {
+        if (name != null && icon != null && backgroundColor != 0 &&
+                numLives != 0 && difficulty != null) {
             player.setName(name);
             player.setIcon(icon);
             player.setLives(numLives);
