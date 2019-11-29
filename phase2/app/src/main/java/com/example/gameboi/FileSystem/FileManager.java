@@ -49,9 +49,9 @@ public class FileManager{
 
         //sends info to the text file
         //Name, Lives, Points, BackgroundColor, Icon, CurrLevel, HighScore, OrigLives, Multiplier, Difficulty
-        out.println(",0,0,0,,0,0,0,0,");
-        out.println(",0,0,0,,0,0,0,0,");
-        out.println(",0,0,0,,0,0,0,0,");
+        out.println(",0,0,0,,0,0,0,1,Normal");
+        out.println(",0,0,0,,0,0,0,1,Normal");
+        out.println(",0,0,0,,0,0,0,1,Normal");
         out.close();
     }
 
@@ -95,7 +95,7 @@ public class FileManager{
             String[] multiLine = this.read().split(System.getProperty("line.separator"));
 
             for(String u: multiLine){
-                System.out.println("Found the File");
+                System.out.println("Found the users(getUsers)");
                 String[] temp = u.split(",");
                 if(temp[0].equals("")){
                     temp[0] = null;
@@ -103,9 +103,13 @@ public class FileManager{
                 User user = new User(temp[0], Integer.parseInt(temp[1]), Integer.parseInt(temp[2]),
                         Integer.parseInt(temp[3]),
                         temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]),
-                        Integer.parseInt(temp[7]), temp[8]);
+                        Integer.parseInt(temp[7]), Integer.parseInt(temp[8]), temp[9]);
                 userList.add(user);
+
+                System.out.println("temp");
+                System.out.println(temp[8]);
             }
+
             return userList;
         }
         catch (ArrayIndexOutOfBoundsException e) {
@@ -124,16 +128,16 @@ public class FileManager{
                 User user = new User(temp[0], Integer.parseInt(temp[1]), Integer.parseInt(temp[2]),
                         Integer.parseInt(temp[3]),
                         temp[4], Integer.parseInt(temp[5]), Integer.parseInt(temp[6]),
-                        Integer.parseInt(temp[7]), temp[8]);
+                        Integer.parseInt(temp[7]), Integer.parseInt(temp[8]),temp[9]);
                 userList.add(user);
             }
-            System.out.print("REACHED END");
+            System.out.print("HAD TO WRITE AGAIN");
             return userList;
         }
     }
 
     public void save(User user) {
-        System.out.print("REACHED FUNCTION");
+        System.out.print("SAVING...");
         ArrayList<User> players = getUsers();
         try {
             OutputStreamWriter outStreamWriter = new OutputStreamWriter(activity.openFileOutput(
@@ -147,7 +151,7 @@ public class FileManager{
                     writeData.append(u.toString()).append("\n");
                 }
             }
-            System.out.println(writeData);
+            System.out.println("NEW FILE STFF:"+writeData);
             outStreamWriter.write(writeData.toString());
             outStreamWriter.close();
             System.out.print("CHANGED FILE");
@@ -202,9 +206,9 @@ public class FileManager{
 
         //sends info to the text file
         //Name, Lives, Points, BackgroundColor, Icon, CurrLevel, HighScore, OrigLives, Multiplier, Difficulty
-        out.println(",0,0,0,,0,0,0,0,");
-        out.println(",0,0,0,,0,0,0,0,");
-        out.println(",0,0,0,,0,0,0,0,");
+        out.println(",0,0,0,,0,0,0,1,Normal");
+        out.println(",0,0,0,,0,0,0,1,Normal");
+        out.println(",0,0,0,,0,0,0,1,Normal");
         out.close();
     }
 

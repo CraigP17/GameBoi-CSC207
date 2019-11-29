@@ -1,11 +1,6 @@
 package com.example.gameboi.FlashColors;
 
-import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.gameboi.R;
 import com.example.gameboi.UserClasses.User;
@@ -19,7 +14,7 @@ import java.util.Collections;
 class FlashColors {
 
     protected User player;
-    private boolean isSubmitted = true; //starts as true to allow initial pattern
+    boolean isSubmitted = true; //starts as true to allow initial pattern
     ArrayList<Integer> correctPattern = new ArrayList<>();
     private ArrayList<Integer> userPattern;
 
@@ -33,8 +28,6 @@ class FlashColors {
         pattern.add(Color.GREEN);
         pattern.add(Color.BLUE);
         pattern.add(Color.YELLOW);
-        //pattern.add(Color.BLACK);
-        //pattern.add(Color.WHITE);
 
         Collections.shuffle(pattern);
         correctPattern = pattern;
@@ -78,5 +71,18 @@ class FlashColors {
     /*This method will return the local score for a user playing FlashColors*/
     void setScore(int score) {
         player.setPoints(score);
+    }
+
+    ArrayList<Integer> DisplayColors(){
+        ArrayList<Integer> pattern;
+        if(isSubmitted){
+            setSubmitted(false);
+            pattern = generatePattern();
+            return pattern;
+        }
+        pattern = getCorrectPattern();
+        System.out.println("IM ON NORMAL GENERATE");
+        return pattern;
+
     }
 }

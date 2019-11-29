@@ -36,7 +36,7 @@ public class FlashLoss extends AppCompatActivity {
         if (player.getPoints() > player.getHighScore()) {
             player.setHighScore(player.getPoints());
         }
-
+        System.out.println("HERE IS THE DIFF  "+player.getDifficulty());
         FileManager fman = new FileManager(this);
         fman.save(player);
 
