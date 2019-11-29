@@ -131,4 +131,11 @@
     <string name="Multiplier">Multiplier:</string>
     <string name="White">White</string>
     <string name="Black">Black</string>
+
+    // Spinner Bonus Game
+    <string name="spin">SPIN</string>
+    <string name="nextLevel">Next</string>
+    <string name="bonusSpinner">Bonus Multiplier</string>
+    <string name="spinnerImg">Spinner Wheel</string>
+    <string name="pointerImg">Pointer</string>
 </resources>
