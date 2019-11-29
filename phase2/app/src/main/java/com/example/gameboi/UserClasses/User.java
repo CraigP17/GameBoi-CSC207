@@ -27,15 +27,17 @@ public class User implements Parcelable {
      * @param icon             the User's selected icon
      * @param currLevel        the User's current level,
      * @param highScore        the User's high score after completing the game
+     * @param multiplier
      * @param difficulty       the User's game difficulty either Normal OR Hard
+     *
      */
     public User(String name, int lives, int points,
-                int backgroundColor, String icon, int currLevel, int highScore, int origLives,
+                int backgroundColor, String icon, int currLevel, int highScore, int origLives, int multiplier,
                 String difficulty) {
 
         this.custom = new UserCustom(name,backgroundColor,icon,difficulty);
         //multiplier preset to 0 for now
-        this.stats = new UserStats(lives,points,0,highScore,currLevel,origLives);
+        this.stats = new UserStats(lives,points,multiplier,highScore,currLevel,origLives);
     }
 
     public User() {

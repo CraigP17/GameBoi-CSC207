@@ -136,6 +136,7 @@ public class UserSetter extends AppCompatActivity{
             player.setLives(numLives);
             player.setOrigLives(numLives);
             player.setBackgroundColor(backgroundColor);
+            player.setDifficulty("Hard"); //Temporarily set
             FileManager fm = new FileManager(this);
             fm.saveNewUser(player);
             Intent intent = new Intent(this, MainActivity.class);
