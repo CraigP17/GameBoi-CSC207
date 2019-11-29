@@ -87,7 +87,8 @@ class MathGameManager implements Gameable{
 
     User getPlayer() {return player;}
 
-    String getPlayerIcon() {return player.getIcon();}
+    @Override
+    public String getPlayerIcon() {return player.getIcon();}
 
     int getPlayBackgroundColor(){return player.getBackgroundColor();}
 }

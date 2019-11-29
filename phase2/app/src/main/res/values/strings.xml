@@ -96,6 +96,8 @@
 
 
     <string name="text_for_mathgame">
+        MATH GAME INSTRUCTIONS: //n
+
         Math game will display an equation and using the displayed
         buttons you must enter the answer and then press submit.
         If you answered the question correctly you will receive
@@ -106,6 +108,8 @@
     </string>
 
     <string name="text_for_flashgame">
+        FLASH GAME INSTRUCTIONS: //n
+
         If you still have lives remaining after playing math game,
         you will be taken to flash colours game. There, you press
         start and a pattern of colours will appear. Your goal is to
@@ -118,6 +122,8 @@
     </string>
 
     <string name="text_for_rpsgame">
+        ROCK PAPER SCISSORS GAME INSTRUCTIONS: //n
+
         If you have more than 0 lives left after playing Flash Colours
         game, you will be taken to Rock Paper Scissors game. You
         can click the rock button, paper button or the scissors
@@ -126,6 +132,17 @@
         won playing against the computer of not. If you win 3
         rounds before losing 2, you will win the Rock Paper
         Scissors game.
+    </string>
+
+    <string name="text_for_bonus">
+        BONUS INSTRUCTIONS: //n
+
+        After every game you will be taken to a spinner that has
+        the power to increase your multiplier which inevitably
+        multiplies your points. There are also multiple hidden
+        features throughout the games that can also increase
+        your multiplier so good luck!
+
     </string>
 
     <string name="Lives">Lives:</string>

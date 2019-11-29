@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void toLeaderboard(User user) {
         Intent intent = new Intent(this, Leaderboard.class);
+        intent.putExtra("player", user);
         startActivity(intent);
     }
 

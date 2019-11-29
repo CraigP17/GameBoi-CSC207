@@ -36,6 +36,7 @@ public class UserSetter extends AppCompatActivity{
     private Button numLivesBtn3;
     private Button easyBtn;
     private Button hardBtn;
+    private String difficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,9 @@ public class UserSetter extends AppCompatActivity{
         numLivesBtn2 = findViewById(R.id.numLivesBtn2);
         numLivesBtn3 = findViewById(R.id.numLivesBtn3);
         setBtnClr(numLivesBtn1, LTGRAY, numLivesBtn2, LTGRAY, numLivesBtn3, LTGRAY);
+        easyBtn = findViewById(R.id.easyBtn);
+        hardBtn = findViewById(R.id.hardBtn);
+        setBtnClr(easyBtn, LTGRAY, hardBtn, LTGRAY);
     }
 
     public void checkNameInput(View view){
@@ -88,6 +92,12 @@ public class UserSetter extends AppCompatActivity{
         btn1.setBackgroundColor(color1);
         btn2.setBackgroundColor(color2);
         btn3.setBackgroundColor(color3);
+    }
+
+    private void setBtnClr(Button btn1, int color1,
+                           Button btn2, int color2) {
+        btn1.setBackgroundColor(color1);
+        btn2.setBackgroundColor(color2);
     }
 
     public void boyBTN(View view) {
@@ -126,6 +136,16 @@ public class UserSetter extends AppCompatActivity{
     public void threeLives(View view) {
         numLives = 3;
         setBtnClr(numLivesBtn1, LTGRAY, numLivesBtn2, LTGRAY, numLivesBtn3, DKGRAY);
+    }
+
+    public void pressEasyBtn(View view) {
+        difficulty = "easy";
+        setBtnClr(easyBtn, DKGRAY, hardBtn, LTGRAY);
+    }
+
+    public void pressHardBtn(View view) {
+        difficulty = "easy";
+        setBtnClr(easyBtn, LTGRAY, hardBtn, DKGRAY);
     }
 
     public void submitCustomizations(View view){

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class Leaderboard extends AppCompatActivity implements OnItemSelectedListener {
 
     ArrayList<User> users;
+    FileManager file = new FileManager(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -272,8 +273,6 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         player.setMultiplier(1);
         player.setLives(player.getOrigLives());
         player.setCurrLevel(0);
-        FileManager file = new FileManager(this);
-        System.out.println(player.toString());
         file.save(player);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
