@@ -40,14 +40,6 @@ public class FlashLoss extends AppCompatActivity {
         TextView points = findViewById(R.id.textView21);
         points.setText(String.valueOf(player.getPoints()));
 
-        Button btn = findViewById(R.id.button13);
-        if (player.getLives() > 0) {
-            CharSequence txtBtn = "NEXT";
-            btn.setText(txtBtn);
-        } else {
-            CharSequence txtBtn = "EXIT";
-            btn.setText(txtBtn);
-        }
     }
 
   /**

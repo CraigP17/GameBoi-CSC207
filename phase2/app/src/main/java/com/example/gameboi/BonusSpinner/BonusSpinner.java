@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,6 +52,10 @@ public class BonusSpinner extends AppCompatActivity {
      * @param v View
      */
     public void spin(View v) {
+        // Disable button so User cannot press the button and spin multiple times
+        Button btn = findViewById(R.id.startSpin);
+        btn.setEnabled(false);
+
         // The degree that the spinner was on
         int degreeOld = degree % 360;
 
