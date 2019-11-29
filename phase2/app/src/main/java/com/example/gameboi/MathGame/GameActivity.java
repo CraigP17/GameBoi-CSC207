@@ -55,13 +55,13 @@ abstract class GameActivity extends AppCompatActivity {
     }
 
     void goToWinScreen() {
-        Intent intent = new Intent(this, FlashLoss.class);
+        Intent intent = new Intent(this, FlashWin.class);
         intent.putExtra("player", gameFacade.getPlayer());
         startActivity(intent);
     }
 
     void goToLoseScreen() {
-        Intent intent = new Intent(this, FlashWin.class);
+        Intent intent = new Intent(this, FlashLoss.class);
         intent.putExtra("player", gameFacade.getPlayer());
         startActivity(intent);
     }

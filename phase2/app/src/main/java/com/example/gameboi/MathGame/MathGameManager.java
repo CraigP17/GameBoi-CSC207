@@ -76,14 +76,16 @@ class MathGameManager implements Gameable{
 
     @Override
     public boolean isGameOver() {
-        if (numRounds == 5) {
+        if (numRounds == 4 && numLosses != 3) {
             winner = true;
             player.setPoints(score);
             return true;
         }
         else if (numLosses == 3) {
+            winner = false;
             player.setPoints(score);
             return true;
+
         }
         return false;
     }
