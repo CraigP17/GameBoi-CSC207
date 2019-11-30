@@ -16,15 +16,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gameboi.ScorePages.FlashLoss;
-import com.example.gameboi.ScorePages.FlashWin;
+import com.example.gameboi.MathGame.GameActivity;
 import com.example.gameboi.R;
 import com.example.gameboi.ScorePages.LevelResults;
 import com.example.gameboi.UserClasses.User;
 
 import java.util.ArrayList;
 
-public class FlashColorsActivity extends AppCompatActivity {
+public class FlashColorsActivity extends GameActivity {
 
     private User player;
     private FlashColorsFacade flash;

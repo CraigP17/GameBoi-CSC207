@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-/*The following class is responsible for storing the user playing the FlashColors as well as the
+/*The following class is responsible for storing the user playing the FlashColorsOperations as well as the
  * score during the game and the correct color pattern and user color patterns. This class acts as
  * the back end to FlashColorsActivity.java*/
-class FlashColors {
+class FlashColorsOperations {
 
     protected User player;
     boolean isSubmitted = true; //starts as true to allow initial pattern
     ArrayList<Integer> correctPattern;
     private ArrayList<Integer> userPattern;
 
-    FlashColors(User player) {
+    FlashColorsOperations(User player) {
         this.player = player;
         userPattern = new ArrayList<>();
         correctPattern = new ArrayList<>();
@@ -72,7 +72,7 @@ class FlashColors {
         return newScore;
     }
 
-    /*This method will return the local score for a user playing FlashColors*/
+    /*This method will return the local score for a user playing FlashColorsOperations*/
     void setScore(int score) {
         player.setPoints(score);
     }
