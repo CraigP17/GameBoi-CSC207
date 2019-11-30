@@ -9,6 +9,7 @@ import android.content.Intent;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,12 +26,12 @@ import java.util.ArrayList;
 
 public class SimonGame extends AppCompatActivity {
 
-    ArrayList<Integer> userGuess = new ArrayList<>();
     private User player;
     private FlashColorsFacade flash;
     private int incorrect = 0;
     private int flashLevels = 0;
     private TextView scoreBoard;
+    private int accessedBonus = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,27 +50,29 @@ public class SimonGame extends AppCompatActivity {
 
     // When a button is clicked by the user as an answer for the pattern, add their input to list of inputs
     public void greenClicked(View view) {
-        userGuess.add(Color.GREEN);
+        flash.addColour(Color.GREEN);
     }
 
     public void yellowClicked(View view) {
-        userGuess.add(Color.YELLOW);
+        flash.addColour(Color.YELLOW);
+        checkHiddenFeature();
     }
 
     public void redClicked(View view) {
-        userGuess.add(Color.RED);
+        flash.addColour(Color.RED);
     }
 
     public void blueClicked(View view) {
-        userGuess.add(Color.BLUE);
+        flash.addColour(Color.BLUE);
     }
 
     public void blackClicked(View view) {
-        userGuess.add(Color.BLACK);
+        flash.addColour(Color.BLACK);
+        checkHiddenFeature();
     }
 
     public void whiteClicked(View view) {
-        userGuess.add(Color.WHITE);
+        flash.addColour(Color.WHITE);
     }
 
     /*This method is called when the flashing square is pressed. It will generate
@@ -113,20 +116,19 @@ public class SimonGame extends AppCompatActivity {
         CharSequence success = "Nice Job! Can you get the next one?";
         CharSequence failure = "Uh-oh. You guessed incorrectly. You have one more chance!";
         int length = Toast.LENGTH_SHORT;
-        System.out.println(userGuess);
 
         // Increment number of games played, and increases their score if User got correct pattern
         flashLevels++;
-        if (flash.isCorrect(userGuess)) {
+        if (flash.isCorrect()) {
             scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
         }
 
         // Displays Toast or takes them to WinLoss Activities, based on incorrect answers and
         // number of games played
-        if (flash.isCorrect(userGuess) & flashLevels < 4) {
+        if (flash.isCorrect() & flashLevels < 4) {
             Toast.makeText(context, success, length).show();
             // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
-        } else if (!flash.isCorrect(userGuess) & incorrect == 1) {
+        } else if (!flash.isCorrect() & incorrect == 1) {
             flash.setScore(Integer.parseInt(scoreBoard.getText().toString()));
             Intent intent = new Intent(this, LevelResults.class);
             intent.putExtra("player", player);
@@ -138,12 +140,26 @@ public class SimonGame extends AppCompatActivity {
             intent.putExtra("player", player);
             intent.putExtra("success", true);
             startActivity(intent);
-        } else if (!flash.isCorrect(userGuess) & incorrect == 0) {
+        } else if (!flash.isCorrect() & incorrect == 0) {
             Toast.makeText(context, failure, length).show();
             incorrect++;
         }
         // Clears the User guess to prepare for next pattern guess
-        userGuess.clear();
+        flash.clearPattern();
+    }
+
+    private void checkHiddenFeature(){
+        if (accessedBonus == 0 && flash.checkHidden()){
+            flash.setMultiplier(flash.getMultiplier()*2);
+            Context context = getApplicationContext();
+            int length = Toast.LENGTH_SHORT;
+            Toast toast =Toast.makeText(context, "Multiplier Increased!", length);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.show();
+            TextView dispMulti = findViewById(R.id.textView43);
+            dispMulti.setText(String.valueOf(flash.getMultiplier()));
+            accessedBonus = 1;
+        }
     }
 
     private void setIcon(){

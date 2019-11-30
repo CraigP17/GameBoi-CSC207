@@ -39,6 +39,8 @@ public class LevelResults extends AppCompatActivity {
             TextView message = findViewById(R.id.winText);
             message.setText(R.string.flashWin1);
         } else {
+            player.loseALife();
+
             TextView message = findViewById(R.id.winLoss);
             message.setText(R.string.flashLoss);
 

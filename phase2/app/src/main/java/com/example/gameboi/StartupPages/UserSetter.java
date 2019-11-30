@@ -139,29 +139,33 @@ public class UserSetter extends AppCompatActivity{
     }
 
     public void pressEasyBtn(View view) {
-        difficulty = "easy";
+        difficulty = "Normal";
         setBtnClr(easyBtn, DKGRAY, hardBtn, LTGRAY);
     }
 
     public void pressHardBtn(View view) {
-        difficulty = "easy";
+        difficulty = "Hard";
         setBtnClr(easyBtn, LTGRAY, hardBtn, DKGRAY);
+    }
+
+    private void setPlayerStats() {
+        player.setName(name);
+        player.setIcon(icon);
+        player.setLives(numLives);
+        player.setOrigLives(numLives);
+        player.setBackgroundColor(backgroundColor);
+        player.setDifficulty(difficulty);
     }
 
     public void submitCustomizations(View view){
         checkNameInput(view);
-        if (name != null && icon != null && backgroundColor != 0 && numLives != 0) {
-            player.setName(name);
-            player.setIcon(icon);
-            player.setLives(numLives);
-            player.setOrigLives(numLives);
-            player.setBackgroundColor(backgroundColor);
-            player.setDifficulty("Hard"); //Temporarily set
+        if (name != null && icon != null && backgroundColor != 0 &&
+                numLives != 0 && difficulty != null) {
+            setPlayerStats();
             FileManager fm = new FileManager(this);
             fm.saveNewUser(player);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-            //Want to save changes made to this user...
         }
     }
 }
