@@ -5,52 +5,50 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.gameboi.ScorePages.FlashLoss;
-import com.example.gameboi.ScorePages.FlashWin;
 import com.example.gameboi.ScorePages.LevelResults;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class GameActivity extends AppCompatActivity {
 
-    TextView scoreboard;
-    TextView multiplier;
-    ImageView lifeOne;
-    ImageView lifeTwo;
-    ImageView lifeThree;
-    GameFacade gameFacade;
-    int icon;
+    public TextView scoreboard;
+    public TextView multiplier;
+    public ImageView lifeOne;
+    public ImageView lifeTwo;
+    public ImageView lifeThree;
+    public GameFacade gameFacade;
+    public int icon;
 
-    void updateScoreBoard() {
+    public void updateScoreBoard() {
         String scoreToDisplay = "Score: " + gameFacade.getScore();
         scoreboard.setText(scoreToDisplay);
     }
 
-    void updateLivesIcon(){
+    public void updateLivesIcon(){
         lifeOne.setImageResource(icon);
         lifeTwo.setImageResource(icon);
         lifeThree.setImageResource(icon);
     }
 
-    void updateBackgroundColor(){
+    public void updateBackgroundColor(){
         getWindow().getDecorView().setBackgroundColor(gameFacade.getBackgroundColor());
     }
 
-    void updateLives() {
+    public void updateLives() {
         int numLives = gameFacade.getLives();
         if (numLives <= 2) {lifeThree.setImageAlpha(0);}
         if (numLives <= 1) {lifeTwo.setImageAlpha(0);}
         if (numLives == 0) {lifeOne.setImageAlpha(0);}
     }
 
-    void updateMultiplier() {
+    public void updateMultiplier() {
         String multiplierToDisplay = "Multiplier: x" + gameFacade.getMultiplier();
         multiplier.setText(multiplierToDisplay);
     }
 
-    boolean isGameOver() {return gameFacade.isGameOver();}
+    public boolean isGameOver() {return gameFacade.isGameOver();}
 
-    void toNext() {
+    public void toNext() {
         Intent intent = new Intent(this, LevelResults.class);
         intent.putExtra("player", gameFacade.getPlayer());
         if (gameFacade.isWinner()) {
@@ -61,25 +59,13 @@ public abstract class GameActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    void goToWinScreen() {
-        Intent intent = new Intent(this, FlashWin.class);
-        intent.putExtra("player", gameFacade.getPlayer());
-        startActivity(intent);
-    }
-
-    void goToLoseScreen() {
-        Intent intent = new Intent(this, FlashLoss.class);
-        intent.putExtra("player", gameFacade.getPlayer());
-        startActivity(intent);
-    }
-
-    void updateDisplay(){
+    public void updateDisplay(){
         updateScoreBoard();
         updateLives();
         updateMultiplier();
     }
 
-    void setupDisplay() {
+    public void setupDisplay() {
         updateBackgroundColor();
         updateLivesIcon();
         updateDisplay();

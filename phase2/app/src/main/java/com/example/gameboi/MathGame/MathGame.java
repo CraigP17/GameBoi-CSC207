@@ -52,7 +52,7 @@ public class MathGame extends GameActivity{
     }
 
     @Override
-    void setupDisplay(){
+    public void setupDisplay(){
         this.scoreboard = findViewById(R.id.mathGameScore);
         this.lifeOne = findViewById(R.id.lifeOne);
         this.lifeTwo = findViewById(R.id.lifeTwo);
@@ -65,7 +65,7 @@ public class MathGame extends GameActivity{
     }
 
     @Override
-    void updateDisplay(){
+    public void updateDisplay(){
         super.updateDisplay();
         updateResponse();
         updateEquation();
