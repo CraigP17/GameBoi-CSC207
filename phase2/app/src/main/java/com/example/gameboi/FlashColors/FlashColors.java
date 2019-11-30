@@ -10,7 +10,7 @@ import java.util.Collections;
 
 /*The following class is responsible for storing the user playing the FlashColors as well as the
  * score during the game and the correct color pattern and user color patterns. This class acts as
- * the back end to SimonGame.java*/
+ * the back end to FlashColorsActivity.java*/
 class FlashColors {
 
     protected User player;

@@ -29,7 +29,7 @@
                 android:value=".RockPaperScissors.RockPaperScissors" />
         </activity>
         <activity android:name=".RockPaperScissors.RockPaperScissors" />
-        <activity android:name=".FlashColors.SimonGame" />
+        <activity android:name=".FlashColors.FlashColorsActivity" />
         <activity android:name=".MathGame.MathGame" />
         <activity android:name=".StartupPages.MainActivity">
             <intent-filter>

@@ -24,7 +24,7 @@ import com.example.gameboi.UserClasses.User;
 
 import java.util.ArrayList;
 
-public class SimonGame extends AppCompatActivity {
+public class FlashColorsActivity extends AppCompatActivity {
 
     private User player;
     private FlashColorsFacade flash;
@@ -134,12 +134,14 @@ public class SimonGame extends AppCompatActivity {
             intent.putExtra("player", player);
             intent.putExtra("success", false);
             startActivity(intent);
+            finish();
         } else if (flashLevels == 4) {
             flash.setScore(Integer.parseInt(scoreBoard.getText().toString()));
             Intent intent = new Intent(this, LevelResults.class);
             intent.putExtra("player", player);
             intent.putExtra("success", true);
             startActivity(intent);
+            finish();
         } else if (!flash.isCorrect() & incorrect == 0) {
             Toast.makeText(context, failure, length).show();
             incorrect++;
