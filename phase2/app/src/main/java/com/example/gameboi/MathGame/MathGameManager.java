@@ -2,21 +2,15 @@ package com.example.gameboi.MathGame;
 
 import com.example.gameboi.UserClasses.User;
 
-class MathGameManager implements Gameable{
+class MathGameManager extends GameFacade{
 
     private int response = 0;
     private int numRounds = 0;
     private int numLosses = 0;
-    private int maxLosses = 3;
-    private boolean foundHiddenFeature = false;
-    private int score;
-    private boolean winner = false;
     private MathEquation equation = new MathEquation();
-    private User player;
 
     MathGameManager(User player) {
-        this.player = player;
-        score = player.getPoints();
+        super(player);
     }
 
     private void checkHiddenFeature() {
@@ -36,14 +30,9 @@ class MathGameManager implements Gameable{
         if (equation.isAnswerCorrect(response)) {score += 1;}
         else {
             numLosses += 1;
-//            loseLife();
         }
         clearResponse();
     }
-
-//    private void loseLife(){
-//        if (numLosses >= maxLosses) {player.loseALife();}
-//    }
 
     private void updateResponse(int num) {response = response * 10 + num;}
 
@@ -66,29 +55,18 @@ class MathGameManager implements Gameable{
         if (response < 100000) {updateResponse(num);}
     }
 
+    void pressEnter(){
+        submitInput();
+        newEquation();
+    }
+
     void clearResponse(){
         response = 0;
     }
 
-    @Override
-    public boolean isWinner() {return winner;}
-
-    @Override
-    public int getLives() { return player.getLives();}
-
-    @Override
-    public int getScore() {
-        return score;
-    }
-
-    @Override
-    public int getMultiplier() {
-        return player.getMultiplier();
-    }
-
-    @Override
     public boolean isGameOver() {
-        if (numRounds == 4 && numLosses != maxLosses) {
+        int maxLosses = 3;
+        if (numRounds == 5 && numLosses != maxLosses) {
             winner = true;
             player.setPoints(score);
             return true;
@@ -101,13 +79,4 @@ class MathGameManager implements Gameable{
         }
         return false;
     }
-
-    @Override
-    public User getPlayer() {return player;}
-
-    @Override
-    public String getPlayerIcon() {return player.getIcon();}
-
-    @Override
-    public int getBackgroundColor(){return player.getBackgroundColor();}
 }
