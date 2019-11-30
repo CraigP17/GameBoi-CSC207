@@ -46,7 +46,7 @@ public class RockPaperScissors extends AppCompatActivity {
         scoreboardRpS.setText(String.valueOf(winsRpS + player.getPoints()));
     }
     private void setIcon() {
-        ImageView icon = findViewById(R.id.imageView);
+        ImageView icon = findViewById(R.id.lifeOne3);
         int resID = getResources().getIdentifier(player.getIcon(),
                 "drawable", getPackageName()); // this line of code grabs the resID based on user name
         icon.setImageResource(resID);

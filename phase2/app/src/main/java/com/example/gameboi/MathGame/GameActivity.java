@@ -11,7 +11,7 @@ import com.example.gameboi.ScorePages.LevelResults;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-abstract class GameActivity extends AppCompatActivity {
+public abstract class GameActivity extends AppCompatActivity {
 
     TextView scoreboard;
     TextView multiplier;
