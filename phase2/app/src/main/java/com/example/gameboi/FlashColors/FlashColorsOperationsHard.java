@@ -5,12 +5,15 @@ import android.graphics.Color;
 import com.example.gameboi.UserClasses.User;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 class FlashColorsOperationsHard extends FlashColorsOperations {
 
     FlashColorsOperationsHard(User player) {
         super(player);
+        this.special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.WHITE,Color.RED,
+                Color.GREEN,Color.YELLOW,Color.BLACK));
     }
 
     ArrayList<Integer> generatePattern(){
@@ -39,5 +42,10 @@ class FlashColorsOperationsHard extends FlashColorsOperations {
         pattern = getCorrectPattern();
         System.out.println("IM ON NORMAL GENERATE");
         return pattern;
+    }
+
+    @Override
+    boolean checkHidden() {
+        return userPattern.equals(special);
     }
 }

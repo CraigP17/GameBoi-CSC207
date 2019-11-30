@@ -16,12 +16,14 @@ class FlashColorsOperations {
     protected User player;
     boolean isSubmitted = true; //starts as true to allow initial pattern
     ArrayList<Integer> correctPattern;
-    private ArrayList<Integer> userPattern;
+    ArrayList<Integer> userPattern;
+    ArrayList<Integer> special;
 
     FlashColorsOperations(User player) {
         this.player = player;
         userPattern = new ArrayList<>();
         correctPattern = new ArrayList<>();
+        this.special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.RED,Color.GREEN,Color.YELLOW));
     }
 
     ArrayList<Integer> generatePattern() {
@@ -85,12 +87,6 @@ class FlashColorsOperations {
     }
 
     boolean checkHidden(){
-        if(player.getDifficulty().equals("Normal")){
-            ArrayList<Integer> special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.RED,Color.GREEN,Color.YELLOW));
-            return userPattern.equals(special);
-        }
-        ArrayList<Integer> special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.WHITE,Color.RED,
-                Color.GREEN,Color.YELLOW,Color.BLACK));
         return userPattern.equals(special);
     }
 }
