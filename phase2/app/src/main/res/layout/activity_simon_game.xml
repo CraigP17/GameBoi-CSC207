@@ -6,36 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".FlashColors.FlashColorsActivity">
 
-    <TextView
-        android:id="@+id/textView39"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/bangers"
-        android:text="@string/Lives"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView42"
-        android:layout_width="87dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/bangers"
-        android:text="@string/Multiplier"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView40"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/button8"
         android:layout_width="269dp"
         android:layout_height="136dp"
         android:layout_marginStart="74dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="76dp"
         android:background="@color/colorPrimary"
         android:fontFamily="@font/bungee_shade"
@@ -44,7 +20,7 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+        app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
     <Button
         android:id="@+id/button9"
@@ -144,54 +120,6 @@
         app:layout_constraintStart_toEndOf="@+id/button11"
         app:layout_constraintTop_toBottomOf="@+id/button12" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="56dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/bangers"
-        android:text="@string/score"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="47dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/bangers"
-        android:text="@string/flashScore"
-        android:textAlignment="viewStart"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView40"
-        android:layout_width="43dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/bangers"
-        android:text="@string/flashScore"
-        android:textAlignment="viewStart"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView39"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView43"
-        android:layout_width="38dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/bangers"
-        android:text="@string/flashScore"
-        android:textAlignment="viewStart"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/textView42"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/button13"
         android:layout_width="269dp"
@@ -207,33 +135,72 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="87dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="@string/icon"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView42"
-        app:srcCompat="@mipmap/ic_launcher"
-        tools:srcCompat="@tools:sample/avatars[7]"
-        tools:visibility="visible" />
-
     <TextView
         android:id="@+id/textView45"
-        android:layout_width="229dp"
-        android:layout_height="51dp"
+        android:layout_width="227dp"
+        android:layout_height="39dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="96dp"
         android:fontFamily="@font/luckiest_guy"
         android:text="@string/titleSimonGame"
         android:textAlignment="center"
         android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/flashScore"
+        android:layout_width="151dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="243dp"
+        android:text="@string/scoreZero"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/multiplier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/Multiplier"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/lifeOne"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toEndOf="@+id/flashScore"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/userlogo" />
+
+    <ImageView
+        android:id="@+id/lifeTwo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toEndOf="@+id/lifeOne"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/userlogo" />
+
+    <ImageView
+        android:id="@+id/lifeThree"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toEndOf="@+id/lifeTwo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/userlogo" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

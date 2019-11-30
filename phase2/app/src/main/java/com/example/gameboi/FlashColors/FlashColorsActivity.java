@@ -42,7 +42,6 @@ public class FlashColorsActivity extends GameActivity {
 
         setIcon();
         setMultiplier();
-        setLives();
         setBackground();
         scoreBoard = setScoreText();
     }
@@ -157,15 +156,16 @@ public class FlashColorsActivity extends GameActivity {
             Toast toast =Toast.makeText(context, "Multiplier Increased!", length);
             toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
             toast.show();
-            TextView dispMulti = findViewById(R.id.textView43);
-            dispMulti.setText(String.valueOf(flash.getMultiplier()));
+            TextView dispMulti = findViewById(R.id.multiplier2);
+            CharSequence multiplierText = "x" + String.valueOf(flash.getMultiplier());
+            dispMulti.setText(multiplierText);
             accessedBonus = 1;
         }
     }
 
     private void setIcon(){
         //Setting up the user icon
-        ImageView icon = findViewById(R.id.imageView1);
+        ImageView icon = findViewById(R.id.lifeOne);
         int resID = getResources().getIdentifier(flash.getIcon(),
                 "drawable", getPackageName()); // this line of code grabs the resID based on user name
         icon.setImageResource(resID);
@@ -173,30 +173,23 @@ public class FlashColorsActivity extends GameActivity {
 
     private void setBackground(){
         //Setting up the background Colour
-        View flashColor = findViewById(R.id.textView9); //finds random view
+        View flashColor = findViewById(R.id.textView45); //finds random view
         View Root = flashColor.getRootView(); //finds the root view
         Root.setBackgroundColor(flash.getBackgroundColor()); //set background color
     }
 
     private TextView setScoreText(){
         //Here is the code needed to set the score up at startup:
-        TextView scoreBoard = findViewById(R.id.textView10);
+        TextView scoreBoard = findViewById(R.id.flashScore);
         int prevscore = flash.getPoints();
         scoreBoard.setText(String.valueOf(prevscore));
 
         return scoreBoard;
     }
 
-    private void setLives(){
-        //Display the Lives
-        TextView dispLives = findViewById(R.id.textView40);
-        int userLives = flash.getLives();
-        dispLives.setText(String.valueOf(userLives));
-    }
-
     private void setMultiplier(){
         //Display Multiplier
-        TextView dispMulti = findViewById(R.id.textView43);
+        TextView dispMulti = findViewById(R.id.multiplier2);
         int userMulti = flash.getMultiplier();
         dispMulti.setText(String.valueOf(userMulti));
     }
