@@ -29,8 +29,6 @@ public class FlashColorsActivity extends GameActivity {
     private FlashColorsFacade flash;
     private int incorrect = 0;
     private int flashLevels = 0;
-    private TextView scoreBoard;
-    private int accessedBonus = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +37,11 @@ public class FlashColorsActivity extends GameActivity {
         //setup flashcolors game with player from math game
         player = getIntent().getParcelableExtra("player");
         flash = new FlashColorsFacade(player);
+        gameFacade = flash;
+        icon = getResources().getIdentifier(flash.getPlayerIcon(),
+                "drawable", getPackageName());
 
-        setIcon();
-        setMultiplier();
-        setBackground();
-        scoreBoard = setScoreText();
+        setupDisplay();
     }
 
     // When a button is clicked by the user as an answer for the pattern, add their input to list of inputs
@@ -118,7 +116,8 @@ public class FlashColorsActivity extends GameActivity {
         // Increment number of games played, and increases their score if User got correct pattern
         flashLevels++;
         if (flash.isCorrect()) {
-            scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
+            flash.incrementScore();
+            updateScoreBoard();
         }
 
         // Displays Toast or takes them to WinLoss Activities, based on incorrect answers and
@@ -127,14 +126,14 @@ public class FlashColorsActivity extends GameActivity {
             Toast.makeText(context, success, length).show();
             // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
         } else if (!flash.isCorrect() & incorrect == 1) {
-            flash.setScore(Integer.parseInt(scoreBoard.getText().toString()));
+            flash.setScore(flash.getScore());
             Intent intent = new Intent(this, LevelResults.class);
             intent.putExtra("player", player);
             intent.putExtra("success", false);
             startActivity(intent);
             finish();
         } else if (flashLevels == 4) {
-            flash.setScore(Integer.parseInt(scoreBoard.getText().toString()));
+            flash.setScore(flash.getScore());
             Intent intent = new Intent(this, LevelResults.class);
             intent.putExtra("player", player);
             intent.putExtra("success", true);
@@ -148,49 +147,12 @@ public class FlashColorsActivity extends GameActivity {
         flash.clearPattern();
     }
 
-    private void checkHiddenFeature(){
-        if (accessedBonus == 0 && flash.checkHidden()){
-            flash.setMultiplier(flash.getMultiplier()*2);
-            Context context = getApplicationContext();
-            int length = Toast.LENGTH_SHORT;
-            Toast toast =Toast.makeText(context, "Multiplier Increased!", length);
-            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
-            toast.show();
-            TextView dispMulti = findViewById(R.id.multiplier2);
-            CharSequence multiplierText = "x" + String.valueOf(flash.getMultiplier());
-            dispMulti.setText(multiplierText);
-            accessedBonus = 1;
-        }
-    }
-
-    private void setIcon(){
-        //Setting up the user icon
-        ImageView icon = findViewById(R.id.lifeOne);
-        int resID = getResources().getIdentifier(flash.getIcon(),
-                "drawable", getPackageName()); // this line of code grabs the resID based on user name
-        icon.setImageResource(resID);
-    }
-
-    private void setBackground(){
-        //Setting up the background Colour
-        View flashColor = findViewById(R.id.textView45); //finds random view
-        View Root = flashColor.getRootView(); //finds the root view
-        Root.setBackgroundColor(flash.getBackgroundColor()); //set background color
-    }
-
-    private TextView setScoreText(){
-        //Here is the code needed to set the score up at startup:
-        TextView scoreBoard = findViewById(R.id.flashScore);
-        int prevscore = flash.getPoints();
-        scoreBoard.setText(String.valueOf(prevscore));
-
-        return scoreBoard;
-    }
-
-    private void setMultiplier(){
-        //Display Multiplier
-        TextView dispMulti = findViewById(R.id.multiplier2);
-        int userMulti = flash.getMultiplier();
-        dispMulti.setText(String.valueOf(userMulti));
+    public void setupDisplay() {
+        this.scoreboard = findViewById(R.id.flashScore);
+        this.lifeOne = findViewById(R.id.lifeOne);
+        this.lifeTwo = findViewById(R.id.lifeTwo);
+        this.lifeThree = findViewById(R.id.lifeThree);
+        this.multiplier = findViewById(R.id.multiplier2);
+        super.setupDisplay();
     }
 }

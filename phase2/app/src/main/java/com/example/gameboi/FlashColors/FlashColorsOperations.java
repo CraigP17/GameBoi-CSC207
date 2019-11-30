@@ -63,18 +63,12 @@ class FlashColorsOperations {
 
     /*This method is responsible for grabbing the current score, increasing its value by 1 and
      * returning a new charsequence*/
-    CharSequence getNewScore(CharSequence c) {
+    int getNewScore(CharSequence c) {
         CharSequence newScore;
         int score = Integer.parseInt(c.toString());
         score++;
-        newScore = String.valueOf(score);
         //setScore(score); //store the score of the game for an user
-        return newScore;
-    }
-
-    /*This method will return the local score for a user playing FlashColorsOperations*/
-    void setScore(int score) {
-        player.setPoints(score);
+        return score;
     }
 
     ArrayList<Integer> DisplayColors(){
