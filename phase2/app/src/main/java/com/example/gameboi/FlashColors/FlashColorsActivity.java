@@ -23,7 +23,7 @@ import com.example.gameboi.UserClasses.User;
 
 import java.util.ArrayList;
 
-public class SimonGame extends AppCompatActivity {
+public class FlashColorsActivity extends AppCompatActivity {
 
     private User player;
     private FlashColorsFacade flash;
@@ -132,11 +132,13 @@ public class SimonGame extends AppCompatActivity {
             Intent intent = new Intent(this, FlashLoss.class);
             intent.putExtra("player", player);
             startActivity(intent);
+            finish();
         } else if (flashLevels == 4) {
             flash.setScore(Integer.parseInt(scoreBoard.getText().toString()));
             Intent intent = new Intent(this, FlashWin.class);
             intent.putExtra("player", player);
             startActivity(intent);
+            finish();
         } else if (!flash.isCorrect() & incorrect == 0) {
             Toast.makeText(context, failure, length).show();
             incorrect++;

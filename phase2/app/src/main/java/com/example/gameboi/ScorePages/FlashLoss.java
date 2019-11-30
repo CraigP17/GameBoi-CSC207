@@ -26,7 +26,7 @@ public class FlashLoss extends AppCompatActivity {
         player = getIntent().getParcelableExtra("player");
 
         // Subtract a life from the user
-        // User player is passed in through intent from SimonGame
+        // User player is passed in through intent from FlashColorsActivity
         player.loseALife();
         // Finished the level, increase their level by 1
         player.incrementCurrLevel();

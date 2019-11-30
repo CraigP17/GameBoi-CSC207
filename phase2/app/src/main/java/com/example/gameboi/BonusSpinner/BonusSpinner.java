@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gameboi.FileSystem.FileManager;
-import com.example.gameboi.FlashColors.SimonGame;
+import com.example.gameboi.FlashColors.FlashColorsActivity;
 import com.example.gameboi.R;
 import com.example.gameboi.RockPaperScissors.RockPaperScissors;
 import com.example.gameboi.ScorePages.Leaderboard;
@@ -117,7 +117,7 @@ public class BonusSpinner extends AppCompatActivity {
             startActivity(intent);
         } else {
             if (player.getCurrLevel() == 1) {
-                Intent intent = new Intent(this, SimonGame.class);
+                Intent intent = new Intent(this, FlashColorsActivity.class);
                 intent.putExtra("player", player);
                 startActivity(intent);
             } else if (player.getCurrLevel() == 2) {
