@@ -156,6 +156,10 @@
     <string name="spin">SPIN</string>
     <string name="nextLevel">Next</string>
     <string name="bonusSpinner">Bonus Multiplier</string>
+    <string name="oldMultiplier">Current Multiplier:</string>
+    <string name="newMultiplier">New Multiplier:</string>
     <string name="spinnerImg">Spinner Wheel</string>
     <string name="pointerImg">Pointer</string>
+    <string name="EASY">EASY</string>
+    <string name="HARD">HARD</string>
 </resources>

@@ -12,14 +12,12 @@ class MathEquation {
 
     boolean isAnswerCorrect(int response) {return response == answer;}
 
-    String getEasyEquation(){
+    void getEasyEquation(){
         generateEasyEquation();
-        return equation;
     }
 
-    String getHardEquation() {
+    void getHardEquation() {
         generateHardEquation();
-        return equation;
     }
 
     private void generateEasyEquation() {
@@ -49,6 +47,16 @@ class MathEquation {
     }
 
     private void generateHardEquation() {
+        generateEasyEquation();
+        String[] operators = {" + ", " // ", " * "};
+        int num = rand.nextInt(10) + 1;
+        int op = rand.nextInt(3);
+
+        if (op == 0) {answer = answer + num;}
+        else if (op == 1) {answer = answer / num;}
+        else {answer = answer * num;}
+
+        equation = "(" + equation + ")" + operators[op] + num;
 
     }
 }

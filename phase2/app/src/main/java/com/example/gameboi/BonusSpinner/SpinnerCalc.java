@@ -7,7 +7,7 @@ class SpinnerCalc {
      * User gets
      * It follows the order of the wheel, @drawable/spinningwheel.png
      */
-    private final String[] sections = {"1", "3", "1", "2"};
+    private final int[] sections = {1, 3, 1, 2};
 
 
     /**
@@ -17,13 +17,13 @@ class SpinnerCalc {
      * @param degrees The degree of the wheel that the spinner landed on
      * @return The multiplier String of which section of the wheel it is on
      */
-    String getWheelSection(int degrees) {
+    int getWheelSection(int degrees) {
 
         //Divide the 360 degree wheel into angles for each sector on the Spinner
         float HALF_SECTOR = 360f / 4f / 2f;
 
         int i = 0;
-        String text = null;
+        int multiplyNum = 0;
 
         do {
             // Get the angles of each section of the spinner wheel
@@ -32,11 +32,11 @@ class SpinnerCalc {
 
             // if degrees is in this section of the wheel, set text to that section
             if (degrees >= start && degrees < end) {
-                text = sections[i];
+                multiplyNum = sections[i];
             }
             i++;
-        } while (text == null && i < sections.length);
+        } while (multiplyNum == 0 && i < sections.length);
 
-        return text;
+        return multiplyNum;
     }
 }

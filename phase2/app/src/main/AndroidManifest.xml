@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BonusSpinner.BonusSpinner"></activity>
+        <activity android:name=".ScorePages.LevelResults"></activity>
+        <activity android:name=".BonusSpinner.BonusSpinner" />
         <activity android:name=".StartupPages.Instructions" />
 
         <activity android:name=".ScorePages.Leaderboard" />
@@ -25,7 +26,7 @@
                 android:value=".RockPaperScissors.RockPaperScissors" />
         </activity>
         <activity android:name=".RockPaperScissors.RockPaperScissors" />
-        <activity android:name=".FlashColors.SimonGame" />
+        <activity android:name=".FlashColors.FlashColorsActivity" />
         <activity android:name=".MathGame.MathGame" />
         <activity android:name=".StartupPages.MainActivity">
             <intent-filter>

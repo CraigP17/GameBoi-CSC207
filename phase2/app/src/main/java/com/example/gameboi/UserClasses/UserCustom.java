@@ -107,7 +107,6 @@ class UserCustom implements Parcelable {
         this.icon = icon;
     }
 
-
     /** Returns the User's difficulty of the game
      *
      * @return the User's game difficulty

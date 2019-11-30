@@ -7,6 +7,8 @@ class MathGameManager implements Gameable{
     private int response = 0;
     private int numRounds = 0;
     private int numLosses = 0;
+    private int maxLosses = 3;
+    private boolean foundHiddenFeature = false;
     private int score;
     private boolean winner = false;
     private MathEquation equation = new MathEquation();
@@ -17,35 +19,59 @@ class MathGameManager implements Gameable{
         score = player.getPoints();
     }
 
-    int getResponse() {return response;}
+    private void checkHiddenFeature() {
+        if (response == 12345 && ! foundHiddenFeature) {
+            foundHiddenFeature = true;
+            player.foundHiddenfeature();
+        }
+    }
 
+    int getResponse() {
+        checkHiddenFeature();
+        return response;
+    }
 
     void submitInput(){
         numRounds += 1;
         if (equation.isAnswerCorrect(response)) {score += 1;}
         else {
             numLosses += 1;
-            loseLife();
+//            loseLife();
         }
         clearResponse();
     }
 
-    private void loseLife(){
-        if (numLosses >= 3) {player.loseALife();}
-    }
+//    private void loseLife(){
+//        if (numLosses >= maxLosses) {player.loseALife();}
+//    }
 
     private void updateResponse(int num) {response = response * 10 + num;}
 
     void newEquation() {
-        if (player.isHard()) {
-            equation.getHardEquation();
+        if (player.getDifficulty().equals("Normal")) {
+            equation.getEasyEquation();
         }
         else {
-            equation.getEasyEquation();
+            equation.getHardEquation();
         }
     }
 
-    String getEquation() {return equation.getEquation();}
+    String getEquation() {
+        //Creates equation for the first round
+        if (equation.getEquation() == null) {newEquation();}
+        return equation.getEquation();
+    }
+
+    void clickNumButton(int num) {
+        if (response < 100000) {updateResponse(num);}
+    }
+
+    void clearResponse(){
+        response = 0;
+    }
+
+    @Override
+    public boolean isWinner() {return winner;}
 
     @Override
     public int getLives() { return player.getLives();}
@@ -62,32 +88,26 @@ class MathGameManager implements Gameable{
 
     @Override
     public boolean isGameOver() {
-        if (numRounds == 5) {
+        if (numRounds == 4 && numLosses != maxLosses) {
             winner = true;
             player.setPoints(score);
             return true;
         }
-        else if (numLosses == 3) {
+        else if (numLosses == maxLosses) {
+            winner = false;
             player.setPoints(score);
             return true;
+
         }
         return false;
     }
 
     @Override
-    public boolean isWinner() {return winner;}
+    public User getPlayer() {return player;}
 
-    void clickNumButton(int num) {
-        if (response < 100000) {updateResponse(num);}
-    }
+    @Override
+    public String getPlayerIcon() {return player.getIcon();}
 
-    void clearResponse(){
-        response = 0;
-    }
-
-    User getPlayer() {return player;}
-
-    String getPlayerIcon() {return player.getIcon();}
-
-    int getPlayBackgroundColor(){return player.getBackgroundColor();}
+    @Override
+    public int getBackgroundColor(){return player.getBackgroundColor();}
 }

@@ -21,8 +21,9 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="365dp"
-        android:layout_height="211dp"
+        android:layout_width="370dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/bangers"
         android:text="@string/flashLoss"
         android:textAlignment="center"
@@ -31,6 +32,7 @@
         android:typeface="normal"
         app:layout_constraintBottom_toTopOf="@+id/textView18"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -40,6 +42,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:onClick="exitGame"
+        android:text="@string/nextLevel"
         android:textAlignment="center"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,13 +52,39 @@
         android:id="@+id/textView18"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginStart="72dp"
+        android:layout_marginStart="80dp"
         android:fontFamily="@font/luckiest_guy"
         android:text="@string/flashLives"
         android:textAlignment="textEnd"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textView20"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="57dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="152dp"
+        android:fontFamily="@font/bangers"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginBottom="140dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:text="@string/flashTotal"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -69,29 +98,4 @@
         app:layout_constraintBottom_toTopOf="@+id/textView21"
         app:layout_constraintStart_toEndOf="@+id/textView18" />
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginBottom="108dp"
-        android:fontFamily="@font/luckiest_guy"
-        android:text="@string/flashTotal"
-        android:textAlignment="textEnd"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="57dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="120dp"
-        android:fontFamily="@font/bangers"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_orange_light"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView20" />
 </androidx.constraintlayout.widget.ConstraintLayout>

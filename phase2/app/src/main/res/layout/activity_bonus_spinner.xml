@@ -23,7 +23,7 @@
         android:id="@+id/textView39"
         android:layout_width="231dp"
         android:layout_height="91dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/luckiest_guy"
         android:text="@string/bonusSpinner"
         android:textAlignment="center"
@@ -37,7 +37,7 @@
         android:id="@+id/Spinner"
         android:layout_width="310dp"
         android:layout_height="334dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="12dp"
         android:contentDescription="@string/spinnerImg"
         app:layout_constraintBottom_toTopOf="@+id/startSpin"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,18 +54,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView39"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/pointer" />
 
     <TextView
         android:id="@+id/Multiplier"
-        android:layout_width="143dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="156dp"
+        android:layout_width="126dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="132dp"
         android:fontFamily="@font/luckiest_guy"
-        android:text="@string/Multiplier"
+        android:text="@string/oldMultiplier"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,14 +87,41 @@
 
     <TextView
         android:id="@+id/multi"
-        android:layout_width="78dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="80dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="48dp"
         android:fontFamily="@font/luckiest_guy"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textColor="@android:color/black"
+        android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Multiplier" />
+
+    <TextView
+        android:id="@+id/newMultiplier"
+        android:layout_width="126dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:text="@string/newMultiplier"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/newMulti"
+        android:layout_width="81dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="36dp"
+        android:fontFamily="@font/luckiest_guy"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newMultiplier" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

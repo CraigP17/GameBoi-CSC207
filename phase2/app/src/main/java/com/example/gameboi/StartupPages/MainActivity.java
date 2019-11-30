@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.gameboi.FileSystem.FileManager;
-import com.example.gameboi.FlashColors.SimonGame;
+import com.example.gameboi.FlashColors.FlashColorsActivity;
 import com.example.gameboi.MathGame.MathGame;
 import com.example.gameboi.R;
 import com.example.gameboi.RockPaperScissors.RockPaperScissors;
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void toSimonGame(User user) {
-        Intent intent = new Intent(this, SimonGame.class);
+        Intent intent = new Intent(this, FlashColorsActivity.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }

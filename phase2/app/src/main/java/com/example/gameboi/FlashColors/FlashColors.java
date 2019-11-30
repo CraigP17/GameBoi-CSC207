@@ -2,24 +2,26 @@ package com.example.gameboi.FlashColors;
 
 import android.graphics.Color;
 
-import com.example.gameboi.R;
 import com.example.gameboi.UserClasses.User;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 /*The following class is responsible for storing the user playing the FlashColors as well as the
  * score during the game and the correct color pattern and user color patterns. This class acts as
- * the back end to SimonGame.java*/
+ * the back end to FlashColorsActivity.java*/
 class FlashColors {
 
     protected User player;
     boolean isSubmitted = true; //starts as true to allow initial pattern
-    ArrayList<Integer> correctPattern = new ArrayList<>();
+    ArrayList<Integer> correctPattern;
     private ArrayList<Integer> userPattern;
 
     FlashColors(User player) {
         this.player = player;
+        userPattern = new ArrayList<>();
+        correctPattern = new ArrayList<>();
     }
 
     ArrayList<Integer> generatePattern() {
@@ -39,14 +41,16 @@ class FlashColors {
         return correctPattern;
     }
 
-    boolean isCorrect(ArrayList<Integer> userPatterns) {
-        setUserPattern(userPatterns);
+    boolean isCorrect() {
         return correctPattern.equals(userPattern);
     }
 
+    void addColour(int colour){
+        userPattern.add(colour);
+    }
 
-    private void setUserPattern(ArrayList<Integer> userPatterns) {
-        this.userPattern = userPatterns;
+    void clearPattern(){
+        userPattern.clear();
     }
 
     boolean IsSubmitted() {
@@ -84,5 +88,15 @@ class FlashColors {
         System.out.println("IM ON NORMAL GENERATE");
         return pattern;
 
+    }
+
+    boolean checkHidden(){
+        if(player.getDifficulty().equals("Normal")){
+            ArrayList<Integer> special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.RED,Color.GREEN,Color.YELLOW));
+            return userPattern.equals(special);
+        }
+        ArrayList<Integer> special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.WHITE,Color.RED,
+                Color.GREEN,Color.YELLOW,Color.BLACK));
+        return userPattern.equals(special);
     }
 }
