@@ -22,7 +22,7 @@ public class RPSRoundDisplay extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rp_swon_round_display);
+        setContentView(R.layout.activity_rps_round_display);
 
         setVars();
         setBackgroundColour();

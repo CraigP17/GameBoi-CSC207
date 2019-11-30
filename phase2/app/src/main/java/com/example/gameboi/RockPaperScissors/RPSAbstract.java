@@ -23,16 +23,15 @@ public abstract class RPSAbstract extends GameFacade {
         if (lossesRpS == 2) {
             lossesRpS = 0;
             winsRpS = 0;
-            if (getPlayer().getLives() == 1) {
-                winner = false;
-                array = new String[] {userchoice, compchoice, "FlashLoss"};
-            } else {
-                winner = true;
-                array = new String[] {userchoice, compchoice, "FlashWin"};
-            }
+            this.winner = false;
+            array = new String[]{userchoice, compchoice, "FlashLoss"};
+//            } else {
+//                this.winner = true;
+//                array = new String[] {userchoice, compchoice, "FlashWin"};
         } else if (winsRpS == 3) {
             winsRpS = 0;
             lossesRpS = 0;
+            this.winner = true;
             array = new String[] {userchoice, compchoice, "FlashWin"};
         } else {
             array = new String[] {userchoice, compchoice, "Round"};
