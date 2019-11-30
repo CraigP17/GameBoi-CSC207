@@ -7,15 +7,15 @@ import java.util.ArrayList;
 class FlashColorsFacade {
 
     private User player;
-    private FlashColors gameCalculations;
+    private FlashColorsOperations gameCalculations;
 
     FlashColorsFacade(User player){
         this.player = player;
         if(player.getDifficulty().equals("Hard")){
-            gameCalculations = new FlashColorsHard(player);
+            gameCalculations = new FlashColorsOperationsHard(player);
         }
         else{
-            gameCalculations = new FlashColors(player);
+            gameCalculations = new FlashColorsOperations(player);
         }
     }
 
@@ -49,7 +49,7 @@ class FlashColorsFacade {
         return gameCalculations.getNewScore(c);
     }
 
-    /*This method will return the local score for a user playing FlashColors*/
+    /*This method will return the local score for a user playing FlashColorsOperations*/
     void setScore(int score) {
         gameCalculations.setScore(score);
     }

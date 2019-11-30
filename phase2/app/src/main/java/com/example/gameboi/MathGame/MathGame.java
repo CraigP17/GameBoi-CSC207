@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.gameboi.R;
-import com.example.gameboi.ScorePages.LevelResults;
 import com.example.gameboi.UserClasses.User;
 
 /*
@@ -17,12 +16,12 @@ public class MathGame extends GameActivity{
 
     TextView responseView;
     TextView equationDisplay;
-    MathGameFacade mathGameFacade;
+    MathGameManager mathGameManager;
 
     // Method takes the number of the button pressed and updates the response and responseView
     // The player response cannot exceed 1000000
     private void clickNumButton(int num) {
-        mathGameFacade.clickNumButton(num);
+        mathGameManager.clickNumButton(num);
         updateDisplay();
     }
 
@@ -40,14 +39,14 @@ public class MathGame extends GameActivity{
 
     //Resets response to Zero and updates the responseView
     public void pressClear(View view) {
-        mathGameFacade.pressClear();
+        mathGameManager.clearResponse();
         updateDisplay();
     }
 
     // Checks if the response is correct and adds 1 to score if it is. Updates score, resets
     // response and generates a new equation for the player
     public void pressEnter(View view) {
-        mathGameFacade.pressEnter();
+        mathGameManager.pressEnter();
         updateDisplay();
         if (isGameOver()) {toNext();}
     }
@@ -72,18 +71,18 @@ public class MathGame extends GameActivity{
         updateEquation();
     }
 
-    void updateResponse() {responseView.setText(String.valueOf(mathGameFacade.getResponse()));}
+    void updateResponse() {responseView.setText(String.valueOf(mathGameManager.getResponse()));}
 
-    void updateEquation() {equationDisplay.setText(mathGameFacade.getEquation());}
+    void updateEquation() {equationDisplay.setText(mathGameManager.getEquation());}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_game);
         User player = getIntent().getParcelableExtra("player");
-        mathGameFacade = new MathGameFacade(player);
-        gameFacade = mathGameFacade;
-        icon = getResources().getIdentifier(gameFacade.getPlayerIcon(),
+        mathGameManager = new MathGameManager(player);
+        gameFacade = mathGameManager;
+        icon = getResources().getIdentifier(mathGameManager.getPlayerIcon(),
                 "drawable", getPackageName());
         setupDisplay();
     }

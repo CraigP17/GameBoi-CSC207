@@ -2,23 +2,31 @@ package com.example.gameboi.MathGame;
 
 import com.example.gameboi.UserClasses.User;
 
-abstract class GameFacade {
-    Gameable gameManager;
+abstract class GameFacade{
+    int score;
+    User player;
+    boolean foundHiddenFeature = false;
+    boolean winner = false;
 
-    boolean isGameOver() {return gameManager.isGameOver();}
+    GameFacade(User player) {
+        this.player = player;
+        score = player.getPoints();
+    }
 
-    String getPlayerIcon() {return gameManager.getPlayerIcon();}
+    public boolean isGameOver() {return false;}
 
-    int getScore() { return gameManager.getScore();}
+    public String getPlayerIcon() {return player.getIcon();}
 
-    int getMultiplier() {return gameManager.getMultiplier();}
+    public int getScore() { return score;}
 
-    int getLives() {return gameManager.getLives();}
+    public int getMultiplier() {return player.getMultiplier();}
 
-    User getPlayer() {return gameManager.getPlayer();}
+    public int getLives() {return player.getLives();}
 
-    boolean isWinner() {return gameManager.isWinner();}
+    public User getPlayer() {return player;}
 
-    int getBackgroundColor(){return gameManager.getBackgroundColor();}
+    public boolean isWinner() {return winner;}
+
+    public int getBackgroundColor(){return player.getBackgroundColor();}
 
 }

@@ -7,9 +7,9 @@ import com.example.gameboi.UserClasses.User;
 import java.util.ArrayList;
 import java.util.Collections;
 
-class FlashColorsHard extends FlashColors {
+class FlashColorsOperationsHard extends FlashColorsOperations {
 
-    FlashColorsHard(User player) {
+    FlashColorsOperationsHard(User player) {
         super(player);
     }
 
