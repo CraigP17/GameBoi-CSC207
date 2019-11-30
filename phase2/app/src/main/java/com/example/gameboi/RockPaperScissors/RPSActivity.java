@@ -23,8 +23,14 @@ public class RPSActivity extends GameActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors);
+        this.scoreboard = findViewById(R.id.RPSScore);
+        this.lifeOne = findViewById(R.id.lifeOne3);
+        this.lifeTwo = findViewById(R.id.lifeTwo3);
+        this.lifeThree = findViewById(R.id.lifeThree3);
+        this.multiplier = findViewById(R.id.multiplier3);
 
-//        setTypeCalc();
+        setTypeCalc();
+        gameFacade = rpsCalc;
 //        setIcon();
 //        setScore();
 //        setBackground();
@@ -81,11 +87,6 @@ public class RPSActivity extends GameActivity {
 
     @Override
     public void setupDisplay(){
-        this.scoreboard = findViewById(R.id.RPSScore);
-        this.lifeOne = findViewById(R.id.lifeOne3);
-        this.lifeTwo = findViewById(R.id.lifeTwo3);
-        this.lifeThree = findViewById(R.id.lifeThree3);
-        this.multiplier = findViewById(R.id.multiplier3);
         super.setupDisplay();
         updateDisplay();
     }
