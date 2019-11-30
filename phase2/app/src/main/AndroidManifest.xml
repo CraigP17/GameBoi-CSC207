@@ -11,15 +11,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".BonusSpinner.BonusSpinner"></activity>
         <activity android:name=".StartupPages.Instructions" />
-        <activity android:name=".RockPaperScissors.RpsFinalLostDisplay" />
+
         <activity android:name=".ScorePages.Leaderboard" />
-        <activity android:name=".RockPaperScissors.RpsFinalWonDisplay" />
-        <activity android:name=".RockPaperScissors.tryAgainDisplay" />
-        <activity android:name=".RockPaperScissors.RpsLostRoundDisplay" />
         <activity android:name=".ScorePages.FlashLoss" />
         <activity android:name=".ScorePages.FlashWin" />
         <activity
-            android:name=".RockPaperScissors.RpSWonRoundDisplay"
+            android:name=".RockPaperScissors.RPSRoundDisplay"
             android:parentActivityName=".RockPaperScissors.RockPaperScissors">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->

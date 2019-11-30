@@ -85,9 +85,11 @@
     //LeaderBoard
 
     <string-array name="scoreboard_titles">
-        <item>Score</item>
+        <item>Highscores</item>
+        <item>Current Scores</item>
         <item>Multiplier</item>
         <item>Lives</item>
+
     </string-array>
     <string name="name">Name</string>
     <string name="instructions">Instructions</string>
