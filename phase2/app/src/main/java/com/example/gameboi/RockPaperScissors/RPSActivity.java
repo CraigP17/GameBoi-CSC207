@@ -1,5 +1,4 @@
 package com.example.gameboi.RockPaperScissors;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,26 +7,28 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.gameboi.MathGame.GameActivity;
 import com.example.gameboi.ScorePages.FlashLoss;
 import com.example.gameboi.ScorePages.FlashWin;
 import com.example.gameboi.R;
 import com.example.gameboi.UserClasses.User;
 
-public class RockPaperScissors extends AppCompatActivity {
+public class RPSActivity extends GameActivity {
 
     public static int winsRpS = 0;
     private User player;
-    private RPSabstract rpsCalc;
+    private RPSAbstract rpsCalc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock_paper_scissors);
 
-        setTypeCalc();
-        setIcon();
-        setScore();
-        setBackground();
+//        setTypeCalc();
+//        setIcon();
+//        setScore();
+//        setBackground();
+        setupDisplay();
     }
 
     private void setBackground() {
@@ -46,7 +47,7 @@ public class RockPaperScissors extends AppCompatActivity {
         scoreboardRpS.setText(String.valueOf(winsRpS + player.getPoints()));
     }
     private void setIcon() {
-        ImageView icon = findViewById(R.id.imageView);
+        ImageView icon = findViewById(R.id.lifeOne3);
         int resID = getResources().getIdentifier(player.getIcon(),
                 "drawable", getPackageName()); // this line of code grabs the resID based on user name
         icon.setImageResource(resID);
@@ -66,20 +67,26 @@ public class RockPaperScissors extends AppCompatActivity {
     }
 
     private void toNext(String[] arr) {
-        if (arr[2].equals("FlashLoss")) {
-            Intent intent = new Intent(this, FlashLoss.class);
-            intent.putExtra("player", player);
-            startActivity(intent);
-        } else if (arr[2].equals("FlashWin")) {
-            Intent intent = new Intent(this, FlashWin.class);
-            intent.putExtra("player", player);
-            startActivity(intent);
-        } else if (arr[2].equals("Round")) {
+        if (arr[2].equals("Round")) {
             Intent intent = new Intent(this, RPSRoundDisplay.class);
             intent.putExtra("userchoice", arr[0]);
             intent.putExtra("computerchoice", arr[1]);
             intent.putExtra("player", player);
             startActivity(intent);
         }
+        else {
+            super.toNext();
+        }
+    }
+
+    @Override
+    public void setupDisplay(){
+        this.scoreboard = findViewById(R.id.RPSScore);
+        this.lifeOne = findViewById(R.id.lifeOne3);
+        this.lifeTwo = findViewById(R.id.lifeTwo3);
+        this.lifeThree = findViewById(R.id.lifeThree3);
+        this.multiplier = findViewById(R.id.multiplier3);
+        super.setupDisplay();
+        updateDisplay();
     }
 }

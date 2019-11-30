@@ -18,14 +18,14 @@
         <activity android:name=".ScorePages.FlashWin" />
         <activity
             android:name=".RockPaperScissors.RPSRoundDisplay"
-            android:parentActivityName=".RockPaperScissors.RockPaperScissors">
+            android:parentActivityName=".RockPaperScissors.RPSActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".RockPaperScissors.RockPaperScissors" />
+                android:value=".RockPaperScissors.RPSActivity" />
         </activity>
-        <activity android:name=".RockPaperScissors.RockPaperScissors" />
+        <activity android:name=".RockPaperScissors.RPSActivity" />
         <activity android:name=".FlashColors.FlashColorsActivity" />
         <activity android:name=".MathGame.MathGame" />
         <activity android:name=".StartupPages.MainActivity">

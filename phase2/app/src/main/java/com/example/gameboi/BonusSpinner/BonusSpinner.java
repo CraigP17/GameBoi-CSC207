@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.FlashColors.FlashColorsActivity;
 import com.example.gameboi.R;
-import com.example.gameboi.RockPaperScissors.RockPaperScissors;
+import com.example.gameboi.RockPaperScissors.RPSActivity;
 import com.example.gameboi.ScorePages.Leaderboard;
 import com.example.gameboi.UserClasses.User;
 
@@ -121,7 +121,7 @@ public class BonusSpinner extends AppCompatActivity {
                 intent.putExtra("player", player);
                 startActivity(intent);
             } else if (player.getCurrLevel() == 2) {
-                Intent intent = new Intent(this, RockPaperScissors.class);
+                Intent intent = new Intent(this, RPSActivity.class);
                 intent.putExtra("player", player);
                 startActivity(intent);
             } else {

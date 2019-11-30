@@ -36,8 +36,6 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         setContentView(R.layout.activity_leaderboard);
         FileManager file = new FileManager(this);
 
-        users = file.getUsers();
-
         int newPoints = player.getPoints() * player.getMultiplier();
 
         // Set high score of the User if they have beat their high score
@@ -47,6 +45,8 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
 
         player.setPoints(newPoints);
         file.save(player);
+
+        users = file.getUsers();
 
 
         Spinner dropDownMenu = (Spinner) findViewById(R.id.spinner1);
@@ -394,6 +394,7 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         }
 
     }
+
     public void playAgain(View view) {
 //        User player = getIntent().getParcelableExtra("player");
         player.setPoints(0);
