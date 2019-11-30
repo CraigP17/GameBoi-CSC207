@@ -28,13 +28,15 @@ public class RPSActivity extends GameActivity {
         this.lifeTwo = findViewById(R.id.lifeTwo3);
         this.lifeThree = findViewById(R.id.lifeThree3);
         this.multiplier = findViewById(R.id.multiplier3);
-
         setTypeCalc();
         gameFacade = rpsCalc;
 //        setIcon();
 //        setScore();
 //        setBackground();
+        icon = getResources().getIdentifier(rpsCalc.getPlayerIcon(),
+                "drawable", getPackageName());
         setupDisplay();
+
     }
 
     private void setBackground() {

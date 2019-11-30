@@ -30,6 +30,7 @@ public class RPSCalcEasy extends RPSAbstract {
         if (winnersRpS.get(playerValue).equals(computerchoice)) {
             //user wins, add to wins
             winsRpS += 1;
+            incrementScore();
             return checker(playerValue, computerchoice);
         } else if (computerchoice.equals(playerValue)) {
             //to take into account number of games played
