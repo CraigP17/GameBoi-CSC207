@@ -22,7 +22,7 @@ public abstract class RPSAbstract extends GameFacade {
 
     String[] checker(String userchoice, String compchoice) {
 
-        if (userchoice == "Scissors" && compchoice == "Rock") {
+        if (userchoice.equals("Scissors") && compchoice.equals("Rock")) {
             setFoundHiddenFeature();
         }
         String[] array;
