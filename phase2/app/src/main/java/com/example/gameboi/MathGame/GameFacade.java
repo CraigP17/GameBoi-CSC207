@@ -2,10 +2,10 @@ package com.example.gameboi.MathGame;
 
 import com.example.gameboi.UserClasses.User;
 
-public abstract class GameFacade {
-    int score;
-    User player;
-    boolean foundHiddenFeature = false;
+public abstract class GameFacade{
+    public int score;
+    public User player;
+    public boolean foundHiddenFeature = false;
     public boolean winner = false;
 
     public GameFacade(User player) {

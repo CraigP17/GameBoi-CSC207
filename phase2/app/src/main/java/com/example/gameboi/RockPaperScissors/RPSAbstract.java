@@ -5,12 +5,12 @@ import com.example.gameboi.UserClasses.User;
 
 import java.util.HashMap;
 
-public abstract class RPSabstract extends GameFacade {
+public abstract class RPSAbstract extends GameFacade {
 
     static int winsRpS = 0;
     static int lossesRpS = 0;
 
-    RPSabstract(User player) {
+    RPSAbstract(User player) {
         super(player);
     }
 
@@ -38,6 +38,11 @@ public abstract class RPSabstract extends GameFacade {
             array = new String[] {userchoice, compchoice, "Round"};
         }
         return array;
+    }
+
+    @Override
+    public boolean isGameOver() {
+        return (winsRpS == 3 || lossesRpS == 2);
     }
 
 }

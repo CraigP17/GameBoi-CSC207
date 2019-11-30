@@ -11,7 +11,7 @@ import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.FlashColors.FlashColorsActivity;
 import com.example.gameboi.MathGame.MathGame;
 import com.example.gameboi.R;
-import com.example.gameboi.RockPaperScissors.RockPaperScissors;
+import com.example.gameboi.RockPaperScissors.RPSActivity;
 import com.example.gameboi.ScorePages.Leaderboard;
 import com.example.gameboi.UserClasses.User;
 
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void toRockPaperScissors(User user){
-        Intent intent = new Intent(this, RockPaperScissors.class);
+        Intent intent = new Intent(this, RPSActivity.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }

@@ -5,7 +5,7 @@ import com.example.gameboi.UserClasses.User;
 import java.util.HashMap;
 import java.util.Random;
 
-public class RPSCalcEasy extends RPSabstract {
+public class RPSCalcEasy extends RPSAbstract {
 
     private String[] arr = new String[] {"Rock", "Paper", "Scissors"};
 

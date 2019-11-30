@@ -1,5 +1,4 @@
 package com.example.gameboi.RockPaperScissors;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,16 +7,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.gameboi.MathGame.GameActivity;
 import com.example.gameboi.ScorePages.FlashLoss;
 import com.example.gameboi.ScorePages.FlashWin;
 import com.example.gameboi.R;
 import com.example.gameboi.UserClasses.User;
 
-public class RockPaperScissors extends AppCompatActivity {
+public class RPSActivity extends GameActivity {
 
     public static int winsRpS = 0;
     private User player;
-    private RPSabstract rpsCalc;
+    private RPSAbstract rpsCalc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,5 +81,16 @@ public class RockPaperScissors extends AppCompatActivity {
             intent.putExtra("player", player);
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void setupDisplay(){
+        this.scoreboard = findViewById(R.id.mathGameScore);
+        this.lifeOne = findViewById(R.id.lifeOne);
+        this.lifeTwo = findViewById(R.id.lifeTwo);
+        this.lifeThree = findViewById(R.id.lifeThree);
+        this.multiplier = findViewById(R.id.multiplier);
+        super.setupDisplay();
+        updateDisplay();
     }
 }

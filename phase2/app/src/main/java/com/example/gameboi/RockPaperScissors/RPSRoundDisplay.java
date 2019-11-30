@@ -1,6 +1,5 @@
 package com.example.gameboi.RockPaperScissors;
 
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -93,7 +92,7 @@ public class RPSRoundDisplay extends AppCompatActivity {
     }
 
     public void continueGame(View view) {
-        Intent intent = new Intent(this, RockPaperScissors.class);
+        Intent intent = new Intent(this, RPSActivity.class);
         intent.putExtra("player", player);
         startActivity(intent); //now intent has key value
     }
