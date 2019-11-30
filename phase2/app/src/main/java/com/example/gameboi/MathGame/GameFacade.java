@@ -2,13 +2,13 @@ package com.example.gameboi.MathGame;
 
 import com.example.gameboi.UserClasses.User;
 
-abstract class GameFacade{
+public abstract class GameFacade {
     int score;
     User player;
     boolean foundHiddenFeature = false;
-    boolean winner = false;
+    public boolean winner = false;
 
-    GameFacade(User player) {
+    public GameFacade(User player) {
         this.player = player;
         score = player.getPoints();
     }
