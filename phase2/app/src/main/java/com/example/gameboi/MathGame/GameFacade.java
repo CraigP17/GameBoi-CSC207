@@ -13,7 +13,14 @@ public abstract class GameFacade{
         score = player.getPoints();
     }
 
-    public boolean isGameOver() {return false;}
+    public boolean getFoundHiddenFeature() {return foundHiddenFeature;}
+
+    public void updateFoundHiddenFeature() {
+        foundHiddenFeature = true;
+        player.foundHiddenfeature();
+    }
+
+    abstract boolean isGameOver();
 
     public String getPlayerIcon() {return player.getIcon();}
 

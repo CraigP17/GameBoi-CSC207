@@ -15,8 +15,7 @@ class MathGameManager extends GameFacade{
 
     private void checkHiddenFeature() {
         if (response == 12345 && ! foundHiddenFeature) {
-            foundHiddenFeature = true;
-            player.foundHiddenfeature();
+            updateFoundHiddenFeature();
         }
     }
 
