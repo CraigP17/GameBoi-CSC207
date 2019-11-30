@@ -72,8 +72,7 @@ public class RPSActivity extends GameActivity {
             intent.putExtra("computerchoice", arr[1]);
             intent.putExtra("player", player);
             startActivity(intent);
-        }
-        else {
+        } else {
             super.toNext();
         }
     }

@@ -11,7 +11,9 @@ public abstract class RPSAbstract extends GameFacade {
     static int lossesRpS = 0;
 
     RPSAbstract(User player) {
+
         super(player);
+        score = winsRpS + player.getPoints();
     }
 
     abstract HashMap buildMap();
@@ -19,20 +21,23 @@ public abstract class RPSAbstract extends GameFacade {
     abstract String[] RpSGamePlayed(String playerValue);
 
     String[] checker(String userchoice, String compchoice) {
+
+        if (userchoice.equals("Scissors") && compchoice.equals("Rock")) {
+            setFoundHiddenFeature();
+        }
+
         String[] array;
         if (lossesRpS == 2) {
             lossesRpS = 0;
             winsRpS = 0;
-            this.winner = false;
-            array = new String[]{userchoice, compchoice, "FlashLoss"};
-//            } else {
-//                this.winner = true;
-//                array = new String[] {userchoice, compchoice, "FlashWin"};
+
+            array = new String[] {userchoice, compchoice, "FlashLoss"};
+
         } else if (winsRpS == 3) {
             winsRpS = 0;
             lossesRpS = 0;
-            this.winner = true;
             array = new String[] {userchoice, compchoice, "FlashWin"};
+            winner = true;
         } else {
             array = new String[] {userchoice, compchoice, "Round"};
         }
