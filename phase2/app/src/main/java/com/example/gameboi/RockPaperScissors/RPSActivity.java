@@ -71,7 +71,9 @@ public class RPSActivity extends GameActivity {
     }
 
     public void Scissors(View view) {
+        checkHiddenFeature();
         toNext(rpsCalc.RpSGamePlayed("Scissors"));
+
     }
 
     private void toNext(String[] arr) {
