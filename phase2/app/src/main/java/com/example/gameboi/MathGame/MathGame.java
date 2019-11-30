@@ -7,6 +7,7 @@ import android.view.View;
 import com.example.gameboi.ScorePages.FlashLoss;
 import com.example.gameboi.ScorePages.FlashWin;
 import com.example.gameboi.R;
+import com.example.gameboi.ScorePages.LevelResults;
 import com.example.gameboi.UserClasses.User;
 
 /*
@@ -50,14 +51,16 @@ public class MathGame extends AppCompatActivity{
     }
 
     private void goToWinScreen() {
-        Intent intent = new Intent(this, FlashLoss.class);
+        Intent intent = new Intent(this, LevelResults.class);
         intent.putExtra("player", mathGameFacade.getPlayer());
+        intent.putExtra("success", true);
         startActivity(intent);
     }
 
     private void goToLoseScreen() {
-        Intent intent = new Intent(this, FlashWin.class);
+        Intent intent = new Intent(this, LevelResults.class);
         intent.putExtra("player", mathGameFacade.getPlayer());
+        intent.putExtra("success", false);
         startActivity(intent);
     }
 

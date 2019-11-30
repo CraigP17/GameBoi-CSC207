@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.gameboi.ScorePages.FlashLoss;
 import com.example.gameboi.ScorePages.FlashWin;
 import com.example.gameboi.R;
+import com.example.gameboi.ScorePages.LevelResults;
 import com.example.gameboi.UserClasses.User;
 
 import java.util.ArrayList;
@@ -127,13 +128,15 @@ public class SimonGame extends AppCompatActivity {
             // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
         } else if (!flash.isCorrect(userGuess) & incorrect == 1) {
             flash.setScore(Integer.parseInt(scoreBoard.getText().toString()));
-            Intent intent = new Intent(this, FlashLoss.class);
+            Intent intent = new Intent(this, LevelResults.class);
             intent.putExtra("player", player);
+            intent.putExtra("success", false);
             startActivity(intent);
         } else if (flashLevels == 4) {
             flash.setScore(Integer.parseInt(scoreBoard.getText().toString()));
-            Intent intent = new Intent(this, FlashWin.class);
+            Intent intent = new Intent(this, LevelResults.class);
             intent.putExtra("player", player);
+            intent.putExtra("success", true);
             startActivity(intent);
         } else if (!flash.isCorrect(userGuess) & incorrect == 0) {
             Toast.makeText(context, failure, length).show();
