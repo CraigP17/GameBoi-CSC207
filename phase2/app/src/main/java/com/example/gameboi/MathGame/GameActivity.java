@@ -1,9 +1,12 @@
 package com.example.gameboi.MathGame;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gameboi.ScorePages.LevelResults;
 
@@ -69,6 +72,18 @@ public abstract class GameActivity extends AppCompatActivity {
         updateBackgroundColor();
         updateLivesIcon();
         updateDisplay();
+    }
+
+    public void checkHiddenFeature(){
+        if (!gameFacade.getFoundHiddenFeature() && gameFacade.checkHidden()){
+            Context context = getApplicationContext();
+            int length = Toast.LENGTH_SHORT;
+            Toast toast =Toast.makeText(context, "Multiplier Increased!", length);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.show();
+            gameFacade.setFoundHiddenFeature();
+            updateMultiplier();
+        }
     }
 
     @Override

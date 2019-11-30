@@ -1,16 +1,16 @@
 package com.example.gameboi.FlashColors;
 
+import com.example.gameboi.MathGame.GameFacade;
 import com.example.gameboi.UserClasses.User;
 
 import java.util.ArrayList;
 
-class FlashColorsFacade {
+class FlashColorsFacade extends GameFacade {
 
-    private User player;
     private FlashColorsOperations gameCalculations;
 
     FlashColorsFacade(User player){
-        this.player = player;
+        super(player);
         if(player.getDifficulty().equals("Hard")){
             gameCalculations = new FlashColorsOperationsHard(player);
         }
@@ -19,7 +19,8 @@ class FlashColorsFacade {
         }
     }
 
-    boolean checkHidden(){
+
+    public boolean checkHidden(){
         return gameCalculations.checkHidden();
     }
 
@@ -45,15 +46,9 @@ class FlashColorsFacade {
 
     /*This method is responsible for grabbing the current score, increasing its value by 1 and
      * returning a new charsequence*/
-    CharSequence getNewScore(CharSequence c) {
+    int getNewScore(CharSequence c) {
         return gameCalculations.getNewScore(c);
     }
-
-    /*This method will return the local score for a user playing FlashColorsOperations*/
-    void setScore(int score) {
-        gameCalculations.setScore(score);
-    }
-
 
     ArrayList<Integer> DisplayColors(){
         return gameCalculations.DisplayColors();
@@ -65,41 +60,6 @@ class FlashColorsFacade {
 
     void clearPattern(){
         gameCalculations.clearPattern();
-    }
-
-    /**
-     * @return the number of lives the User has
-     */
-    int getLives() {
-        return player.getLives();
-    }
-
-    /**
-     * @return the User's customized backgroundColor
-     */
-    int getBackgroundColor() {
-        return player.getBackgroundColor();
-    }
-
-    /**
-     * @return String value that represents logo file name
-     */
-    String getIcon() {
-        return player.getIcon();
-    }
-
-    /**
-     * @return The current amount of points a user has accumulated
-     */
-    int getPoints(){
-        return player.getPoints();
-    }
-
-    /**
-     * @return The users current multiplier
-     */
-    public int getMultiplier() {
-        return player.getMultiplier();
     }
 
     public void setMultiplier(int multiplier) {
