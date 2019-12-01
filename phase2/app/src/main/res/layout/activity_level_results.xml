@@ -36,8 +36,8 @@
 
     <TextView
         android:id="@+id/lives"
-        android:layout_width="110dp"
-        android:layout_height="55dp"
+        android:layout_width="108dp"
+        android:layout_height="66dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="300dp"
         android:fontFamily="@font/bangers"
@@ -63,11 +63,11 @@
     <TextView
         android:id="@+id/currMultiply"
         android:layout_width="110dp"
-        android:layout_height="55dp"
+        android:layout_height="58dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/bangers"
-        android:textColor="@android:color/holo_green_dark"
+        android:textColor="@android:color/holo_blue_light"
         android:textSize="40sp"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/lives" />
@@ -88,10 +88,10 @@
 
     <TextView
         android:id="@+id/currScore"
-        android:layout_width="110dp"
-        android:layout_height="55dp"
+        android:layout_width="109dp"
+        android:layout_height="66dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/bangers"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="40sp"

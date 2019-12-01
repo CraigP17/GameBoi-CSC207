@@ -12,13 +12,21 @@ import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.R;
 import com.example.gameboi.UserClasses.User;
 
+/**
+ * This is the Results activity which displays the User's stats after they have just finihsed a game
+ * and saves their stats to the file
+ */
 public class LevelResults extends AppCompatActivity {
-
 
     /**
      * The current User playing the game, saves an instance of the User to update their stats
      */
     private User player;
+
+    /**
+     * Whether the User has won the game they has just played
+     */
+    private boolean success;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +36,44 @@ public class LevelResults extends AppCompatActivity {
         // Store the User to display their stats
         player = getIntent().getParcelableExtra("player");
 
-        getWindow().getDecorView().setBackgroundColor(player.getBackgroundColor());
-
         // Whether the User won the previous game or lost the previous game
-        boolean success = getIntent().getExtras().getBoolean("success");
+        success = getIntent().getExtras().getBoolean("success");
 
         // Increase the User's current level as they have just completed a level
         player.incrementCurrLevel();
 
+        // Set User's customized background colour
+        getWindow().getDecorView().setBackgroundColor(player.getBackgroundColor());
+
         // Set the textViews whether the User has won or last the previous game
+        setWonOrLossViews();
+
+        // Puts the Stats on the TextViews
+        setStatTextViews();
+
+        // Save the User's stats in the text file
+        FileManager fman = new FileManager(this);
+        fman.save(player);
+    }
+
+    /**
+     * Set the number of lives, multiplier, and points that the User has in the textViews
+     */
+    private void setStatTextViews() {
+        TextView numLives = findViewById(R.id.lives);
+        numLives.setText(String.valueOf(player.getLives()));
+
+        TextView multiplier = findViewById(R.id.currMultiply);
+        multiplier.setText(String.valueOf(player.getMultiplier()));
+
+        TextView totalPoint = findViewById(R.id.currScore);
+        totalPoint.setText(String.valueOf(player.getPoints()));
+    }
+
+    /**
+     * Set the textViews whether the User has won or last the previous game
+     */
+    private void setWonOrLossViews() {
         if (success) {
             TextView message = findViewById(R.id.winText);
             message.setText(R.string.flashWin1);
@@ -49,27 +86,6 @@ public class LevelResults extends AppCompatActivity {
             TextView minusOne = findViewById(R.id.minus1);
             minusOne.setText("-1");
         }
-
-        // Puts the Stats on the TextViews
-        setStatTexts();
-
-        // Save the User's stats in the text file
-        FileManager fman = new FileManager(this);
-        fman.save(player);
-    }
-
-    /**
-     * Set the number of lives, multiplier, and points that the User has in the textViews
-     */
-    private void setStatTexts() {
-        TextView numLives = findViewById(R.id.lives);
-        numLives.setText(String.valueOf(player.getLives()));
-
-        TextView multiplier = findViewById(R.id.currMultiply);
-        multiplier.setText(String.valueOf(player.getMultiplier()));
-
-        TextView totalPoint = findViewById(R.id.currScore);
-        totalPoint.setText(String.valueOf(player.getPoints()));
     }
 
     /**
