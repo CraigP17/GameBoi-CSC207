@@ -36,29 +36,29 @@ public class RPSCalcHard extends RPSAbstract {
     }
 
     private String[] randomAnswer(String playerValue) {
-        HashMap<String, String[]> outcome = new HashMap<>();
+        HashMap<String, String[]> outcome = buildMap();
 
         Random rand = new Random();
         String computerchoice = arr[rand.nextInt(arr.length)];
         for (String s : outcome.get(playerValue)) {
             if (s.equals(computerchoice)) {
                 winsRpS++;
-                return checker(playerValue, computerchoice);
+                return checker("Won", playerValue, computerchoice);
             }
         }
         if (!playerValue.equals(computerchoice)) {
             lossesRpS++;
-            return checker(playerValue, computerchoice);
+            return checker("Loss", playerValue, computerchoice);
         } else {
-            return checker(playerValue, computerchoice);
+            return checker("Tie", playerValue, computerchoice);
         }
     }
 
     private String[] winAnswer(String playerValue) {
-        HashMap<String, String[]> outcome = new HashMap<>();
+        HashMap<String, String[]> outcome = buildMap();
         Random rand = new Random();
         winsRpS++;
-        return checker(playerValue, outcome.get(playerValue)[rand.nextInt(2)]);
+        return checker("Won", playerValue, outcome.get(playerValue)[rand.nextInt(2)]);
     }
 
 //    @Override

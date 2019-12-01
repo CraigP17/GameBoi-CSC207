@@ -31,14 +31,14 @@ public class RPSCalcEasy extends RPSAbstract {
             //user wins, add to wins
             winsRpS += 1;
             incrementScore();
-            return checker(playerValue, computerchoice);
+            return checker("Won", playerValue, computerchoice);
         } else if (computerchoice.equals(playerValue)) {
             //to take into account number of games played
-            return checker(playerValue, computerchoice);
+            return checker("Tie", playerValue, computerchoice);
         } else  {
             //comp wins, add to losses
             lossesRpS += 1;
-            return checker(playerValue, computerchoice);
+            return checker("Loss", playerValue, computerchoice);
         }
 
     }

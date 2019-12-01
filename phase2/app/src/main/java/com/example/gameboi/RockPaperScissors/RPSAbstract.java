@@ -20,24 +20,27 @@ public abstract class RPSAbstract extends GameFacade {
 
     abstract String[] RpSGamePlayed(String playerValue);
 
-    String[] checker(String userchoice, String compchoice) {
+    String[] checker(String result, String userchoice, String compchoice) {
 
         if (userchoice.equals("Scissors") && compchoice.equals("Rock")) {
             setFoundHiddenFeature();
         }
+
         String[] array;
         if (lossesRpS == 2) {
             lossesRpS = 0;
             winsRpS = 0;
-            array = new String[] {userchoice, compchoice, "FlashLoss"};
 
+            array = new String[] {userchoice, compchoice, "FlashLoss", result};
+            winner = false;
         } else if (winsRpS == 3) {
             winsRpS = 0;
             lossesRpS = 0;
-            array = new String[] {userchoice, compchoice, "FlashWin"};
+            array = new String[] {userchoice, compchoice, "FlashWin", result};
             winner = true;
         } else {
-            array = new String[] {userchoice, compchoice, "Round"};
+            array = new String[] {userchoice, compchoice, "Round", result};
+            winner = false;
         }
         return array;
     }
