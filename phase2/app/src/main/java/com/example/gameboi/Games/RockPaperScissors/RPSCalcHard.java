@@ -99,6 +99,8 @@ class RPSCalcHard extends RPSAbstract {
         }
 
         return checker("Loss", playerValue, computerChoice);
+        lossesRpS++;
+        return checker("Loss", playerValue, outcome.get(playerValue)[rand.nextInt(2)]);
     }
 
     @Override

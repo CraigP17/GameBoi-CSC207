@@ -1,4 +1,5 @@
 package com.example.gameboi.Games.RockPaperScissors;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +12,25 @@ import com.example.gameboi.Games.GameActivity;
 import com.example.gameboi.R;
 import com.example.gameboi.UserClasses.User;
 
+/**
+ * Front-end class for RPS, responsible for setting Views depending on difficulty and calling on
+ * an instance of RPSAbstract to calculate results of the round
+ */
 public class RPSActivity extends GameActivity {
 
     public static int winsRpS = 0;
+    /**
+     * Current user playing
+     */
     private User player;
+    /**
+     * Instance of backend calculating class depending difficulty chosen by user.
+     */
     private RPSAbstract rpsCalc;
 
+    /**
+     * Sets which back-end difficulty class to use, as well as views for the game
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +40,8 @@ public class RPSActivity extends GameActivity {
         gameFacade = rpsCalc;
         this.icon = getResources().getIdentifier(rpsCalc.getPlayerIcon(),
                 "drawable", getPackageName());
-//        setIcon();
-//        setScore();
-//        setBackground();
         setupDisplay();
     }
-
 
 
     private void setTypeCalc() {
@@ -50,38 +60,42 @@ public class RPSActivity extends GameActivity {
             spock.setEnabled(true);
         }
     }
-    private void setScore() {
-        TextView scoreboardRpS = findViewById(R.id.textView12);
-        scoreboardRpS.setText(String.valueOf(winsRpS + player.getPoints()));
-    }
-    private void setIcon() {
-        ImageView icon = findViewById(R.id.lifeOne3);
-        int resID = getResources().getIdentifier(player.getIcon(),
-                "drawable", getPackageName()); // this line of code grabs the resID based on user name
-        icon.setImageResource(resID);
-    }
 
-
+    /**
+     * If user chooses Rock, rpsCalc calculates which userchoice rock
+     */
     public void Rock(View view) {
         toNext(rpsCalc.RpSGamePlayed("Rock"));
     }
 
+    /**
+     * If user chooses Paper, rpsCalc calculates which userchoice paper
+     */
     public void Paper(View view) {
         toNext(rpsCalc.RpSGamePlayed("Paper"));
     }
 
+    /**
+     * If user chooses Scissors, rpsCalc calculates which userchoice Scissors
+     */
     public void Scissors(View view) {
         toNext(rpsCalc.RpSGamePlayed("Scissors"));
         checkHiddenFeature();
 
     }
 
+    /**
+     * If user chooses Lizard, rpsCalc calculates which userchoice lizard
+     */
     public void Lizard(View view) {
-        if (!player.getDifficulty().equals("Normal")){
+        if (!player.getDifficulty().equals("Normal")) {
             toNext(rpsCalc.RpSGamePlayed("Lizard"));
         }
     }
 
+    /**
+     * If user chooses Spock, rpsCalc calculates which userchoice spock
+     */
     public void Spock(View view) {
         if (!player.getDifficulty().equals("Normal")) {
             toNext(rpsCalc.RpSGamePlayed("Spock"));
@@ -101,8 +115,11 @@ public class RPSActivity extends GameActivity {
         }
     }
 
+    /**
+     * sets textview ids in GameActivity to set and update appropriate values in GameActivity
+     */
     @Override
-    public void setupDisplay(){
+    public void setupDisplay() {
         this.scoreboard = findViewById(R.id.RPSScore);
         this.lifeOne = findViewById(R.id.lifeOne3);
         this.lifeTwo = findViewById(R.id.lifeTwo3);
