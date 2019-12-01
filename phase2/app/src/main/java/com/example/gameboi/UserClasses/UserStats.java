@@ -39,14 +39,14 @@ class UserStats implements Parcelable {
     private int currLevel;
 
     /**
-     * @param lives Their current amount of lives a user chooses
-     * @param points Their current amount of points
+     * @param lives      Their current amount of lives a user chooses
+     * @param points     Their current amount of points
      * @param multiplier The users multiplier which is multiplied by their score at the leaderboard page
-     * @param highScore The users past highscore
-     * @param currLevel Their current level
-     * @param origLives The amount of lives originally set by the user
+     * @param highScore  The users past highscore
+     * @param currLevel  Their current level
+     * @param origLives  The amount of lives originally set by the user
      */
-    UserStats(int lives, int points, int multiplier, int highScore, int currLevel, int origLives){
+    UserStats(int lives, int points, int multiplier, int highScore, int currLevel, int origLives) {
         this.lives = lives;
         this.points = points;
         this.multiplier = multiplier;
@@ -72,8 +72,8 @@ class UserStats implements Parcelable {
     /**
      * Packs the User object into a Parcel that can be then sent through an Intent
      *
-     * @param dest the Parcel in which User data is going to be written to
-     * @param flags      additional information on sending User data
+     * @param dest  the Parcel in which User data is going to be written to
+     * @param flags additional information on sending User data
      */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
@@ -85,17 +85,32 @@ class UserStats implements Parcelable {
         dest.writeInt(currLevel);
     }
 
+    /**
+     * @return The contents of the parcel UserStats
+     */
     @Override
     public int describeContents() {
         return 0;
     }
 
     public static final Creator<UserStats> CREATOR = new Creator<UserStats>() {
+        /**
+         * Create a new instance of the UserStats, using data from Parcel written from .writeToParcel()
+         *
+         * @param in Parcel containing the User's data
+         * @return an instance of User
+         */
         @Override
         public UserStats createFromParcel(Parcel in) {
             return new UserStats(in);
         }
 
+        /**
+         * Creates a new array of the UserStats class
+         *
+         * @param size of the array
+         * @return an array of the Parcelable class, with every entry initialized to null
+         */
         @Override
         public UserStats[] newArray(int size) {
             return new UserStats[size];
