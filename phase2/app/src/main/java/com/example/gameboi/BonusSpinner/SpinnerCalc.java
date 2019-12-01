@@ -1,5 +1,8 @@
 package com.example.gameboi.BonusSpinner;
 
+/**
+ * This class is responsible for calculating where the wheel landed and the User's multiplier
+ */
 class SpinnerCalc {
 
     /**
@@ -7,8 +10,20 @@ class SpinnerCalc {
      * User gets
      * It follows the order of the wheel, @drawable/spinningwheel.png
      */
-    private final int[] sections = {1, 3, 1, 2};
+    private final int[] SECTIONS = {1, 3, 1, 2};
 
+
+    /**
+     * Gets the User;s new multiplier after spinning the bonus wheel
+     * degree is
+     *
+     * @param multiplier The User's multiplier before getting the bonus multiplier
+     * @param degree     The degree of the wheel of where it landed
+     * @return the User's new multiplier including the bonus
+     */
+    int getNewMultiplier(int multiplier, int degree) {
+        return multiplier * getWheelSection(360 - (degree % 360));
+    }
 
     /**
      * Calculates the multiplier that the User gets after spinning the wheel, by taking the degree
@@ -17,26 +32,27 @@ class SpinnerCalc {
      * @param degrees The degree of the wheel that the spinner landed on
      * @return The multiplier String of which section of the wheel it is on
      */
-    int getWheelSection(int degrees) {
+    private int getWheelSection(int degrees) {
 
         //Divide the 360 degree wheel into angles for each sector on the Spinner
-        float HALF_SECTOR = 360f / 4f / 2f;
+        float halfSector = 360f / 4f;
 
         int i = 0;
         int multiplyNum = 0;
 
         do {
             // Get the angles of each section of the spinner wheel
-            float start = HALF_SECTOR * (i * 2);
-            float end = HALF_SECTOR * (i * 2 + 2);
+            float start = halfSector * (i);
+            float end = halfSector * (i + 1);
 
             // if degrees is in this section of the wheel, set text to that section
             if (degrees >= start && degrees < end) {
-                multiplyNum = sections[i];
+                multiplyNum = SECTIONS[i];
             }
             i++;
-        } while (multiplyNum == 0 && i < sections.length);
+        } while (multiplyNum == 0 && i < SECTIONS.length);
 
         return multiplyNum;
     }
+
 }

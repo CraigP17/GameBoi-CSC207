@@ -1,9 +1,11 @@
 package com.example.gameboi.UserClasses;
 
-import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * This class is responsible for keeping track of the users customizations
+ */
 class UserCustom implements Parcelable {
 
     /**
@@ -26,6 +28,12 @@ class UserCustom implements Parcelable {
      */
     private String difficulty;
 
+    /**
+     * @param name The name of the user
+     * @param backgroundColor The users chosen background color
+     * @param icon The users chosen icon
+     * @param difficulty The chosen difficulty
+     */
     UserCustom(String name, int backgroundColor, String icon, String difficulty){
         this.name = name;
         this.backgroundColor = backgroundColor;
@@ -33,7 +41,12 @@ class UserCustom implements Parcelable {
         this.difficulty = difficulty;
     }
 
-    protected UserCustom(Parcel in) {
+    /**
+     * Unpacks a Parcel and creates an instance of a UserCustom
+     *
+     * @param in The Parcel that is passed through an Intent
+     */
+    UserCustom(Parcel in) {
         name = in.readString();
         backgroundColor = in.readInt();
         icon = in.readString();
@@ -57,6 +70,12 @@ class UserCustom implements Parcelable {
         return 0;
     }
 
+    /**
+     * Packs the User object into a Parcel that can be then sent through an Intent
+     *
+     * @param parcel the Parcel in which User data is going to be written to
+     * @param i      additional information on sending User data
+     */
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);

@@ -13,18 +13,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gameboi.FileSystem.FileManager;
-import com.example.gameboi.FlashColors.FlashColorsActivity;
+import com.example.gameboi.Games.FlashColors.FlashColorsActivity;
 import com.example.gameboi.R;
-import com.example.gameboi.RockPaperScissors.RPSActivity;
+import com.example.gameboi.Games.RockPaperScissors.RPSActivity;
 import com.example.gameboi.ScorePages.Leaderboard;
 import com.example.gameboi.UserClasses.User;
 
 import java.util.Random;
 
+/**
+ * The Activity Class BonusSpinner for the Bonus spinning wheel which gives the User a chance to
+ * increase their multiplier
+ */
 public class BonusSpinner extends AppCompatActivity {
 
     // The degree is what the spinner lands on
-    private int degree = 0;
+    private int degree;
 
     // Dedicated class for calculating sections of what the wheel lands on
     private SpinnerCalc spinnerCalc = new SpinnerCalc();
@@ -45,11 +49,13 @@ public class BonusSpinner extends AppCompatActivity {
         // Set the multiplier textView with their current multiplier score
         TextView multi = findViewById(R.id.multi);
         multi.setText(String.valueOf(player.getMultiplier()));
+
+        getWindow().getDecorView().setBackgroundColor(player.getBackgroundColor());
     }
 
     /**
      * Spins the wheel and calculates which section of the wheel it was landed on
-     * @param v View
+     * @param v View The view that the button is click on
      */
     public void spin(View v) {
         // Disable button so User cannot press the button and spin multiple times
@@ -70,6 +76,10 @@ public class BonusSpinner extends AppCompatActivity {
         rotateAnim.setFillAfter(true);
         rotateAnim.setInterpolator(new DecelerateInterpolator());
 
+        // Create the Animation for the spinning wheel.
+        // onAnimationStart clears the textView
+        // onAnimationEnd calculates where the wheel turned to and sets the User's new multiplier
+        // onAnimationRepeat empty as wheel animation should only occur once
         rotateAnim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -82,7 +92,7 @@ public class BonusSpinner extends AppCompatActivity {
             public void onAnimationEnd(Animation animation) {
                 // Calculate which section of the wheel the arrow is pointing at and multiply it by
                 // the User's current multiplier
-                int newMultiplier = player.getMultiplier() * spinnerCalc.getWheelSection(360 - (degree % 360));
+                int newMultiplier = spinnerCalc.getNewMultiplier(player.getMultiplier(), degree);
 
                 // Display the new multiplier that the User's will have
                 TextView multiplier = findViewById(R.id.newMulti);
@@ -104,6 +114,8 @@ public class BonusSpinner extends AppCompatActivity {
 
     /**
      * Takes the user to the next level or to the final leader board if they have completed the game
+     *
+     * @param view The view that the button is click on
      */
     public void nextGame(View view) {
 

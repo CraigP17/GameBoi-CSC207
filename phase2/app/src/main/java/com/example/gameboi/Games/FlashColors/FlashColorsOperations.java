@@ -1,4 +1,4 @@
-package com.example.gameboi.FlashColors;
+package com.example.gameboi.Games.FlashColors;
 
 import android.graphics.Color;
 
@@ -19,6 +19,9 @@ class FlashColorsOperations {
     ArrayList<Integer> userPattern;
     ArrayList<Integer> special;
 
+    /**
+     * @param player the current player of FlashColors
+     */
     FlashColorsOperations(User player) {
         this.player = player;
         userPattern = new ArrayList<>();
@@ -26,6 +29,9 @@ class FlashColorsOperations {
         this.special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.RED,Color.GREEN,Color.YELLOW));
     }
 
+    /**
+     * @return a list of colours that have been randomly generated
+     */
     ArrayList<Integer> generatePattern() {
         ArrayList<Integer> pattern = new ArrayList<>();
         pattern.add(Color.RED);
@@ -39,26 +45,37 @@ class FlashColorsOperations {
         return pattern;
     }
 
+    /**
+     * @return return the pattern that has been generated
+     */
     ArrayList<Integer> getCorrectPattern() {
         return correctPattern;
     }
 
+    /**
+     * @return true if the user has entered the correct pattern
+     */
     boolean isCorrect() {
         return correctPattern.equals(userPattern);
     }
 
+    /**
+     * @param colour the users selected color
+     */
     void addColour(int colour){
         userPattern.add(colour);
     }
 
+    /**
+     * Method responsible for clearing the users guess
+     */
     void clearPattern(){
         userPattern.clear();
     }
 
-    boolean IsSubmitted() {
-        return isSubmitted;
-    }
-
+    /**
+     * @param submitted change the status of submitted
+     */
     void setSubmitted(boolean submitted) {
         isSubmitted = submitted;
     }
@@ -66,13 +83,15 @@ class FlashColorsOperations {
     /*This method is responsible for grabbing the current score, increasing its value by 1 and
      * returning a new charsequence*/
     int getNewScore(CharSequence c) {
-        CharSequence newScore;
         int score = Integer.parseInt(c.toString());
         score++;
         //setScore(score); //store the score of the game for an user
         return score;
     }
 
+    /**
+     * @return a colour pattern which FlashColorsActivity will use
+     */
     ArrayList<Integer> DisplayColors(){
         ArrayList<Integer> pattern;
         if(isSubmitted){
@@ -86,6 +105,9 @@ class FlashColorsOperations {
 
     }
 
+    /**
+     * @return true if the user's inputted pattern is the same as the hidden feature
+     */
     boolean checkHidden(){
         return userPattern.equals(special);
     }

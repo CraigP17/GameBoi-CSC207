@@ -18,7 +18,7 @@ public class User implements Parcelable {
     private UserCustom custom;
 
     /**
-     * Constructs a new User
+     * Constructs a new User which stores a UserCustom and UserStats object
      *
      * @param name             the User's name
      * @param lives            the number of lives they have
@@ -27,7 +27,7 @@ public class User implements Parcelable {
      * @param icon             the User's selected icon
      * @param currLevel        the User's current level,
      * @param highScore        the User's high score after completing the game
-     * @param multiplier
+     * @param multiplier       the User's multiplier which starts at 1 and can be increased as the game progresses
      * @param difficulty       the User's game difficulty either Normal OR Hard
      *
      */
@@ -95,6 +95,10 @@ public class User implements Parcelable {
         parcel.writeParcelable(custom,i);
     }
 
+    /**
+     * @return return a string representation of the user object, containing all its stats
+     * and customizations
+     */
     @Override
     public String toString() {
         return custom.getName() + "," + stats.getLives() + "," + stats.getPoints() + "," +
@@ -152,8 +156,9 @@ public class User implements Parcelable {
         custom.setName(name);
     }
 
+
     /**
-     * @return The User's currLevel
+     * @param level the new level that the user is at
      */
     public void setCurrLevel(int level) {
         stats.setCurrLevel(level);

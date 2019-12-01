@@ -1,6 +1,6 @@
-package com.example.gameboi.RockPaperScissors;
+package com.example.gameboi.Games.RockPaperScissors;
 
-import com.example.gameboi.MathGame.GameFacade;
+import com.example.gameboi.Games.GameFacade;
 import com.example.gameboi.UserClasses.User;
 
 import java.util.HashMap;

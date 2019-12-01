@@ -1,4 +1,4 @@
-package com.example.gameboi.MathGame;
+package com.example.gameboi.Games.MathGame;
 
 import java.util.Random;
 

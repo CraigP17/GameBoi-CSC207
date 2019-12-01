@@ -1,4 +1,4 @@
-package com.example.gameboi.RockPaperScissors;
+package com.example.gameboi.Games.RockPaperScissors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
