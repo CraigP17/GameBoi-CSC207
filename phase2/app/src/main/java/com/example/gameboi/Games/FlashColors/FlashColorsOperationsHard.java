@@ -1,4 +1,4 @@
-package com.example.gameboi.FlashColors;
+package com.example.gameboi.Games.FlashColors;
 
 import android.graphics.Color;
 

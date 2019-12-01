@@ -1,6 +1,6 @@
-package com.example.gameboi.FlashColors;
+package com.example.gameboi.Games.FlashColors;
 
-import com.example.gameboi.MathGame.GameFacade;
+import com.example.gameboi.Games.GameFacade;
 import com.example.gameboi.UserClasses.User;
 
 import java.util.ArrayList;
@@ -24,20 +24,8 @@ class FlashColorsFacade extends GameFacade {
         return gameCalculations.checkHidden();
     }
 
-    ArrayList<Integer> generatePattern() {
-         return gameCalculations.generatePattern();
-    }
-
-    ArrayList<Integer> getCorrectPattern() {
-        return gameCalculations.getCorrectPattern();
-    }
-
     boolean isCorrect() {
         return gameCalculations.isCorrect();
-    }
-
-    boolean isSubmitted() {
-        return gameCalculations.IsSubmitted();
     }
 
     void setSubmitted(boolean submitted) {

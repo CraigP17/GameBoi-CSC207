@@ -1,9 +1,10 @@
-package com.example.gameboi.MathGame;
+package com.example.gameboi.Games.MathGame;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.gameboi.Games.GameActivity;
 import com.example.gameboi.R;
 import com.example.gameboi.UserClasses.User;
 
@@ -12,7 +13,7 @@ The MathGame class.
 
 Asks the user a series of questions arithmetic questions.
  */
-public class MathGame extends GameActivity{
+public class MathGame extends GameActivity {
 
     TextView responseView;
     TextView equationDisplay;

@@ -1,4 +1,4 @@
-package com.example.gameboi.FlashColors;
+package com.example.gameboi.Games.FlashColors;
 
 import android.graphics.Color;
 
@@ -74,13 +74,6 @@ class FlashColorsOperations {
     }
 
     /**
-     * @return true if the user has clicked 'submit'
-     */
-    boolean IsSubmitted() {
-        return isSubmitted;
-    }
-
-    /**
      * @param submitted change the status of submitted
      */
     void setSubmitted(boolean submitted) {
@@ -90,7 +83,6 @@ class FlashColorsOperations {
     /*This method is responsible for grabbing the current score, increasing its value by 1 and
      * returning a new charsequence*/
     int getNewScore(CharSequence c) {
-        CharSequence newScore;
         int score = Integer.parseInt(c.toString());
         score++;
         //setScore(score); //store the score of the game for an user

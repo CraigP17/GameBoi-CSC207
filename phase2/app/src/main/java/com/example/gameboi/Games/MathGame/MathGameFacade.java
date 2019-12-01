@@ -1,6 +1,4 @@
-package com.example.gameboi.MathGame;
-
-import com.example.gameboi.UserClasses.User;
+package com.example.gameboi.Games.MathGame;
 
 class MathGameFacade {
 

@@ -1,6 +1,4 @@
-package com.example.gameboi.FlashColors;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.gameboi.Games.FlashColors;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -9,14 +7,11 @@ import android.content.Intent;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gameboi.MathGame.GameActivity;
+import com.example.gameboi.Games.GameActivity;
 import com.example.gameboi.R;
 import com.example.gameboi.ScorePages.LevelResults;
 import com.example.gameboi.UserClasses.User;

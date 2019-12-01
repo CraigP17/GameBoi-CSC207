@@ -1,4 +1,4 @@
-package com.example.gameboi.RockPaperScissors;
+package com.example.gameboi.Games.RockPaperScissors;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.gameboi.MathGame.GameActivity;
-import com.example.gameboi.ScorePages.FlashLoss;
-import com.example.gameboi.ScorePages.FlashWin;
+import com.example.gameboi.Games.GameActivity;
 import com.example.gameboi.R;
 import com.example.gameboi.UserClasses.User;
 

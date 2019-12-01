@@ -60,7 +60,7 @@ class UserStats implements Parcelable {
      *
      * @param in The Parcel that is passed through an Intent
      */
-    protected UserStats(Parcel in) {
+    private UserStats(Parcel in) {
         lives = in.readInt();
         points = in.readInt();
         multiplier = in.readInt();

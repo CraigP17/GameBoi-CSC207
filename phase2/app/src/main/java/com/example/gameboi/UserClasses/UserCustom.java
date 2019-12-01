@@ -1,6 +1,5 @@
 package com.example.gameboi.UserClasses;
 
-import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -47,7 +46,7 @@ class UserCustom implements Parcelable {
      *
      * @param in The Parcel that is passed through an Intent
      */
-    protected UserCustom(Parcel in) {
+    UserCustom(Parcel in) {
         name = in.readString();
         backgroundColor = in.readInt();
         icon = in.readString();
