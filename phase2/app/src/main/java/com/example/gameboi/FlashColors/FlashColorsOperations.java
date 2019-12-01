@@ -16,12 +16,14 @@ class FlashColorsOperations {
     protected User player;
     boolean isSubmitted = true; //starts as true to allow initial pattern
     ArrayList<Integer> correctPattern;
-    private ArrayList<Integer> userPattern;
+    ArrayList<Integer> userPattern;
+    ArrayList<Integer> special;
 
     FlashColorsOperations(User player) {
         this.player = player;
         userPattern = new ArrayList<>();
         correctPattern = new ArrayList<>();
+        this.special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.RED,Color.GREEN,Color.YELLOW));
     }
 
     ArrayList<Integer> generatePattern() {
@@ -63,18 +65,12 @@ class FlashColorsOperations {
 
     /*This method is responsible for grabbing the current score, increasing its value by 1 and
      * returning a new charsequence*/
-    CharSequence getNewScore(CharSequence c) {
+    int getNewScore(CharSequence c) {
         CharSequence newScore;
         int score = Integer.parseInt(c.toString());
         score++;
-        newScore = String.valueOf(score);
         //setScore(score); //store the score of the game for an user
-        return newScore;
-    }
-
-    /*This method will return the local score for a user playing FlashColorsOperations*/
-    void setScore(int score) {
-        player.setPoints(score);
+        return score;
     }
 
     ArrayList<Integer> DisplayColors(){
@@ -91,12 +87,6 @@ class FlashColorsOperations {
     }
 
     boolean checkHidden(){
-        if(player.getDifficulty().equals("Normal")){
-            ArrayList<Integer> special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.RED,Color.GREEN,Color.YELLOW));
-            return userPattern.equals(special);
-        }
-        ArrayList<Integer> special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.WHITE,Color.RED,
-                Color.GREEN,Color.YELLOW,Color.BLACK));
         return userPattern.equals(special);
     }
 }

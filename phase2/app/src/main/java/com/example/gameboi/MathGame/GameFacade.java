@@ -36,4 +36,20 @@ public abstract class GameFacade{
 
     public int getBackgroundColor(){return player.getBackgroundColor();}
 
+    public void setFoundHiddenFeature() {
+        this.foundHiddenFeature = true;
+        player.foundHiddenfeature();
+    }
+
+    public boolean checkHidden() {return false;}
+
+    public boolean getFoundHiddenFeature() { return this.foundHiddenFeature; }
+
+    public void incrementScore() {this.score++;}
+
+    /*This method will return the local score for a user playing FlashColorsOperations*/
+    public void setScore(int score) {
+        player.setPoints(score);
+    }
+
 }

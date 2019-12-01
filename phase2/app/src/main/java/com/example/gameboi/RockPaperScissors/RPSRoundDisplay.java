@@ -1,6 +1,5 @@
 package com.example.gameboi.RockPaperScissors;
 
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -19,11 +18,12 @@ public class RPSRoundDisplay extends AppCompatActivity {
     private User player;
     String userChoiceDisplay;
     String cChoiceDisplay;
+    String result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rp_swon_round_display);
+        setContentView(R.layout.activity_rps_round_display);
 
         setVars();
         setBackgroundColour();
@@ -44,33 +44,37 @@ public class RPSRoundDisplay extends AppCompatActivity {
 
         if (cChoiceDisplay.equals("Rock")) {
             panda.setImageResource(R.drawable.rock);
-        }
-        if (cChoiceDisplay.equals("Paper")) {
+        } else if (cChoiceDisplay.equals("Paper")) {
             panda.setImageResource(R.drawable.paper);
-        }
-        if (cChoiceDisplay.equals("Scissors")) {
+        } else if (cChoiceDisplay.equals("Scissors")) {
             panda.setImageResource(R.drawable.scissors);
+        } else if (cChoiceDisplay.equals("Lizard")) {
+            panda.setImageResource(R.drawable.lizard);
+        } else if (cChoiceDisplay.equals("Spock")) {
+            panda.setImageResource(R.drawable.spock);
         }
+
 
 
         if (userChoiceDisplay.equals("Rock")) {
             uChoice.setImageResource(R.drawable.rock);
-        }
-        if (userChoiceDisplay.equals("Paper")) {
+        } else if (userChoiceDisplay.equals("Paper")) {
             uChoice.setImageResource(R.drawable.paper);
-        }
-        if (userChoiceDisplay.equals("Scissors")) {
+        } else if (userChoiceDisplay.equals("Scissors")) {
             uChoice.setImageResource(R.drawable.scissors);
+        } else if (userChoiceDisplay.equals("Lizard")) {
+            uChoice.setImageResource(R.drawable.lizard);
+        } else if (userChoiceDisplay.equals("Spock")) {
+            uChoice.setImageResource(R.drawable.spock);
         }
     }
 
     private void setAnnouncement() {
         TextView announce = (TextView) findViewById(R.id.textView4);
 
-        HashMap hash = buildMap();
-        if (hash.get(userChoiceDisplay).equals(cChoiceDisplay)) {
+        if (result.equals("Won")) {
             announce.setText("You have won this round! Press Continue to play again.");
-        } else if (!userChoiceDisplay.equals(cChoiceDisplay)) {
+        } else if (result.equals("Loss")) {
             announce.setText("You have lost this round! Press Continue to play again.");
         } else {
             announce.setText("No one won this round! Press Continue to play again.");
@@ -81,7 +85,8 @@ public class RPSRoundDisplay extends AppCompatActivity {
         Intent intent = getIntent();
         userChoiceDisplay = intent.getStringExtra("userchoice");
         cChoiceDisplay = intent.getStringExtra("computerchoice");
-        player = getIntent().getParcelableExtra("player");
+        player = intent.getParcelableExtra("player");
+        result = intent.getStringExtra("result");
     }
 
     public HashMap buildMap() {
@@ -93,7 +98,7 @@ public class RPSRoundDisplay extends AppCompatActivity {
     }
 
     public void continueGame(View view) {
-        Intent intent = new Intent(this, RockPaperScissors.class);
+        Intent intent = new Intent(this, RPSActivity.class);
         intent.putExtra("player", player);
         startActivity(intent); //now intent has key value
     }

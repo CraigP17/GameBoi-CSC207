@@ -5,16 +5,12 @@ import com.example.gameboi.UserClasses.User;
 import java.util.HashMap;
 import java.util.Random;
 
-public class RPSCalcEasy extends RPSabstract {
+public class RPSCalcEasy extends RPSAbstract {
 
     private String[] arr = new String[] {"Rock", "Paper", "Scissors"};
-    private static int winsRpS = 0;
-    private static int lossesRpS = 0;
-    public User player;
 
     RPSCalcEasy(User player) {
-        super();
-        this.player = player;
+        super(player);
     }
 
     public HashMap buildMap() {
@@ -34,37 +30,20 @@ public class RPSCalcEasy extends RPSabstract {
         if (winnersRpS.get(playerValue).equals(computerchoice)) {
             //user wins, add to wins
             winsRpS += 1;
-            return checker(playerValue, computerchoice);
+            incrementScore();
+            return checker("Won", playerValue, computerchoice);
         } else if (computerchoice.equals(playerValue)) {
             //to take into account number of games played
-            return checker(playerValue, computerchoice);
+            return checker("Tie", playerValue, computerchoice);
         } else  {
             //comp wins, add to losses
             lossesRpS += 1;
-            return checker(playerValue, computerchoice);
+            return checker("Loss", playerValue, computerchoice);
         }
 
     }
 
-    String[] checker(String userchoice, String compchoice) {
-        String[] array;
-        if (lossesRpS == 2) {
-            lossesRpS = 0;
-            winsRpS = 0;
-            if (this.player.getLives() == 1) {
-                array = new String[] {userchoice, compchoice, "FlashLoss"};
-            } else {
-                array = new String[] {userchoice, compchoice, "FlashWin"};
-            }
-        } else if (winsRpS == 3) {
-            winsRpS = 0;
-            lossesRpS = 0;
-            array = new String[] {userchoice, compchoice, "FlashWin"};
-        } else {
-            array = new String[] {userchoice, compchoice, "Round"};
-            }
-        return array;
-    }
+
 
 //    public int getWins() {
 //        return winsRpS;
