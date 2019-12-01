@@ -98,9 +98,8 @@ class RPSCalcHard extends RPSAbstract {
             notFoundhiddenFeature = false;
         }
 
-        return checker("Loss", playerValue, computerChoice);
         lossesRpS++;
-        return checker("Loss", playerValue, outcome.get(playerValue)[rand.nextInt(2)]);
+        return checker("Loss", playerValue, computerChoice);
     }
 
     @Override

@@ -88,13 +88,5 @@ public abstract class RPSAbstract extends GameFacade {
     public boolean isGameOver() {
         return (winsRpS == 3 || lossesRpS == 2);
     }
-
-    /**
-     * Returns boolean, true if the hidden feature was completed
-     */
-    @Override
-    public boolean checkHidden() {
-        return getFoundHiddenFeature();
-    }
-
+    
 }
