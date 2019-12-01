@@ -14,20 +14,22 @@ import java.util.Collections;
  */
 class FlashColorsOperationsHard extends FlashColorsOperations {
 
-    /**Constructs a game in hard mode, setting the special feature to a new operating
+    /**
+     * Constructs a game in hard mode, setting the special feature to a new operating
+     *
      * @param player The player of the game
      */
     FlashColorsOperationsHard(User player) {
         super(player);
-        this.special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.WHITE,Color.RED,
-                Color.GREEN,Color.YELLOW,Color.BLACK));
+        this.special = new ArrayList<>(Arrays.asList(Color.BLUE, Color.WHITE, Color.RED,
+                Color.GREEN, Color.YELLOW, Color.BLACK));
     }
 
     /**
      * @return a list of colors which the user must try to match
      */
     @Override
-    ArrayList<Integer> generatePattern(){
+    ArrayList<Integer> generatePattern() {
         ArrayList<Integer> pattern = new ArrayList<>();
         pattern.add(Color.RED);
         pattern.add(Color.GREEN);
@@ -46,9 +48,9 @@ class FlashColorsOperationsHard extends FlashColorsOperations {
     /**
      * @return sends a color pattern to FlashColorsActivity to be displayed
      */
-    ArrayList<Integer> DisplayColors(){
+    ArrayList<Integer> DisplayColors() {
         ArrayList<Integer> pattern;
-        if(isSubmitted){
+        if (isSubmitted) {
             setSubmitted(false);
             pattern = generatePattern();
             return pattern;

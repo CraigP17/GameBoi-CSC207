@@ -29,12 +29,12 @@ class UserCustom implements Parcelable {
     private String difficulty;
 
     /**
-     * @param name The name of the user
+     * @param name            The name of the user
      * @param backgroundColor The users chosen background color
-     * @param icon The users chosen icon
-     * @param difficulty The chosen difficulty
+     * @param icon            The users chosen icon
+     * @param difficulty      The chosen difficulty
      */
-    UserCustom(String name, int backgroundColor, String icon, String difficulty){
+    UserCustom(String name, int backgroundColor, String icon, String difficulty) {
         this.name = name;
         this.backgroundColor = backgroundColor;
         this.icon = icon;
@@ -46,7 +46,7 @@ class UserCustom implements Parcelable {
      *
      * @param in The Parcel that is passed through an Intent
      */
-    UserCustom(Parcel in) {
+    private UserCustom(Parcel in) {
         name = in.readString();
         backgroundColor = in.readInt();
         icon = in.readString();
@@ -54,17 +54,32 @@ class UserCustom implements Parcelable {
     }
 
     public static final Creator<UserCustom> CREATOR = new Creator<UserCustom>() {
+        /**
+         * Create a new instance of the UserCustom, using data from Parcel written from .writeToParcel()
+         *
+         * @param in Parcel containing the User's data
+         * @return an instance of User
+         */
         @Override
         public UserCustom createFromParcel(Parcel in) {
             return new UserCustom(in);
         }
 
+        /**
+         * Creates a new array of the UserCustom class
+         *
+         * @param size of the array
+         * @return an array of the Parcelable class, with every entry initialized to null
+         */
         @Override
         public UserCustom[] newArray(int size) {
             return new UserCustom[size];
         }
     };
 
+    /**
+     * @return A description of the contents in this parcel
+     */
     @Override
     public int describeContents() {
         return 0;
@@ -126,13 +141,17 @@ class UserCustom implements Parcelable {
         this.icon = icon;
     }
 
-    /** Returns the User's difficulty of the game
+    /**
+     * Returns the User's difficulty of the game
      *
      * @return the User's game difficulty
      */
-    String getDifficulty() { return this.difficulty; }
+    String getDifficulty() {
+        return this.difficulty;
+    }
 
-    /** Sets the User's game difficulty
+    /**
+     * Sets the User's game difficulty
      *
      * @param difficulty the difficulty of the game
      */

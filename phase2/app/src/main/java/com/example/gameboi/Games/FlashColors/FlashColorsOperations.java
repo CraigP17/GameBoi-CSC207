@@ -13,10 +13,25 @@ import java.util.Collections;
  * the back end to FlashColorsActivity.java*/
 class FlashColorsOperations {
 
+    /**
+     * The current User playing FlashColors
+     */
     protected User player;
+    /**
+     * Boolean which states whether the user has submitted their colour pattern
+     */
     boolean isSubmitted = true; //starts as true to allow initial pattern
+    /**
+     * The generated pattern
+     */
     ArrayList<Integer> correctPattern;
+    /**
+     * The users inputted pattern
+     */
     ArrayList<Integer> userPattern;
+    /**
+     * The special feature combo which if entered into colour board increases multiplier
+     */
     ArrayList<Integer> special;
 
     /**
@@ -26,7 +41,7 @@ class FlashColorsOperations {
         this.player = player;
         userPattern = new ArrayList<>();
         correctPattern = new ArrayList<>();
-        this.special = new ArrayList<>(Arrays.asList(Color.BLUE,Color.RED,Color.GREEN,Color.YELLOW));
+        this.special = new ArrayList<>(Arrays.asList(Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW));
     }
 
     /**
@@ -62,14 +77,14 @@ class FlashColorsOperations {
     /**
      * @param colour the users selected color
      */
-    void addColour(int colour){
+    void addColour(int colour) {
         userPattern.add(colour);
     }
 
     /**
      * Method responsible for clearing the users guess
      */
-    void clearPattern(){
+    void clearPattern() {
         userPattern.clear();
     }
 
@@ -80,21 +95,12 @@ class FlashColorsOperations {
         isSubmitted = submitted;
     }
 
-    /*This method is responsible for grabbing the current score, increasing its value by 1 and
-     * returning a new charsequence*/
-    int getNewScore(CharSequence c) {
-        int score = Integer.parseInt(c.toString());
-        score++;
-        //setScore(score); //store the score of the game for an user
-        return score;
-    }
-
     /**
      * @return a colour pattern which FlashColorsActivity will use
      */
-    ArrayList<Integer> DisplayColors(){
+    ArrayList<Integer> DisplayColors() {
         ArrayList<Integer> pattern;
-        if(isSubmitted){
+        if (isSubmitted) {
             setSubmitted(false);
             pattern = generatePattern();
             return pattern;
@@ -108,7 +114,7 @@ class FlashColorsOperations {
     /**
      * @return true if the user's inputted pattern is the same as the hidden feature
      */
-    boolean checkHidden(){
+    boolean checkHidden() {
         return userPattern.equals(special);
     }
 }

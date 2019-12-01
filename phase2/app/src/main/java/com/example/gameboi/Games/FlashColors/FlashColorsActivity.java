@@ -63,6 +63,7 @@ public class FlashColorsActivity extends GameActivity {
     // When a button is clicked by the user as an answer for the pattern, add their input to list of inputs
     public void greenClicked(View view) {
         flash.addColour(Color.GREEN);
+        checkHiddenFeature();
     }
 
     /**
@@ -80,6 +81,7 @@ public class FlashColorsActivity extends GameActivity {
      */
     public void redClicked(View view) {
         flash.addColour(Color.RED);
+        checkHiddenFeature();
     }
 
     /**
@@ -87,6 +89,7 @@ public class FlashColorsActivity extends GameActivity {
      */
     public void blueClicked(View view) {
         flash.addColour(Color.BLUE);
+        checkHiddenFeature();
     }
 
     /**
@@ -104,6 +107,7 @@ public class FlashColorsActivity extends GameActivity {
      */
     public void whiteClicked(View view) {
         flash.addColour(Color.WHITE);
+        checkHiddenFeature();
     }
 
     /**
