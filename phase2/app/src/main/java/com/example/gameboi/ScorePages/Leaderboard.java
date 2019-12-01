@@ -31,21 +31,25 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         player = getIntent().getParcelableExtra("player");
         setContentView(R.layout.activity_leaderboard);
 
         // Updating the users highscores
         updateHighscore();
-        // Initalizing the leaderboard backend class
-        leaderBoardBE = new LeaderBoardBE(player, file);
+
+        // Initializing the leaderboard backend class that performs all calculations
+        leaderBoardBE = new LeaderBoardBE(file);
 
 
+        //Creating a drop down menu that allows users to see players ranked based on different criteria
         Spinner dropDownMenu = (Spinner) findViewById(R.id.spinner1);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.scoreboard_titles, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropDownMenu.setAdapter(adapter);
 
+        //Setting up the onClicklistener to display values based on what user clicked
         dropDownMenu.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -60,56 +64,56 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
 
     }
 
+    //onItemselected needed outside onCreate inorder for interface to recognize that it has been created
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         switch (pos) {
-            // when user selects score
+            // when user selects highscore
             case 0:
-                // Whatever you want to happen when the first item gets selected
                 selectedHighscore();
                 break;
-            // when user selects multiplier
+            // when user selects score
             case 1:
-                // Whatever you want to happen when the third item gets selected
                 selectedScore();
                 break;
-
+            // when user selects multiplier
             case 2:
-                // Whatever you want to happen when the second item gets selected
                 selectedMultiplier();
                 break;
             // when user selects lives
             case 3:
-                // Whatever you want to happen when the third item gets selected
                 selectedLives();
                 break;
         }
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
     }
 
+    // Obtains ordered values list from backend to display on leaderboard
     public void selectedHighscore() {
         ArrayList<Pair> highScores = leaderBoardBE.orderedHighscorelist;
         displayTextviews(highScores);
     }
 
     public void selectedMultiplier() {
-        ArrayList<Pair> highScores = leaderBoardBE.orderedMultiplierlist;
-        displayTextviews(highScores);
+        ArrayList<Pair> multiplier = leaderBoardBE.orderedMultiplierlist;
+        displayTextviews(multiplier);
     }
 
     public void selectedLives() {
-        ArrayList<Pair> highScores = leaderBoardBE.orderedLiveslist;
-        displayTextviews(highScores);
+        ArrayList<Pair> lives = leaderBoardBE.orderedLiveslist;
+        displayTextviews(lives);
     }
 
     public void selectedScore() {
-        selectedHighscore();
+        ArrayList<Pair> scores = leaderBoardBE.orderedScorelist;
+        displayTextviews(scores);
 
     }
 
+
+    // Calls textviews and displays score based on what list is passed in
     public void displayTextviews(ArrayList<Pair> listTodisplay) {
         // Displaying topscorers in order in the textviews on leaderboard display
 
@@ -129,6 +133,7 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         thirdscore.setText(String.valueOf((int) listTodisplay.get(2).second));
     }
 
+    //Method to update the Highscore of the user
     public void updateHighscore() {
 
         int newPoints = player.getPoints() * player.getMultiplier();
@@ -142,6 +147,7 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         file.save(player);
     }
 
+    // If play again button is pressed, users points are cleared and other values are reset
     public void playAgain(View view) {
         player.setPoints(0);
         player.setMultiplier(1);

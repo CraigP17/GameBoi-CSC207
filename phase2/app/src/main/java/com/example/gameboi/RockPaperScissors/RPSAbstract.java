@@ -9,6 +9,7 @@ public abstract class RPSAbstract extends GameFacade {
 
     static int winsRpS = 0;
     static int lossesRpS = 0;
+    static boolean notFoundhiddenFeature = true;
 
     RPSAbstract(User player) {
 
@@ -22,18 +23,17 @@ public abstract class RPSAbstract extends GameFacade {
 
     String[] checker(String userchoice, String compchoice) {
 
-        if (userchoice.equals("Scissors") && compchoice.equals("Rock")) {
-            setFoundHiddenFeature();
-        }
         String[] array;
         if (lossesRpS == 2) {
             lossesRpS = 0;
             winsRpS = 0;
+            notFoundhiddenFeature = true;
             array = new String[] {userchoice, compchoice, "FlashLoss"};
 
         } else if (winsRpS == 3) {
             winsRpS = 0;
             lossesRpS = 0;
+            notFoundhiddenFeature = true;
             array = new String[] {userchoice, compchoice, "FlashWin"};
             winner = true;
         } else {
@@ -45,16 +45,6 @@ public abstract class RPSAbstract extends GameFacade {
     @Override
     public boolean isGameOver() {
         return (winsRpS == 3 || lossesRpS == 2);
-    }
-
-    @Override
-    public boolean checkHidden() {
-        if (getFoundHiddenFeature()) {
-            return true;
-        } else {
-            return false;
-        }
-
     }
 
 }

@@ -7,6 +7,8 @@ import java.util.Random;
 
 public class RPSCalcHard extends RPSAbstract {
     private String[] arr = new String[] {"Rock", "Paper", "Scissors", "Lizard", "Spock"};
+    private String computerChoice;
+    private String playerChoice;
 
     RPSCalcHard(User player) {
         super(player);
@@ -26,6 +28,7 @@ public class RPSCalcHard extends RPSAbstract {
     @Override
     String[] RpSGamePlayed(String playerValue) {
 
+        playerChoice = playerValue;
         Random rand = new Random();
         int p = rand.nextInt(10);
         if (p < 3) {
@@ -39,18 +42,18 @@ public class RPSCalcHard extends RPSAbstract {
         HashMap<String, String[]> outcome = new HashMap<>();
 
         Random rand = new Random();
-        String computerchoice = arr[rand.nextInt(arr.length)];
+        computerChoice = arr[rand.nextInt(arr.length)];
         for (String s : outcome.get(playerValue)) {
-            if (s.equals(computerchoice)) {
+            if (s.equals(computerChoice)) {
                 winsRpS++;
-                return checker(playerValue, computerchoice);
+                return checker(playerValue, computerChoice);
             }
         }
-        if (!playerValue.equals(computerchoice)) {
+        if (!playerValue.equals(computerChoice)) {
             lossesRpS++;
-            return checker(playerValue, computerchoice);
+            return checker(playerValue, computerChoice);
         } else {
-            return checker(playerValue, computerchoice);
+            return checker(playerValue, computerChoice);
         }
     }
 
@@ -61,8 +64,9 @@ public class RPSCalcHard extends RPSAbstract {
         return checker(playerValue, outcome.get(playerValue)[rand.nextInt(2)]);
     }
 
-//    @Override
-//    int getWins() {
-//        return winsRpS;
-//    }
+    @Override
+    public boolean checkHidden(){
+        return (playerChoice.equals("Scissors") && computerChoice.equals("Rock"));
+
+    }
 }
