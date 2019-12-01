@@ -5,14 +5,21 @@ import com.example.gameboi.UserClasses.User;
 
 import java.util.HashMap;
 
+/**
+ * Superclass for RPSCaclEasy and RPSCalcHard and any levels required for RPS game.
+ * Subclasses must Implement all methods in this class except checker.
+ * All backend classes for games in Gameboi extend from GameFacade.
+ */
 public abstract class RPSAbstract extends GameFacade {
-    /**
-     * Superclass for RPSCaclEasy and RPSCalcHard and any levels required for RPS game.
-     * Subclasses must Implement all methods in this class except checker.
-     * All backend classes for games in Gameboi extend from GameFacade.
-     */
 
+    /**
+     * Number of rounds won
+     */
     static int winsRpS = 0;
+
+    /**
+     * Number of rounds lost
+     */
     static int lossesRpS = 0;
 
 
@@ -32,10 +39,15 @@ public abstract class RPSAbstract extends GameFacade {
 
 
     /**
-     * Depending on difficulty,
+     * Depending on difficulty, chooses a computers choice and determines if user won or lost.
      */
     abstract String[] RpSGamePlayed(String playerValue);
 
+
+    /**
+     * Returns array to RPSActivity determining which intent to start next depending on result and
+     * number of rounds won or lost
+     */
     String[] checker(String result, String userchoice, String compchoice) {
 
         if (userchoice.equals("Scissors") && compchoice.equals("Rock")) {
@@ -47,33 +59,34 @@ public abstract class RPSAbstract extends GameFacade {
             lossesRpS = 0;
             winsRpS = 0;
 
-            array = new String[] {userchoice, compchoice, "FlashLoss", result};
+            array = new String[]{userchoice, compchoice, "FlashLoss", result};
             winner = false;
         } else if (winsRpS == 3) {
             winsRpS = 0;
             lossesRpS = 0;
-            array = new String[] {userchoice, compchoice, "FlashWin", result};
+            array = new String[]{userchoice, compchoice, "FlashWin", result};
             winner = true;
         } else {
-            array = new String[] {userchoice, compchoice, "Round", result};
+            array = new String[]{userchoice, compchoice, "Round", result};
             winner = false;
         }
         return array;
     }
 
+    /**
+     * Returns a boolean, true if game is over or false if there are remaining rounds to play.
+     */
     @Override
     public boolean isGameOver() {
         return (winsRpS == 3 || lossesRpS == 2);
     }
 
+    /**
+     * Returns boolean, true if the hidden feature was completed
+     */
     @Override
     public boolean checkHidden() {
-        if (getFoundHiddenFeature()) {
-            return true;
-        } else {
-            return false;
-        }
-
+        return getFoundHiddenFeature();
     }
 
 }

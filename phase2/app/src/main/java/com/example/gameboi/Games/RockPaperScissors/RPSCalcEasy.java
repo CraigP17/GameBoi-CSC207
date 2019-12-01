@@ -5,14 +5,23 @@ import com.example.gameboi.UserClasses.User;
 import java.util.HashMap;
 import java.util.Random;
 
+/**
+ * Calculator for RPS game for difficulty easy
+ */
 public class RPSCalcEasy extends RPSAbstract {
 
-    private String[] arr = new String[] {"Rock", "Paper", "Scissors"};
+    /**
+     * Possibilites of choices in this difficulty
+     */
+    private String[] arr = new String[]{"Rock", "Paper", "Scissors"};
 
     RPSCalcEasy(User player) {
         super(player);
     }
 
+    /**
+     * Builds map for easy only using rock paper and scissors
+     */
     public HashMap buildMap() {
         HashMap<String, String> winnersRpS = new HashMap<>();
         winnersRpS.put("Rock", "Scissors");
@@ -21,31 +30,29 @@ public class RPSCalcEasy extends RPSAbstract {
         return winnersRpS;
     }
 
+    /**
+     * Using player value, determines computer value calls checker to return which intent to start
+     * next.
+     */
     public String[] RpSGamePlayed(String playerValue) {
         HashMap<String, String> winnersRpS = buildMap();
 
         Random rand = new Random();
-        //if this button is for rock
+        // choose random computer choice from arr
         String computerchoice = arr[rand.nextInt(arr.length)];
         if (winnersRpS.get(playerValue).equals(computerchoice)) {
             //user wins, add to wins
             winsRpS += 1;
-            incrementScore();
+            incrementScore(); //increments different score in superclass
             return checker("Won", playerValue, computerchoice);
         } else if (computerchoice.equals(playerValue)) {
-            //to take into account number of games played
+            // tie game
             return checker("Tie", playerValue, computerchoice);
-        } else  {
+        } else {
             //comp wins, add to losses
             lossesRpS += 1;
             return checker("Loss", playerValue, computerchoice);
         }
 
     }
-
-
-
-//    public int getWins() {
-//        return winsRpS;
-//    }
 }
