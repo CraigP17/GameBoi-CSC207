@@ -45,6 +45,8 @@ public class BonusSpinner extends AppCompatActivity {
         // Set the multiplier textView with their current multiplier score
         TextView multi = findViewById(R.id.multi);
         multi.setText(String.valueOf(player.getMultiplier()));
+
+        getWindow().getDecorView().setBackgroundColor(player.getBackgroundColor());
     }
 
     /**

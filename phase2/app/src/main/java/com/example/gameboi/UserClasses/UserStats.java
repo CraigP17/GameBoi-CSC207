@@ -3,6 +3,9 @@ package com.example.gameboi.UserClasses;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+/**
+ * This class is responsible for keeping track of the users statistics
+ */
 class UserStats implements Parcelable {
 
     /**
@@ -35,6 +38,14 @@ class UserStats implements Parcelable {
      */
     private int currLevel;
 
+    /**
+     * @param lives Their current amount of lives a user chooses
+     * @param points Their current amount of points
+     * @param multiplier The users multiplier which is multiplied by their score at the leaderboard page
+     * @param highScore The users past highscore
+     * @param currLevel Their current level
+     * @param origLives The amount of lives originally set by the user
+     */
     UserStats(int lives, int points, int multiplier, int highScore, int currLevel, int origLives){
         this.lives = lives;
         this.points = points;
@@ -44,6 +55,11 @@ class UserStats implements Parcelable {
         this.currLevel = currLevel;
     }
 
+    /**
+     * Unpacks a Parcel and creates an instance of a UserStats
+     *
+     * @param in The Parcel that is passed through an Intent
+     */
     protected UserStats(Parcel in) {
         lives = in.readInt();
         points = in.readInt();
@@ -53,6 +69,12 @@ class UserStats implements Parcelable {
         currLevel = in.readInt();
     }
 
+    /**
+     * Packs the User object into a Parcel that can be then sent through an Intent
+     *
+     * @param dest the Parcel in which User data is going to be written to
+     * @param flags      additional information on sending User data
+     */
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(lives);

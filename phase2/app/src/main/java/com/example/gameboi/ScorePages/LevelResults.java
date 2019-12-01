@@ -28,6 +28,8 @@ public class LevelResults extends AppCompatActivity {
         // Store the User to display their stats
         player = getIntent().getParcelableExtra("player");
 
+        getWindow().getDecorView().setBackgroundColor(player.getBackgroundColor());
+
         // Whether the User won the previous game or lost the previous game
         boolean success = getIntent().getExtras().getBoolean("success");
 
