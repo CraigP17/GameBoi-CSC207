@@ -1,12 +1,12 @@
-package com.example.gameboi.MathGame;
+package com.example.gameboi.Games;
 
 import com.example.gameboi.UserClasses.User;
 
 public abstract class GameFacade{
     public int score;
     public User player;
-    public boolean foundHiddenFeature = false;
-    public boolean winner = false;
+    protected boolean foundHiddenFeature = false;
+    protected boolean winner = false;
 
     public GameFacade(User player) {
         this.player = player;
@@ -32,18 +32,18 @@ public abstract class GameFacade{
 
     public User getPlayer() {return player;}
 
-    public boolean isWinner() {return winner;}
+    boolean isWinner() {return winner;}
 
     public int getBackgroundColor(){return player.getBackgroundColor();}
 
-    public void setFoundHiddenFeature() {
+    protected void setFoundHiddenFeature() {
         this.foundHiddenFeature = true;
         player.foundHiddenfeature();
     }
 
     public boolean checkHidden() {return false;}
 
-    public boolean getFoundHiddenFeature() { return this.foundHiddenFeature; }
+    protected boolean getFoundHiddenFeature() { return this.foundHiddenFeature; }
 
     public void incrementScore() {this.score++;}
 

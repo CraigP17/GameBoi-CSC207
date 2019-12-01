@@ -1,29 +1,23 @@
 package com.example.gameboi.ScorePages;
 
-import android.annotation.SuppressLint;
 import android.util.Pair;
-
 import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.UserClasses.User;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class LeaderBoardBE {
 
     ArrayList<User> users;
     ArrayList<Pair> orderedHighscorelist;
+    ArrayList<Pair> orderedScorelist;
     ArrayList<Pair> orderedMultiplierlist;
     ArrayList<Pair> orderedLiveslist;
 
     FileManager file;
 
-    LeaderBoardBE(User u1, FileManager fileM){
+    LeaderBoardBE(FileManager fileM){
 
         file = fileM;
         users = file.getUsers();
@@ -31,57 +25,59 @@ public class LeaderBoardBE {
 
     }
 
+
+    // Sorts items in listTosort and returns a sorted list
     private ArrayList sortList(ArrayList<Pair> listTosort) {
 
-        int firstPlace = -1;
-        User userFirstplace = new User();
-        Pair firstPlacepair = new Pair(0, 0);
+        // Creating temporary list so that pairs can be removed
         ArrayList<Pair> tempList = new ArrayList<Pair>(listTosort);
-        System.out.println("tempList");
-        System.out.println(tempList);
 
+        //creating a temporary first player
+        Pair firstPlacepair = tempList.get(0);
+
+        //Looping to find pair with largest value
         for (Pair pair: listTosort) {
-            if ((int) pair.second >= firstPlace) {
-                firstPlace = (int) pair.second;
-                userFirstplace = (User) pair.first;
+            if ((int) pair.second >= (int) firstPlacepair.second) {
                 firstPlacepair = pair;
             }
         }
 
+        // Removing the player in first place from the list
         tempList.remove(firstPlacepair);
-        int lastPlace = -1;
-        User userLastplace = new User();
-        Pair lastPlacepair = new Pair(0, 0);
 
-        for (Pair pair: listTosort) {
-            if ((int) pair.second <= lastPlace || lastPlace == -1) {
-                lastPlace = (int) pair.second;
-                userLastplace = (User) pair.first;
+        Pair lastPlacepair = tempList.get(0);
+
+
+        // Looping to find player with smallest value
+        for (Pair pair: tempList) {
+            if ((int) pair.second <= (int) lastPlacepair.second) {
                 lastPlacepair = pair;
             }
         }
 
-
+        //Removing player in last place from tempList
         tempList.remove(lastPlacepair);
 
         int secondPlace = (int) tempList.get(0).second;
         User userSecondplace = (User) tempList.get(0).first;
 
 
-        Pair p1 = new Pair<User, Integer>(userFirstplace, firstPlace);
+        Pair p1 = new Pair<User, Integer>((User) firstPlacepair.first, (int) firstPlacepair.second);
         Pair p2 = new Pair<User, Integer>(userSecondplace, secondPlace);
-        Pair p3 = new Pair<User, Integer>(userLastplace,  lastPlace);
+        Pair p3 = new Pair<User, Integer>((User) lastPlacepair.first,  (int) lastPlacepair.second);
 
-        ArrayList sortedList = new ArrayList<Pair>(Arrays.asList(p1, p2, p3));
-        return sortedList;
+        // Returning sorted list
+        return new ArrayList<Pair>(Arrays.asList(p1, p2, p3));
 
     }
 
+    //Method that obtains all values of users needed for leaderboard and stores them in sorted lists
     void getAllvalues() {
 
         ArrayList<Pair> tempHighscorelist = new ArrayList<>();
         ArrayList<Pair> tempMultiplierlist = new ArrayList<>();
         ArrayList<Pair> tempLiveslist = new ArrayList<>();
+        ArrayList<Pair> tempScorelist = new ArrayList<>();
 
 
         for (User user: users) {
@@ -94,11 +90,15 @@ public class LeaderBoardBE {
             Pair<User, Integer> pair3 = new Pair<User, Integer>(user, user.getLives());
             tempLiveslist.add(pair3);
 
+            Pair<User, Integer> pair4 = new Pair<User, Integer>(user, user.getPoints());
+            tempScorelist.add(pair4);
+
         }
 
         orderedHighscorelist = sortList(tempHighscorelist);
         orderedMultiplierlist = sortList(tempMultiplierlist);
         orderedLiveslist = sortList(tempLiveslist);
+        orderedScorelist = sortList(tempScorelist);
 
     }
 

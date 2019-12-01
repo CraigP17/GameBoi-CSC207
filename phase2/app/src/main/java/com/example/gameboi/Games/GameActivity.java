@@ -1,4 +1,4 @@
-package com.example.gameboi.MathGame;
+package com.example.gameboi.Games;
 
 import android.content.Context;
 import android.content.Intent;

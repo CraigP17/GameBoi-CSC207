@@ -1,8 +1,9 @@
-package com.example.gameboi.MathGame;
+package com.example.gameboi.Games.MathGame;
 
+import com.example.gameboi.Games.GameFacade;
 import com.example.gameboi.UserClasses.User;
 
-class MathGameManager extends GameFacade{
+class MathGameManager extends GameFacade {
 
     private int response = 0;
     private int numRounds = 0;

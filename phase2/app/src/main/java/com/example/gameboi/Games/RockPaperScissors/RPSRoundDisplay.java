@@ -1,4 +1,4 @@
-package com.example.gameboi.RockPaperScissors;
+package com.example.gameboi.Games.RockPaperScissors;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,13 +13,28 @@ import com.example.gameboi.UserClasses.User;
 
 import java.util.HashMap;
 
+/**
+ * Displays user and computer choice and displays to user if they have lost, tied or won this round.
+ */
 public class RPSRoundDisplay extends AppCompatActivity {
 
     private User player;
+    /**
+     * User's choice
+     */
     String userChoiceDisplay;
+    /**
+     * Computers's choice
+     */
     String cChoiceDisplay;
+    /**
+     * result of round, "Won", "Tied" or "Lost".
+     */
     String result;
 
+    /**
+     * Sets all variables, background colour, images and text if they won lost or tied this round
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,21 +54,20 @@ public class RPSRoundDisplay extends AppCompatActivity {
 
     private void setImages() {
         ImageView uChoice = findViewById(R.id.imageView4);
-        ImageView panda = findViewById(R.id.imageView3);
+        ImageView cChoice = findViewById(R.id.imageView3);
 
 
         if (cChoiceDisplay.equals("Rock")) {
-            panda.setImageResource(R.drawable.rock);
+            cChoice.setImageResource(R.drawable.rock);
         } else if (cChoiceDisplay.equals("Paper")) {
-            panda.setImageResource(R.drawable.paper);
+            cChoice.setImageResource(R.drawable.paper);
         } else if (cChoiceDisplay.equals("Scissors")) {
-            panda.setImageResource(R.drawable.scissors);
+            cChoice.setImageResource(R.drawable.scissors);
         } else if (cChoiceDisplay.equals("Lizard")) {
-            panda.setImageResource(R.drawable.lizard);
+            cChoice.setImageResource(R.drawable.lizard);
         } else if (cChoiceDisplay.equals("Spock")) {
-            panda.setImageResource(R.drawable.spock);
+            cChoice.setImageResource(R.drawable.spock);
         }
-
 
 
         if (userChoiceDisplay.equals("Rock")) {
@@ -89,14 +103,9 @@ public class RPSRoundDisplay extends AppCompatActivity {
         result = intent.getStringExtra("result");
     }
 
-    public HashMap buildMap() {
-        HashMap<String, String> winnersRpS = new HashMap<>();
-        winnersRpS.put("Rock", "Scissors");
-        winnersRpS.put("Scissors", "Paper");
-        winnersRpS.put("Paper", "Rock");
-        return winnersRpS;
-    }
-
+    /**
+     * When continue is pushed, takes you back to main RPS activity display.
+     */
     public void continueGame(View view) {
         Intent intent = new Intent(this, RPSActivity.class);
         intent.putExtra("player", player);
