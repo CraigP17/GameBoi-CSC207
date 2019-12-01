@@ -50,4 +50,14 @@ public abstract class RPSAbstract extends GameFacade {
         return (winsRpS == 3 || lossesRpS == 2);
     }
 
+    @Override
+    public boolean checkHidden() {
+        if (getFoundHiddenFeature()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }
