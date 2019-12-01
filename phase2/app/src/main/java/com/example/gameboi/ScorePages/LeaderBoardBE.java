@@ -6,27 +6,54 @@ import com.example.gameboi.UserClasses.User;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
+/**
+ * Backend class for Leaderboard that calculates all values needed for displaying on Leaderboard
+ */
 public class LeaderBoardBE {
 
+    /**
+     * A list to store all users playing the game.
+     */
     ArrayList<User> users;
+
+    /**
+     * Stores an ordered list of users based on their high scores
+     */
     ArrayList<Pair> orderedHighscorelist;
+
+    /**
+     * Stores an ordered list of users based on their current scores
+     */
     ArrayList<Pair> orderedScorelist;
+
+    /**
+     * Stores an ordered list of users based on their multipliers
+     */
     ArrayList<Pair> orderedMultiplierlist;
+
+    /**
+     * Stores an ordered list of users based on their lives
+     */
     ArrayList<Pair> orderedLiveslist;
 
+    /**
+     * Stores an instance of file manager
+     */
     FileManager file;
 
+    /**
+     * Initializes the file and users list
+     */
     LeaderBoardBE(FileManager fileM){
-
         file = fileM;
         users = file.getUsers();
         getAllvalues();
 
     }
 
-
-    // Sorts items in listTosort and returns a sorted list
+    /**
+     * Sorts items in listTosort and returns a sorted list
+     */
     private ArrayList sortList(ArrayList<Pair> listTosort) {
 
         // Creating temporary list so that pairs can be removed
@@ -71,7 +98,9 @@ public class LeaderBoardBE {
 
     }
 
-    //Method that obtains all values of users needed for leaderboard and stores them in sorted lists
+    /**
+     * Method that obtains all values of users needed for leaderboard and stores them in sorted lists
+     */
     void getAllvalues() {
 
         ArrayList<Pair> tempHighscorelist = new ArrayList<>();

@@ -1,14 +1,10 @@
 package com.example.gameboi.ScorePages;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Arrays;
 import android.util.Pair;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-
 import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.R;
 import com.example.gameboi.StartupPages.MainActivity;
@@ -18,16 +14,31 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 
+/**
+ * Display class for Leaderboard. Contains instance of LeaderboardBE that computes all calculations.
+ */
 public class Leaderboard extends AppCompatActivity implements OnItemSelectedListener {
 
+    /**
+     * An instance of FileManager class
+     */
     FileManager file = new FileManager(this);
+
+    /**
+     * The player currently playing
+     */
     User player;
+
+    /**
+     * An instance of LeaderBoardBE
+     */
     LeaderBoardBE leaderBoardBE;
 
+    /**
+     * The onCreate that interacts with the activity.xml
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +75,10 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
 
     }
 
-    //onItemselected needed outside onCreate inorder for interface to recognize that it has been created
+    /**
+     * onItemselected needed outside onCreate inorder for interface to recognize that it has been
+     * created. Determines which values are needed for display.
+     */
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         switch (pos) {
@@ -87,33 +101,48 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         }
     }
 
+    /**
+     * If nothing is selected, do nothing.
+     */
     public void onNothingSelected(AdapterView<?> parent) {
     }
 
-    // Obtains ordered values list from backend to display on leaderboard
+    /**
+     * Obtains ordered highscores list from backend and calls method to display values.
+     */
     public void selectedHighscore() {
         ArrayList<Pair> highScores = leaderBoardBE.orderedHighscorelist;
         displayTextviews(highScores);
     }
 
+    /**
+     * Obtains ordered multiplier list from backend and calls method to display values.
+     */
     public void selectedMultiplier() {
         ArrayList<Pair> multiplier = leaderBoardBE.orderedMultiplierlist;
         displayTextviews(multiplier);
     }
 
+    /**
+     * Obtains ordered lives list from backend and calls method to display values.
+     */
     public void selectedLives() {
         ArrayList<Pair> lives = leaderBoardBE.orderedLiveslist;
         displayTextviews(lives);
     }
 
+    /**
+     * Obtains ordered current scores list from backend and calls method to display values.
+     */
     public void selectedScore() {
         ArrayList<Pair> scores = leaderBoardBE.orderedScorelist;
         displayTextviews(scores);
 
     }
 
-
-    // Calls textviews and displays score based on what list is passed in
+    /**
+     * Calls textviews and displays score based on what list is passed in
+     */
     public void displayTextviews(ArrayList<Pair> listTodisplay) {
         // Displaying topscorers in order in the textviews on leaderboard display
 
@@ -133,7 +162,9 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         thirdscore.setText(String.valueOf((int) listTodisplay.get(2).second));
     }
 
-    //Method to update the Highscore of the user
+    /**
+     * Method to update current players Highscores
+     */
     public void updateHighscore() {
 
         int newPoints = player.getPoints() * player.getMultiplier();
@@ -147,7 +178,9 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         file.save(player);
     }
 
-    // If play again button is pressed, users points are cleared and other values are reset
+    /**
+     * Resets players values and takes player back to main activity
+     */
     public void playAgain(View view) {
         player.setPoints(0);
         player.setMultiplier(1);
