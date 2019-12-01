@@ -6,18 +6,34 @@ import com.example.gameboi.UserClasses.User;
 import java.util.HashMap;
 
 public abstract class RPSAbstract extends GameFacade {
+    /**
+     * Superclass for RPSCaclEasy and RPSCalcHard and any levels required for RPS game.
+     * Subclasses must Implement all methods in this class except checker.
+     * All backend classes for games in Gameboi extend from GameFacade.
+     */
 
     static int winsRpS = 0;
     static int lossesRpS = 0;
 
-    RPSAbstract(User player) {
 
+    /**
+     * Constructor for object, must have a player stored in superclass
+     */
+    RPSAbstract(User player) {
         super(player);
         score = winsRpS + player.getPoints();
     }
 
+    /**
+     * Builds a hashmap depending on possibilities for user choices in this difficulty, values are
+     * computer choice possibilites which will cause user to win the round.
+     */
     abstract HashMap buildMap();
 
+
+    /**
+     * Depending on difficulty,
+     */
     abstract String[] RpSGamePlayed(String playerValue);
 
     String[] checker(String result, String userchoice, String compchoice) {
