@@ -1,4 +1,4 @@
-package com.example.gameboi.RockPaperScissors;
+package com.example.gameboi.Games.RockPaperScissors;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.gameboi.MathGame.GameActivity;
-import com.example.gameboi.ScorePages.FlashLoss;
-import com.example.gameboi.ScorePages.FlashWin;
+import com.example.gameboi.Games.GameActivity;
 import com.example.gameboi.R;
 import com.example.gameboi.UserClasses.User;
 
@@ -38,8 +36,19 @@ public class RPSActivity extends GameActivity {
 
     private void setTypeCalc() {
         player = getIntent().getParcelableExtra("player");
-        // add if statement depending on user difficulty attribute
-        rpsCalc = new RPSCalcEasy(player);
+        ImageView lizard = findViewById(R.id.imageButton4);
+        ImageView spock = findViewById(R.id.imageButton6);
+        if (player.getDifficulty().equals("Normal")) {
+            rpsCalc = new RPSCalcEasy(player);
+            lizard.setColorFilter(player.getBackgroundColor());
+            spock.setColorFilter(player.getBackgroundColor());
+            lizard.setEnabled(false);
+            spock.setEnabled(false);
+        } else if (player.getDifficulty().equals("Hard")) {
+            rpsCalc = new RPSCalcHard(player);
+            lizard.setEnabled(true);
+            spock.setEnabled(true);
+        }
     }
     private void setScore() {
         TextView scoreboardRpS = findViewById(R.id.textView12);
@@ -67,11 +76,24 @@ public class RPSActivity extends GameActivity {
 
     }
 
+    public void Lizard(View view) {
+        if (!player.getDifficulty().equals("Normal")){
+            toNext(rpsCalc.RpSGamePlayed("Lizard"));
+        }
+    }
+
+    public void Spock(View view) {
+        if (!player.getDifficulty().equals("Normal")) {
+            toNext(rpsCalc.RpSGamePlayed("Spock"));
+        }
+    }
+
     private void toNext(String[] arr) {
         if (arr[2].equals("Round")) {
             Intent intent = new Intent(this, RPSRoundDisplay.class);
             intent.putExtra("userchoice", arr[0]);
             intent.putExtra("computerchoice", arr[1]);
+            intent.putExtra("result", arr[3]);
             intent.putExtra("player", player);
             startActivity(intent);
         } else {

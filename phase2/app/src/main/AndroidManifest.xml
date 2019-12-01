@@ -17,17 +17,17 @@
         <activity android:name=".ScorePages.FlashLoss" />
         <activity android:name=".ScorePages.FlashWin" />
         <activity
-            android:name=".RockPaperScissors.RPSRoundDisplay"
-            android:parentActivityName=".RockPaperScissors.RPSActivity">
+            android:name=".Games.RockPaperScissors.RPSRoundDisplay"
+            android:parentActivityName=".Games.RockPaperScissors.RPSActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".RockPaperScissors.RPSActivity" />
+                android:value=".Games.RockPaperScissors.RPSActivity" />
         </activity>
-        <activity android:name=".RockPaperScissors.RPSActivity" />
-        <activity android:name=".FlashColors.FlashColorsActivity" />
-        <activity android:name=".MathGame.MathGame" />
+        <activity android:name=".Games.RockPaperScissors.RPSActivity" />
+        <activity android:name=".Games.FlashColors.FlashColorsActivity" />
+        <activity android:name=".Games.MathGame.MathGame" />
         <activity android:name=".StartupPages.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

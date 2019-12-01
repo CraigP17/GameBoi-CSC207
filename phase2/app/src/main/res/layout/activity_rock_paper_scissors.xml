@@ -4,13 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RockPaperScissors.RPSActivity">
+    tools:context=".Games.RockPaperScissors.RPSActivity">
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="153dp"
+        android:layout_height="154dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:contentDescription="@string/paper"
+        android:onClick="Lizard"
+        android:src="@drawable/lizard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="137dp"
+        android:layout_height="132dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/paper"
+        android:onClick="Spock"
+        android:src="@drawable/spock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
 
     <ImageView
         android:id="@+id/lifeOne3"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="39dp"
+        android:contentDescription="total lives"
         app:layout_constraintStart_toEndOf="@+id/RPSScore"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userlogo" />
@@ -19,8 +45,8 @@
         android:id="@+id/lifeTwo3"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="39dp"
+        android:contentDescription="total lives"
         app:layout_constraintEnd_toStartOf="@+id/lifeThree3"
         app:layout_constraintStart_toEndOf="@+id/lifeOne3"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,17 +56,17 @@
         android:id="@+id/lifeThree3"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="27dp"
+        android:contentDescription="total lives"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/lifeTwo3"
         app:srcCompat="@drawable/userlogo" />
 
     <TextView
         android:id="@+id/RPSScore"
         android:layout_width="151dp"
         android:layout_height="33dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="@string/scoreZero"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -51,8 +77,8 @@
         android:id="@+id/multiplier3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -63,24 +89,25 @@
         android:layout_height="69dp"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginBottom="113dp"
+        android:layout_marginBottom="536dp"
         android:fontFamily="@font/bangers"
         android:text="@string/rock_paper_scissor_game"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="120dp"
         android:contentDescription="@string/rock"
         android:onClick="Rock"
         android:src="@drawable/rock"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lifeOne3" />
 
@@ -88,26 +115,21 @@
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="36dp"
         android:contentDescription="@string/paper"
         android:onClick="Paper"
         android:src="@drawable/paper"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginEnd="20dp"
         android:contentDescription="@string/scissors"
         android:onClick="Scissors"
         android:src="@drawable/scissors"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 

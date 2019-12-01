@@ -18,26 +18,25 @@ public class User implements Parcelable {
     private UserCustom custom;
 
     /**
-     * Constructs a new User
+     * Constructs a new User which stores a UserCustom and UserStats object
      *
-     * @param name             the User's name
-     * @param lives            the number of lives they have
-     * @param points           number of points after completing level 1
-     * @param backgroundColor  the colour of the background in the games
-     * @param icon             the User's selected icon
-     * @param currLevel        the User's current level,
-     * @param highScore        the User's high score after completing the game
-     * @param multiplier
-     * @param difficulty       the User's game difficulty either Normal OR Hard
-     *
+     * @param name            the User's name
+     * @param lives           the number of lives they have
+     * @param points          number of points after completing level 1
+     * @param backgroundColor the colour of the background in the games
+     * @param icon            the User's selected icon
+     * @param currLevel       the User's current level,
+     * @param highScore       the User's high score after completing the game
+     * @param multiplier      the User's multiplier which starts at 1 and can be increased as the game progresses
+     * @param difficulty      the User's game difficulty either Normal OR Hard
      */
     public User(String name, int lives, int points,
                 int backgroundColor, String icon, int currLevel, int highScore, int origLives, int multiplier,
                 String difficulty) {
 
-        this.custom = new UserCustom(name,backgroundColor,icon,difficulty);
+        this.custom = new UserCustom(name, backgroundColor, icon, difficulty);
         //multiplier preset to 0 for now
-        this.stats = new UserStats(lives,points,multiplier,highScore,currLevel,origLives);
+        this.stats = new UserStats(lives, points, multiplier, highScore, currLevel, origLives);
     }
 
     public User() {
@@ -78,6 +77,9 @@ public class User implements Parcelable {
         }
     };
 
+    /**
+     * @return Returns a description of the parcels content
+     */
     @Override
     public int describeContents() {
         return 0;
@@ -91,10 +93,14 @@ public class User implements Parcelable {
      */
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(stats,i);
-        parcel.writeParcelable(custom,i);
+        parcel.writeParcelable(stats, i);
+        parcel.writeParcelable(custom, i);
     }
 
+    /**
+     * @return return a string representation of the user object, containing all its stats
+     * and customizations
+     */
     @Override
     public String toString() {
         return custom.getName() + "," + stats.getLives() + "," + stats.getPoints() + "," +
@@ -107,7 +113,7 @@ public class User implements Parcelable {
      * Subtracts a life from the number of lives the User has, after they lose a level
      */
     public void loseALife() {
-        stats.setLives(stats.getLives()-1);
+        stats.setLives(stats.getLives() - 1);
     }
 
     /**
@@ -152,8 +158,9 @@ public class User implements Parcelable {
         custom.setName(name);
     }
 
+
     /**
-     * @return The User's currLevel
+     * @param level the new level that the user is at
      */
     public void setCurrLevel(int level) {
         stats.setCurrLevel(level);
@@ -170,7 +177,7 @@ public class User implements Parcelable {
      * Increase the User's current level by 1
      */
     public void incrementCurrLevel() {
-        stats.setCurrLevel(stats.getCurrLevel()+1);
+        stats.setCurrLevel(stats.getCurrLevel() + 1);
     }
 
     /**
@@ -206,14 +213,14 @@ public class User implements Parcelable {
     /**
      * @return The current amount of points a user has accumulated
      */
-    public int getPoints(){
+    public int getPoints() {
         return stats.getPoints();
     }
 
     /**
      * @param num the amount of points that the User has earned
      */
-    public void setPoints(int num){
+    public void setPoints(int num) {
         stats.setPoints(num);
     }
 
@@ -248,15 +255,22 @@ public class User implements Parcelable {
     /**
      * @return the User's chosen game difficulty
      */
-    public String getDifficulty() { return custom.getDifficulty(); }
+    public String getDifficulty() {
+        return custom.getDifficulty();
+    }
 
     /**
      * @param difficulty the User's new difficulty
      */
-    public void setDifficulty(String difficulty) { custom.setDifficulty(difficulty); }
+    public void setDifficulty(String difficulty) {
+        custom.setDifficulty(difficulty);
+    }
 
+    /**
+     * If this method is called the users multiplier will double
+     */
     public void foundHiddenfeature() {
-        stats.setMultiplier(stats.getMultiplier()*2);
+        stats.setMultiplier(stats.getMultiplier() * 2);
     }
 
 }

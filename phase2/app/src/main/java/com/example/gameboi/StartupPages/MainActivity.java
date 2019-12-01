@@ -8,10 +8,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.gameboi.FileSystem.FileManager;
-import com.example.gameboi.FlashColors.FlashColorsActivity;
-import com.example.gameboi.MathGame.MathGame;
+import com.example.gameboi.Games.FlashColors.FlashColorsActivity;
+import com.example.gameboi.Games.MathGame.MathGame;
 import com.example.gameboi.R;
-import com.example.gameboi.RockPaperScissors.RPSActivity;
+import com.example.gameboi.Games.RockPaperScissors.RPSActivity;
 import com.example.gameboi.ScorePages.Leaderboard;
 import com.example.gameboi.UserClasses.User;
 
