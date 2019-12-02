@@ -65,12 +65,14 @@ public abstract class RPSAbstract extends GameFacade {
             array = new String[]{userchoice, compchoice, "FlashLoss", result};
             winner = false;
             notFoundhiddenFeature = true;
+            player.setPoints(score);
         } else if (winsRpS == 3) {
             winsRpS = 0;
             lossesRpS = 0;
             array = new String[]{userchoice, compchoice, "FlashWin", result};
             winner = true;
             notFoundhiddenFeature = true;
+            player.setPoints(score);
         } else {
             array = new String[]{userchoice, compchoice, "Round", result};
             winner = false;

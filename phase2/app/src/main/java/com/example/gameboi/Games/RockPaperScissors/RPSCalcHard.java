@@ -104,7 +104,7 @@ class RPSCalcHard extends RPSAbstract {
 
     @Override
     public boolean checkHidden() {
-        if (playerChoice.equals("Scissors") && computerChoice.equals("Lizard") && notFoundhiddenFeature) {
+        if (playerChoice.equals("Scissors") && computerChoice.equals("Lizard") && !notFoundhiddenFeature) {
             return true;
         } else {
             return false;

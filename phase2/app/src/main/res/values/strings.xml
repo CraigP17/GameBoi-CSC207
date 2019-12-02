@@ -98,19 +98,24 @@
 
 
     <string name="text_for_mathgame">
-        MATH GAME INSTRUCTIONS: //n
+        MATH GAME INSTRUCTIONS - EASY LEVEL:
 
         Math game will display an equation and using the displayed
         buttons you must enter the answer and then press submit.
         If you answered the question correctly you will receive
         a point. An incorrect answer receives no points. If you
-        answer 3 incorrectly you lose a life. There are 10 rounds
+        answer 3 incorrectly you lose a life. There are 5 rounds
         total so if you have less than 3 incorrect answers you
         will win the game.
+
+        MATH GAME INSTRUCTIONS - HARD LEVEL:
+
+        There are 5 rounds total so if you have less than 3 incorrect answers you
+        will win the game. The hard level has more difficult equations to solve.
     </string>
 
     <string name="text_for_flashgame">
-        FLASH GAME INSTRUCTIONS: //n
+        FLASH GAME INSTRUCTIONS - EASY LEVEL:
 
         If you still have lives remaining after playing math game,
         you will be taken to flash colours game. There, you press
@@ -121,23 +126,39 @@
         correct and you will be awarded a point. If you identify
         2 patterns incorrectly, you will lose the flash colours
         game and you will lose a life. A total of 4 rounds will be played.
+
+        FLASH GAME INSTRUCTIONS - HARD LEVEL:
+
+        If you identify 2 patterns incorrectly, you will lose the flash colours
+        game and you will lose a life. The hard level simply has
+        2 more colour buttons, black and white.
     </string>
 
     <string name="text_for_rpsgame">
-        ROCK PAPER SCISSORS GAME INSTRUCTIONS: //n
-
+        ROCK PAPER SCISSORS GAME INSTRUCTIONS - EASY LEVEL:
         If you have more than 0 lives left after playing Flash Colours
         game, you will be taken to Rock Paper Scissors game. You
         can click the rock button, paper button or the scissors
         button based on what you want to use for this round.
         Then you will be taken to a screen that tells you if you
-        won playing against the computer of not. If you win 3
+        won playing against the computer or not. If you win 3
         rounds before losing 2, you will win the Rock Paper
-        Scissors game.
+
+        Scissors game.Scissors cuts paper, paper covers rock, rock crushes scissors.
+
+        ROCK PAPER SCISSORS GAME INSTRUCTIONS - HARD LEVEL:
+
+        The hard level for Rock Paper Scissors requires 3 wins before 2 losses as well but now their
+        are more buttons to choose from.
+
+        Scissors cuts paper, paper covers rock, rock crushes lizard, lizard poisons spock, spock
+        smashes scissors, scissors decapitates lizard, lizard eats paper, paper disproves spock,
+        spock vaporizes rock and rock crushes scissors.
+
     </string>
 
     <string name="text_for_bonus">
-        BONUS INSTRUCTIONS: //n
+        BONUS INSTRUCTIONS:
 
         After every game you will be taken to a spinner that has
         the power to increase your multiplier which inevitably

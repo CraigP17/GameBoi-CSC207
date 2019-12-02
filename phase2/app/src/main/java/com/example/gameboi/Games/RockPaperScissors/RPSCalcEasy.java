@@ -48,9 +48,8 @@ public class RPSCalcEasy extends RPSAbstract {
         HashMap<String, String> winnersRpS = buildMap();
 
         Random rand = new Random();
-        // choose random computer choice from arr
+        //choose random computer choice from arr
         computerChoice = arr[rand.nextInt(arr.length)];
-
         playerChoice = playerValue;
 
         if (playerChoice.equals("Scissors") && computerChoice.equals("Rock")){
@@ -75,7 +74,7 @@ public class RPSCalcEasy extends RPSAbstract {
 
     @Override
     public boolean checkHidden() {
-        if (playerChoice.equals("Scissors") && computerChoice.equals("Rock") && notFoundhiddenFeature) {
+        if (playerChoice.equals("Scissors") && computerChoice.equals("Rock") && !notFoundhiddenFeature) {
             return true;
         } else {
             return false;

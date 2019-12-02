@@ -40,11 +40,21 @@ https://stackoverflow.com/questions/14376807/how-to-read-write-string-from-a-fil
 
 ########## Rock Paper Scissors Game ##########
 
-Lets the player play a game of rock paper scissors against the computer. If the player loses two
+====== Easy Level ======
+Lets the player play a game of rock paper scissors against the computer. If the player loses 2
 rounds first then they lose the rock paper scissors game. If the player wins 3 rounds before losing
 two rounds, then they win the rock paper scissors game.
 
+Hidden Feature:
+In the easy round the player needs to select Scissors and the computer needs to randomly choose
+Rock. The combo "Scissors", "Rock" is the hidden feature.
+
+====== Hard Level ======
+Hidden Feature:
+
+
+
 Rock Paper Scissors Game Images Links:
-https://www.google.com/search?q=rock+paper+scissors&safe=strict&rlz=1C5CHFA_enCA813CA813&sxsrf=
-ACYBGNQS9cRDl2C1Wd8-FqzXX9cLZrWkdQ:1572550321774&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi-isi6nsflAh
-VKh-AKHV8TBWoQ_AUIEigB&biw=1440&bih=714#imgdii=mR-t7MrFmrZlgM:&imgrc=NNOq5QMe9uhqwM:
+https://www.google.com/search?q=rock+paper+scissors+lizard+spock&safe=strict&rlz=1C5CHFA_enCA813C
+A813&sxsrf=ACYBGNSPz50uSWxsfkoIE6NW_ztJNKFDjg:1575248475528&source=lnms&tbm=isch&sa=X&ved=2ahUKEw
+jeh8Tu4ZXmAhVTqp4KHcUeCEsQ_AUoAXoECAsQAw&biw=1440&bih=667#imgrc=Bd0v3Or7mvBbCM:
