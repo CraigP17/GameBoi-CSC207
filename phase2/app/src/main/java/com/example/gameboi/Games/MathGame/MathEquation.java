@@ -4,14 +4,27 @@ import java.util.Random;
 
 class MathEquation {
 
+    //String representation of the
     private String equation;
+    // Random number generator
     private Random rand = new Random();
+    // The answer to the equation.
     private int answer;
 
+    /**
+     *
+     * @return String equation
+     */
     String getEquation(){return equation;}
 
+    /**
+     *
+     * @param response the int input from the player
+     * @return true if the response is the correct answer and false otherwise
+     */
     boolean isAnswerCorrect(int response) {return response == answer;}
 
+    //TODO: make only one get equation and use inheritance.
     void getEasyEquation(){
         generateEasyEquation();
     }
@@ -20,6 +33,11 @@ class MathEquation {
         generateHardEquation();
     }
 
+    /**
+     * Sets an equation to be string of a simple arithmetic (+, -, *, //) equation. Sets answer to
+     * the answer of the equation. All division is integer division and the answer cannot be a
+     * negative number.
+     */
     private void generateEasyEquation() {
         String[] operators = {" + ", " - ", " // ", " * "};
         int num1 = rand.nextInt(25) + 1;

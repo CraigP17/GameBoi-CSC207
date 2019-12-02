@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.Games.FlashColors.FlashColorsActivity;
-import com.example.gameboi.Games.MathGame.MathGame;
+import com.example.gameboi.Games.MathGame.MathGameActivity;
 import com.example.gameboi.R;
 import com.example.gameboi.Games.RockPaperScissors.RPSActivity;
 import com.example.gameboi.ScorePages.Leaderboard;
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void toMathGame(User user) {
-        Intent intent = new Intent(this, MathGame.class);
+        Intent intent = new Intent(this, MathGameActivity.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
