@@ -114,6 +114,7 @@ public abstract class GameActivity extends AppCompatActivity {
             intent.putExtra("success", false);
         }
         startActivity(intent);
+        finish();
     }
 
     /**
@@ -151,5 +152,8 @@ public abstract class GameActivity extends AppCompatActivity {
             updateMultiplier();
         }
     }
+
+    @Override
+    public void onBackPressed() {}
 
     }

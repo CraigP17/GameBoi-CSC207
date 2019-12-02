@@ -299,6 +299,10 @@ public class UserSetter extends AppCompatActivity{
             fm.saveNewUser(player);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            finish();
         }
     }
+
+    @Override
+    public void onBackPressed() {}
 }

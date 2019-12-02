@@ -112,9 +112,11 @@ public class MainActivity extends AppCompatActivity {
     private void sendToNextScreen(User user){
         if (hasName(user)) {
             sendToLevel(user);
+            finish();
         }
         else {
             toUserSettings(user);
+            finish();
         }
     }
 
@@ -133,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
     public void instructions(View view) {
         Intent intent = new Intent(this, Instructions.class);
         startActivity(intent);
+        finish();
 
     }
     private boolean hasName(User user){
@@ -151,4 +154,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(getIntent());
         overridePendingTransition(0, 0);
     }
+
+    @Override
+    public void onBackPressed() {}
 }

@@ -29,12 +29,6 @@ public abstract class GameFacade{
      */
     boolean getFoundHiddenFeature() {return foundHiddenFeature;}
 
-//    public void updateFoundHiddenFeature() {
-//        foundHiddenFeature = true;
-//        player.foundHiddenfeature();
-//    }
-
-    //TODO this is supposed to be an abstract method but it was causing a compile error because FlachColorsFacade does not implement it
     /**
      *
      * @return true if the game is over and false otherwise.
@@ -93,13 +87,11 @@ public abstract class GameFacade{
         player.foundHiddenfeature();
     }
 
-    //ToDo Make this an abstrect method...
-
     /**
-     * Checks whether the user has found the hidden feature in the game
-     * @return false
+     *
+     * @return whether the hidden feature was found
      */
-    public boolean checkHidden() {return false;}
+    public abstract boolean checkHidden();
 
     /**
      * Increments the score by 1.
