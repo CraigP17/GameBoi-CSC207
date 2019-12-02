@@ -56,7 +56,7 @@ public abstract class GameActivity extends AppCompatActivity {
     /**
      * Updates the images for the lives icons to be the icon chosen by the player.
      */
-    public void updateLivesIcon(){
+    public void updateLivesIcon() {
         lifeOne.setImageResource(icon);
         lifeTwo.setImageResource(icon);
         lifeThree.setImageResource(icon);
@@ -66,7 +66,7 @@ public abstract class GameActivity extends AppCompatActivity {
      * Changes the background color based on the choice of the user. Obtains the color for
      * gameFacade
      */
-    public void updateBackgroundColor(){
+    public void updateBackgroundColor() {
         getWindow().getDecorView().setBackgroundColor(gameFacade.getBackgroundColor());
     }
 
@@ -97,10 +97,11 @@ public abstract class GameActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @return true if gameActivity is over and false otherwise.
      */
-    public boolean isGameOver() {return gameFacade.isGameOver();}
+    public boolean isGameOver() {
+        return gameFacade.isGameOver();
+    }
 
     /**
      * Ends this activity and sends the player to the LevelResults screen.
@@ -121,7 +122,7 @@ public abstract class GameActivity extends AppCompatActivity {
      * Updates the scoreBoard, lifeOne, lifeTwo, lifeThree and multiplier textviews based on the
      * player's current stats
      */
-    public void updateDisplay(){
+    public void updateDisplay() {
         updateScoreBoard();
         updateLives();
         updateMultiplier();
@@ -141,8 +142,8 @@ public abstract class GameActivity extends AppCompatActivity {
      * informing them their multiplier has increased. Increased the multiplier and updates the
      * TextView.
      */
-    public void checkHiddenFeature(){
-        if (!gameFacade.getFoundHiddenFeature() && gameFacade.checkHidden()){
+    public void checkHiddenFeature() {
+        if (!gameFacade.getFoundHiddenFeature() && gameFacade.checkHidden()) {
             Context context = getApplicationContext();
             int length = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, "Multiplier Increased!", length);
@@ -154,6 +155,7 @@ public abstract class GameActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {}
-
+    public void onBackPressed() {
     }
+
+}

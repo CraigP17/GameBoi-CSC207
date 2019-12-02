@@ -12,7 +12,7 @@ class MathGameManager extends GameFacade {
     //The number of losses the player has had
     private int numLosses = 0;
     //The class which generates the equations for the player to answer
-    private MathEquation equation = new MathEquation();
+    private MathEquation equationGenerator;
 
     /**
      * Sets the player to the current player and sets equation to a new MathEquation if the player
@@ -22,13 +22,16 @@ class MathGameManager extends GameFacade {
      */
     MathGameManager(User player) {
         super(player);
-        if (player.getDifficulty().equals("Normal")) { equation = new MathEquation();}
-        else if (player.getDifficulty().equals("Hard")) {equation = new MathEquationHard();}
+        if (player.getDifficulty().equals("Normal")) {
+            equationGenerator = new MathEquation();
+        } else if (player.getDifficulty().equals("Hard")) {
+            equationGenerator = new MathEquationHard();
+        }
     }
 
     @Override
     public boolean checkHidden() {
-        if (response == 12345 && ! foundHiddenFeature) {
+        if (response == 12345 && !foundHiddenFeature) {
             setFoundHiddenFeature();
             return true;
         }
@@ -36,7 +39,6 @@ class MathGameManager extends GameFacade {
     }
 
     /**
-     *
      * @return the number the user has inputted so far
      */
     int getResponse() {
@@ -48,10 +50,11 @@ class MathGameManager extends GameFacade {
      * Increments numRounds by 1. If the answers is correct, the score is increased by one, else the
      * numLosses increases by one. Resets response view to 0.
      */
-    private void submitInput(){
+    private void submitInput() {
         numRounds += 1;
-        if (equation.isAnswerCorrect(response)) {incrementScore();}
-        else {
+        if (equationGenerator.isAnswerCorrect(response)) {
+            incrementScore();
+        } else {
             numLosses += 1;
         }
         clearResponse();
@@ -62,23 +65,26 @@ class MathGameManager extends GameFacade {
      *
      * @param num number of the button the player pressed
      */
-    private void updateResponse(int num) {response = response * 10 + num;}
+    private void updateResponse(int num) {
+        response = response * 10 + num;
+    }
 
     /**
      * Generates a new equation for the player to answer.
      */
     private void newEquation() {
-        equation.generateEquation();
+        equationGenerator.generateEquation();
     }
 
     /**
-     *
      * @return String of the current equation to answer
      */
     String getEquation() {
         //Creates equation for the first round
-        if (equation.getEquation() == null) {newEquation();}
-        return equation.getEquation();
+        if (equationGenerator.getEquation() == null) {
+            newEquation();
+        }
+        return equationGenerator.getEquation();
     }
 
     /**
@@ -87,14 +93,16 @@ class MathGameManager extends GameFacade {
      * @param num the number pressed by the player
      */
     void clickNumButton(int num) {
-        if (response < 100000) {updateResponse(num);}
+        if (response < 100000) {
+            updateResponse(num);
+        }
     }
 
     /**
      * Submits the user's input to check against the answer and update score and lives. Generates
      * a new equation.
      */
-    void pressEnter(){
+    void pressEnter() {
         submitInput();
         newEquation();
     }
@@ -102,7 +110,7 @@ class MathGameManager extends GameFacade {
     /**
      * Resets response to 0.
      */
-    void clearResponse(){
+    void clearResponse() {
         response = 0;
     }
 
@@ -119,8 +127,7 @@ class MathGameManager extends GameFacade {
             winner = true;
             setScore(score);
             return true;
-        }
-        else if (numLosses == maxLosses) {
+        } else if (numLosses == maxLosses) {
             winner = false;
             setScore(score);
             return true;

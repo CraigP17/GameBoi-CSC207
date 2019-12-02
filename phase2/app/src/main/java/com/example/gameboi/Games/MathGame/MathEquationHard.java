@@ -1,6 +1,6 @@
 package com.example.gameboi.Games.MathGame;
 
-class MathEquationHard extends MathEquation{
+class MathEquationHard extends MathEquation {
 
     MathEquationHard() {
         super();
@@ -17,9 +17,13 @@ class MathEquationHard extends MathEquation{
         int num = rand.nextInt(10) + 1;
         int op = rand.nextInt(3);
 
-        if (op == 0) {answer = answer + num;}
-        else if (op == 1) {answer = answer / num;}
-        else {answer = answer * num;}
+        if (op == 0) {
+            answer = answer + num;
+        } else if (op == 1) {
+            answer = answer / num;
+        } else {
+            answer = answer * num;
+        }
 
         equation = "(" + equation + ")" + operators[op] + num;
 

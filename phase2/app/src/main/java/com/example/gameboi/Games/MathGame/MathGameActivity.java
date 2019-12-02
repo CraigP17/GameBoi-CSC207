@@ -23,8 +23,9 @@ public class MathGameActivity extends GameActivity {
     MathGameManager mathGameManager;
 
     /**
-     *Method takes the number of the button pressed and updates the response and responseView
+     * Method takes the number of the button pressed and updates the response and responseView
      * The player response cannot exceed 1000000
+     *
      * @param num the number of the button clicked
      */
     private void clickNumButton(int num) {
@@ -33,16 +34,45 @@ public class MathGameActivity extends GameActivity {
     }
 
     // Methods for the calculator buttons
-    public void pressZero(View view) {clickNumButton(0);}
-    public void pressOne(View view) {clickNumButton(1);}
-    public void pressTwo(View view) {clickNumButton(2);}
-    public void pressThree(View view) {clickNumButton(3);}
-    public void pressFour(View view) {clickNumButton(4);}
-    public void pressFive(View view) {clickNumButton(5);}
-    public void pressSix(View view) {clickNumButton(6);}
-    public void pressSeven(View view) {clickNumButton(7);}
-    public void pressEight(View view) {clickNumButton(8);}
-    public void pressNine(View view) {clickNumButton(9);}
+    public void pressZero(View view) {
+        clickNumButton(0);
+    }
+
+    public void pressOne(View view) {
+        clickNumButton(1);
+    }
+
+    public void pressTwo(View view) {
+        clickNumButton(2);
+    }
+
+    public void pressThree(View view) {
+        clickNumButton(3);
+    }
+
+    public void pressFour(View view) {
+        clickNumButton(4);
+    }
+
+    public void pressFive(View view) {
+        clickNumButton(5);
+    }
+
+    public void pressSix(View view) {
+        clickNumButton(6);
+    }
+
+    public void pressSeven(View view) {
+        clickNumButton(7);
+    }
+
+    public void pressEight(View view) {
+        clickNumButton(8);
+    }
+
+    public void pressNine(View view) {
+        clickNumButton(9);
+    }
 
     /**
      * Resets response to Zero and updates the responseView
@@ -64,11 +94,13 @@ public class MathGameActivity extends GameActivity {
     public void pressEnter(View view) {
         mathGameManager.pressEnter();
         updateDisplay();
-        if (isGameOver()) {toNext();}
+        if (isGameOver()) {
+            toNext();
+        }
     }
 
     @Override
-    public void setupDisplay(){
+    public void setupDisplay() {
         this.scoreboard = findViewById(R.id.mathGameScore);
         this.lifeOne = findViewById(R.id.lifeOne);
         this.lifeTwo = findViewById(R.id.lifeTwo);
@@ -81,7 +113,7 @@ public class MathGameActivity extends GameActivity {
     }
 
     @Override
-    public void updateDisplay(){
+    public void updateDisplay() {
         super.updateDisplay();
         checkHiddenFeature();
         updateResponse();
@@ -91,12 +123,16 @@ public class MathGameActivity extends GameActivity {
     /**
      * Updates the response with what the player's input in math game currently is
      */
-    void updateResponse() {responseView.setText(String.valueOf(mathGameManager.getResponse()));}
+    void updateResponse() {
+        responseView.setText(String.valueOf(mathGameManager.getResponse()));
+    }
 
     /**
      * Updates the equation with the the current string equation is
      */
-    void updateEquation() {equationDisplay.setText(mathGameManager.getEquation());}
+    void updateEquation() {
+        equationDisplay.setText(mathGameManager.getEquation());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

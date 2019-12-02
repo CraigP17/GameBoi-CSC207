@@ -12,17 +12,19 @@ class MathEquation {
     int answer;
 
     /**
-     *
      * @return String equation
      */
-    String getEquation(){return equation;}
+    String getEquation() {
+        return equation;
+    }
 
     /**
-     *
      * @param response the int input from the player
      * @return true if the response is the correct answer and false otherwise
      */
-    boolean isAnswerCorrect(int response) {return response == answer;}
+    boolean isAnswerCorrect(int response) {
+        return response == answer;
+    }
 
     /**
      * Sets an equation to be string of a simple arithmetic (+, -, *, //) equation. Sets answer to
@@ -38,18 +40,21 @@ class MathEquation {
         int op = rand.nextInt(4);
 
         //Checks for which operation was selected from operators
-        if (op == 0) {answer = num1 + num2;}
-        else if (op == 1) {
+        if (op == 0) {
+            answer = num1 + num2;
+        } else if (op == 1) {
             //In the case of subtraction, does not allow for the answer to be a negative number
-            if (num1 < num2){
+            if (num1 < num2) {
                 int temp = num1;
                 num1 = num2;
                 num2 = temp;
             }
             answer = num1 - num2;
+        } else if (op == 2) {
+            answer = num1 / num2;
+        } else {
+            answer = num1 * num2;
         }
-        else if (op == 2) {answer = num1 / num2;}
-        else {answer = num1 * num2;}
 
         //Displays the equation for the user
         equation = num1 + operators[op] + num2;
