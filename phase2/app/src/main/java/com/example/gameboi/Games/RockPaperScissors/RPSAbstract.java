@@ -62,18 +62,15 @@ public abstract class RPSAbstract extends GameFacade {
         if (lossesRpS == 2) {
             lossesRpS = 0;
             winsRpS = 0;
-            notFoundhiddenFeature = true;
-            array = new String[]{userchoice, compchoice, "FlashLoss", result};
-
             array = new String[]{userchoice, compchoice, "FlashLoss", result};
             winner = false;
+            notFoundhiddenFeature = true;
         } else if (winsRpS == 3) {
             winsRpS = 0;
             lossesRpS = 0;
-            notFoundhiddenFeature = true;
-            array = new String[]{userchoice, compchoice, "FlashWin", result};
             array = new String[]{userchoice, compchoice, "FlashWin", result};
             winner = true;
+            notFoundhiddenFeature = true;
         } else {
             array = new String[]{userchoice, compchoice, "Round", result};
             winner = false;
@@ -88,5 +85,5 @@ public abstract class RPSAbstract extends GameFacade {
     public boolean isGameOver() {
         return (winsRpS == 3 || lossesRpS == 2);
     }
-    
+
 }
