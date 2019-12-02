@@ -1,8 +1,10 @@
 package com.example.gameboi.ScorePages;
 
 import android.util.Pair;
+
 import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.UserClasses.User;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -44,7 +46,7 @@ public class LeaderBoardBE {
     /**
      * Initializes the file and users list
      */
-    LeaderBoardBE(FileManager fileM){
+    LeaderBoardBE(FileManager fileM) {
         file = fileM;
         users = file.getUsers();
         getAllvalues();
@@ -63,7 +65,7 @@ public class LeaderBoardBE {
         Pair firstPlacepair = tempList.get(0);
 
         //Looping to find pair with largest value
-        for (Pair pair: listTosort) {
+        for (Pair pair : listTosort) {
             if ((int) pair.second >= (int) firstPlacepair.second) {
                 firstPlacepair = pair;
             }
@@ -76,7 +78,7 @@ public class LeaderBoardBE {
 
 
         // Looping to find player with smallest value
-        for (Pair pair: tempList) {
+        for (Pair pair : tempList) {
             if ((int) pair.second <= (int) lastPlacepair.second) {
                 lastPlacepair = pair;
             }
@@ -91,7 +93,7 @@ public class LeaderBoardBE {
 
         Pair p1 = new Pair<User, Integer>((User) firstPlacepair.first, (int) firstPlacepair.second);
         Pair p2 = new Pair<User, Integer>(userSecondplace, secondPlace);
-        Pair p3 = new Pair<User, Integer>((User) lastPlacepair.first,  (int) lastPlacepair.second);
+        Pair p3 = new Pair<User, Integer>((User) lastPlacepair.first, (int) lastPlacepair.second);
 
         // Returning sorted list
         return new ArrayList<Pair>(Arrays.asList(p1, p2, p3));
@@ -109,7 +111,7 @@ public class LeaderBoardBE {
         ArrayList<Pair> tempScorelist = new ArrayList<>();
 
 
-        for (User user: users) {
+        for (User user : users) {
             Pair<User, Integer> pair1 = new Pair<User, Integer>(user, user.getHighScore());
             tempHighscorelist.add(pair1);
 

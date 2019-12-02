@@ -97,5 +97,13 @@ public class LevelResults extends AppCompatActivity {
         Intent intent = new Intent(this, BonusSpinner.class);
         intent.putExtra("player", player);
         startActivity(intent);
+        finish();
+    }
+
+    /**
+     * Have the Phone back button do nothing when pressed
+     */
+    @Override
+    public void onBackPressed() {
     }
 }

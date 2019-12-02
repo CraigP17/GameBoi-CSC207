@@ -55,6 +55,7 @@ public class BonusSpinner extends AppCompatActivity {
 
     /**
      * Spins the wheel and calculates which section of the wheel it was landed on
+     *
      * @param v View The view that the button is click on
      */
     public void spin(View v) {
@@ -142,7 +143,14 @@ public class BonusSpinner extends AppCompatActivity {
                 startActivity(intent);
             }
         }
+        finish();
     }
 
+    /**
+     * Have the Phone back button do nothing when pressed
+     */
+    @Override
+    public void onBackPressed() {
+    }
 
 }

@@ -52,7 +52,7 @@ public class RPSCalcEasy extends RPSAbstract {
         computerChoice = arr[rand.nextInt(arr.length)];
         playerChoice = playerValue;
 
-        if (playerChoice.equals("Scissors") && computerChoice.equals("Rock")){
+        if (playerChoice.equals("Scissors") && computerChoice.equals("Rock")) {
             notFoundhiddenFeature = false;
         }
 

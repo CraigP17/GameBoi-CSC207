@@ -1,19 +1,23 @@
 package com.example.gameboi.ScorePages;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Pair;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
 import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.R;
 import com.example.gameboi.StartupPages.MainActivity;
 import com.example.gameboi.UserClasses.User;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
+
 import java.util.ArrayList;
 
 /**
@@ -54,7 +58,7 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
 
 
         //Creating a drop down menu that allows users to see players ranked based on different criteria
-        Spinner dropDownMenu = (Spinner) findViewById(R.id.spinner1);
+        Spinner dropDownMenu = findViewById(R.id.spinner1);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.scoreboard_titles, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -66,6 +70,7 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 Leaderboard.this.onItemSelected(adapterView, view, i, l);
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 Leaderboard.this.onNothingSelected(adapterView);

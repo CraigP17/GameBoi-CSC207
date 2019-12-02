@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import java.util.Random;
+
 import android.widget.Button;
 
 import com.example.gameboi.FileSystem.FileManager;
@@ -16,7 +18,7 @@ import com.example.gameboi.UserClasses.User;
 
 import static android.graphics.Color.*;
 
-public class UserSetter extends AppCompatActivity{
+public class UserSetter extends AppCompatActivity {
 
     //The user who is selecting their stats and customizations
     private User player;
@@ -92,12 +94,11 @@ public class UserSetter extends AppCompatActivity{
      *
      * @param view the current view
      */
-    public void checkNameInput(View view){
+    public void checkNameInput(View view) {
         String username = nameInputField.getText().toString();
         if (username.length() <= 6 && username.length() >= 1) {
             name = username;
-        }
-        else {
+        } else {
             Toast nameTooLong = Toast.makeText(getApplicationContext(),
                     "Usernames must be less than 7 characters and more than 0",
                     Toast.LENGTH_SHORT);
@@ -121,11 +122,11 @@ public class UserSetter extends AppCompatActivity{
     /**
      * Sets colors for 3 buttons.
      *
-     * @param btn1 a button
+     * @param btn1   a button
      * @param color1 color for the first button
-     * @param btn2 a button
+     * @param btn2   a button
      * @param color2 color for second button
-     * @param btn3 a button
+     * @param btn3   a button
      * @param color3 color for third button
      */
     private void setBtnClr(Button btn1, int color1,
@@ -139,9 +140,9 @@ public class UserSetter extends AppCompatActivity{
     /**
      * Sets colors for 2 buttons.
      *
-     * @param btn1 a button
+     * @param btn1   a button
      * @param color1 color for first button
-     * @param btn2 a button
+     * @param btn2   a button
      * @param color2 color for second button
      */
     private void setBtnClr(Button btn1, int color1,
@@ -151,8 +152,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets icon to the string for the boy png. Set the color for the boy btn to dark grey and the
-     *  other icon buttons to light grey
+     * Sets icon to the string for the boy png. Set the color for the boy btn to dark grey and the
+     * other icon buttons to light grey
      *
      * @param view the current view
      */
@@ -162,8 +163,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets icon to the string for the panda png. Set the color for the panda btn to dark grey and
-     *  the other icon buttons to light grey
+     * Sets icon to the string for the panda png. Set the color for the panda btn to dark grey and
+     * the other icon buttons to light grey
      *
      * @param view the current view
      */
@@ -173,8 +174,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets icon to the string for the snake png. Set the color for the snake btn to dark grey and
-     *  the other icon buttons to light grey
+     * Sets icon to the string for the snake png. Set the color for the snake btn to dark grey and
+     * the other icon buttons to light grey
      *
      * @param view the current view
      */
@@ -184,8 +185,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets background color to the white int. Set the color for the whiteBtn to dark grey and the
-     *  other backgroundColor buttons to light grey
+     * Sets background color to the white int. Set the color for the whiteBtn to dark grey and the
+     * other backgroundColor buttons to light grey
      *
      * @param view the current view
      */
@@ -195,8 +196,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets background color to the grey int. Set the color for the greyBtn to dark grey and the
-     *  other backgroundColor buttons to light grey
+     * Sets background color to the grey int. Set the color for the greyBtn to dark grey and the
+     * other backgroundColor buttons to light grey
      *
      * @param view the current view
      */
@@ -206,8 +207,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets background color to the cyan int. Set the color for the cyanBtn to dark grey and the
-     *  other backgroundColor buttons to light grey
+     * Sets background color to the cyan int. Set the color for the cyanBtn to dark grey and the
+     * other backgroundColor buttons to light grey
      *
      * @param view the current view
      */
@@ -217,8 +218,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets numLives to 1. Set the color for the numLivesBtn1 to dark grey and the
-     *  other lives buttons to light grey
+     * Sets numLives to 1. Set the color for the numLivesBtn1 to dark grey and the
+     * other lives buttons to light grey
      *
      * @param view the current view
      */
@@ -228,8 +229,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets numLives to 2. Set the color for the numLivesBtn2 to dark grey and the
-     *  other lives buttons to light grey
+     * Sets numLives to 2. Set the color for the numLivesBtn2 to dark grey and the
+     * other lives buttons to light grey
      *
      * @param view the current view
      */
@@ -239,8 +240,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets numLives to 3. Set the color for the numLivesBtn3 to dark grey and the
-     *  other lives buttons to light grey
+     * Sets numLives to 3. Set the color for the numLivesBtn3 to dark grey and the
+     * other lives buttons to light grey
      *
      * @param view the current view
      */
@@ -250,8 +251,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets difficulty to "Normal". Set the color for the normalBtn to dark grey and the
-     *  other difficulty buttons to light grey
+     * Sets difficulty to "Normal". Set the color for the normalBtn to dark grey and the
+     * other difficulty buttons to light grey
      *
      * @param view the current view
      */
@@ -261,8 +262,8 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets difficulty to "Hard". Set the color for the hardBtn to dark grey and the
-     *  other difficulty buttons to light grey
+     * Sets difficulty to "Hard". Set the color for the hardBtn to dark grey and the
+     * other difficulty buttons to light grey
      *
      * @param view the current view
      */
@@ -290,7 +291,7 @@ public class UserSetter extends AppCompatActivity{
      *
      * @param view the current view
      */
-    public void submitCustomizations(View view){
+    public void submitCustomizations(View view) {
         checkNameInput(view);
         if (name != null && icon != null && backgroundColor != 0 &&
                 numLives != 0 && difficulty != null) {
@@ -304,5 +305,6 @@ public class UserSetter extends AppCompatActivity{
     }
 
     @Override
-    public void onBackPressed() {}
+    public void onBackPressed() {
+    }
 }
