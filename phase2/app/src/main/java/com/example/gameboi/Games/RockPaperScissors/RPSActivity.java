@@ -109,6 +109,7 @@ public class RPSActivity extends GameActivity {
             intent.putExtra("result", arr[3]);
             intent.putExtra("player", player);
             startActivity(intent);
+            finish();
         } else {
             super.toNext();
         }
@@ -126,5 +127,9 @@ public class RPSActivity extends GameActivity {
         this.multiplier = findViewById(R.id.multiplier3);
         super.setupDisplay();
         updateDisplay();
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
