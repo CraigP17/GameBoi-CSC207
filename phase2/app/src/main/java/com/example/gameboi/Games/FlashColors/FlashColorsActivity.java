@@ -141,54 +141,81 @@ public class FlashColorsActivity extends GameActivity {
     /**
      * Called when the User submits their answer. User wins the game when they have played the game
      * four times, and have less than 2 incorrect answers. If they have two incorrect answers, they
-     * lose the game, lose a life, and are directed to the FlashLoss page. For each answer, a Toast
+     * lose the game, lose a life, and are directed to the Results page. For each answer, a Toast
      * will pop up letting them if they got their answer correct
      *
      * @param view the view screen that the User click the button
      */
-    public void SubmitButton(View view) {
+    public void submitButton(View view) {
+        // Set text on Animation Button
         CharSequence message = "START";
-        Button but = findViewById(R.id.button8);
-        but.setText(message);
-        flash.setSubmitted(); //changes the submit value to true so that new pattern can be made
+        Button btn = findViewById(R.id.button8);
+        btn.setText(message);
 
+        flash.setSubmitted();     //changes the submit value to true so that new pattern can be made
+
+        // Increment number of games played, and increases their score if User got correct pattern
+        boolean isCorrectAnswer = flash.isCorrect();
+        flashLevels++;
+        if (isCorrectAnswer) {
+            flash.incrementScore();
+            updateScoreBoard();
+        }
+        goToResultsOrToasts(isCorrectAnswer); //Displays Toast or takes them to LevelResults Activity
+        flash.clearPattern();             // Clears the User guess to prepare for next pattern guess
+    }
+
+    /**
+     * Display Toast on whether their answer is correct when game is not over. If game is over
+     * because they got 2 incorrect answers or won the game, go to ResultsPage
+     *
+     * @param isCorrect whether the recent User guess is correct
+     */
+    private void goToResultsOrToasts(boolean isCorrect) {
+        if (isCorrect & flashLevels < 4) {
+            makeAnswerToasts(true);
+            // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
+        } else if (!isCorrect & incorrect == 1) {
+            flash.setScore(flash.getScore());
+            goToResults(false);
+            finish();
+        } else if (flashLevels == 4) {
+            flash.setScore(flash.getScore());
+            goToResults(true);
+            finish();
+        } else if (!isCorrect & incorrect == 0) {
+            makeAnswerToasts(false);
+            incorrect++;
+        }
+    }
+
+    /**
+     * Takes the User to the LevelResults page to display their stats of the game
+     *
+     * @param winner whether the User has won FlashColours
+     */
+    private void goToResults(boolean winner) {
+        Intent intent = new Intent(this, LevelResults.class);
+        intent.putExtra("player", player);
+        intent.putExtra("success", winner);
+        startActivity(intent);
+    }
+
+    /**
+     * Displays a Toast based on whether their guess is correct or not
+     *
+     * @param isCorrectAnswer whether their recent User guess is correct
+     */
+    private void makeAnswerToasts(boolean isCorrectAnswer) {
         Context context = getApplicationContext();
         CharSequence success = "Nice Job! Can you get the next one?";
         CharSequence failure = "Uh-oh. You guessed incorrectly. You have one more chance!";
         int length = Toast.LENGTH_SHORT;
-
-        // Increment number of games played, and increases their score if User got correct pattern
-        flashLevels++;
-        if (flash.isCorrect()) {
-            flash.incrementScore();
-            updateScoreBoard();
-        }
-
-        // Displays Toast or takes them to WinLoss Activities, based on incorrect answers and
-        // number of games played
-        if (flash.isCorrect() & flashLevels < 4) {
+        if (isCorrectAnswer) {
             Toast.makeText(context, success, length).show();
-            // scoreBoard.setText(flash.getNewScore(scoreBoard.getText()));
-        } else if (!flash.isCorrect() & incorrect == 1) {
-            flash.setScore(flash.getScore());
-            Intent intent = new Intent(this, LevelResults.class);
-            intent.putExtra("player", player);
-            intent.putExtra("success", false);
-            startActivity(intent);
-            finish();
-        } else if (flashLevels == 4) {
-            flash.setScore(flash.getScore());
-            Intent intent = new Intent(this, LevelResults.class);
-            intent.putExtra("player", player);
-            intent.putExtra("success", true);
-            startActivity(intent);
-            finish();
-        } else if (!flash.isCorrect() & incorrect == 0) {
+        } else {
             Toast.makeText(context, failure, length).show();
-            incorrect++;
         }
-        // Clears the User guess to prepare for next pattern guess
-        flash.clearPattern();
     }
 
     /**

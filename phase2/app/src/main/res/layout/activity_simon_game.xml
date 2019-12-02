@@ -128,7 +128,7 @@
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="25dp"
         android:fontFamily="@font/bungee_shade"
-        android:onClick="SubmitButton"
+        android:onClick="submitButton"
         android:text="@string/submit_round"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -178,6 +178,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
+        android:contentDescription="@string/icon"
         app:layout_constraintStart_toEndOf="@+id/flashScore"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userlogo" />
@@ -188,6 +189,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="30dp"
+        android:contentDescription="@string/icon"
         app:layout_constraintStart_toEndOf="@+id/lifeOne"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userlogo" />
@@ -197,6 +199,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
+        android:contentDescription="@string/icon"
         app:layout_constraintStart_toEndOf="@+id/lifeTwo"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/userlogo" />
