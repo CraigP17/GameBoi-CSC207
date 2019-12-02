@@ -14,25 +14,40 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class GameActivity extends AppCompatActivity {
 
-    // Display for the player's current score across all games
+    /**
+     * The TextView id that displays the User's score
+     */
     public TextView scoreboard;
-    //Number of multipliers the player has acquired
+    /**
+     * The TextView id that displays the User's multiplier
+     */
     public TextView multiplier;
-    // Display for the player's first life
+
+    // The number of life icons displayed represents the number of lives the User has
+    /**
+     * The ImageView id that displays the User's first life
+     */
     public ImageView lifeOne;
-    // Display for the player's second last life
+    /**
+     * The ImageView id that displays the User's second life
+     */
     public ImageView lifeTwo;
-    // Display for the first life (i.e. this is the first life to disappear when they lose a life)
+    /**
+     * The ImageView id that displays the User's third life
+     */
     public ImageView lifeThree;
-    // The logic for the game
-    public GameFacade gameFacade;
-    // The color value the the player's icon to be displayed in the UI.
-    public int icon;
 
     /**
-     * Updates the scoreboard textview with the player's current score. The player's score is
-     * obtained from gameFacade.
+     * Instance of GameFacade which is an abstract class responsible for getting User data and
+     * calculating Game data
      */
+    public GameFacade gameFacade;
+
+    /**
+     * The User's customized chosen icon
+     */
+    public int icon;
+
     public void updateScoreBoard() {
         String scoreToDisplay = "Score: " + gameFacade.getScore();
         scoreboard.setText(scoreToDisplay);
@@ -61,9 +76,15 @@ public abstract class GameActivity extends AppCompatActivity {
      */
     public void updateLives() {
         int numLives = gameFacade.getLives();
-        if (numLives <= 2) {lifeThree.setImageAlpha(0);}
-        if (numLives <= 1) {lifeTwo.setImageAlpha(0);}
-        if (numLives == 0) {lifeOne.setImageAlpha(0);}
+        if (numLives <= 2) {
+            lifeThree.setImageAlpha(0);
+        }
+        if (numLives <= 1) {
+            lifeTwo.setImageAlpha(0);
+        }
+        if (numLives == 0) {
+            lifeOne.setImageAlpha(0);
+        }
     }
 
     /**
@@ -123,8 +144,8 @@ public abstract class GameActivity extends AppCompatActivity {
         if (!gameFacade.getFoundHiddenFeature() && gameFacade.checkHidden()){
             Context context = getApplicationContext();
             int length = Toast.LENGTH_SHORT;
-            Toast toast =Toast.makeText(context, "Multiplier Increased!", length);
-            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+            Toast toast = Toast.makeText(context, "Multiplier Increased!", length);
+            toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 0);
             toast.show();
             gameFacade.setFoundHiddenFeature();
             updateMultiplier();
