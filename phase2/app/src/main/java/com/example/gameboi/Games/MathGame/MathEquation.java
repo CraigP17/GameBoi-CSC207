@@ -5,11 +5,11 @@ import java.util.Random;
 class MathEquation {
 
     //String representation of the
-    private String equation;
+    String equation;
     // Random number generator
-    private Random rand = new Random();
+    Random rand = new Random();
     // The answer to the equation.
-    private int answer;
+    int answer;
 
     /**
      *
@@ -24,21 +24,12 @@ class MathEquation {
      */
     boolean isAnswerCorrect(int response) {return response == answer;}
 
-    //TODO: make only one get equation and use inheritance.
-    void getEasyEquation(){
-        generateEasyEquation();
-    }
-
-    void getHardEquation() {
-        generateHardEquation();
-    }
-
     /**
      * Sets an equation to be string of a simple arithmetic (+, -, *, //) equation. Sets answer to
      * the answer of the equation. All division is integer division and the answer cannot be a
      * negative number.
      */
-    private void generateEasyEquation() {
+    void generateEquation() {
         String[] operators = {" + ", " - ", " // ", " * "};
         int num1 = rand.nextInt(25) + 1;
         int num2 = rand.nextInt(10) + 1;
@@ -62,19 +53,5 @@ class MathEquation {
 
         //Displays the equation for the user
         equation = num1 + operators[op] + num2;
-    }
-
-    private void generateHardEquation() {
-        generateEasyEquation();
-        String[] operators = {" + ", " // ", " * "};
-        int num = rand.nextInt(10) + 1;
-        int op = rand.nextInt(3);
-
-        if (op == 0) {answer = answer + num;}
-        else if (op == 1) {answer = answer / num;}
-        else {answer = answer * num;}
-
-        equation = "(" + equation + ")" + operators[op] + num;
-
     }
 }

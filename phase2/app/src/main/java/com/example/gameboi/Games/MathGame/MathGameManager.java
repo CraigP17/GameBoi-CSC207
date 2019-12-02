@@ -22,6 +22,8 @@ class MathGameManager extends GameFacade {
      */
     MathGameManager(User player) {
         super(player);
+        if (player.getDifficulty().equals("Normal")) { equation = new MathEquation();}
+        else if (player.getDifficulty().equals("Hard")) {equation = new MathEquationHard();}
     }
 
     @Override
@@ -66,12 +68,7 @@ class MathGameManager extends GameFacade {
      * Generates a new equation for the player to answer.
      */
     private void newEquation() {
-        if (player.getDifficulty().equals("Normal")) {
-            equation.getEasyEquation();
-        }
-        else {
-            equation.getHardEquation();
-        }
+        equation.generateEquation();
     }
 
     /**
