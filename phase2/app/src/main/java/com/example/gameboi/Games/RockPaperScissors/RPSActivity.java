@@ -80,8 +80,6 @@ public class RPSActivity extends GameActivity {
      */
     public void Scissors(View view) {
         toNext(rpsCalc.RpSGamePlayed("Scissors"));
-        checkHiddenFeature();
-
     }
 
     /**
@@ -103,6 +101,7 @@ public class RPSActivity extends GameActivity {
     }
 
     private void toNext(String[] arr) {
+        checkHiddenFeature();
         if (arr[2].equals("Round")) {
             Intent intent = new Intent(this, RPSRoundDisplay.class);
             intent.putExtra("userchoice", arr[0]);

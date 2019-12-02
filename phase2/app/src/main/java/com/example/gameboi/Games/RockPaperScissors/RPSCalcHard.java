@@ -17,12 +17,12 @@ class RPSCalcHard extends RPSAbstract {
     /**
      * Stores computers pick for the round
      */
-    public String computerChoice;
+    private String computerChoice;
 
     /**
      * Stores players pick for the round
      */
-    public String playerChoice;
+    private String playerChoice;
 
     RPSCalcHard(User player) {
         super(player);
@@ -89,10 +89,15 @@ class RPSCalcHard extends RPSAbstract {
 
     private String[] winAnswer(String playerValue) {
         HashMap<String, String[]> outcome = buildMap();
-        Random rand = new Random();
         winsRpS++;
         playerChoice = playerValue;
-        computerChoice = outcome.get(playerValue)[rand.nextInt(2)];
+        for (String key: outcome.keySet()) {
+            for (String s: outcome.get(key)) {
+                if (playerValue.equals(s)) {
+                    computerChoice = key;
+                }
+            }
+        }
 
         if (playerChoice.equals("Scissors") && computerChoice.equals("Lizard")){
             notFoundhiddenFeature = false;
@@ -104,7 +109,7 @@ class RPSCalcHard extends RPSAbstract {
 
     @Override
     public boolean checkHidden() {
-        if (playerChoice.equals("Scissors") && computerChoice.equals("Lizard") && notFoundhiddenFeature) {
+        if (playerChoice.equals("Scissors") && computerChoice.equals("Lizard") && !notFoundhiddenFeature) {
             return true;
         } else {
             return false;

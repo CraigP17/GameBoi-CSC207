@@ -11,19 +11,19 @@ import java.util.Random;
 public class RPSCalcEasy extends RPSAbstract {
 
     /**
-     * Possibilites of choices in this difficulty
+     * Possibilities of choices in this difficulty
      */
     private String[] arr = new String[]{"Rock", "Paper", "Scissors"};
 
     /**
      * Stores computers pick for the round
      */
-    public String computerChoice;
+    private String computerChoice;
 
     /**
      * Stores players pick for the round
      */
-    public String playerChoice;
+    private String playerChoice;
 
     RPSCalcEasy(User player) {
         super(player);
@@ -48,9 +48,8 @@ public class RPSCalcEasy extends RPSAbstract {
         HashMap<String, String> winnersRpS = buildMap();
 
         Random rand = new Random();
-        // choose random computer choice from arr
+        //choose random computer choice from arr
         computerChoice = arr[rand.nextInt(arr.length)];
-
         playerChoice = playerValue;
 
         if (playerChoice.equals("Scissors") && computerChoice.equals("Rock")){
@@ -75,7 +74,7 @@ public class RPSCalcEasy extends RPSAbstract {
 
     @Override
     public boolean checkHidden() {
-        if (playerChoice.equals("Scissors") && computerChoice.equals("Rock") && notFoundhiddenFeature) {
+        if (playerChoice.equals("Scissors") && computerChoice.equals("Rock") && !notFoundhiddenFeature) {
             return true;
         } else {
             return false;

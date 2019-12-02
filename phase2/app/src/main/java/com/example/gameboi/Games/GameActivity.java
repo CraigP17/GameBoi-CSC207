@@ -48,16 +48,13 @@ public abstract class GameActivity extends AppCompatActivity {
      */
     public int icon;
 
-    /**
-     * Updates the scoreboard TextView with User's new score
-     */
     public void updateScoreBoard() {
         String scoreToDisplay = "Score: " + gameFacade.getScore();
         scoreboard.setText(scoreToDisplay);
     }
 
     /**
-     * Updates lives icons with the correct User's chosen icon
+     * Updates the images for the lives icons to be the icon chosen by the player.
      */
     public void updateLivesIcon() {
         lifeOne.setImageResource(icon);
@@ -66,14 +63,16 @@ public abstract class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * Updates the background colour with the User's chosen customized colour
+     * Changes the background color based on the choice of the user. Obtains the color for
+     * gameFacade
      */
     public void updateBackgroundColor() {
         getWindow().getDecorView().setBackgroundColor(gameFacade.getBackgroundColor());
     }
 
     /**
-     * Updates the number of icons/lives displayed based on how many lives the User has
+     * There are 3 lives set to be the player's icon. The number of lives displayed corresponds to
+     * the number of lives that the user has. Sets the transparency to 0 for any lost lives.
      */
     public void updateLives() {
         int numLives = gameFacade.getLives();
@@ -89,7 +88,8 @@ public abstract class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * Updates the multiplier TextView with the User's current multiplier
+     * Updates the display for the multiplier number held by the player. Gets the player's
+     * multiplier from gameFacade.
      */
     public void updateMultiplier() {
         String multiplierToDisplay = "Multiplier: x" + gameFacade.getMultiplier();
@@ -97,16 +97,14 @@ public abstract class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * @return boolean of whether the Game level is over and can move to LevelResults and next level
+     * @return true if gameActivity is over and false otherwise.
      */
     public boolean isGameOver() {
         return gameFacade.isGameOver();
     }
 
     /**
-     * Takes the User to the levelResults Activity after they have finished the current game level
-     * Passes the User player and their stats to be displayed on Level results
-     * Passes whether the User has won or lost the game in order to display the correct Texts
+     * Ends this activity and sends the player to the LevelResults screen.
      */
     public void toNext() {
         Intent intent = new Intent(this, LevelResults.class);
@@ -117,10 +115,12 @@ public abstract class GameActivity extends AppCompatActivity {
             intent.putExtra("success", false);
         }
         startActivity(intent);
+        finish();
     }
 
     /**
-     * Updates the score, lives, multiplier TextViews, calling each respective method
+     * Updates the scoreBoard, lifeOne, lifeTwo, lifeThree and multiplier textviews based on the
+     * player's current stats
      */
     public void updateDisplay() {
         updateScoreBoard();
@@ -129,7 +129,7 @@ public abstract class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * Sets up the Game display with the User's chosen customizations and displays their correct stats
+     * Sets up the UI for when the activity is created.
      */
     public void setupDisplay() {
         updateBackgroundColor();
@@ -138,15 +138,11 @@ public abstract class GameActivity extends AppCompatActivity {
     }
 
     /**
-     * Checks whether the hidden feature for the game has been found through the correction pattern
-     * and displays a Toast telling the User that they got the hidden bonus multiplier and
-     * updates their User stats
-     * Ensures that the hidden feature can only be found once and multiplier increased once
+     * Checks if the player has found the hidden feature for the first time and displays a message
+     * informing them their multiplier has increased. Increased the multiplier and updates the
+     * TextView.
      */
     public void checkHiddenFeature() {
-        // The hidden feature should not be already found so FoundHiddenFeature should be false
-        // If FoundHiddenFeature is false and checkHidden is true, then display a Toast and increase
-        // multiplier
         if (!gameFacade.getFoundHiddenFeature() && gameFacade.checkHidden()) {
             Context context = getApplicationContext();
             int length = Toast.LENGTH_SHORT;
@@ -159,8 +155,7 @@ public abstract class GameActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onBackPressed() {
     }
 
 }
