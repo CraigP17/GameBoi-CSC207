@@ -18,7 +18,6 @@ import com.example.gameboi.UserClasses.User;
  */
 public class RPSActivity extends GameActivity {
 
-    public static int winsRpS = 0;
     /**
      * Current user playing
      */
