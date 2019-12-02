@@ -110,5 +110,10 @@ public class RPSRoundDisplay extends AppCompatActivity {
         Intent intent = new Intent(this, RPSActivity.class);
         intent.putExtra("player", player);
         startActivity(intent); //now intent has key value
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
