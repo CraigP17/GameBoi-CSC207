@@ -1,5 +1,7 @@
 package com.example.gameboi.StartupPages;
+
 import com.example.gameboi.R;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;

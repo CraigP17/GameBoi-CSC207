@@ -84,7 +84,7 @@ public class RPSRoundDisplay extends AppCompatActivity {
     }
 
     private void setAnnouncement() {
-        TextView announce = (TextView) findViewById(R.id.textView4);
+        TextView announce = findViewById(R.id.textView4);
 
         if (result.equals("Won")) {
             announce.setText("You have won this round! Press Continue to play again.");

@@ -31,11 +31,7 @@ class MathGameManager extends GameFacade {
 
     @Override
     public boolean checkHidden() {
-        if (response == 12345 && !foundHiddenFeature) {
-            setFoundHiddenFeature();
-            return true;
-        }
-        return false;
+        return response == 12345 && !foundHiddenFeature;
     }
 
     /**

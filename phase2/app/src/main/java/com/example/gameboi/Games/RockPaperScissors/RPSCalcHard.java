@@ -69,7 +69,7 @@ class RPSCalcHard extends RPSAbstract {
 
         playerChoice = playerValue;
 
-        if (playerChoice.equals("Scissors") && computerChoice.equals("Lizard")){
+        if (playerChoice.equals("Scissors") && computerChoice.equals("Lizard")) {
             notFoundhiddenFeature = false;
         }
 
@@ -91,15 +91,15 @@ class RPSCalcHard extends RPSAbstract {
         HashMap<String, String[]> outcome = buildMap();
         winsRpS++;
         playerChoice = playerValue;
-        for (String key: outcome.keySet()) {
-            for (String s: outcome.get(key)) {
+        for (String key : outcome.keySet()) {
+            for (String s : outcome.get(key)) {
                 if (playerValue.equals(s)) {
                     computerChoice = key;
                 }
             }
         }
 
-        if (playerChoice.equals("Scissors") && computerChoice.equals("Lizard")){
+        if (playerChoice.equals("Scissors") && computerChoice.equals("Lizard")) {
             notFoundhiddenFeature = false;
         }
 

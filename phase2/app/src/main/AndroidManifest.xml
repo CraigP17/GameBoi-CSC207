@@ -14,8 +14,6 @@
         <activity android:name=".StartupPages.Instructions" />
 
         <activity android:name=".ScorePages.Leaderboard" />
-        <activity android:name=".ScorePages.FlashLoss" />
-        <activity android:name=".ScorePages.FlashWin" />
         <activity
             android:name=".Games.RockPaperScissors.RPSRoundDisplay"
             android:parentActivityName=".Games.RockPaperScissors.RPSActivity">

@@ -61,15 +61,18 @@ public class MainActivity extends AppCompatActivity {
         user3Btn = findViewById(R.id.user3);
     }
 
-    private void setBtnNames(){
+    private void setBtnNames() {
         user1Btn.setText(btnName((users.get(0))));
         user2Btn.setText(btnName((users.get(1))));
         user3Btn.setText(btnName((users.get(2))));
     }
 
-    private String btnName(User user){
-        if (user.getName() == null || user.getName().equals("null")) {return "New";}
-        else {return user.getName();}
+    private String btnName(User user) {
+        if (user.getName() == null || user.getName().equals("null")) {
+            return "New";
+        } else {
+            return user.getName();
+        }
     }
 
     private void toUserSettings(User user) {
@@ -90,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void toRockPaperScissors(User user){
+    private void toRockPaperScissors(User user) {
         Intent intent = new Intent(this, RPSActivity.class);
         intent.putExtra("player", user);
         startActivity(intent);
@@ -103,18 +106,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendToLevel(User user) {
-        if (user.getCurrLevel() == 0) { toMathGame(user);}
-        else if (user.getCurrLevel() == 1) { toSimonGame(user);}
-        else if (user.getCurrLevel() == 2) { toRockPaperScissors(user);}
-        else if (user.getCurrLevel() == 3) { toLeaderboard(user);}
+        if (user.getCurrLevel() == 0) {
+            toMathGame(user);
+        } else if (user.getCurrLevel() == 1) {
+            toSimonGame(user);
+        } else if (user.getCurrLevel() == 2) {
+            toRockPaperScissors(user);
+        } else if (user.getCurrLevel() == 3) {
+            toLeaderboard(user);
+        }
     }
 
-    private void sendToNextScreen(User user){
+    private void sendToNextScreen(User user) {
         if (hasName(user)) {
             sendToLevel(user);
             finish();
-        }
-        else {
+        } else {
             toUserSettings(user);
             finish();
         }
@@ -138,11 +145,14 @@ public class MainActivity extends AppCompatActivity {
         finish();
 
     }
-    private boolean hasName(User user){
+
+    private boolean hasName(User user) {
         return (user.getName() != null) && !(user.getName().equals("null"));
     }
 
-    /**This method is responsible for erasing all the users currently registered with the game
+    /**
+     * This method is responsible for erasing all the users currently registered with the game
+     *
      * @param view The current view for MainActivity
      */
     public void EraseUsers(View view) {
@@ -156,5 +166,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {}
+    public void onBackPressed() {
+    }
 }
