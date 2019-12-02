@@ -13,14 +13,20 @@ The MathGame class.
 
 Asks the user a series of questions arithmetic questions.
  */
-public class MathGame extends GameActivity {
+public class MathGameActivity extends GameActivity {
 
+    //The textview that displays the user's input
     TextView responseView;
+    //Displays the equation they need to answer
     TextView equationDisplay;
+    //Backend for MathGameActivity
     MathGameManager mathGameManager;
 
-    // Method takes the number of the button pressed and updates the response and responseView
-    // The player response cannot exceed 1000000
+    /**
+     *Method takes the number of the button pressed and updates the response and responseView
+     * The player response cannot exceed 1000000
+     * @param num the number of the button clicked
+     */
     private void clickNumButton(int num) {
         mathGameManager.clickNumButton(num);
         updateDisplay();
@@ -38,14 +44,23 @@ public class MathGame extends GameActivity {
     public void pressEight(View view) {clickNumButton(8);}
     public void pressNine(View view) {clickNumButton(9);}
 
-    //Resets response to Zero and updates the responseView
+    /**
+     * Resets response to Zero and updates the responseView
+     *
+     * @param view the current view.
+     */
     public void pressClear(View view) {
         mathGameManager.clearResponse();
         updateDisplay();
     }
 
-    // Checks if the response is correct and adds 1 to score if it is. Updates score, resets
-    // response and generates a new equation for the player
+    /**
+     * Checks if the response is correct and adds 1 to score if it is. Updates score, resets
+     * response and generates a new equation for the player. Sends player to the results screen if
+     * the math game is over.
+     *
+     * @param view the current view
+     */
     public void pressEnter(View view) {
         mathGameManager.pressEnter();
         updateDisplay();
@@ -68,12 +83,19 @@ public class MathGame extends GameActivity {
     @Override
     public void updateDisplay(){
         super.updateDisplay();
+        checkHiddenFeature();
         updateResponse();
         updateEquation();
     }
 
+    /**
+     * Updates the response with what the player's input in math game currently is
+     */
     void updateResponse() {responseView.setText(String.valueOf(mathGameManager.getResponse()));}
 
+    /**
+     * Updates the equation with the the current string equation is
+     */
     void updateEquation() {equationDisplay.setText(mathGameManager.getEquation());}
 
     @Override

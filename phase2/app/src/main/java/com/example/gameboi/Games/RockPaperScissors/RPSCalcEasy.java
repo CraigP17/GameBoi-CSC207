@@ -11,19 +11,19 @@ import java.util.Random;
 public class RPSCalcEasy extends RPSAbstract {
 
     /**
-     * Possibilites of choices in this difficulty
+     * Possibilities of choices in this difficulty
      */
     private String[] arr = new String[]{"Rock", "Paper", "Scissors"};
 
     /**
      * Stores computers pick for the round
      */
-    public String computerChoice;
+    private String computerChoice;
 
     /**
      * Stores players pick for the round
      */
-    public String playerChoice;
+    private String playerChoice;
 
     RPSCalcEasy(User player) {
         super(player);

@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.example.gameboi.FileSystem.FileManager;
 import com.example.gameboi.Games.FlashColors.FlashColorsActivity;
-import com.example.gameboi.Games.MathGame.MathGame;
+import com.example.gameboi.Games.MathGame.MathGameActivity;
 import com.example.gameboi.R;
 import com.example.gameboi.Games.RockPaperScissors.RPSActivity;
 import com.example.gameboi.ScorePages.Leaderboard;
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void toMathGame(User user) {
-        Intent intent = new Intent(this, MathGame.class);
+        Intent intent = new Intent(this, MathGameActivity.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
@@ -112,9 +112,11 @@ public class MainActivity extends AppCompatActivity {
     private void sendToNextScreen(User user){
         if (hasName(user)) {
             sendToLevel(user);
+            finish();
         }
         else {
             toUserSettings(user);
+            finish();
         }
     }
 
@@ -133,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
     public void instructions(View view) {
         Intent intent = new Intent(this, Instructions.class);
         startActivity(intent);
+        finish();
 
     }
     private boolean hasName(User user){
@@ -151,4 +154,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(getIntent());
         overridePendingTransition(0, 0);
     }
+
+    @Override
+    public void onBackPressed() {}
 }
