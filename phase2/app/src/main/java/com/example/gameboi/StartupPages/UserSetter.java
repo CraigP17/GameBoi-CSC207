@@ -45,7 +45,7 @@ public class UserSetter extends AppCompatActivity{
     private Button numLivesBtn2;
     private Button numLivesBtn3;
     // Btns for selecting the player's preferred difficulty
-    private Button easyBtn;
+    private Button normalBtn;
     private Button hardBtn;
     // String for the difficulty that the player selected
     private String difficulty;
@@ -80,9 +80,9 @@ public class UserSetter extends AppCompatActivity{
         numLivesBtn2 = findViewById(R.id.numLivesBtn2);
         numLivesBtn3 = findViewById(R.id.numLivesBtn3);
         setBtnClr(numLivesBtn1, LTGRAY, numLivesBtn2, LTGRAY, numLivesBtn3, LTGRAY);
-        easyBtn = findViewById(R.id.easyBtn);
+        normalBtn = findViewById(R.id.normalBtn);
         hardBtn = findViewById(R.id.hardBtn);
-        setBtnClr(easyBtn, LTGRAY, hardBtn, LTGRAY);
+        setBtnClr(normalBtn, LTGRAY, hardBtn, LTGRAY);
     }
 
     /**
@@ -250,14 +250,14 @@ public class UserSetter extends AppCompatActivity{
     }
 
     /**
-     *  Sets difficulty to "Normal". Set the color for the easyBtn to dark grey and the
+     *  Sets difficulty to "Normal". Set the color for the normalBtn to dark grey and the
      *  other difficulty buttons to light grey
      *
      * @param view the current view
      */
-    public void pressEasyBtn(View view) {
+    public void pressNormalBtn(View view) {
         difficulty = "Normal";
-        setBtnClr(easyBtn, DKGRAY, hardBtn, LTGRAY);
+        setBtnClr(normalBtn, DKGRAY, hardBtn, LTGRAY);
     }
 
     /**
@@ -268,7 +268,7 @@ public class UserSetter extends AppCompatActivity{
      */
     public void pressHardBtn(View view) {
         difficulty = "Hard";
-        setBtnClr(easyBtn, LTGRAY, hardBtn, DKGRAY);
+        setBtnClr(normalBtn, LTGRAY, hardBtn, DKGRAY);
     }
 
     /**
