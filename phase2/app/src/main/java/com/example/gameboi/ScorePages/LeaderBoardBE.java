@@ -53,9 +53,6 @@ public class LeaderBoardBE {
 
     }
 
-    /**
-     * Sorts items in listTosort and returns a sorted list
-     */
     private ArrayList sortList(ArrayList<Pair> listTosort) {
 
         // Creating temporary list so that pairs can be removed
@@ -100,10 +97,7 @@ public class LeaderBoardBE {
 
     }
 
-    /**
-     * Method that obtains all values of users needed for leaderboard and stores them in sorted lists
-     */
-    void getAllvalues() {
+    private void getAllvalues() {
 
         ArrayList<Pair> tempHighscorelist = new ArrayList<>();
         ArrayList<Pair> tempMultiplierlist = new ArrayList<>();
