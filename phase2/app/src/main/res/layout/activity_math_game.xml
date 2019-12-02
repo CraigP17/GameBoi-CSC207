@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Games.MathGame.MathGame">
+    tools:context=".Games.MathGame.MathGameActivity">
 
     <Button
         android:id="@+id/btn5"
@@ -224,6 +224,7 @@
         android:layout_marginStart="17dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

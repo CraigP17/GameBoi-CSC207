@@ -27,7 +27,7 @@
         </activity>
         <activity android:name=".Games.RockPaperScissors.RPSActivity" />
         <activity android:name=".Games.FlashColors.FlashColorsActivity" />
-        <activity android:name=".Games.MathGame.MathGame" />
+        <activity android:name=".Games.MathGame.MathGameActivity" />
         <activity android:name=".StartupPages.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
