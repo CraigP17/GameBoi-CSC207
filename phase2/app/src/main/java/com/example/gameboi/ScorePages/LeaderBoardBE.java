@@ -11,44 +11,38 @@ import java.util.Arrays;
 /**
  * Backend class for Leaderboard that calculates all values needed for displaying on Leaderboard
  */
-public class LeaderBoardBE {
+class LeaderBoardBE {
 
     /**
      * A list to store all users playing the game.
      */
-    ArrayList<User> users;
+    private ArrayList<User> users;
 
     /**
      * Stores an ordered list of users based on their high scores
      */
-    ArrayList<Pair> orderedHighscorelist;
+    ArrayList orderedHighscorelist;
 
     /**
      * Stores an ordered list of users based on their current scores
      */
-    ArrayList<Pair> orderedScorelist;
+    ArrayList orderedScorelist;
 
     /**
      * Stores an ordered list of users based on their multipliers
      */
-    ArrayList<Pair> orderedMultiplierlist;
+    ArrayList orderedMultiplierlist;
 
     /**
      * Stores an ordered list of users based on their lives
      */
-    ArrayList<Pair> orderedLiveslist;
-
-    /**
-     * Stores an instance of file manager
-     */
-    FileManager file;
+    ArrayList orderedLiveslist;
 
     /**
      * Initializes the file and users list
      */
     LeaderBoardBE(FileManager fileM) {
-        file = fileM;
-        users = file.getUsers();
+        users = fileM.getUsers();
         getAllvalues();
 
     }
@@ -59,7 +53,7 @@ public class LeaderBoardBE {
     private ArrayList sortList(ArrayList<Pair> listTosort) {
 
         // Creating temporary list so that pairs can be removed
-        ArrayList<Pair> tempList = new ArrayList<Pair>(listTosort);
+        ArrayList<Pair> tempList = new ArrayList<>(listTosort);
 
         //creating a temporary first player
         Pair firstPlacepair = tempList.get(0);
@@ -91,19 +85,19 @@ public class LeaderBoardBE {
         User userSecondplace = (User) tempList.get(0).first;
 
 
-        Pair p1 = new Pair<User, Integer>((User) firstPlacepair.first, (int) firstPlacepair.second);
-        Pair p2 = new Pair<User, Integer>(userSecondplace, secondPlace);
-        Pair p3 = new Pair<User, Integer>((User) lastPlacepair.first, (int) lastPlacepair.second);
+        Pair p1 = new Pair<>((User) firstPlacepair.first, (int) firstPlacepair.second);
+        Pair p2 = new Pair<>(userSecondplace, secondPlace);
+        Pair p3 = new Pair<>((User) lastPlacepair.first, (int) lastPlacepair.second);
 
         // Returning sorted list
-        return new ArrayList<Pair>(Arrays.asList(p1, p2, p3));
+        return new ArrayList<>(Arrays.asList(p1, p2, p3));
 
     }
 
     /**
      * Method that obtains all values of users needed for leaderboard and stores them in sorted lists
      */
-    void getAllvalues() {
+    private void getAllvalues() {
 
         ArrayList<Pair> tempHighscorelist = new ArrayList<>();
         ArrayList<Pair> tempMultiplierlist = new ArrayList<>();
@@ -112,16 +106,16 @@ public class LeaderBoardBE {
 
 
         for (User user : users) {
-            Pair<User, Integer> pair1 = new Pair<User, Integer>(user, user.getHighScore());
+            Pair<User, Integer> pair1 = new Pair<>(user, user.getHighScore());
             tempHighscorelist.add(pair1);
 
-            Pair<User, Integer> pair2 = new Pair<User, Integer>(user, user.getMultiplier());
+            Pair<User, Integer> pair2 = new Pair<>(user, user.getMultiplier());
             tempMultiplierlist.add(pair2);
 
-            Pair<User, Integer> pair3 = new Pair<User, Integer>(user, user.getLives());
+            Pair<User, Integer> pair3 = new Pair<>(user, user.getLives());
             tempLiveslist.add(pair3);
 
-            Pair<User, Integer> pair4 = new Pair<User, Integer>(user, user.getPoints());
+            Pair<User, Integer> pair4 = new Pair<>(user, user.getPoints());
             tempScorelist.add(pair4);
 
         }

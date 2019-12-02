@@ -42,7 +42,7 @@ class FlashColorsFacade extends GameFacade {
     }
 
     /**
-     *
+     *Setting the submitted button to true or false
      */
     void setSubmitted() {
         gameCalculations.setSubmitted(true);

@@ -92,7 +92,7 @@ public abstract class GameFacade {
      * Sets that the player has found the hidden feature. Sets foundHiddenFeature to updates the
      * player's multiplier.
      */
-    protected void setFoundHiddenFeature() {
+    void setFoundHiddenFeature() {
         foundHiddenFeature = true;
         player.foundHiddenfeature();
     }

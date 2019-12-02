@@ -6,7 +6,6 @@ import android.view.View;
 
 
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.gameboi.Games.GameActivity;
 import com.example.gameboi.R;

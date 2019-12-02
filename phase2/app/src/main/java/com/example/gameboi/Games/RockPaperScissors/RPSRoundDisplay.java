@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.example.gameboi.R;
 import com.example.gameboi.UserClasses.User;
 
-import java.util.HashMap;
-
 /**
  * Displays user and computer choice and displays to user if they have lost, tied or won this round.
  */

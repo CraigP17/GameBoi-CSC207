@@ -30,10 +30,6 @@ public abstract class RPSAbstract extends GameFacade {
     /**
      * Constructor for object, must have a player stored in superclass
      */
-
-    /**
-     * Constructor for object, must have a player stored in superclass
-     */
     RPSAbstract(User player) {
         super(player);
         score = winsRpS + player.getPoints();
