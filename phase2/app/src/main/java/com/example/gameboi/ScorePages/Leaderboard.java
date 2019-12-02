@@ -189,6 +189,11 @@ public class Leaderboard extends AppCompatActivity implements OnItemSelectedList
         file.save(player);
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
 }
