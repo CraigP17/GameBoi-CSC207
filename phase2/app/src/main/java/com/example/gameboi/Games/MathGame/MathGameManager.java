@@ -117,12 +117,12 @@ class MathGameManager extends GameFacade {
         int maxLosses = 3;
         if (numRounds == 5 && numLosses != maxLosses) {
             winner = true;
-            player.setPoints(score);
+            setScore(score);
             return true;
         }
         else if (numLosses == maxLosses) {
             winner = false;
-            player.setPoints(score);
+            setScore(score);
             return true;
 
         }

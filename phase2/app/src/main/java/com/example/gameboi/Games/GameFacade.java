@@ -27,7 +27,7 @@ public abstract class GameFacade{
      *
      * @return true if they found the hidden feature and false otherwise.
      */
-    public boolean getFoundHiddenFeature() {return foundHiddenFeature;}
+    boolean getFoundHiddenFeature() {return foundHiddenFeature;}
 
 //    public void updateFoundHiddenFeature() {
 //        foundHiddenFeature = true;
@@ -82,7 +82,7 @@ public abstract class GameFacade{
      *
      * @return int backgroundColor that the player has selected
      */
-    public int getBackgroundColor(){return player.getBackgroundColor();}
+    int getBackgroundColor(){return player.getBackgroundColor();}
 
     /**
      * Sets that the player has found the hidden feature. Sets foundHiddenFeature to updates the
@@ -97,7 +97,7 @@ public abstract class GameFacade{
 
     /**
      * Checks whether the user has found the hidden feature in the game
-     * @return
+     * @return false
      */
     public boolean checkHidden() {return false;}
 
@@ -106,7 +106,6 @@ public abstract class GameFacade{
      */
     public void incrementScore() {this.score++;}
 
-    //TODO is this method only used in one class? Maybe move to subclass?
     /*This method will return the local score for a user playing FlashColorsOperations*/
     public void setScore(int score) {
         player.setPoints(score);
