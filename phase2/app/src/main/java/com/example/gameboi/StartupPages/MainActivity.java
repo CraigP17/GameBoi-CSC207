@@ -24,9 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private Button user3Btn;
     FileManager f = new FileManager(this);
     ArrayList<User> users;
-//    private FlashColors flash;
-//    private User player;
-//    ArrayList<Integer> pattern;
 
 
     @Override
@@ -38,35 +35,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setUserBtns();
         setBtnNames();
-        /*ArrayList<User> u = f.getUsers();
-        System.out.println(u.get(0).getBackgroundColor());
-        System.out.println(u.get(1).getBackgroundColor());
-        System.out.println(u.get(2).getBackgroundColor());*/
-
-//        player = getIntent().getParcelableExtra("player");
-//        TextView but = findViewById(R.id.textView29);
-//        but.setText("Gameboi");
-//        flash = new FlashColors(player);
-//        pattern = flash.generatePattern();
-//        ObjectAnimator colorAnim = ObjectAnimator.ofArgb(but, "backgroundColor",
-//                pattern.get(0), pattern.get(1), pattern.get(2), pattern.get(3));
-//        colorAnim.setDuration(4000);
-//        colorAnim.setEvaluator(new ArgbEvaluator());
-//        colorAnim.start();
     }
 
+    /**
+     * Setting up the buttons on the main activity
+     */
     private void setUserBtns() {
         user1Btn = findViewById(R.id.user1);
         user2Btn = findViewById(R.id.user2);
         user3Btn = findViewById(R.id.user3);
     }
 
+    /**
+     * Set names based on what is in the locally saved file
+     */
     private void setBtnNames() {
         user1Btn.setText(btnName((users.get(0))));
         user2Btn.setText(btnName((users.get(1))));
         user3Btn.setText(btnName((users.get(2))));
     }
 
+    /**
+     * @param user The user assigned to the button
+     * @return A string representation of the user/New if the user doesnt exist yet
+     */
     private String btnName(User user) {
         if (user.getName() == null || user.getName().equals("null")) {
             return "New";
@@ -75,36 +67,54 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**Takes the user to the setup page
+     * @param user the empty user that will be set up
+     */
     private void toUserSettings(User user) {
         Intent intent = new Intent(this, UserSetter.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
 
+    /**
+     * @param user The user that has been selected to start the game and is at currLevel = 0.
+     */
     private void toMathGame(User user) {
         Intent intent = new Intent(this, MathGameActivity.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
 
+    /**
+     * @param user The user that has been selected to start the game and is at currLevel = 1.
+     */
     private void toSimonGame(User user) {
         Intent intent = new Intent(this, FlashColorsActivity.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
 
+    /**
+     * @param user The user that has been selected to start and is at currLevel = 2
+     */
     private void toRockPaperScissors(User user) {
         Intent intent = new Intent(this, RPSActivity.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
 
+    /**
+     * @param user User that was selected and left off at the leaderboard
+     */
     private void toLeaderboard(User user) {
         Intent intent = new Intent(this, Leaderboard.class);
         intent.putExtra("player", user);
         startActivity(intent);
     }
 
+    /**Method determines which level to send the user too
+     * @param user The user selected
+     */
     private void sendToLevel(User user) {
         if (user.getCurrLevel() == 0) {
             toMathGame(user);
@@ -117,6 +127,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**Determine where to send user
+     * @param user The user selected
+     */
     private void sendToNextScreen(User user) {
         if (hasName(user)) {
             sendToLevel(user);
@@ -127,18 +140,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * @param view The MainActivity View
+     */
     public void User1Btn(View view) {
         sendToNextScreen(users.get(0));
     }
 
+    /**
+     * @param view The MainActivity View
+     */
     public void User2Btn(View view) {
         sendToNextScreen(users.get(1));
     }
 
+    /**
+     * @param view The MainActivity View
+     */
     public void User3Btn(View view) {
         sendToNextScreen(users.get(2));
     }
 
+    /**Takes user to instruction page to learn about game
+     * @param view The MainActivity View
+     */
     public void instructions(View view) {
         Intent intent = new Intent(this, Instructions.class);
         startActivity(intent);
@@ -146,6 +171,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * @param user The 1/3 users selected
+     * @return whether or not the user is empty or defined
+     */
     private boolean hasName(User user) {
         return (user.getName() != null) && !(user.getName().equals("null"));
     }
